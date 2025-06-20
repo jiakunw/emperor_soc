@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/wangjiakun/Development/emperor_soc/hardware/emperor.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="5"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="501"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_WREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_WREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_WREADY</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_BRESP">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_BRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_BVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_BVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_BVALID</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_BREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_BREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_BREADY</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_ARADDR">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_ARADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_RREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_RREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_RREADY</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_WVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_WVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_WVALID</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_ARVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_ARVALID</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_ARREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_ARREADY</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_RDATA">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_RDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_AWVALID</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_AWREADY</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_RRESP">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_RRESP[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_WDATA">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_WSTRB">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_WSTRB[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_RVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_RVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_RVALID</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_ARPROT">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_ARPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWPROT">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_AWPROT[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+</wave_config>

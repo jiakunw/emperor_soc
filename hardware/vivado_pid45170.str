@@ -1,0 +1,669 @@
+/*
+
+AMD Vivado v2024.2 (64-bit) [Major: 2024, Minor: 2]
+SW Build: 5239630 on Fri Nov 08 22:34:34 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+IP Build: 5239520 on Sun Nov 10 16:12:51 MST 2024
+
+Process ID (PID): 45170
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed Jun 18 13:06:59 CST 2025
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: Ubuntu
+OS Version: 6.11.0-25-generic
+OS Architecture: amd64
+Available processors (cores): 16
+LSB Release Description: DISTRIB_ID=Ubuntu
+
+Display: 0
+Screen size: 2560x1600
+Local screen bounds: x = 132, y = 64, width = 2428, height = 1536
+Screen resolution (DPI): 200
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=24
+Scale size: 48
+OS font scaling: 200%
+Anti-Alias Enabled: false
+
+Java version: 	21.0.1 64-bit
+
+Java home: 	/tools/Xilinx/Vivado/2024.2/tps/lnx64/jre21.0.1_12
+Java executable: 	/tools/Xilinx/Vivado/2024.2/tps/lnx64/jre21.0.1_12/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:ParallelGCThreads=4, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	wangjiakun
+User home directory: /home/wangjiakun
+User working directory: /home/wangjiakun/Development/emperor_soc/hardware
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2024.2
+RDI_DATADIR: /tools/Xilinx/SharedData/2024.2/data:/tools/Xilinx/Vivado/2024.2/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2024.2/bin
+
+Vivado preferences file: /home/wangjiakun/.Xilinx/Vivado/2024.2/vivado.xml
+Vivado preferences directory: /home/wangjiakun/.Xilinx/Vivado/2024.2/
+Vivado layouts directory: /home/wangjiakun/.Xilinx/Vivado/2024.2/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2024.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/wangjiakun/Development/emperor_soc/hardware/vivado.log
+Vivado journal file: 	/home/wangjiakun/Development/emperor_soc/hardware/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+GNOME_SHELL_SESSION_MODE: ubuntu
+RDI_APPROOT: /tools/Xilinx/Vivado/2024.2
+RDI_BASEROOT: /tools/Xilinx/Vivado
+RDI_BINROOT: /tools/Xilinx/Vivado/2024.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /tools/Xilinx/SharedData/2024.2/data:/tools/Xilinx/Vivado/2024.2/data
+RDI_INSTALLROOT: /tools/Xilinx
+RDI_INSTALLVER: 2024.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 21.0.1_12
+RDI_LIBDIR: /tools/Xilinx/Vivado/2024.2/lib/lnx64.o/Ubuntu/24:/tools/Xilinx/Vivado/2024.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vivado/2024.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /tools/Xilinx/Vivado/2024.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/wangjiakun/Development/emperor_soc/hardware:wangjiakun-Inspiron-14-Plus-7430_1750223204_45102
+RDI_SHARED_DATA: /tools/Xilinx/SharedData/2024.2/data
+RDI_TPS_ROOT: /tools/Xilinx/Vivado/2024.2/tps/lnx64
+RDI_USE_JDK21: True
+SHELL: /bin/bash
+XILINX: /tools/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2024.2/ids_lite/ISE
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2024.2
+XILINX_VIVADO: /tools/Xilinx/Vivado/2024.2
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,585 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,585 MB. GUI used memory: 83 MB. Current time: 6/18/25, 1:07:00 PM CST
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr", 0); // b.c (PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS)
+// [GUI Memory]: 118 MB (+121376kb) [00:00:21]
+// [Engine Memory]: 1,571 MB (+1496168kb) [00:00:21]
+// Opening Vivado Project: /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr. Version: Vivado v2024.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 135 MB (+11377kb) [00:00:23]
+// [Engine Memory]: 1,849 MB (+209226kb) [00:00:23]
+// [GUI Memory]: 159 MB (+18066kb) [00:00:23]
+// WARNING: HEventQueue.dispatchEvent() is taking  1794 ms.
+// Tcl Message: open_project /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'. INFO: [Project 1-5579] Found utility IPs instantiated in one or more block designs which have equivalent inline hdl with improved performance and reduced diskspace. It is recommended to migrate these utility IPs to inline hdl using the command upgrade_project -migrate_to_inline_hdl. The utility IPs may be deprecated in future releases. More information on inline hdl is available in UG994. 
+// Project name: emperor; location: /home/wangjiakun/Development/emperor_soc/hardware; part: xc7a200tfbg676-2
+dismissDialog("Open Project"); // bh (Open Project Progress)
+// [Engine Memory]: 1,942 MB (+84kb) [00:00:26]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,066 MB. GUI used memory: 97 MB. Current time: 6/18/25, 1:07:15 PM CST
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 170 MB (+3299kb) [00:04:47]
+// Elapsed time: 451 seconds
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE)
+// PAPropertyPanels.initPanels (impl_1) elapsed time: 0.2s
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false, false, false, false, false, true); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE) - Double Click
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false, false, false, false, false, true); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE) - Double Click
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; Running synth_design... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; Wed Jun 18 13:06:20 CST 2025 ; 00:00:21 ; Vivado Synthesis Defaults (Vivado Synthesis 2024) ; Vivado Synthesis Default Reports (Vivado Synthesis 2024) ; xc7a200tfbg676-2 ; wangjiakun-Inspiron-14-Plus-7430 ; Vivado Synthesis Defaults", 0, "synth_1", 0, true); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; Running synth_design... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; Wed Jun 18 13:06:20 CST 2025 ; 00:00:21 ; Vivado Synthesis Defaults (Vivado Synthesis 2024) ; Vivado Synthesis Default Reports (Vivado Synthesis 2024) ; xc7a200tfbg676-2 ; wangjiakun-Inspiron-14-Plus-7430 ; Vivado Synthesis Defaults", 0, "synth_1", 0, true); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE) - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; Queued... ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; 00:00:00 ; Vivado Implementation Defaults (Vivado Implementation 2024) ; Vivado Implementation Default Reports (Vivado Implementation 2024) ; xc7a200tfbg676-2 ;  ; Default settings for Implementation.", 1, "impl_1", 0, false, false, false, false, false, true); // ar (PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top_wrapper (top_wrapper.v)]", 4, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top_wrapper (top_wrapper.v)]", 4, true, false, false, false, true, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Popup Trigger - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top_wrapper (top_wrapper.v)]", 4, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectButton(PAResourceQtoS.SyntheticaStateMonitor_CANCEL, "Cancel"); // h (PAResourceQtoS.SyntheticaStateMonitor_CANCEL, Cancel)
+selectButton("OptionPane.button", "Cancel Process", "Cancel Synthesis"); // JButton (OptionPane.button)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+dismissDialog("Resetting Runs"); // bh (Resetting Runs Progress)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top_wrapper (top_wrapper.v)]", 4, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // ac (PAResourceItoN.MainToolbarMgr_RUN)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, PAResourceEtoH.FileSetView_ADD_TAB, "IP Sources", 1); // g (PAResourceEtoH.FileSetView_TABBED_PANE, SourcesView)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, PAResourceEtoH.FileSetView_INSERT_TAB, "Hierarchy", 0); // g (PAResourceEtoH.FileSetView_TABBED_PANE, SourcesView)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_wrapper (top_wrapper.v)]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // ac (PAResourceItoN.MainToolbarMgr_RUN)
+selectMenuItem(PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION, "Run Implementation"); // aq (PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION, run_implementation_menu)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // ac (PAResourceItoN.MainToolbarMgr_RUN)
+selectMenuItem(PAResourceCommand.PACommandNames_RUN_SYNTHESIS, "Run Synthesis"); // aq (PAResourceCommand.PACommandNames_RUN_SYNTHESIS, run_synthesis_menu)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// 'i' command handler elapsed time: 3 seconds
+dismissDialog("Launch Runs"); // g (dialog0)
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // ac (PAResourceItoN.MainToolbarMgr_RUN)
+selectMenuItem(PAResourceCommand.PACommandNames_RUN_SYNTHESIS, "Run Synthesis"); // aq (PAResourceCommand.PACommandNames_RUN_SYNTHESIS, run_synthesis_menu)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // g (dialog1)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Wed Jun 18 13:15:43 2025] Launched synth_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/runme.log 
+// [GUI Memory]: 179 MB (+654kb) [00:08:55]
+dismissDialog("Starting Design Runs"); // bh (Starting Design Runs Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// [GUI Memory]: 193 MB (+5170kb) [00:15:37]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 109 MB. Current time: 6/18/25, 1:37:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 108 MB. Current time: 6/18/25, 2:07:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 2:37:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 3:07:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 3:37:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 4:07:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 4:37:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 5:07:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 5:37:15 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 6:07:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 6:37:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 7:07:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 7:37:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 8:07:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 8:37:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 9:07:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 9:37:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 10:07:16 PM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,013 MB. GUI used memory: 83 MB. Current time: 6/18/25, 10:37:17 PM CST
+// Elapsed time: 34112 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Synthesis Completed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // g (dialog3)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs impl_1 -jobs 8 
+// Tcl Message: [Wed Jun 18 22:44:17 2025] Launched impl_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bh (Starting Design Runs Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 76 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_RUN_BITGEN, "Generate Bitstream"); // a (PAResourceCommand.PACommandNames_RUN_BITGEN)
+selectButton(RDIResource.BaseDialog_OK, "OK", "Implementation Completed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // cP (dialog5)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Wed Jun 18 22:45:38 2025] Launched impl_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 32 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Failed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // W.a (dialog6)
+// Elapsed time: 14 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // ai (PAResourceItoN.MainMenuMgr_FLOW, Flow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // ai (PAResourceItoN.MainMenuMgr_FLOW, Flow)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ai (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ai (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // ai (PAResourceItoN.MainMenuMgr_REPORTS, Reports)
+dismissMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // ai (PAResourceItoN.MainMenuMgr_REPORTS, Reports)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ai (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ai (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // ai (PAResourceItoN.MainMenuMgr_FLOW, Flow)
+selectMenu(PAResourceItoN.MainMenuMgr_SETTINGS, "Settings"); // an (PAResourceItoN.MainMenuMgr_SETTINGS, Settings)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // an (PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, Open Block Design)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // ai (PAResourceCommand.PACommandNames_SIMULATION_RUN)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // an (PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, Open Block Design)
+selectMenu(PAResourceItoN.MainMenuMgr_SETTINGS, "Settings"); // an (PAResourceItoN.MainMenuMgr_SETTINGS, Settings)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // an (PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, Open Block Design)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // ai (PAResourceCommand.PACommandNames_SIMULATION_RUN)
+selectMenuItem(PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN, "Open Elaborated Design"); // aq (PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN, rtl_analysis_task_menu)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // ai (PAResourceItoN.MainMenuMgr_FLOW, Flow)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+selectButton(RDIResource.BaseDialog_OK, "OK", "Elaborate Design"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Elaborate Design"); // u (dialog7)
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a200tfbg676-2 Top: top_wrapper 
+// [Engine Memory]: 2,068 MB (+30387kb) [09:39:45]
+// TclEventType: ELABORATE_START
+// TclEventType: MSGMGR_REFRESH_MSG
+// [Engine Memory]: 2,184 MB (+12810kb) [09:39:46]
+// [Engine Memory]: 2,367 MB (+77370kb) [09:39:47]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,545 MB. GUI used memory: 89 MB. Current time: 6/18/25, 10:46:37 PM CST
+// TclEventType: ELABORATE_FINISH
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_REMOVE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 2,889 MB. GUI used memory: 87 MB. Current time: 6/18/25, 10:46:40 PM CST
+// [Engine Memory]: 2,889 MB (+423562kb) [09:39:52]
+// Xgd.load filename: /home/wangjiakun/Development/emperor_soc/hardware/./.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/xc7a200t_detail.xgd_16CDCA6E elapsed time: 0.5s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 0.6s
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [Engine Memory]: 3,214 MB (+189011kb) [09:39:53]
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1180 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a200tfbg676-2 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes. INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes INFO: [Synth 8-7075] Helper process launched with PID 219905 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 8699.766 ; gain = 426.148 ; free physical = 4414 ; free virtual = 11523 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'top_wrapper' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13] INFO: [Synth 8-6157] synthesizing module 'top' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13] INFO: [Synth 8-6157] synthesizing module 'top_axi_smc_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_smc_0_stub.v:6] INFO: [Synth 8-6155] done synthesizing module 'top_axi_smc_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_smc_0_stub.v:6] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'top_axi_uartlite_0_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_uartlite_0_0_stub.v:6] INFO: [Synth 8-6155] done synthesizing module 'top_axi_uartlite_0_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_uartlite_0_0_stub.v:6] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'top_rst_clk_wiz_100M_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_0_stub.v:6] INFO: [Synth 8-6155] done synthesizing module 'top_rst_clk_wiz_100M_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_0_stub.v:6] 
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13] INFO: [Synth 8-6155] done synthesizing module 'top_wrapper' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 8801.180 ; gain = 0.000 ; free physical = 4479 ; free virtual = 11589 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 244 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2024.2 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc] for cell 'top_i/microblaze_0/U0' Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc] for cell 'top_i/microblaze_0/U0' 
+// Tcl Message: INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc]. Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis. 
+// Tcl Message: INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc]. Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis. 
+// Tcl Message: INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc]. Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis. 
+// Tcl Message: Completed Processing XDC Constraints  
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8964.043 ; gain = 0.000 ; free physical = 4487 ; free virtual = 11597 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 96 instances were transformed.   LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances  
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // x (PAResourceOtoP.PAViews_PROJECT_SUMMARY, PlanAheadTabProject Summary)
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 9313.184 ; gain = 1039.566 ; free physical = 4239 ; free virtual = 11369 
+// Tcl Message: 34 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:10 . Memory (MB): peak = 9313.184 ; gain = 1039.566 ; free physical = 4239 ; free virtual = 11369 
+// Tcl Message: INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2461.450; main = 2461.450; forked = 0.000 INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 9313.188; main = 9313.188; forked = 0.000 
+// 'dV' command handler elapsed time: 12 seconds
+dismissDialog("Open Elaborated Design"); // bh (Open Elaborated Design Progress)
+expandTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "CLK.CLK_100MHZ_6741 (1) ; IN ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ; ", 1); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE)
+// [GUI Memory]: 212 MB (+9179kb) [09:39:58]
+expandTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "Scalar ports (1) ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; ", 2); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE)
+selectTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "rs232_uart_6741 (2) ; (Multiple) ;  ;  ;  ;  ; true ; 13 ; LVCMOS18 ; 1.8 ;  ;  ;  ; NONE ; (Multiple) ; ", 4, "rs232_uart_6741 (2)", 0, true); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE) - Node
+expandTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "rs232_uart_6741 (2) ; (Multiple) ;  ;  ;  ;  ; true ; 13 ; LVCMOS18 ; 1.8 ;  ;  ;  ; NONE ; (Multiple) ; ", 4); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE)
+expandTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "RST.RESET_6741 (1) ; IN ;  ;  ;  ;  ; true ; 34 ; LVCMOS15 ; 1.5 ;  ;  ;  ; NONE ; NONE ; ", 6); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE)
+expandTreeTable(PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE, "Scalar ports (1) ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; ", 7); // o (PAResourceQtoS.SignalTreePanel_SIGNAL_TREE_TABLE)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // cP (dialog8)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Wed Jun 18 22:47:04 2025] Launched impl_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log 
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(PAResourceCommand.PACommandNames_CREATE_PORT_INTERFACE, "I/O Ports_create_port_interface"); // C (PAResourceCommand.PACommandNames_CREATE_PORT_INTERFACE, I/O Ports_create_port_interface)
+// Run Command: PAResourceCommand.PACommandNames_CREATE_PORT_INTERFACE
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel", "Create I/O Port Interface"); // a (RDIResource.BaseDialog_CANCEL)
+dismissDialog("Create I/O Port Interface"); // l (dialog9)
+selectTab((HResource) null, (HResource) null, "Log", 2); // aa
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // cP (dialog10)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Wed Jun 18 22:47:29 2025] Launched impl_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 11 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Failed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // W.a (dialog11)
+// [GUI Memory]: 231 MB (+9301kb) [09:40:52]
+// [GUI Memory]: 243 MB (+678kb) [09:40:53]
+// Elapsed time: 122 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC NSTD-1] Unspecified I/O Standard: 1 out of 4 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: clk_100MHz.. ]", 4, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC UCIO-1] Unconstrained Logical Port: 1 out of 4 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: clk_100MHz.. ]", 5, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC NSTD-1] Unspecified I/O Standard: 1 out of 4 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: clk_100MHz.. ]", 4, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC NSTD-1] Unspecified I/O Standard: 1 out of 4 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: clk_100MHz.. ]", 4, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC NSTD-1] Unspecified I/O Standard: 1 out of 4 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: clk_100MHz.. ]", 4, false, false, false, false, false, true); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE) - Double Click
+// Elapsed time: 64 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: open_bd_design {/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd} 
+// Tcl Message: Reading block design file </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd>... 
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_LOCK_CHANGE
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: RSB_LOCK_CHANGE
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_OPEN_DIAGRAM
+// Tcl Message: Adding component instance block -- xilinx.com:ip:microblaze:11.0 - microblaze_0 Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0 Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_100M Successfully read diagram <top> from block design file </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd> 
+// TclEventType: RSB_INSERT_ADDRNETWORK
+// TclEventType: RSB_OPEN_DIAGRAM
+// HMemoryUtils.trashcanNow. Engine heap size: 3,324 MB. GUI used memory: 136 MB. Current time: 6/18/25, 10:50:52 PM CST
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "unselect_objects"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+// 'bN' command handler elapsed time: 3 seconds
+dismissDialog("Open Block Design"); // bh (Open Block Design Progress)
+// WARNING: HTimer (Open addressing views timer) is taking 348ms to process. Increasing delay to 1300 ms.
+// Elapsed time: 14 seconds
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_cells /axi_uartlite_0]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "unselect_objects"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_ports /clk_100MHz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_ports /clk_100MHz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_PIN
+// Elapsed time: 12 seconds
+dismissDialog("Customize Port"); // m (dialog12)
+// Elapsed time: 208 seconds
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_pins /clk_wiz/reset]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_cells /clk_wiz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_cells /clk_wiz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+dismissDialog("Re-customize IP"); // C (Re-customize IP Progress)
+// HMemoryUtils.trashcanNow. Engine heap size: 3,345 MB. GUI used memory: 164 MB. Current time: 6/18/25, 10:55:02 PM CST
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 3); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Summary", 4); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Board", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+// Elapsed time: 12 seconds
+selectCheckBox(PAResourceTtoZ.XPG_CheckBoxCellEditor_CHECKBOX, (String) null, true); // f (PAResourceTtoZ.XPG_CheckBoxCellEditor_CHECKBOX): TRUE
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+selectCheckBox(PAResourceTtoZ.XPG_CheckBoxCellEditor_CHECKBOX, (String) null, false); // f (PAResourceTtoZ.XPG_CheckBoxCellEditor_CHECKBOX): FALSE
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Elapsed time: 18 seconds
+setText(PAResourceTtoZ.XPG_TextFieldCellEditor_TEXTFIELD_CELL_EDITOR, "clk_in1"); // I (PAResourceTtoZ.XPG_TextFieldCellEditor_TEXTFIELD_CELL_EDITOR)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Board", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Resource", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, PAResourceTtoZ.XPG_BasePanel_IP_SYMBOL, "IP Symbol", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 3); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 4); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Summary", 4); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Board", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+// Elapsed time: 95 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Board", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Resource", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+// Elapsed time: 17 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 3); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Summary", 4); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Board", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, PAResourceTtoZ.XPG_BasePanel_IP_SYMBOL, "IP Symbol", 0); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectButton(PAResourceAtoD.BoardClearParamWidget_WIDGET_BUTTON, "Clear Board Parameters", "Re-customize IP"); // a (PAResourceAtoD.BoardClearParamWidget_WIDGET_BUTTON)
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1575 ms.
+selectButton(PAResourceAtoD.BoardClearParamWidget_WIDGET_BUTTON, "Clear Board Parameters", "Re-customize IP"); // a (PAResourceAtoD.BoardClearParamWidget_WIDGET_BUTTON)
+// WARNING: HEventQueue.dispatchEvent() is taking  1835 ms.
+// Elapsed time: 13 seconds
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Resource", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Clocking Options", 1); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "MMCM Settings", 3); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Summary", 4); // cK (PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE)
+dismissDialog("Re-customize IP"); // m (dialog13)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_cells /clk_wiz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_cells /clk_wiz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+dismissDialog("Re-customize IP"); // C (Re-customize IP Progress)
+// [GUI Memory]: 263 MB (+8440kb) [09:52:37]
+// Elapsed time: 32 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Re-customize IP"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Re-customize IP"); // m (dialog14)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_ADDRNETWORK
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: startgroup 
+// Tcl Message: set_property -dict [list \   CONFIG.CLKIN1_JITTER_PS {50.0} \   CONFIG.CLKOUT1_JITTER {112.316} \   CONFIG.CLKOUT1_PHASE_ERROR {89.971} \   CONFIG.CLK_IN1_BOARD_INTERFACE {sys_diff_clock} \   CONFIG.MMCM_CLKFBOUT_MULT_F {5.000} \   CONFIG.MMCM_CLKIN1_PERIOD {5.000} \   CONFIG.MMCM_CLKIN2_PERIOD {10.0} \   CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} \ ] [get_bd_cells clk_wiz] 
+// Tcl Message: delete_bd_objs [get_bd_nets clk_100MHz_1] 
+// Tcl Message: endgroup 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:52m:35s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,388 MB. GUI used memory: 165 MB. Current time: 6/18/25, 10:59:47 PM CST
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "unselect_objects"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+// [Engine Memory]: 3,380 MB (+6134kb) [09:52:59]
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:52m:37s
+selectButton(PAResourceQtoS.RSBApplyAutomationBar_RUN_CONNECTION_AUTOMATION, "Run Connection Automation"); // h (PAResourceQtoS.RSBApplyAutomationBar_RUN_CONNECTION_AUTOMATION)
+selectComboBox(PAResourceEtoH.HXGuiParamPanel_GUI_COMBOBOX, "sys_diff_clock ( System differential clock )", 0); // a (PAResourceEtoH.HXGuiParamPanel_GUI_COMBOBOX)
+selectButton(RDIResource.BaseDialog_OK, "OK", "Run Connection Automation"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Run Connection Automation"); // G (dialog15)
+// TclEventType: XGUI_UPDATE_GUI_ELEMENT
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_ADDRNETWORK
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_ADD_OBJECT
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_CONNECTION_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: XGUI_RESET_GUI_ELEMENT
+// Tcl Message: apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_diff_clock ( System differential clock ) } Manual_Source {Auto}}  [get_bd_intf_pins clk_wiz/CLK_IN1_D] 
+// Tcl Message: INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_diff_clock [get_bd_cells /clk_wiz] INFO: [BoardRule 102-8] create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 sys_diff_clock INFO: [BoardRule 102-4] set_property CONFIG.FREQ_HZ 100000000 /sys_diff_clock INFO: [BoardRule 102-9] connect_bd_intf_net /sys_diff_clock /clk_wiz/CLK_IN1_D INFO: [BoardRule 102-16] set_property CONFIG.FREQ_HZ 200000000 /sys_diff_clock 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:52m:45s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:52m:47s
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_ports /clk_100MHz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 174, 748, 1883, 1124, false, false, false, true, false); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem) - Popup Trigger
+runTclCommand (PAResourceOtoP.PAViews_SYSTEM, "select_objects [get_bd_ports /clk_100MHz]"); // gh (PAResourceOtoP.PAViews_SYSTEM, PlanAheadTabSystem)
+selectMenu(PAResourceQtoS.SystemBuilderView_PINNING, "Pinning"); // an (PAResourceQtoS.SystemBuilderView_PINNING, Pinning)
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Delete"); // aq (RDIResourceCommand.RDICommands_DELETE, global_delete_menu)
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_ports clk_100MHz] 
+selectButton(PAResourceCommand.PACommandNames_SAVE_RSB_DESIGN, "save_rsb_design"); // C (PAResourceCommand.PACommandNames_SAVE_RSB_DESIGN, save_rsb_design)
+// Run Command: PAResourceCommand.PACommandNames_SAVE_RSB_DESIGN
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// Tcl Message: save_bd_design 
+// Tcl Message: Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd>  Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/ui/bd_2ae56375.ui>  
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:52m:59s
+// HMemoryUtils.trashcanNow. Engine heap size: 3,421 MB. GUI used memory: 166 MB. Current time: 6/18/25, 11:00:12 PM CST
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:53m:01s
+unMinimizeFrame(PAResourceOtoP.PAViews_SYSTEM_HIERARCHY, "Design"); // R (PAResourceOtoP.PAViews_SYSTEM_HIERARCHY, System Hierarchy)
+unMinimizeFrame(RDIResource.RDIViews_PROPERTIES, "Properties"); // R (RDIResource.RDIViews_PROPERTIES, Properties)
+selectButton(PAResourceItoN.MainToolbarMgr_RUN, (String) null); // ac (PAResourceItoN.MainToolbarMgr_RUN)
+selectMenuItem(PAResourceCommand.PACommandNames_RUN_SYNTHESIS, "Run Synthesis"); // aq (PAResourceCommand.PACommandNames_RUN_SYNTHESIS, run_synthesis_menu)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectButton(RDIResource.BaseDialog_YES, "Yes", "Out-of-Context module run(s) is/are Out-of-date"); // a (RDIResource.BaseDialog_YES)
+dismissDialog("Out-of-Context module run(s) is/are Out-of-date"); // u (dialog16)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run top_clk_wiz_2_synth_1 
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/top_wrapper.dcp to /home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // g (dialog17)
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_CLOSE_DIAGRAM
+// TclEventType: REPORT_IP_STATUS_STALE
+// Tcl Message: INFO: [BD 5-943] Reserving offset range <0x0001_0000 [ 64K ]> from slave interface '/axi_smc/S00_AXI' to master interface '/axi_smc/M00_AXI'. This will be used by smartconnect on path for routing. INFO: [xilinx.com:ip:smartconnect:1.0-1] top_axi_smc_0: SmartConnect top_axi_smc_0 is in Low-Area Mode. 
+// TclEventType: REPORT_IP_STATUS_STALE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate 
+// Tcl Message: Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd>  Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/sim/top.v Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v 
+// TclEventType: COMPOSITE_FILE_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,454 MB. GUI used memory: 167 MB. Current time: 6/18/25, 11:00:32 PM CST
+// TclEventType: COMPOSITE_FILE_CHANGE
+// Tcl Message: Exporting to file /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/hw_handoff/top_axi_smc_0.hwh Generated Hardware Definition File /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/synth/top_axi_smc_0.hwdef 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc . 
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: COMPOSITE_FILE_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz . INFO: [HWH 41-1378] This design does not contain any "MEMORY" mapped segment for processor microblaze_0 
+// Tcl Message: Exporting to file /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hw_handoff/top.hwh Generated Hardware Definition File /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.hwdef 
+// Tcl Message: INFO: [IP_Flow 19-6930] IPCACHE: runCacheChecks() number of threads = 8 INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP top_axi_smc_0 INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP top_clk_wiz_2 INFO: [IP_Flow 19-8020] IPCACHE: runCacheChecks() calling threadPool finishWork() 
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_DELETE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_DELETE
+// TclEventType: PROJ_DESIGN_MODE_SET
+// [Engine Memory]: 3,694 MB (+151862kb) [09:53:46]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: COMPOSITE_FILE_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Wed Jun 18 23:00:35 2025] Launched top_clk_wiz_2_synth_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_clk_wiz_2_synth_1/runme.log [Wed Jun 18 23:00:35 2025] Launched synth_1... Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/runme.log 
+// Tcl Message: launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 9896.727 ; gain = 197.602 ; free physical = 436 ; free virtual = 8244 
+// 'i' command handler elapsed time: 16 seconds
+dismissDialog("Starting Design Runs"); // bh (Starting Design Runs Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:53m:25s
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 09h:53m:27s
+// TclEventType: FILE_SET_CHANGE

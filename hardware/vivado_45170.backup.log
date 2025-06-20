@@ -1,0 +1,250 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jun 18 13:06:45 2025
+# Process ID         : 45170
+# Current directory  : /home/wangjiakun/Development/emperor_soc/hardware
+# Command line       : vivado
+# Log file           : /home/wangjiakun/Development/emperor_soc/hardware/vivado.log
+# Journal file       : /home/wangjiakun/Development/emperor_soc/hardware/vivado.jou
+# Running On         : wangjiakun-Inspiron-14-Plus-7430
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.1 LTS
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
+# CPU Frequency      : 492.590 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16437 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20732 MB
+# Available Virtual  : 12885 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+INFO: [Project 1-5579] Found utility IPs instantiated in one or more block designs which have equivalent inline hdl with improved performance and reduced diskspace. It is recommended to migrate these utility IPs to inline hdl using the command upgrade_project -migrate_to_inline_hdl. The utility IPs may be deprecated in future releases. More information on inline hdl is available in UG994.
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Wed Jun 18 13:15:43 2025] Launched synth_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 8
+[Wed Jun 18 22:44:17 2025] Launched impl_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Jun 18 22:45:38 2025] Launched impl_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a200tfbg676-2
+Top: top_wrapper
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 219905
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 8699.766 ; gain = 426.148 ; free physical = 4414 ; free virtual = 11523
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_wrapper' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'top' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13]
+INFO: [Synth 8-6157] synthesizing module 'top_axi_smc_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_axi_smc_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_smc_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'top_axi_smc_0' is unconnected for instance 'axi_smc' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:69]
+WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'top_axi_smc_0' is unconnected for instance 'axi_smc' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:69]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'top_axi_smc_0' has 40 connections declared, but only 38 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:69]
+INFO: [Synth 8-6157] synthesizing module 'top_axi_uartlite_0_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_uartlite_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_axi_uartlite_0_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_axi_uartlite_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'top_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:108]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'top_axi_uartlite_0_0' has 22 connections declared, but only 21 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:108]
+INFO: [Synth 8-6157] synthesizing module 'top_clk_wiz_2' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_clk_wiz_2' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_microblaze_0_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_microblaze_0_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Instr_Addr' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'IFetch' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'I_AS' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Data_Addr' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Data_Write' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'D_AS' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Read_Strobe' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Write_Strobe' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Byte_Enable' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7071] port 'Dbg_TDO' of module 'top_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'top_microblaze_0_0' has 52 connections declared, but only 41 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:135]
+INFO: [Synth 8-6157] synthesizing module 'top_rst_clk_wiz_100M_0' [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_rst_clk_wiz_100M_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'top_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:177]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'top_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:177]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'top_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:177]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_100M' of module 'top_rst_clk_wiz_100M_0' has 10 connections declared, but only 7 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:177]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'top_wrapper' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8782.734 ; gain = 509.117 ; free physical = 4330 ; free virtual = 11440
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0.dcp' for cell 'top_i/axi_smc'
+INFO: [Project 1-454] Reading design checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0.dcp' for cell 'top_i/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.dcp' for cell 'top_i/clk_wiz'
+INFO: [Project 1-454] Reading design checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.dcp' for cell 'top_i/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0.dcp' for cell 'top_i/rst_clk_wiz_100M'
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 8801.180 ; gain = 0.000 ; free physical = 4479 ; free virtual = 11589
+INFO: [Netlist 29-17] Analyzing 244 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc] for cell 'top_i/microblaze_0/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc] for cell 'top_i/microblaze_0/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_0_0/top_microblaze_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0_board.xdc] for cell 'top_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0_board.xdc] for cell 'top_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0.xdc] for cell 'top_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0.xdc] for cell 'top_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0_board.xdc] for cell 'top_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0_board.xdc] for cell 'top_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0.xdc] for cell 'top_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0.xdc] for cell 'top_i/axi_smc/inst/clk_map/psr_aclk/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/ip/ip_1/bd_b43a_psr_aclk_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/smartconnect.xdc] for cell 'top_i/axi_smc/inst'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/smartconnect.xdc] for cell 'top_i/axi_smc/inst'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2_board.xdc] for cell 'top_i/clk_wiz/inst'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2_board.xdc] for cell 'top_i/clk_wiz/inst'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.xdc] for cell 'top_i/clk_wiz/inst'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.xdc] for cell 'top_i/clk_wiz/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0_board.xdc] for cell 'top_i/rst_clk_wiz_100M/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0_board.xdc] for cell 'top_i/rst_clk_wiz_100M/U0'
+Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0.xdc] for cell 'top_i/rst_clk_wiz_100M/U0'
+Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0.xdc] for cell 'top_i/rst_clk_wiz_100M/U0'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_0/top_rst_clk_wiz_100M_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+INFO: [Project 1-1714] 14 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8964.043 ; gain = 0.000 ; free physical = 4487 ; free virtual = 11597
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 96 instances were transformed.
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 9313.184 ; gain = 1039.566 ; free physical = 4239 ; free virtual = 11369
+34 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:10 . Memory (MB): peak = 9313.184 ; gain = 1039.566 ; free physical = 4239 ; free virtual = 11369
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2461.450; main = 2461.450; forked = 0.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 9313.188; main = 9313.188; forked = 0.000
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Jun 18 22:47:04 2025] Launched impl_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Wed Jun 18 22:47:29 2025] Launched impl_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/runme.log
+open_bd_design {/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd}
+Reading block design file </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd>...
+Adding component instance block -- xilinx.com:ip:microblaze:11.0 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_100M
+Successfully read diagram <top> from block design file </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd>
+startgroup
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {50.0} \
+  CONFIG.CLKOUT1_JITTER {112.316} \
+  CONFIG.CLKOUT1_PHASE_ERROR {89.971} \
+  CONFIG.CLK_IN1_BOARD_INTERFACE {sys_diff_clock} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {5.000} \
+  CONFIG.MMCM_CLKIN1_PERIOD {5.000} \
+  CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+  CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} \
+] [get_bd_cells clk_wiz]
+delete_bd_objs [get_bd_nets clk_100MHz_1]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_diff_clock ( System differential clock ) } Manual_Source {Auto}}  [get_bd_intf_pins clk_wiz/CLK_IN1_D]
+INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_diff_clock [get_bd_cells /clk_wiz]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:diff_clock_rtl:1.0 sys_diff_clock
+INFO: [BoardRule 102-4] set_property CONFIG.FREQ_HZ 100000000 /sys_diff_clock
+INFO: [BoardRule 102-9] connect_bd_intf_net /sys_diff_clock /clk_wiz/CLK_IN1_D
+INFO: [BoardRule 102-16] set_property CONFIG.FREQ_HZ 200000000 /sys_diff_clock
+delete_bd_objs [get_bd_ports clk_100MHz]
+save_bd_design
+Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd> 
+Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/ui/bd_2ae56375.ui> 
+reset_run top_clk_wiz_2_synth_1
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/top_wrapper.dcp to /home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1 -jobs 8
+WARNING: [BD 41-2670] Found an incomplete address path from address space '/microblaze_0/Data' to master interface '/microblaze_0/DLMB'. Please either complete or remove this path to resolve.
+WARNING: [BD 41-2670] Found an incomplete address path from address space '/microblaze_0/Instruction' to master interface '/microblaze_0/ILMB'. Please either complete or remove this path to resolve.
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -of_object /microblaze_0/Instruction'
+INFO: [BD 5-943] Reserving offset range <0x0001_0000 [ 64K ]> from slave interface '/axi_smc/S00_AXI' to master interface '/axi_smc/M00_AXI'. This will be used by smartconnect on path for routing.
+INFO: [xilinx.com:ip:smartconnect:1.0-1] top_axi_smc_0: SmartConnect top_axi_smc_0 is in Low-Area Mode.
+WARNING: [xilinx.com:ip:microblaze:11.0-9] /microblaze_0: MicroBlaze needs to have memory mapped to address range 0x00000000 - 0x0000004F. Your processor may function incorrectly without this memory. In most cases this memory would be local memory, connected to the Data and Instruction Local Memory Bus (LMB).
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz clk_wiz propagate
+Wrote  : </home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd> 
+Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v
+Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/sim/top.v
+Verilog Output written to : /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v
+Exporting to file /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/hw_handoff/top_axi_smc_0.hwh
+Generated Hardware Definition File /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/bd_0/synth/top_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [HWH 41-1378] This design does not contain any "MEMORY" mapped segment for processor microblaze_0
+Exporting to file /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hw_handoff/top.hwh
+Generated Hardware Definition File /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.hwdef
+INFO: [IP_Flow 19-6930] IPCACHE: runCacheChecks() number of threads = 8
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP top_axi_smc_0
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP top_clk_wiz_2
+INFO: [IP_Flow 19-8020] IPCACHE: runCacheChecks() calling threadPool finishWork()
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: top_axi_smc_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 7c58e5cf48f80d8b to dir: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip/2024.2/7/c/7c58e5cf48f80d8b/top_axi_smc_0_sim_netlist.vhdl to /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip/2024.2/7/c/7c58e5cf48f80d8b/top_axi_smc_0_stub.v to /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip/2024.2/7/c/7c58e5cf48f80d8b/top_axi_smc_0_sim_netlist.v to /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip/2024.2/7/c/7c58e5cf48f80d8b/top_axi_smc_0_stub.vhdl to /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0_stub.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip/2024.2/7/c/7c58e5cf48f80d8b/top_axi_smc_0.dcp to /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_axi_smc_0/top_axi_smc_0.dcp
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP top_axi_smc_0, cache-ID = 7c58e5cf48f80d8b; cache size = 10.780 MB.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: top_clk_wiz_2
+[Wed Jun 18 23:00:35 2025] Launched top_clk_wiz_2_synth_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_clk_wiz_2_synth_1/runme.log
+[Wed Jun 18 23:00:35 2025] Launched synth_1...
+Run output will be captured here: /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 9896.727 ; gain = 197.602 ; free physical = 436 ; free virtual = 8244

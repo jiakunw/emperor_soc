@@ -1,0 +1,61 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jun 18 13:06:45 2025
+# Process ID         : 45170
+# Current directory  : /home/wangjiakun/Development/emperor_soc/hardware
+# Command line       : vivado
+# Log file           : /home/wangjiakun/Development/emperor_soc/hardware/vivado.log
+# Journal file       : /home/wangjiakun/Development/emperor_soc/hardware/vivado.jou
+# Running On         : wangjiakun-Inspiron-14-Plus-7430
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.1 LTS
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
+# CPU Frequency      : 492.590 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16437 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20732 MB
+# Available Virtual  : 12885 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_bd_design {/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/top.bd}
+startgroup
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {50.0} \
+  CONFIG.CLKOUT1_JITTER {112.316} \
+  CONFIG.CLKOUT1_PHASE_ERROR {89.971} \
+  CONFIG.CLK_IN1_BOARD_INTERFACE {sys_diff_clock} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {5.000} \
+  CONFIG.MMCM_CLKIN1_PERIOD {5.000} \
+  CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+  CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} \
+] [get_bd_cells clk_wiz]
+delete_bd_objs [get_bd_nets clk_100MHz_1]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_diff_clock ( System differential clock ) } Manual_Source {Auto}}  [get_bd_intf_pins clk_wiz/CLK_IN1_D]
+delete_bd_objs [get_bd_ports clk_100MHz]
+save_bd_design
+reset_run top_clk_wiz_2_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1

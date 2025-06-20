@@ -1,0 +1,7 @@
+23:17:09 INFO  : updated workspace path: 
+23:17:09 INFO  : bash, -c, source /tools/Vitis/Vitis/2024.2/tps/lnx64/lopper-1.1.0/env/bin/activate && python /tools/Vitis/Vitis/2024.2/data/embeddedsw/scripts/pyesw//repo.py -st  /tools/Vitis/Vitis/2024.2/data/embeddedsw && deactivate
+23:17:12 INFO  : Successfully created repository data at /tmp/rigel_lopper_wangjiakun7547601488870629383
+23:17:12 INFO  : bash, -c, source /tools/Vitis/Vitis/2024.2/tps/lnx64/lopper-1.1.0/env/bin/activate && python /tools/Vitis/Vitis/2024.2/data/embeddedsw/scripts/pyesw//get_template_data.py -d /tmp/rigel_lopper_wangjiakun16987555549684159653 -r /tmp/rigel_lopper_wangjiakun7547601488870629383/.repo.yaml && deactivate
+23:17:12 INFO  : Embedded Template List generated successfully
+23:18:44 INFO  : bash, -c, source /tools/Vitis/Vitis/2024.2/tps/lnx64/lopper-1.1.0/env/bin/activate && python /tools/Vitis/Vitis/2024.2/data/embeddedsw/scripts/pyesw//repo.py -st  /tools/Vitis/Vitis/2024.2/data/embeddedsw && deactivate
+23:18:44 INFO  : created .gitignore file for the project /home/wangjiakun/Development/emperor_soc/software

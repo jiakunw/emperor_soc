@@ -1,0 +1,6 @@
+{
+  "vitis.software.repositories": [
+    "/tools/Vitis/Vitis/2024.2/data/embeddedsw"
+],
+"clangd.fallbackFlags": []
+}

@@ -1,0 +1,4 @@
+domain_path: /home/wangjiakun/Development/emperor_soc/software/platform/export/platform/sw/standalone_microblaze_riscv_0
+app_src_dir: /tools/Vitis/Vitis/2024.2/data/embeddedsw/lib/sw_apps/hello_world
+template: hello_world
+lang: c
