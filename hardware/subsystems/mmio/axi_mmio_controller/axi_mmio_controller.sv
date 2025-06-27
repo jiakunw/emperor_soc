@@ -55,25 +55,8 @@
 //     slot_decode_error    - an array of 16 signals to fetch from slave about decode_error of a specific device
 //
 // Register Mapping:
-//     - 5'b00000: Counter Value, read only
-//     - 5'b00001: Auto-Reload Register: determines max counter value by wr_data
-//     - 5'b00010: Control Register: determined by wr_data[1:0]
-//                 wr_data[0]: 1'b1 enables Counter, 1'b0 disables Counter
-//                 wr_data[1]: 1'b1 counts down, 1'b0 counts up
-//     - 5'b00011: Event Generation Register: determined by wr_data[0]:
-//                 wr_data[0]: 1'b1 restarts when finish counting (reaches 0 or ARR)
-//                 wr_data[0]: 1'b0 does not restarts when done
-//     - 5'b00100: Status Register: status of Timer, 4 bits, read only
-//                 0th bit: 1'b1 if enabled, 1'b0 otherwise
-//                 1th bit: 1'b1 if finished counting, 1'b0 otherwise
-//                 2th bit: error bit, 1'b1 if accessing read-only register, 1'b0 otherwise
-//                 3th bit: error bit, 1'b1 if addr not one of the listed above, 1'b0 otherwise
-//                 4th bit: idle bit
+//     - 16'b00000: Timer
 //                 
-// Notes:
-//     - This is a timer that keep counting to a certain value.
-//     - User can have access to the states of the timer through reading a
-//       writing to the registers listed above.
 //
 // Author: Mongolian
 // Date: 06/26/2025
@@ -157,7 +140,8 @@ module axi_mmio_controller
 
         case (r_state)
             INIT: begin
-                S_AXI_awready = w_idle;
+                // when any of the devices is idle we can accept read/write addr
+                S_AXI_awready = w_idle; 
                 S_AXI_arready = w_idle;
                 w_en_addr = S_AXI_awvalid || S_AXI_arvalid;
                 w_addr = (S_AXI_awvalid) ? S_AXI_awaddr :
@@ -182,31 +166,27 @@ module axi_mmio_controller
                                 slot_decode_error[w_slot_addr]) ? INIT :
                                 (slot_idle[w_slot_addr] && S_AXI_wvalid) ? WRITE : AWVALID;
             end
-            WRITE: begin
+            WRITE: begin    // executing done transaction, waiting for it to be done
                 S_AXI_bvalid = slot_wr_done[w_slot_addr] || 
                                slot_slave_error[w_slot_addr] ||
                                slot_decode_error[w_slot_addr];
                 S_AXI_bresp = (slot_slave_error[w_slot_addr]) ? AXI_RESP_SLVERR :
                               (slot_decode_error[w_slot_addr]) ? AXI_RESP_DECERR :
                               AXI_RESP_OKAY;
-                w_next_state = (slot_wr_done[w_slot_addr] || 
-                                slot_slave_error[w_slot_addr] ||
-                                slot_decode_error[w_slot_addr]) ? INIT : WRITE;
+                w_next_state = (S_AXI_bready) ? INIT : WRITE;
             end
             ARVALID: begin
                 w_next_state = (slot_idle[w_slot_addr] && S_AXI_rready) ? READ : ARVALID;
             end
             READ: begin
-                slot_read[w_slot_addr] = slot_idle[w_slot_addr] && S_AXI_rready;
-                slot_chip_select[w_slot_addr] = slot_idle[w_slot_addr] && S_AXI_rready;
+                slot_read[w_slot_addr] = slot_idle[w_slot_addr];
+                slot_chip_select[w_slot_addr] = slot_idle[w_slot_addr];
                 S_AXI_rvalid = slot_rd_done[w_slot_addr];
                 S_AXI_rdata = slot_rd_data[w_slot_addr];
                 S_AXI_rresp = (slot_slave_error[w_slot_addr]) ? AXI_RESP_SLVERR :
                               (slot_decode_error[w_slot_addr]) ? AXI_RESP_DECERR :
                               AXI_RESP_OKAY;
-                w_next_state = (slot_rd_done[w_slot_addr] ||
-                                slot_slave_error[w_slot_addr] ||
-                                slot_decode_error[w_slot_addr]) ? INIT : READ;
+                w_next_state = (S_AXI_rready) ? INIT : READ;
             end
         endcase
     end

@@ -26,15 +26,15 @@
 //                    accessing an address not listed below.
 //
 // Register Mapping:
-//     - 5'b00000: Counter Value, read only
-//     - 5'b00001: Auto-Reload Register: determines max counter value by wr_data
-//     - 5'b00010: Control Register: determined by wr_data[1:0]
+//     - 4'b0000: Counter Value, read only
+//     - 4'b0001: Auto-Reload Register: determines max counter value by wr_data
+//     - 4'b0010: Control Register: determined by wr_data[1:0]
 //                 wr_data[0]: 1'b1 enables Counter, 1'b0 disables Counter
 //                 wr_data[1]: 1'b1 counts down, 1'b0 counts up
-//     - 5'b00011: Event Generation Register: determined by wr_data[0]:
+//     - 4'b0011: Event Generation Register: determined by wr_data[0]:
 //                 wr_data[0]: 1'b1 restarts when finish counting (reaches 0 or ARR)
 //                 wr_data[0]: 1'b0 does not restarts when done
-//     - 5'b00100: Status Register: status of Timer, 4 bits, read only
+//     - 4'b0100: Status Register: status of Timer, 4 bits, read only
 //                 0th bit: 1'b1 if enabled, 1'b0 otherwise
 //                 1th bit: 1'b1 if finished counting, 1'b0 otherwise
 //                 2th bit: error bit, 1'b1 if accessing read-only register, 1'b0 otherwise
