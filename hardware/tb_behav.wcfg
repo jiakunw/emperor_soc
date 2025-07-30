@@ -3,98 +3,130 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_behav.wdb" id="1">
+      <db_ref path="mmio_subsys_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="\$unit_axi_mmio_controller_sv_1392358039 " />
             <top_module name="glbl" />
-            <top_module name="tb" />
+            <top_module name="mmio_subsys_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="126.654 ns"></ZoomStartTime>
-      <ZoomEndTime time="248.655 ns"></ZoomEndTime>
-      <Cursor1Time time="194.554 ns"></Cursor1Time>
+      <ZoomStartTime time="2,512.665 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,551.468 ns"></ZoomEndTime>
+      <Cursor1Time time="2,545.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="493"></NameColumnWidth>
+      <NameColumnWidth column_width="413"></NameColumnWidth>
       <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
-   <wvobject type="logic" fp_name="/tb/clk">
+   <WVObjectSize size="27" />
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/arst_n">
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/arst_n">
       <obj_property name="ElementShortName">arst_n</obj_property>
       <obj_property name="ObjectShortName">arst_n</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/chip_select">
-      <obj_property name="ElementShortName">chip_select</obj_property>
-      <obj_property name="ObjectShortName">chip_select</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_awaddr">
+      <obj_property name="ElementShortName">S_AXI_awaddr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_awaddr[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/read">
-      <obj_property name="ElementShortName">read</obj_property>
-      <obj_property name="ObjectShortName">read</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_awprot">
+      <obj_property name="ElementShortName">S_AXI_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_awprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/write">
-      <obj_property name="ElementShortName">write</obj_property>
-      <obj_property name="ObjectShortName">write</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_awvalid">
+      <obj_property name="ElementShortName">S_AXI_awvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_awvalid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/addr">
-      <obj_property name="ElementShortName">addr[4:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[4:0]</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_awready">
+      <obj_property name="ElementShortName">S_AXI_awready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_awready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/wr_data">
-      <obj_property name="ElementShortName">wr_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">wr_data[31:0]</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_wdata">
+      <obj_property name="ElementShortName">S_AXI_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/rd_data">
-      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_wstrb">
+      <obj_property name="ElementShortName">S_AXI_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_wstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/slave_error">
-      <obj_property name="ElementShortName">slave_error</obj_property>
-      <obj_property name="ObjectShortName">slave_error</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_wvalid">
+      <obj_property name="ElementShortName">S_AXI_wvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_wvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/decode_error">
-      <obj_property name="ElementShortName">decode_error</obj_property>
-      <obj_property name="ObjectShortName">decode_error</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_wready">
+      <obj_property name="ElementShortName">S_AXI_wready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_wready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/wr_done">
-      <obj_property name="ElementShortName">wr_done</obj_property>
-      <obj_property name="ObjectShortName">wr_done</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_bresp">
+      <obj_property name="ElementShortName">S_AXI_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_bresp[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/rd_done">
-      <obj_property name="ElementShortName">rd_done</obj_property>
-      <obj_property name="ObjectShortName">rd_done</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_bvalid">
+      <obj_property name="ElementShortName">S_AXI_bvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_bvalid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/dut/r_counter">
-      <obj_property name="ElementShortName">r_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_counter[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_bready">
+      <obj_property name="ElementShortName">S_AXI_bready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_bready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/dut/r_auto_reload">
-      <obj_property name="ElementShortName">r_auto_reload[31:0]</obj_property>
-      <obj_property name="ObjectShortName">r_auto_reload[31:0]</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_araddr">
+      <obj_property name="ElementShortName">S_AXI_araddr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_araddr[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/dut/r_control">
-      <obj_property name="ElementShortName">r_control[1:0]</obj_property>
-      <obj_property name="ObjectShortName">r_control[1:0]</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_arprot">
+      <obj_property name="ElementShortName">S_AXI_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_arprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/dut/r_status">
-      <obj_property name="ElementShortName">r_status[3:0]</obj_property>
-      <obj_property name="ObjectShortName">r_status[3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_arvalid">
+      <obj_property name="ElementShortName">S_AXI_arvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_arvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/dut/r_eg">
-      <obj_property name="ElementShortName">r_eg</obj_property>
-      <obj_property name="ObjectShortName">r_eg</obj_property>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_arready">
+      <obj_property name="ElementShortName">S_AXI_arready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_arready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb/dut/w_en">
-      <obj_property name="ElementShortName">w_en</obj_property>
-      <obj_property name="ObjectShortName">w_en</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_rdata">
+      <obj_property name="ElementShortName">S_AXI_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb/dut/w_auto_reload">
-      <obj_property name="ElementShortName">w_auto_reload[31:0]</obj_property>
-      <obj_property name="ObjectShortName">w_auto_reload[31:0]</obj_property>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/S_AXI_rresp">
+      <obj_property name="ElementShortName">S_AXI_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_rvalid">
+      <obj_property name="ElementShortName">S_AXI_rvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/mmio_subsys_tb/S_AXI_rready">
+      <obj_property name="ElementShortName">S_AXI_rready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_rready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/control/r_state">
+      <obj_property name="ElementShortName">r_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">r_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/control/slot_idle">
+      <obj_property name="ElementShortName">slot_idle[15:0]</obj_property>
+      <obj_property name="ObjectShortName">slot_idle[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/control/slot_idle">
+      <obj_property name="ElementShortName">slot_idle[15:0]</obj_property>
+      <obj_property name="ObjectShortName">slot_idle[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/control/slot_slave_error">
+      <obj_property name="ElementShortName">slot_slave_error[15:0]</obj_property>
+      <obj_property name="ObjectShortName">slot_slave_error[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/control/slot_decode_error">
+      <obj_property name="ElementShortName">slot_decode_error[15:0]</obj_property>
+      <obj_property name="ObjectShortName">slot_decode_error[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/mmio_subsys_tb/dut/emperor_uart/core/tx_fifo/rf/r_reg_array">
+      <obj_property name="ElementShortName">r_reg_array[15:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_reg_array[15:0][7:0]</obj_property>
    </wvobject>
 </wave_config>

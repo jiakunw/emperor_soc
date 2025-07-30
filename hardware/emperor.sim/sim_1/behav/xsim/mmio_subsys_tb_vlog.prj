@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/f0b6/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/0127/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/ec67/hdl" --include "/tools/Xilinx/Vivado/2024.2/data/xilinx_vip/include" \
+"../../../../subsystems/mmio/axi_mmio_controller/axi_mmio_controller.sv" \
+"../../../../subsystems/mmio/uart/fifo.sv" \
+"../../../../subsystems/mmio/gpio/gpio.sv" \
+"../../../../subsystems/mmio/mmio_subsys.sv" \
+"../../../../subsystems/mmio/uart/rx_tx.sv" \
+"../../../../subsystems/mmio/timer/timer.sv" \
+"../../../../subsystems/mmio/uart/tb/uart_core_tb.sv" \
+"../../../../subsystems/mmio/mmio_subsys_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

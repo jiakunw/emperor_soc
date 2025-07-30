@@ -1,0 +1,287 @@
+Time resolution is 1 ps
+Generated data[0] = 0xf7
+Generated data[1] = 0x1c
+Generated data[2] = 0x54
+Generated data[3] = 0x5c
+Generated data[4] = 0x00
+Generated data[5] = 0xa2
+Generated data[6] = 0x03
+Generated data[7] = 0xf7
+Generated data[8] = 0xbf
+Generated data[9] = 0x57
+Generated data[10] = 0x53
+Generated data[11] = 0xbf
+Generated data[12] = 0xf9
+Generated data[13] = 0x56
+Generated data[14] = 0xb6
+Generated data[15] = 0xb8
+ 
+***************** start uart test *****************
+ 
+write 16 data to uart tx, testing AXI write protocol
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_OKAY
+contrl should go back to INIT state
+check data consistancy
+done with bursting write 16 data
+
+clear TX's FIFO
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+TX FIFO should be empty
+TX FIFO should not be full
+TX FIFO should have 0 elements
+TX FIFO read pointer should be 0
+TX FIFO write pointer should be 0
+TX FIFO every element should be 0
+read status register, should be 0
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, should be 0
+contrl should go back to INIT state
+
+test invalid read
+right now rx fifo is empty, reading from it should cause an invalid read
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+read from the status register, 8th bit should be 1 and rest should be 0
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, 8th bit should be 1 and rest should be 0
+contrl should go back to INIT state
+read from the status register, this time it should be zeroed out
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, this time it should be zeroed out
+contrl should go back to INIT state
+
+test invalid write
+rx's fifo is read only, writing to it should give an error
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+read from the status register, 8th bit should be 1 and rest should be 0
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, 8th bit should be 1 and rest should be 0
+contrl should go back to INIT state
+read from the status register, this time it should be zeroed out
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, this time it should be zeroed out
+contrl should go back to INIT state
+
+status register is read only, writing to it should cause error
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+read from the status register, 8th bit should be 1 and rest should be 0
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, 8th bit should be 1 and rest should be 0
+contrl should go back to INIT state
+read from the status register, this time it should be zeroed out
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, this time it should be zeroed out
+contrl should go back to INIT state
+
+test 2 successive invalid writes
+status register is read only, writing to it should cause error
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+rx's fifo is read only, writing to it should give an error
+wait for S_AXI_awready
+received S_AXI_awready
+wait for S_AXI_wready
+received S_AXI_wready
+wait for S_AXI_bvalid
+received S_AXI_bvalid
+write response should be AXI_RESP_SLVERR
+contrl should go back to INIT state
+read from the status register, 8th bit should be 1 and rest should be 0
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY
+read status register, 8th bit should be 1 and rest should be 0
+contrl should go back to INIT state
+read from the status register, this time it should be zeroed out
+wait for S_AXI_arready
+received S_AXI_arready
+wait for S_AXI_rvalid
+received S_AXI_rvalid
+read response should be AXI_RESP_OKAY

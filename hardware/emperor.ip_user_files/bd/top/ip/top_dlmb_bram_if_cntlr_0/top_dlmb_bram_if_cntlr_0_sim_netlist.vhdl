@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Fri Jun 20 02:39:50 2025
+-- Date        : Fri Jul 25 11:30:25 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_dlmb_bram_if_cntlr_0/top_dlmb_bram_if_cntlr_0_sim_netlist.vhdl
@@ -170,7 +170,7 @@ entity top_dlmb_bram_if_cntlr_0_lmb_bram_if_cntlr is
   attribute C_LMB_PROTOCOL : integer;
   attribute C_LMB_PROTOCOL of top_dlmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is 0;
   attribute C_MASK : string;
-  attribute C_MASK of top_dlmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is "64'b0000000000000000000000000000000000000000000000010000000000000000";
+  attribute C_MASK of top_dlmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is "64'b0000000000000000000000000000000000000010000000000000000000000000";
   attribute C_MASK1 : string;
   attribute C_MASK1 of top_dlmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is "64'b0000000000000000000000000000000000000000100000000000000000000000";
   attribute C_MASK2 : string;
@@ -537,7 +537,7 @@ begin
       INIT => X"40"
     )
         port map (
-      I0 => \^lmb_abus\(15),
+      I0 => \^lmb_abus\(6),
       I1 => LMB_WriteStrobe,
       I2 => LMB_BE(0),
       O => BRAM_WEN_A(0)
@@ -547,7 +547,7 @@ begin
       INIT => X"40"
     )
         port map (
-      I0 => \^lmb_abus\(15),
+      I0 => \^lmb_abus\(6),
       I1 => LMB_WriteStrobe,
       I2 => LMB_BE(1),
       O => BRAM_WEN_A(1)
@@ -557,7 +557,7 @@ begin
       INIT => X"40"
     )
         port map (
-      I0 => \^lmb_abus\(15),
+      I0 => \^lmb_abus\(6),
       I1 => LMB_WriteStrobe,
       I2 => LMB_BE(2),
       O => BRAM_WEN_A(2)
@@ -567,7 +567,7 @@ begin
       INIT => X"40"
     )
         port map (
-      I0 => \^lmb_abus\(15),
+      I0 => \^lmb_abus\(6),
       I1 => LMB_WriteStrobe,
       I2 => LMB_BE(3),
       O => BRAM_WEN_A(3)
@@ -581,7 +581,7 @@ GND: unisim.vcomponents.GND
       INIT => X"1"
     )
         port map (
-      I0 => \^lmb_abus\(15),
+      I0 => \^lmb_abus\(6),
       I1 => LMB_Rst,
       O => \No_ECC.Sl_Rdy_i_1_n_0\
     );
@@ -742,7 +742,7 @@ architecture STRUCTURE of top_dlmb_bram_if_cntlr_0 is
   attribute C_LMB_PROTOCOL : integer;
   attribute C_LMB_PROTOCOL of U0 : label is 0;
   attribute C_MASK : string;
-  attribute C_MASK of U0 : label is "64'b0000000000000000000000000000000000000000000000010000000000000000";
+  attribute C_MASK of U0 : label is "64'b0000000000000000000000000000000000000010000000000000000000000000";
   attribute C_MASK1 : string;
   attribute C_MASK1 of U0 : label is "64'b0000000000000000000000000000000000000000100000000000000000000000";
   attribute C_MASK2 : string;

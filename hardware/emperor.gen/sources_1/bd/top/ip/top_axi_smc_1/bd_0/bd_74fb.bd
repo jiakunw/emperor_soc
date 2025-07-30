@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5E7D602029058836",
+      "boundary_crc": "0x2F7B4C3434F2EB5F",
       "design_src": "SBD",
       "device": "xc7a200tfbg676-2",
       "name": "bd_74fb",
@@ -176,7 +176,7 @@
         "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
         "parameters": {
           "ADDR_WIDTH": {
-            "value": "4",
+            "value": "8",
             "value_src": "ip_prop"
           },
           "ARUSER_WIDTH": {
@@ -221,7 +221,7 @@
           },
           "HAS_PROT": {
             "value": "1",
-            "value_src": "default_prop"
+            "value_src": "default"
           },
           "HAS_QOS": {
             "value": "0",
@@ -512,7 +512,7 @@
                 "value": "READ_WRITE"
               },
               "SEG000_BASE_ADDR": {
-                "value": "0x0000000000010000"
+                "value": "0x0000000046000000"
               },
               "SEG000_SECURE_READ": {
                 "value": "0"
@@ -524,7 +524,7 @@
                 "value": "0b0000000000000000000000000000000000000000000000000000000000000000"
               },
               "SEG000_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG000_SUPPORTS_READ": {
                 "value": "1"
@@ -1817,7 +1817,7 @@
         "inst_hier_path": "m00_sc2axi",
         "parameters": {
           "AXI_ADDR_WIDTH": {
-            "value": "4"
+            "value": "8"
           },
           "AXI_ID_WIDTH": {
             "value": "1"
@@ -1907,7 +1907,7 @@
             "inst_hier_path": "m00_exit_pipeline/m00_exit",
             "parameters": {
               "ADDR_WIDTH": {
-                "value": "4"
+                "value": "8"
               },
               "ENABLE_PIPELINING": {
                 "value": "0"

@@ -1,0 +1,352 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 22:55:32 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 22:48:06 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 8)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 22:44:12 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0) from (Rev. 7) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 22:22:34 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 22:20:12 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 21:42:44 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 21:08:31 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 21:02:01 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 20:59:30 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sun Jul 27 20:57:54 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Jul 25 11:59:47 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Jul 25 11:55:06 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Jul 25 11:49:17 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 7)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Jul 25 11:29:00 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Jul 25 11:19:51 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0) from (Rev. 5) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Thu Jul 24 18:35:42 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_2'
+
+1. Summary
+----------
+
+SUCCESS in the update of top_mmio_subsystem_0_2 (user.org:user:mmio_subsystem:1.0 (Rev. 5)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Jul 23 00:11:12 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7a200tfbg676-2
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'top_mmio_subsystem_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of top_mmio_subsystem_0_1 (user.org:user:mmio_subsystem:1.0) from (Rev. 3) to (Rev. 4)
+

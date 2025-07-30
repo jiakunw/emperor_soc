@@ -47,7 +47,7 @@
 // Date: 06/22/2025
 //------------------------------------------------------------
 
-module tb();
+module timer_tb();
     logic clk, arst_n;
     // slot interface
     logic chip_select;
@@ -252,4 +252,4 @@ module tb();
     end
 
 
-endmodule : tb
+endmodule : timer_tb

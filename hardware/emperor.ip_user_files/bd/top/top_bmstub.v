@@ -10,7 +10,9 @@ module top (
   rs232_uart_txd,
   sys_diff_clock_clk_n,
   sys_diff_clock_clk_p,
-  reset
+  reset,
+  GPO,
+  GPI
 );
 
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *)
@@ -28,6 +30,10 @@ module top (
   (* X_INTERFACE_MODE = "slave RST.RESET" *)
   (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
   input reset;
+  (* X_INTERFACE_IGNORE = "true" *)
+  output [3:0]GPO;
+  (* X_INTERFACE_IGNORE = "true" *)
+  input [8:0]GPI;
 
   // stub module has no contents
 

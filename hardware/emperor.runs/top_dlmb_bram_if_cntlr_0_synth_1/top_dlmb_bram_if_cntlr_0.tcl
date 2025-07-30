@@ -56,9 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "top_dlmb_bram_if_cntlr_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_param tcl.collectionResultDisplayLimit 0
-set_param xicom.use_bs_reader 1
 set_param bd.open.in_stealth_mode 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -75,6 +72,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
+set_property ip_repo_paths /home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }

@@ -1,0 +1,4 @@
+Running: xsim.dir/mmio_subsys_tb_behav/xsimk -simmode gui -wdb mmio_subsys_tb_behav.wdb -simrunnum 0 -socket 57847
+Design successfully loaded
+Design Loading Memory Usage: 183596 KB (Peak: 183596 KB)
+Design Loading CPU Usage: 1360 ms

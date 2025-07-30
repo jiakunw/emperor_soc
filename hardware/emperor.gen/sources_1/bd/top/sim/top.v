@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Fri Jun 20 02:39:19 2025
+//Date        : Sun Jul 27 22:55:38 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,23 +223,31 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
-   (reset,
+   (GPI,
+    GPO,
+    reset,
     rs232_uart_rxd,
     rs232_uart_txd,
     sys_diff_clock_clk_n,
     sys_diff_clock_clk_p);
+  input [8:0]GPI;
+  output [3:0]GPO;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input rs232_uart_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart TxD" *) output rs232_uart_txd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_diff_clock, CAN_DEBUG false, FREQ_HZ 200000000" *) input sys_diff_clock_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_P" *) input sys_diff_clock_clk_p;
 
-  wire [3:0]axi_smc_M00_AXI_ARADDR;
+  wire [8:0]GPI;
+  wire [3:0]GPO;
+  wire [7:0]axi_smc_M00_AXI_ARADDR;
+  wire [2:0]axi_smc_M00_AXI_ARPROT;
   wire axi_smc_M00_AXI_ARREADY;
   wire axi_smc_M00_AXI_ARVALID;
-  wire [3:0]axi_smc_M00_AXI_AWADDR;
+  wire [7:0]axi_smc_M00_AXI_AWADDR;
+  wire [2:0]axi_smc_M00_AXI_AWPROT;
   wire axi_smc_M00_AXI_AWREADY;
   wire axi_smc_M00_AXI_AWVALID;
   wire axi_smc_M00_AXI_BREADY;
@@ -314,9 +322,11 @@ module top
 
   top_axi_smc_1 axi_smc
        (.M00_AXI_araddr(axi_smc_M00_AXI_ARADDR),
+        .M00_AXI_arprot(axi_smc_M00_AXI_ARPROT),
         .M00_AXI_arready(axi_smc_M00_AXI_ARREADY),
         .M00_AXI_arvalid(axi_smc_M00_AXI_ARVALID),
         .M00_AXI_awaddr(axi_smc_M00_AXI_AWADDR),
+        .M00_AXI_awprot(axi_smc_M00_AXI_AWPROT),
         .M00_AXI_awready(axi_smc_M00_AXI_AWREADY),
         .M00_AXI_awvalid(axi_smc_M00_AXI_AWVALID),
         .M00_AXI_bready(axi_smc_M00_AXI_BREADY),
@@ -351,28 +361,6 @@ module top
         .S00_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
         .aclk(microblaze_riscv_0_Clk),
         .aresetn(rst_clk_wiz_100M_peripheral_aresetn));
-  top_axi_uartlite_0_0 axi_uartlite_0
-       (.rx(rs232_uart_rxd),
-        .s_axi_aclk(microblaze_riscv_0_Clk),
-        .s_axi_araddr(axi_smc_M00_AXI_ARADDR),
-        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
-        .s_axi_arready(axi_smc_M00_AXI_ARREADY),
-        .s_axi_arvalid(axi_smc_M00_AXI_ARVALID),
-        .s_axi_awaddr(axi_smc_M00_AXI_AWADDR),
-        .s_axi_awready(axi_smc_M00_AXI_AWREADY),
-        .s_axi_awvalid(axi_smc_M00_AXI_AWVALID),
-        .s_axi_bready(axi_smc_M00_AXI_BREADY),
-        .s_axi_bresp(axi_smc_M00_AXI_BRESP),
-        .s_axi_bvalid(axi_smc_M00_AXI_BVALID),
-        .s_axi_rdata(axi_smc_M00_AXI_RDATA),
-        .s_axi_rready(axi_smc_M00_AXI_RREADY),
-        .s_axi_rresp(axi_smc_M00_AXI_RRESP),
-        .s_axi_rvalid(axi_smc_M00_AXI_RVALID),
-        .s_axi_wdata(axi_smc_M00_AXI_WDATA),
-        .s_axi_wready(axi_smc_M00_AXI_WREADY),
-        .s_axi_wstrb(axi_smc_M00_AXI_WSTRB),
-        .s_axi_wvalid(axi_smc_M00_AXI_WVALID),
-        .tx(rs232_uart_txd));
   top_clk_wiz_2 clk_wiz
        (.clk_in1_n(sys_diff_clock_clk_n),
         .clk_in1_p(sys_diff_clock_clk_p),
@@ -487,6 +475,32 @@ module top
         .ILMB_wait(microblaze_riscv_0_ilmb_1_WAIT),
         .LMB_Clk(microblaze_riscv_0_Clk),
         .SYS_Rst(rst_clk_wiz_100M_bus_struct_reset));
+  top_mmio_subsystem_0_2 mmio_subsystem_0
+       (.S_AXI_araddr(axi_smc_M00_AXI_ARADDR),
+        .S_AXI_arprot(axi_smc_M00_AXI_ARPROT),
+        .S_AXI_arready(axi_smc_M00_AXI_ARREADY),
+        .S_AXI_arvalid(axi_smc_M00_AXI_ARVALID),
+        .S_AXI_awaddr(axi_smc_M00_AXI_AWADDR),
+        .S_AXI_awprot(axi_smc_M00_AXI_AWPROT),
+        .S_AXI_awready(axi_smc_M00_AXI_AWREADY),
+        .S_AXI_awvalid(axi_smc_M00_AXI_AWVALID),
+        .S_AXI_bready(axi_smc_M00_AXI_BREADY),
+        .S_AXI_bresp(axi_smc_M00_AXI_BRESP),
+        .S_AXI_bvalid(axi_smc_M00_AXI_BVALID),
+        .S_AXI_rdata(axi_smc_M00_AXI_RDATA),
+        .S_AXI_rready(axi_smc_M00_AXI_RREADY),
+        .S_AXI_rresp(axi_smc_M00_AXI_RRESP),
+        .S_AXI_rvalid(axi_smc_M00_AXI_RVALID),
+        .S_AXI_wdata(axi_smc_M00_AXI_WDATA),
+        .S_AXI_wready(axi_smc_M00_AXI_WREADY),
+        .S_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
+        .S_AXI_wvalid(axi_smc_M00_AXI_WVALID),
+        .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
+        .clk(microblaze_riscv_0_Clk),
+        .in_ports(GPI),
+        .out_ports(GPO),
+        .rx(rs232_uart_rxd),
+        .tx(rs232_uart_txd));
   top_rst_clk_wiz_100M_1 rst_clk_wiz_100M
        (.aux_reset_in(1'b1),
         .bus_struct_reset(rst_clk_wiz_100M_bus_struct_reset),

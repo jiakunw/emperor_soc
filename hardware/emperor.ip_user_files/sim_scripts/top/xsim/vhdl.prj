@@ -1,0 +1,14 @@
+vhdl xil_defaultlib  \
+"../../../bd/top/ip/top_microblaze_riscv_0_0/sim/top_microblaze_riscv_0_0.vhd" \
+"../../../bd/top/ip/top_dlmb_v10_0/sim/top_dlmb_v10_0.vhd" \
+"../../../bd/top/ip/top_ilmb_v10_0/sim/top_ilmb_v10_0.vhd" \
+"../../../bd/top/ip/top_dlmb_bram_if_cntlr_0/sim/top_dlmb_bram_if_cntlr_0.vhd" \
+"../../../bd/top/ip/top_ilmb_bram_if_cntlr_0/sim/top_ilmb_bram_if_cntlr_0.vhd" \
+"../../../bd/top/ip/top_mdm_1_0/sim/top_mdm_1_0.vhd" \
+"../../../bd/top/ip/top_rst_clk_wiz_100M_1/sim/top_rst_clk_wiz_100M_1.vhd" \
+"../../../bd/top/ip/top_axi_smc_1/bd_0/ip/ip_1/sim/bd_74fb_psr_aclk_0.vhd" \
+"../../../bd/top/ip/top_mmio_subsystem_0_2/src/top_axi_uartlite_0_0/sim/top_axi_uartlite_0_0.vhd" \
+"../../../bd/top/ip/top_mmio_subsystem_0_2/src/top_dlmb_bram_if_cntlr_0/sim/top_dlmb_bram_if_cntlr_0.vhd" \
+
+# Do not sort compile order
+nosort

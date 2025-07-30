@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2D3416AC2269A3DA",
+      "boundary_crc": "0x35DE759BB5EC74E0",
       "device": "xc7a200tfbg676-2",
       "gen_directory": "../../../../emperor.gen/sources_1/bd/top",
       "name": "top",
@@ -11,7 +11,6 @@
       "validated": "true"
     },
     "design_tree": {
-      "axi_uartlite_0": "",
       "clk_wiz": "",
       "microblaze_riscv_0": "",
       "microblaze_riscv_0_local_memory": {
@@ -24,7 +23,8 @@
       "mdm_1": "",
       "rst_clk_wiz_100M": "",
       "axi_smc": "",
-      "ila_0": ""
+      "ila_0": "",
+      "mmio_subsystem_0": ""
     },
     "interface_ports": {
       "rs232_uart": {
@@ -80,27 +80,19 @@
             "value": "ACTIVE_HIGH"
           }
         }
+      },
+      "GPO": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "GPI": {
+        "direction": "I",
+        "left": "8",
+        "right": "0"
       }
     },
     "components": {
-      "axi_uartlite_0": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "ip_revision": "37",
-        "xci_name": "top_axi_uartlite_0_0",
-        "xci_path": "ip/top_axi_uartlite_0_0/top_axi_uartlite_0_0.xci",
-        "inst_hier_path": "axi_uartlite_0",
-        "parameters": {
-          "C_BAUDRATE": {
-            "value": "115200"
-          },
-          "UARTLITE_BOARD_INTERFACE": {
-            "value": "rs232_uart"
-          },
-          "USE_BOARD_FLOW": {
-            "value": "true"
-          }
-        }
-      },
       "clk_wiz": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "ip_revision": "15",
@@ -455,19 +447,27 @@
         "xci_name": "top_ila_0_0",
         "xci_path": "ip/top_ila_0_0/top_ila_0_0.xci",
         "inst_hier_path": "ila_0"
+      },
+      "mmio_subsystem_0": {
+        "vlnv": "user.org:user:mmio_subsystem:1.0",
+        "ip_revision": "9",
+        "xci_name": "top_mmio_subsystem_0_2",
+        "xci_path": "ip/top_mmio_subsystem_0_2/top_mmio_subsystem_0_2.xci",
+        "inst_hier_path": "mmio_subsystem_0",
+        "interface_ports": {
+          "S_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Slave",
+            "memory_map_ref": "S_AXI"
+          }
+        }
       }
     },
     "interface_nets": {
       "axi_smc_M00_AXI": {
         "interface_ports": [
           "axi_smc/M00_AXI",
-          "axi_uartlite_0/S_AXI"
-        ]
-      },
-      "axi_uartlite_0_UART": {
-        "interface_ports": [
-          "rs232_uart",
-          "axi_uartlite_0/UART"
+          "mmio_subsystem_0/S_AXI"
         ]
       },
       "microblaze_riscv_0_M_AXI_DP": {
@@ -495,6 +495,12 @@
           "microblaze_riscv_0_local_memory/ILMB"
         ]
       },
+      "mmio_subsystem_0_UART": {
+        "interface_ports": [
+          "rs232_uart",
+          "mmio_subsystem_0/UART"
+        ]
+      },
       "sys_diff_clock_1": {
         "interface_ports": [
           "sys_diff_clock",
@@ -503,6 +509,12 @@
       }
     },
     "nets": {
+      "GPI_1": {
+        "ports": [
+          "GPI",
+          "mmio_subsystem_0/in_ports"
+        ]
+      },
       "clk_wiz_locked": {
         "ports": [
           "clk_wiz/locked",
@@ -518,12 +530,18 @@
       "microblaze_riscv_0_Clk": {
         "ports": [
           "clk_wiz/clk_out1",
-          "axi_uartlite_0/s_axi_aclk",
           "microblaze_riscv_0/Clk",
           "microblaze_riscv_0_local_memory/LMB_Clk",
           "rst_clk_wiz_100M/slowest_sync_clk",
           "axi_smc/aclk",
-          "ila_0/clk"
+          "ila_0/clk",
+          "mmio_subsystem_0/clk"
+        ]
+      },
+      "mmio_subsystem_0_out_ports": {
+        "ports": [
+          "mmio_subsystem_0/out_ports",
+          "GPO"
         ]
       },
       "reset_1": {
@@ -548,8 +566,8 @@
       "rst_clk_wiz_100M_peripheral_aresetn": {
         "ports": [
           "rst_clk_wiz_100M/peripheral_aresetn",
-          "axi_uartlite_0/s_axi_aresetn",
-          "axi_smc/aresetn"
+          "axi_smc/aresetn",
+          "mmio_subsystem_0/arst_n"
         ]
       }
     },
@@ -558,16 +576,16 @@
         "address_spaces": {
           "Data": {
             "segments": {
-              "SEG_axi_uartlite_0_Reg": {
-                "address_block": "/axi_uartlite_0/S_AXI/Reg",
-                "offset": "0x00010000",
-                "range": "64K"
-              },
               "SEG_dlmb_bram_if_cntlr_Mem": {
                 "address_block": "/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr/SLMB/Mem",
                 "offset": "0x00000000",
                 "range": "16K",
                 "offset_high_param": "C_HIGHADDR"
+              },
+              "SEG_mmio_subsystem_0_reg0": {
+                "address_block": "/mmio_subsystem_0/S_AXI/reg0",
+                "offset": "0x46000000",
+                "range": "4K"
               }
             }
           },
