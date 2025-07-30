@@ -91,6 +91,20 @@
   <FileSets Version="1" Minor="32">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/subsystems/const.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/subsystems/mmio/mmio_controller/axi_mmio_controller.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/subsystems/mmio/uart/fifo.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -173,14 +187,6 @@
         <CompFileExtendedInfo CompFileName="top.bd" FileRelPathName="ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1.xci">
           <Proxy FileSetName="top_rst_clk_wiz_100M_1"/>
         </CompFileExtendedInfo>
-      </File>
-      <File Path="$PPRDIR/subsystems/const.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/top/hdl/top_wrapper.v">
         <FileInfo>
