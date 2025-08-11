@@ -3,22 +3,22 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Wed Jul 30 13:16:47 2025
-# Process ID         : 7960
+# Start of session at: Mon Aug 11 15:56:43 2025
+# Process ID         : 89333
 # Current directory  : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1
-# Command line       : vivado -log mmio_subsystem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mmio_subsystem.tcl
-# Log file           : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/mmio_subsystem.vds
+# Command line       : vivado -log top_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_wrapper.tcl
+# Log file           : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/top_wrapper.vds
 # Journal file       : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/vivado.jou
 # Running On         : wangjiakun-Inspiron-14-Plus-7430
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.1 LTS
 # Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
-# CPU Frequency      : 715.343 MHz
+# CPU Frequency      : 2045.406 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 16
 # Host memory        : 16438 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20733 MB
-# Available Virtual  : 14617 MB
+# Available Virtual  : 8869 MB
 #-----------------------------------------------------------
-source mmio_subsystem.tcl -notrace
+source top_wrapper.tcl -notrace

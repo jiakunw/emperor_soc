@@ -103,7 +103,7 @@ module gpio
                             w_led_data[3] = wr_data[3];
                         end
                         default: begin
-                            decode_error = 1'b1;
+                            w_decode_error = 1'b1;
                         end
                     endcase
                 end else if (read) begin
@@ -145,7 +145,7 @@ module gpio
                             w_rd_data = r_input_data[8];
                         end
                         default: begin
-                            decode_error = 1'b1;
+                            w_decode_error = 1'b1;
                         end
                     endcase
                 end
@@ -177,8 +177,8 @@ module gpio
     // error signal register
     always_ff @(posedge clk, negedge arst_n) begin
         if (!arst_n) begin
-            slave_error <= 1'b1;
-            decode_error <= 1'b1;
+            slave_error <= 1'b0;
+            decode_error <= 1'b0;
         end else begin
             slave_error <= w_slave_error;
             decode_error <= w_decode_error;

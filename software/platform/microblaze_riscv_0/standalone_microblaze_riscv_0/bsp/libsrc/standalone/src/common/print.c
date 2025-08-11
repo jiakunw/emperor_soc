@@ -22,7 +22,7 @@
 * print -- do a raw print of a string
 *
 ******************************************************************************/
-void printprint(const char8 *ptr)
+void print(const char8 *ptr)
 {
 #if defined (__aarch64__) && (HYP_GUEST == 1) && (EL1_NONSECURE == 1) && defined (XEN_USE_PV_CONSOLE)
 	XPVXenConsole_Write(ptr);

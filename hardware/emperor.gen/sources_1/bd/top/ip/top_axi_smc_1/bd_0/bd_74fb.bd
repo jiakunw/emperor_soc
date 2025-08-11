@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2F7B4C3434F2EB5F",
+      "boundary_crc": "0x3DB78B8D2A08F2BA",
       "design_src": "SBD",
       "device": "xc7a200tfbg676-2",
       "name": "bd_74fb",
@@ -176,7 +176,7 @@
         "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
         "parameters": {
           "ADDR_WIDTH": {
-            "value": "8",
+            "value": "16",
             "value_src": "ip_prop"
           },
           "ARUSER_WIDTH": {
@@ -1817,7 +1817,7 @@
         "inst_hier_path": "m00_sc2axi",
         "parameters": {
           "AXI_ADDR_WIDTH": {
-            "value": "8"
+            "value": "16"
           },
           "AXI_ID_WIDTH": {
             "value": "1"
@@ -1907,7 +1907,7 @@
             "inst_hier_path": "m00_exit_pipeline/m00_exit",
             "parameters": {
               "ADDR_WIDTH": {
-                "value": "8"
+                "value": "16"
               },
               "ENABLE_PIPELINING": {
                 "value": "0"

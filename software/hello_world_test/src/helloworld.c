@@ -27,8 +27,11 @@ int main()
 {
     init_platform();
 
-    print("Hello World\n\r");
-    print("Successfully ran Hello World application");
+    gpio_write(GPIO_LED_0, 1);
+    // gpio_read(GPIO_SW_N);  
+
+    // print("Hello World\n\r");
+    // print("Successfully ran Hello World application");
     while (1) {}
 
     cleanup_platform();

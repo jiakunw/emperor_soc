@@ -1,0 +1,16 @@
+// Mem file initialization records.
+//
+// SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+// Vivado v2024.2 (64-bit)
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+// Created on Monday August 11, 2025 - 03:26:43 pm, from:
+//
+//     Map file     - /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/top.bmm
+//     Data file(s) - /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_riscv_0_0/data/riscv_bootloop.elf
+//
+// Address space 'top_microblaze_riscv_0.top_microblaze_riscv_0_local_memory_lmb_bram_ADDR_SPACE', bit lane [31:0].
+//
+// Bus width = 32 bits, number of bus blocks = 1.
+
+@0000000000000000
+    0000006F

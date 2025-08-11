@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Sun Jul 27 22:55:38 2025
+//Date        : Mon Aug 11 15:26:34 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,7 +223,7 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=1,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (GPI,
     GPO,
@@ -242,11 +242,11 @@ module top
 
   wire [8:0]GPI;
   wire [3:0]GPO;
-  wire [7:0]axi_smc_M00_AXI_ARADDR;
+  wire [15:0]axi_smc_M00_AXI_ARADDR;
   wire [2:0]axi_smc_M00_AXI_ARPROT;
   wire axi_smc_M00_AXI_ARREADY;
   wire axi_smc_M00_AXI_ARVALID;
-  wire [7:0]axi_smc_M00_AXI_AWADDR;
+  wire [15:0]axi_smc_M00_AXI_AWADDR;
   wire [2:0]axi_smc_M00_AXI_AWPROT;
   wire axi_smc_M00_AXI_AWREADY;
   wire axi_smc_M00_AXI_AWVALID;
@@ -495,8 +495,8 @@ module top
         .S_AXI_wready(axi_smc_M00_AXI_WREADY),
         .S_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
         .S_AXI_wvalid(axi_smc_M00_AXI_WVALID),
+        .aclk(microblaze_riscv_0_Clk),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
-        .clk(microblaze_riscv_0_Clk),
         .in_ports(GPI),
         .out_ports(GPO),
         .rx(rs232_uart_rxd),

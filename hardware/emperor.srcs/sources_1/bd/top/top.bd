@@ -24,7 +24,8 @@
       "rst_clk_wiz_100M": "",
       "axi_smc": "",
       "ila_0": "",
-      "mmio_subsystem_0": ""
+      "mmio_subsystem_0": "",
+      "ila_1": ""
     },
     "interface_ports": {
       "rs232_uart": {
@@ -450,7 +451,7 @@
       },
       "mmio_subsystem_0": {
         "vlnv": "user.org:user:mmio_subsystem:1.0",
-        "ip_revision": "9",
+        "ip_revision": "2",
         "xci_name": "top_mmio_subsystem_0_2",
         "xci_path": "ip/top_mmio_subsystem_0_2/top_mmio_subsystem_0_2.xci",
         "inst_hier_path": "mmio_subsystem_0",
@@ -461,13 +462,21 @@
             "memory_map_ref": "S_AXI"
           }
         }
+      },
+      "ila_1": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "16",
+        "xci_name": "top_ila_1_0",
+        "xci_path": "ip/top_ila_1_0/top_ila_1_0.xci",
+        "inst_hier_path": "ila_1"
       }
     },
     "interface_nets": {
       "axi_smc_M00_AXI": {
         "interface_ports": [
           "axi_smc/M00_AXI",
-          "mmio_subsystem_0/S_AXI"
+          "mmio_subsystem_0/S_AXI",
+          "ila_1/SLOT_0_AXI"
         ]
       },
       "microblaze_riscv_0_M_AXI_DP": {
@@ -535,7 +544,8 @@
           "rst_clk_wiz_100M/slowest_sync_clk",
           "axi_smc/aclk",
           "ila_0/clk",
-          "mmio_subsystem_0/clk"
+          "mmio_subsystem_0/aclk",
+          "ila_1/clk"
         ]
       },
       "mmio_subsystem_0_out_ports": {

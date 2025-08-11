@@ -42,11 +42,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/wangjiakun/Development/emperor_soc/software/platform/microblaze_riscv_0/standalone_microblaze_riscv_0/bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/cmake_install.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/wangjiakun/Development/emperor_soc/software/platform/microblaze_riscv_0/standalone_microblaze_riscv_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/cmake_install.cmake")
-endif()
-
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/wangjiakun/Development/emperor_soc/software/platform/microblaze_riscv_0/standalone_microblaze_riscv_0/bsp/include/../include")

@@ -48,11 +48,11 @@ module bd_74fb_wrapper
     S00_AXI_wvalid,
     aclk,
     aresetn);
-  output [7:0]M00_AXI_araddr;
+  output [15:0]M00_AXI_araddr;
   output [2:0]M00_AXI_arprot;
   input M00_AXI_arready;
   output M00_AXI_arvalid;
-  output [7:0]M00_AXI_awaddr;
+  output [15:0]M00_AXI_awaddr;
   output [2:0]M00_AXI_awprot;
   input M00_AXI_awready;
   output M00_AXI_awvalid;
@@ -89,11 +89,11 @@ module bd_74fb_wrapper
   input aclk;
   input aresetn;
 
-  wire [7:0]M00_AXI_araddr;
+  wire [15:0]M00_AXI_araddr;
   wire [2:0]M00_AXI_arprot;
   wire M00_AXI_arready;
   wire M00_AXI_arvalid;
-  wire [7:0]M00_AXI_awaddr;
+  wire [15:0]M00_AXI_awaddr;
   wire [2:0]M00_AXI_awprot;
   wire M00_AXI_awready;
   wire M00_AXI_awvalid;

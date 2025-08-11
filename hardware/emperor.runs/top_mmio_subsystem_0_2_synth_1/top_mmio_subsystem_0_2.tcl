@@ -56,6 +56,9 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "top_mmio_subsystem_0_2_synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
+set_param bd.open.in_stealth_mode 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tfbg676-2
@@ -77,33 +80,6 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_ip -quiet /home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/sources_1/bd/top/ip/top_mmio_subsystem_0_2/top_mmio_subsystem_0_2.xci
-set_property used_in_synthesis false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_ila_0_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_ila_0_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_ila_0_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_ila_0_0/top_ila_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_lmb_bram_0/top_lmb_bram_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_mdm_1_0/top_mdm_1_0.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_mdm_1_0/top_mdm_1_0_ooc_trace.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_board.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0_ooc_debug.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_axi_uartlite_0_0/top_axi_uartlite_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_axi_uartlite_0_0/top_axi_uartlite_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_axi_uartlite_0_0/top_axi_uartlite_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_clk_wiz_2/top_clk_wiz_2_board.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_clk_wiz_2/top_clk_wiz_2.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/top_clk_wiz_2/top_clk_wiz_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_psr_aclk_0.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_s00a2s_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_sarn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_srn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_sawn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_swn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_sbn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/bd_74fb_m00s2a_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/smartconnect.xdc]
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/mmio_subsystem.xdc]
 
 OPTRACE "Adding files" END { }

@@ -1,4 +1,3 @@
 create libxil.a
-addlib /home/wangjiakun/Development/emperor_soc/software/platform/microblaze_riscv_0/standalone_microblaze_riscv_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/libuartlite.a
 save
 end

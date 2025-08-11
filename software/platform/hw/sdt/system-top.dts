@@ -16,15 +16,13 @@
 		reg = <0x00000000 0x4000>;
 	};
 	chosen {
-		stdout-path = "serial0:115200n8";
 	};
 	aliases {
-		serial0 = &axi_uartlite_0;
 	};
 	cpus_microblaze_riscv_0: cpus_microblaze_riscv@0 {
 		address-map = <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr_memory 0x00000000 0x4000>, 
 			      <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr 0x00000000 0x4000>, 
-			      <0x00010000 &axi_uartlite_0 0x00010000 0x10000>;
+			      <0x46000000 &mmio_subsystem_0 0x46000000 0x1000>;
 		#ranges-address-cells = <0x1>;
 		#ranges-size-cells = <0x1>;
 	};
