@@ -25,14 +25,14 @@ vmap mdm_riscv_v1_0_3 modelsim_lib/msim/mdm_riscv_v1_0_3
 vmap lib_cdc_v1_0_3 modelsim_lib/msim/lib_cdc_v1_0_3
 vmap proc_sys_reset_v5_0_16 modelsim_lib/msim/proc_sys_reset_v5_0_16
 
-vlog -work xpm -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
+vlog -work xpm -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -64 -93  \
 "/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
+vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "../../../bd/top/ip/top_clk_wiz_2/top_clk_wiz_2_clk_wiz.v" \
 "../../../bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.v" \
 
@@ -59,10 +59,10 @@ vcom -work xil_defaultlib -64 -93  \
 "../../../bd/top/ip/top_dlmb_bram_if_cntlr_0/sim/top_dlmb_bram_if_cntlr_0.vhd" \
 "../../../bd/top/ip/top_ilmb_bram_if_cntlr_0/sim/top_ilmb_bram_if_cntlr_0.vhd" \
 
-vlog -work blk_mem_gen_v8_4_9 -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
+vlog -work blk_mem_gen_v8_4_9 -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "../../../../emperor.gen/sources_1/bd/top/ipshared/5ec1/simulation/blk_mem_gen_v8_4.v" \
 
-vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
+vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "../../../bd/top/ip/top_lmb_bram_0/sim/top_lmb_bram_0.v" \
 
 vcom -work axi_lite_ipif_v3_0_4 -64 -93  \
@@ -83,19 +83,21 @@ vcom -work proc_sys_reset_v5_0_16 -64 -93  \
 vcom -work xil_defaultlib -64 -93  \
 "../../../bd/top/ip/top_rst_clk_wiz_100M_1/sim/top_rst_clk_wiz_100M_1.vhd" \
 
-vlog -work xil_defaultlib -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
-"../../../bd/top/ipshared/1a36/uart/fifo.sv" \
-"../../../bd/top/ipshared/1a36/uart/rx_tx.sv" \
-"../../../bd/top/ipshared/1a36/timer/timer.sv" \
-"../../../bd/top/ipshared/1a36/uart/uart.sv" \
-"../../../bd/top/ipshared/1a36/src/axi_mmio_controller.sv" \
-"../../../bd/top/ipshared/1a36/src/gpio.sv" \
-"../../../bd/top/ipshared/1a36/src/mmio_subsys.sv" \
-"../../../bd/top/ip/top_mmio_subsystem_0_2/sim/top_mmio_subsystem_0_2.sv" \
-
-vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1a36/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" \
+vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "../../../bd/top/ip/top_ila_0_1/sim/top_ila_0_1.v" \
 "../../../bd/top/ip/top_ila_1_0/sim/top_ila_1_0.v" \
+
+vlog -work xil_defaultlib -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
+"../../../bd/top/ipshared/9ebe/mmio_controller/axi_mmio_controller.sv" \
+"../../../bd/top/ipshared/9ebe/uart/tb/fifo_tb.sv" \
+"../../../bd/top/ipshared/9ebe/gpio/gpio.sv" \
+"../../../bd/top/ipshared/9ebe/uart/tb/rx_tb.sv" \
+"../../../bd/top/ipshared/9ebe/timer/tb/timer_tb.sv" \
+"../../../bd/top/ipshared/9ebe/uart/uart.sv" \
+"../../../bd/top/ipshared/9ebe/mmio_subsys.sv" \
+"../../../bd/top/ip/top_mmio_subsystem_1_0/sim/top_mmio_subsystem_1_0.sv" \
+
+vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/9ebe/bc9d" "+incdir+../../../bd/top/ipshared/9ebe/uart" "+incdir+../../../bd/top/ipshared/9ebe/timer" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
 "../../../bd/top/sim/top.v" \
 
 vlog -work xil_defaultlib \

@@ -33,13 +33,13 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_mdm_1_0
 # IP: bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_rst_clk_wiz_100M_1 || ORIG_REF_NAME==top_rst_clk_wiz_100M_1} -quiet] -quiet
 
-# IP: bd/top/ip/top_mmio_subsystem_0_2/top_mmio_subsystem_0_2.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_mmio_subsystem_0_2 || ORIG_REF_NAME==top_mmio_subsystem_0_2} -quiet] -quiet
-
 # IP: bd/top/ip/top_ila_0_1/top_ila_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_ila_0_1 || ORIG_REF_NAME==top_ila_0_1} -quiet] -quiet
 
 # IP: bd/top/ip/top_ila_1_0/top_ila_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_ila_1_0 || ORIG_REF_NAME==top_ila_1_0} -quiet] -quiet
+
+# IP: bd/top/ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==top_mmio_subsystem_1_0 || ORIG_REF_NAME==top_mmio_subsystem_1_0} -quiet] -quiet
 
 # XDC: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/top_ooc.xdc

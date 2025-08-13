@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Wed Aug 13 13:38:42 2025
+//Date        : Wed Aug 13 15:16:44 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -293,8 +293,10 @@ module top
   wire microblaze_riscv_0_ilmb_1_READY;
   wire microblaze_riscv_0_ilmb_1_UE;
   wire microblaze_riscv_0_ilmb_1_WAIT;
-  wire [2:0]mmio_subsystem_0_debug_r_state;
-  wire [2:0]mmio_subsystem_0_debug_w_next_state;
+  wire [15:0]mmio_subsystem_1_debug_front_addr;
+  wire [2:0]mmio_subsystem_1_debug_r_state;
+  wire mmio_subsystem_1_debug_state_transition;
+  wire [2:0]mmio_subsystem_1_debug_w_next_state;
   wire reset;
   wire rs232_uart_rxd;
   wire rs232_uart_txd;
@@ -334,10 +336,12 @@ module top
         .probe9(microblaze_riscv_0_M_AXI_DP_ARREADY));
   top_ila_1_0 ila_1
        (.clk(clk_wiz_clk_out2),
-        .probe0(mmio_subsystem_0_debug_r_state),
-        .probe1(mmio_subsystem_0_debug_w_next_state),
+        .probe0(mmio_subsystem_1_debug_r_state),
+        .probe1(mmio_subsystem_1_debug_w_next_state),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
-        .probe3(clk_wiz_clk_out1));
+        .probe3(clk_wiz_clk_out1),
+        .probe4(mmio_subsystem_1_debug_front_addr),
+        .probe5(mmio_subsystem_1_debug_state_transition));
   top_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_riscv_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_riscv_0_debug_CLK),
@@ -425,7 +429,7 @@ module top
         .ILMB_wait(microblaze_riscv_0_ilmb_1_WAIT),
         .LMB_Clk(clk_wiz_clk_out1),
         .SYS_Rst(rst_clk_wiz_100M_bus_struct_reset));
-  top_mmio_subsystem_0_2 mmio_subsystem_0
+  top_mmio_subsystem_1_0 mmio_subsystem_1
        (.S_AXI_araddr(microblaze_riscv_0_M_AXI_DP_ARADDR),
         .S_AXI_arprot(microblaze_riscv_0_M_AXI_DP_ARPROT),
         .S_AXI_arready(microblaze_riscv_0_M_AXI_DP_ARREADY),
@@ -447,8 +451,10 @@ module top
         .S_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
         .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
-        .debug_r_state(mmio_subsystem_0_debug_r_state),
-        .debug_w_next_state(mmio_subsystem_0_debug_w_next_state),
+        .debug_front_addr(mmio_subsystem_1_debug_front_addr),
+        .debug_r_state(mmio_subsystem_1_debug_r_state),
+        .debug_state_transition(mmio_subsystem_1_debug_state_transition),
+        .debug_w_next_state(mmio_subsystem_1_debug_w_next_state),
         .in_ports(GPI),
         .out_ports(GPO),
         .rx(rs232_uart_rxd),

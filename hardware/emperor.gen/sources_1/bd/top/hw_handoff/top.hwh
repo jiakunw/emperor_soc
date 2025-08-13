@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 13 13:38:43 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 13 15:38:18 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="xilinx.com:ac701:part0:1.4" DEVICE="7a200t" NAME="top" PACKAGE="fbg676" SPEEDGRADE="-2"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" LEFT="8" NAME="GPI" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_GPI">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mmio_subsystem_0" PORT="in_ports"/>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="in_ports"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="GPO" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_out_ports">
+    <PORT DIR="O" LEFT="3" NAME="GPO" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_out_ports">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mmio_subsystem_0" PORT="out_ports"/>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="out_ports"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
@@ -20,14 +20,14 @@
         <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="mmio_subsystem_0_rx">
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="mmio_subsystem_1_rx">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mmio_subsystem_0" PORT="rx"/>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="rx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="mmio_subsystem_0_tx">
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="mmio_subsystem_1_tx">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="mmio_subsystem_0" PORT="tx"/>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="200000000" DIR="I" NAME="sys_diff_clock_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
@@ -43,7 +43,7 @@
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
-    <BUSINTERFACE BUSNAME="mmio_subsystem_0_UART" NAME="rs232_uart" TYPE="INITIATOR">
+    <BUSINTERFACE BUSNAME="mmio_subsystem_1_UART" NAME="rs232_uart" TYPE="INITIATOR">
       <PORTMAPS>
         <PORTMAP LOGICAL="RxD" PHYSICAL="rs232_uart_rxd"/>
         <PORTMAP LOGICAL="TxD" PHYSICAL="rs232_uart_txd"/>
@@ -660,7 +660,7 @@
             <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="ila_1" PORT="probe3"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="Clk"/>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
@@ -3945,7 +3945,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="4"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="6"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -5353,7 +5353,7 @@
         <PARAMETER NAME="C_PROBE49_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE4_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE4_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE4_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_PROBE500_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE500_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE500_WIDTH" VALUE="1"/>
@@ -7058,14 +7058,14 @@
             <CONNECTION INSTANCE="clk_wiz" PORT="clk_out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="probe0" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_debug_r_state">
+        <PORT DIR="I" LEFT="2" NAME="probe0" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_r_state">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="debug_r_state"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_r_state"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_debug_w_next_state">
+        <PORT DIR="I" LEFT="2" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_w_next_state">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="debug_w_next_state"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_w_next_state"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="probe2" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWADDR">
@@ -7076,6 +7076,16 @@
         <PORT DIR="I" LEFT="0" NAME="probe3" RIGHT="0" SIGIS="undef" SIGNAME="clk_wiz_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_front_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_front_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe5" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_state_transition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_state_transition"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7556,100 +7566,139 @@
         <PORT DIR="I" LEFT="0" NAME="Interrupt_Address" RIGHT="31" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="M_AXI_DP_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_araddr"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_araddr"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="M_AXI_DP_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_arprot"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arprot"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M_AXI_DP_ARREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARREADY">
+        <PORT DIR="I" NAME="M_AXI_DP_ARREADY" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_arready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_ARVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_arvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M_AXI_DP_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="probe2"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awaddr"/>
           </CONNECTIONS>
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_awaddr"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="M_AXI_DP_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_awprot"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awprot"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M_AXI_DP_AWREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWREADY">
+        <PORT DIR="I" NAME="M_AXI_DP_AWREADY" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_awready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_AWVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_awvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_BREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_bready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bready"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M_AXI_DP_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="M_AXI_DP_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_bresp"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bresp"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M_AXI_DP_BVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BVALID">
+        <PORT DIR="I" NAME="M_AXI_DP_BVALID" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_bvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M_AXI_DP_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="M_AXI_DP_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_rdata"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rdata"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_RREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_rready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rready"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M_AXI_DP_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="M_AXI_DP_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_rresp"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rresp"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M_AXI_DP_RVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RVALID">
+        <PORT DIR="I" NAME="M_AXI_DP_RVALID" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_rvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M_AXI_DP_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_wdata"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wdata"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M_AXI_DP_WREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WREADY">
+        <PORT DIR="I" NAME="M_AXI_DP_WREADY" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_wready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wready"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="M_AXI_DP_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_wstrb"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wstrb"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_WVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="S_AXI_wvalid"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="Read_Strobe" SIGIS="undef" SIGNAME="microblaze_riscv_0_Read_Strobe">
@@ -7784,12 +7833,12 @@
       <MEMORYMAP>
         <MEMRANGE ADDRESSBLOCK="Mem" BASENAME="C_BASEADDR" BASEVALUE="0x00000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x00003FFF" INSTANCE="microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="DLMB" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="SLMB"/>
         <MEMRANGE ADDRESSBLOCK="Mem" BASENAME="C_BASEADDR" BASEVALUE="0x00000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x00003FFF" INSTANCE="microblaze_riscv_0_local_memory_ilmb_bram_if_cntlr" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="ILMB" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="SLMB"/>
-        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x46000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4600FFFF" INSTANCE="mmio_subsystem_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_DP" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x46000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4600FFFF" INSTANCE="mmio_subsystem_1" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_DP" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr"/>
         <PERIPHERAL INSTANCE="microblaze_riscv_0_local_memory_ilmb_bram_if_cntlr"/>
-        <PERIPHERAL INSTANCE="mmio_subsystem_0"/>
+        <PERIPHERAL INSTANCE="mmio_subsystem_1"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="25" FULLNAME="/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr" HWVERSION="4.0" INSTANCE="microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="MEMORY_CNTLR" MODTYPE="lmb_bram_if_cntlr" VLNV="xilinx.com:ip:lmb_bram_if_cntlr:4.0">
@@ -8760,7 +8809,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/mmio_subsystem_0" HWVERSION="2.0" INSTANCE="mmio_subsystem_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.0">
+    <MODULE COREREVISION="1" FULLNAME="/mmio_subsystem_1" HWVERSION="2.0" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="0x10000" USAGE="register"/>
@@ -8768,7 +8817,7 @@
       <PARAMETERS>
         <PARAMETER NAME="NUM_INPUT" VALUE="9"/>
         <PARAMETER NAME="NUM_OUTPUT" VALUE="4"/>
-        <PARAMETER NAME="Component_Name" VALUE="top_mmio_subsystem_0_2"/>
+        <PARAMETER NAME="Component_Name" VALUE="top_mmio_subsystem_1_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x46000000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x4600FFFF"/>
@@ -8778,18 +8827,28 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARADDR"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARADDR"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="2" NAME="S_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARPROT"/>
           </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S_AXI_arready" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARREADY">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARPROT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S_AXI_arready" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_arvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARVALID"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARVALID"/>
           </CONNECTIONS>
@@ -8798,18 +8857,28 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWADDR"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWADDR"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="2" NAME="S_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWPROT"/>
           </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S_AXI_awready" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWREADY">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWPROT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S_AXI_awready" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_awvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWVALID"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWVALID"/>
           </CONNECTIONS>
@@ -8818,19 +8887,25 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BREADY"/>
           </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BRESP">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="S_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BRESP"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_bvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BVALID">
+        <PORT DIR="O" NAME="S_AXI_bvalid" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_bvalid">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BVALID"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RDATA">
+        <PORT DIR="O" LEFT="31" NAME="S_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rdata">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RDATA"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RDATA"/>
           </CONNECTIONS>
         </PORT>
@@ -8838,14 +8913,19 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RREADY"/>
           </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RRESP">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="S_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RRESP"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_rvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RVALID">
+        <PORT DIR="O" NAME="S_AXI_rvalid" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rvalid">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RVALID"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RVALID"/>
           </CONNECTIONS>
         </PORT>
@@ -8853,9 +8933,13 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WDATA"/>
           </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="S_AXI_wready" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WREADY">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S_AXI_wready" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WREADY"/>
           </CONNECTIONS>
         </PORT>
@@ -8863,8 +8947,14 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WSTRB"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WSTRB"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_wvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WVALID"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WVALID"/>
           </CONNECTIONS>
@@ -8879,12 +8969,22 @@
             <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="debug_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_debug_r_state">
+        <PORT DIR="O" LEFT="15" NAME="debug_front_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_front_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="debug_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_r_state">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="probe0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="debug_w_next_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_debug_w_next_state">
+        <PORT DIR="O" NAME="debug_state_transition" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_state_transition">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="debug_w_next_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_w_next_state">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="probe1"/>
           </CONNECTIONS>
@@ -8894,17 +8994,17 @@
             <CONNECTION INSTANCE="External_Ports" PORT="GPI"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="out_ports" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_0_out_ports">
+        <PORT DIR="O" LEFT="3" NAME="out_ports" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_out_ports">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="GPO"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="mmio_subsystem_0_rx">
+        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="mmio_subsystem_1_rx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="top_imp" PORT="rs232_uart_rxd"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="mmio_subsystem_0_tx">
+        <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="mmio_subsystem_1_tx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="top_imp" PORT="rs232_uart_txd"/>
           </CONNECTIONS>
@@ -8965,18 +9065,16 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="S_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
-          <PARAMETER NAME="NUM_READ_OUTSTANDING"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TRI_I" PHYSICAL="in_ports"/>
-            <PORTMAP LOGICAL="TRI_O" PHYSICAL="out_ports"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="mmio_subsystem_0_UART" NAME="UART" TYPE="INITIATOR" VLNV="xilinx.com:interface:uart:1.0">
+        <BUSINTERFACE BUSNAME="mmio_subsystem_1_UART" NAME="UART" TYPE="INITIATOR" VLNV="xilinx.com:interface:uart:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="RxD" PHYSICAL="rx"/>
             <PORTMAP LOGICAL="TxD" PHYSICAL="tx"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TRI_I" PHYSICAL="in_ports"/>
+            <PORTMAP LOGICAL="TRI_O" PHYSICAL="out_ports"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -9033,7 +9131,7 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst" SIGNAME="rst_clk_wiz_100M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_0" PORT="arst_n"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="arst_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>

@@ -149,7 +149,7 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
-  mmio_subsystem_0: None
+  mmio_subsystem_1: None
 lib_info:
   xiltimer:
     path: /tools/Vitis/Vitis/2024.2/data/embeddedsw/lib/sw_services/xiltimer_v2_1

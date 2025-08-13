@@ -22,9 +22,9 @@
       },
       "mdm_1": "",
       "rst_clk_wiz_100M": "",
-      "mmio_subsystem_0": "",
       "ila_0": "",
-      "ila_1": ""
+      "ila_1": "",
+      "mmio_subsystem_1": ""
     },
     "interface_ports": {
       "rs232_uart": {
@@ -401,20 +401,6 @@
         "xci_path": "ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1.xci",
         "inst_hier_path": "rst_clk_wiz_100M"
       },
-      "mmio_subsystem_0": {
-        "vlnv": "user.org:user:mmio_subsystem:2.0",
-        "ip_revision": "1",
-        "xci_name": "top_mmio_subsystem_0_2",
-        "xci_path": "ip/top_mmio_subsystem_0_2/top_mmio_subsystem_0_2.xci",
-        "inst_hier_path": "mmio_subsystem_0",
-        "interface_ports": {
-          "S_AXI": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "mode": "Slave",
-            "memory_map_ref": "S_AXI"
-          }
-        }
-      },
       "ila_0": {
         "vlnv": "xilinx.com:ip:ila:6.2",
         "ip_revision": "16",
@@ -433,7 +419,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "4"
+            "value": "6"
           },
           "C_PROBE0_WIDTH": {
             "value": "3"
@@ -446,6 +432,23 @@
           },
           "C_PROBE3_WIDTH": {
             "value": "1"
+          },
+          "C_PROBE4_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "mmio_subsystem_1": {
+        "vlnv": "user.org:user:mmio_subsystem:2.0",
+        "ip_revision": "1",
+        "xci_name": "top_mmio_subsystem_1_0",
+        "xci_path": "ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci",
+        "inst_hier_path": "mmio_subsystem_1",
+        "interface_ports": {
+          "S_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Slave",
+            "memory_map_ref": "S_AXI"
           }
         }
       }
@@ -454,7 +457,7 @@
       "microblaze_riscv_0_M_AXI_DP": {
         "interface_ports": [
           "microblaze_riscv_0/M_AXI_DP",
-          "mmio_subsystem_0/S_AXI",
+          "mmio_subsystem_1/S_AXI",
           "ila_0/SLOT_0_AXI"
         ]
       },
@@ -476,10 +479,10 @@
           "microblaze_riscv_0_local_memory/ILMB"
         ]
       },
-      "mmio_subsystem_0_UART": {
+      "mmio_subsystem_1_UART": {
         "interface_ports": [
           "rs232_uart",
-          "mmio_subsystem_0/UART"
+          "mmio_subsystem_1/UART"
         ]
       },
       "sys_diff_clock_1": {
@@ -493,7 +496,7 @@
       "GPI_1": {
         "ports": [
           "GPI",
-          "mmio_subsystem_0/in_ports"
+          "mmio_subsystem_1/in_ports"
         ]
       },
       "clk_wiz_clk_out1": {
@@ -504,7 +507,7 @@
           "rst_clk_wiz_100M/slowest_sync_clk",
           "ila_1/probe3",
           "microblaze_riscv_0/Clk",
-          "mmio_subsystem_0/aclk"
+          "mmio_subsystem_1/aclk"
         ]
       },
       "clk_wiz_clk_out2": {
@@ -525,27 +528,148 @@
           "rst_clk_wiz_100M/mb_debug_sys_rst"
         ]
       },
+      "microblaze_riscv_0_M_AXI_DP_ARADDR": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_ARADDR",
+          "mmio_subsystem_1/S_AXI_araddr"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_ARPROT": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_ARPROT",
+          "mmio_subsystem_1/S_AXI_arprot"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_ARVALID": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_ARVALID",
+          "mmio_subsystem_1/S_AXI_arvalid"
+        ]
+      },
       "microblaze_riscv_0_M_AXI_DP_AWADDR": {
         "ports": [
           "microblaze_riscv_0/M_AXI_DP_AWADDR",
-          "ila_1/probe2"
+          "ila_1/probe2",
+          "mmio_subsystem_1/S_AXI_awaddr"
         ]
       },
-      "mmio_subsystem_0_debug_r_state": {
+      "microblaze_riscv_0_M_AXI_DP_AWPROT": {
         "ports": [
-          "mmio_subsystem_0/debug_r_state",
+          "microblaze_riscv_0/M_AXI_DP_AWPROT",
+          "mmio_subsystem_1/S_AXI_awprot"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_AWVALID": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_AWVALID",
+          "mmio_subsystem_1/S_AXI_awvalid"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_BREADY": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_BREADY",
+          "mmio_subsystem_1/S_AXI_bready"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_RREADY": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_RREADY",
+          "mmio_subsystem_1/S_AXI_rready"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_WDATA": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_WDATA",
+          "mmio_subsystem_1/S_AXI_wdata"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_WSTRB": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_WSTRB",
+          "mmio_subsystem_1/S_AXI_wstrb"
+        ]
+      },
+      "microblaze_riscv_0_M_AXI_DP_WVALID": {
+        "ports": [
+          "microblaze_riscv_0/M_AXI_DP_WVALID",
+          "mmio_subsystem_1/S_AXI_wvalid"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_arready": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_arready",
+          "microblaze_riscv_0/M_AXI_DP_ARREADY"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_awready": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_awready",
+          "microblaze_riscv_0/M_AXI_DP_AWREADY"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_bresp": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_bresp",
+          "microblaze_riscv_0/M_AXI_DP_BRESP"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_bvalid": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_bvalid",
+          "microblaze_riscv_0/M_AXI_DP_BVALID"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_rdata": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_rdata",
+          "microblaze_riscv_0/M_AXI_DP_RDATA"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_rresp": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_rresp",
+          "microblaze_riscv_0/M_AXI_DP_RRESP"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_rvalid": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_rvalid",
+          "microblaze_riscv_0/M_AXI_DP_RVALID"
+        ]
+      },
+      "mmio_subsystem_1_S_AXI_wready": {
+        "ports": [
+          "mmio_subsystem_1/S_AXI_wready",
+          "microblaze_riscv_0/M_AXI_DP_WREADY"
+        ]
+      },
+      "mmio_subsystem_1_debug_front_addr": {
+        "ports": [
+          "mmio_subsystem_1/debug_front_addr",
+          "ila_1/probe4"
+        ]
+      },
+      "mmio_subsystem_1_debug_r_state": {
+        "ports": [
+          "mmio_subsystem_1/debug_r_state",
           "ila_1/probe0"
         ]
       },
-      "mmio_subsystem_0_debug_w_next_state": {
+      "mmio_subsystem_1_debug_state_transition": {
         "ports": [
-          "mmio_subsystem_0/debug_w_next_state",
+          "mmio_subsystem_1/debug_state_transition",
+          "ila_1/probe5"
+        ]
+      },
+      "mmio_subsystem_1_debug_w_next_state": {
+        "ports": [
+          "mmio_subsystem_1/debug_w_next_state",
           "ila_1/probe1"
         ]
       },
-      "mmio_subsystem_0_out_ports": {
+      "mmio_subsystem_1_out_ports": {
         "ports": [
-          "mmio_subsystem_0/out_ports",
+          "mmio_subsystem_1/out_ports",
           "GPO"
         ]
       },
@@ -571,7 +695,7 @@
       "rst_clk_wiz_100M_peripheral_aresetn": {
         "ports": [
           "rst_clk_wiz_100M/peripheral_aresetn",
-          "mmio_subsystem_0/arst_n"
+          "mmio_subsystem_1/arst_n"
         ]
       }
     },
@@ -586,8 +710,8 @@
                 "range": "16K",
                 "offset_high_param": "C_HIGHADDR"
               },
-              "SEG_mmio_subsystem_0_reg0": {
-                "address_block": "/mmio_subsystem_0/S_AXI/reg0",
+              "SEG_mmio_subsystem_1_reg0": {
+                "address_block": "/mmio_subsystem_1/S_AXI/reg0",
                 "offset": "0x46000000",
                 "range": "64K"
               }

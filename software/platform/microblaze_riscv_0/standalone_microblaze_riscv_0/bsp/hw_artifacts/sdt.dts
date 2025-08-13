@@ -6,6 +6,7 @@
         device_id = "7a200t";
         #address-cells = <0x1>;
         #size-cells = <0x1>;
+        slrcount = <0x1>;
         family = "microblaze_riscv";
 
         cpus_microblaze_riscv_0: cpus_microblaze_riscv@0 {
@@ -15,7 +16,7 @@
                 #size-cells = <0x0>;
                 address-map = <0x0 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x4000>,
                  <0x0 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr 0x0 0x4000>,
-                 <0x46000000 &mmio_subsystem_0 0x46000000 0x10000>;
+                 <0x46000000 &mmio_subsystem_1 0x46000000 0x10000>;
                 #ranges-address-cells = <0x1>;
                 #ranges-size-cells = <0x1>;
                 phandle = <0x5>;
@@ -241,16 +242,16 @@
                         phandle = <0x9>;
                 };
 
-                mmio_subsystem_0: mmio_subsystem@46000000 {
+                mmio_subsystem_1: mmio_subsystem@46000000 {
                         xlnx,rable = <0x0>;
                         xlnx,num-output = <0x4>;
-                        compatible = "xlnx,mmio-subsystem-1.0";
+                        compatible = "xlnx,mmio-subsystem-2.0";
                         status = "okay";
                         xlnx,ip-name = "mmio_subsystem";
                         xlnx,edk-iptype = "PERIPHERAL";
                         reg = <0x46000000 0x10000>;
                         xlnx,num-input = <0x9>;
-                        xlnx,name = "mmio_subsystem_0";
+                        xlnx,name = "mmio_subsystem_1";
                         phandle = <0x3>;
                 };
         };
@@ -278,7 +279,7 @@
                 amba_pl = "/amba_pl";
                 microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@0";
                 microblaze_riscv_0_local_memory_ilmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@1";
-                mmio_subsystem_0 = "/amba_pl/mmio_subsystem@46000000";
+                mmio_subsystem_1 = "/amba_pl/mmio_subsystem@46000000";
                 microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr_memory = "/memory@0";
         };
 };

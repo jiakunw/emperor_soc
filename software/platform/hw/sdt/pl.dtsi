@@ -213,16 +213,16 @@
 			xlnx,bram-awidth = <32>;
 			xlnx,lmb-awidth = <32>;
 		};
-		mmio_subsystem_0: mmio_subsystem@46000000 {
+		mmio_subsystem_1: mmio_subsystem@46000000 {
 			xlnx,rable = <0>;
 			xlnx,num-output = <4>;
-			compatible = "xlnx,mmio-subsystem-1.0";
+			compatible = "xlnx,mmio-subsystem-2.0";
 			status = "okay";
 			xlnx,ip-name = "mmio_subsystem";
 			xlnx,edk-iptype = "PERIPHERAL";
 			reg = <0x46000000 0x10000>;
 			xlnx,num-input = <9>;
-			xlnx,name = "mmio_subsystem_0";
+			xlnx,name = "mmio_subsystem_1";
 		};
 	};
 };

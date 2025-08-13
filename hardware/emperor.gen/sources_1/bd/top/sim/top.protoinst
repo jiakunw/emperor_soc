@@ -29,7 +29,7 @@
 						"WVALID": { "actual": "M_AXI_DP_WVALID"}
 					}
 				},
-				"/mmio_subsystem_0/S_AXI": {
+				"/mmio_subsystem_1/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "aclk"},

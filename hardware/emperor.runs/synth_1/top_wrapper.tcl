@@ -56,6 +56,13 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param chipscope.maxJobs 4
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-34316-wangjiakun-Inspiron-14-Plus-7430/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tfbg676-2
 
@@ -93,7 +100,6 @@ set_property used_in_implementation false [get_files -all /home/wangjiakun/Devel
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_board.xdc]
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1.xdc]
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_0_2/src/mmio_subsystem.xdc]
 set_property used_in_synthesis false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_0_1/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_0_1/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_0_1/ila_v6_2/constraints/ila.xdc]
