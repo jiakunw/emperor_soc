@@ -56,12 +56,9 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "top_clk_wiz_2_synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
 set_param chipscope.maxJobs 4
-set_param bd.open.in_stealth_mode 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-45170-wangjiakun-Inspiron-14-Plus-7430/incrSyn
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -73,10 +70,12 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/wt [current_project]
 set_property parent.project_path /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
+set_property ip_repo_paths /home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }

@@ -57,7 +57,7 @@ module mmio_subsystem
     // AXI slave interface with main Bus
     // axi_if.Slave S_AXI, 
     // write
-    input logic [15:0] S_AXI_awaddr,
+    input logic [31:0] S_AXI_awaddr,
     input logic [2:0] S_AXI_awprot,
     input logic S_AXI_awvalid,
     output logic S_AXI_awready,
@@ -69,7 +69,7 @@ module mmio_subsystem
     output logic S_AXI_bvalid,
     input logic S_AXI_bready,
     // read
-    input logic [15:0] S_AXI_araddr,
+    input logic [31:0] S_AXI_araddr,
     input logic [2:0] S_AXI_arprot,
     input logic S_AXI_arvalid,
     output logic S_AXI_arready,
@@ -82,7 +82,11 @@ module mmio_subsystem
     output logic [NUM_OUTPUT-1:0] out_ports,
     // uart external
     input logic rx,
-    output logic tx
+    output logic tx,
+    // debug
+    output logic [2:0] debug_r_state, debug_w_next_state,
+    output logic state_transition,
+    output logic [15:0] front_addr
     );
 
     // signal declarations

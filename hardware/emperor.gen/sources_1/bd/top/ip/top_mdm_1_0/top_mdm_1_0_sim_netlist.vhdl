@@ -2,10 +2,10 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Thu Jun 19 03:40:18 2025
+-- Date        : Thu Jun 19 03:40:17 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mdm_1_0/top_mdm_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_mdm_1_0 -prefix
+--               top_mdm_1_0_ top_mdm_1_0_sim_netlist.vhdl
 -- Design      : top_mdm_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -46,8 +46,6 @@ entity top_mdm_1_0_MB_BSCANE2 is
     \Use_JTAG_BSCAN.tms_reg_reg_0\ : in STD_LOGIC;
     \Internal_BSCANID.bscanid_done\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MB_BSCANE2 : entity is "MB_BSCANE2";
 end top_mdm_1_0_MB_BSCANE2;
 
 architecture STRUCTURE of top_mdm_1_0_MB_BSCANE2 is
@@ -436,8 +434,6 @@ entity top_mdm_1_0_MB_BUFG is
     \Using_FPGA.Native_0\ : out STD_LOGIC;
     \Test_Access_Port.update_unbuf\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MB_BUFG : entity is "MB_BUFG";
 end top_mdm_1_0_MB_BUFG;
 
 architecture STRUCTURE of top_mdm_1_0_MB_BUFG is
@@ -460,8 +456,6 @@ entity top_mdm_1_0_MB_BUFGCE_1 is
     tck : in STD_LOGIC;
     \Using_FPGA.Native_0\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MB_BUFGCE_1 : entity is "MB_BUFGCE_1";
 end top_mdm_1_0_MB_BUFGCE_1;
 
 architecture STRUCTURE of top_mdm_1_0_MB_BUFGCE_1 is
@@ -563,8 +557,6 @@ entity top_mdm_1_0_MB_LUT1 is
     \Test_Access_Port.ir_reg[4]\ : in STD_LOGIC;
     I0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MB_LUT1 : entity is "MB_LUT1";
 end top_mdm_1_0_MB_LUT1;
 
 architecture STRUCTURE of top_mdm_1_0_MB_LUT1 is
@@ -647,8 +639,6 @@ entity top_mdm_1_0_JTAG_CONTROL is
     Dbg_TDO_0 : in STD_LOGIC;
     \Test_Access_Port.ir_reg[4]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_JTAG_CONTROL : entity is "JTAG_CONTROL";
 end top_mdm_1_0_JTAG_CONTROL;
 
 architecture STRUCTURE of top_mdm_1_0_JTAG_CONTROL is
@@ -4263,8 +4253,6 @@ entity top_mdm_1_0_MDM_Core is
     O : in STD_LOGIC;
     Dbg_TDO_0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MDM_Core : entity is "MDM_Core";
 end top_mdm_1_0_MDM_Core;
 
 architecture STRUCTURE of top_mdm_1_0_MDM_Core is
@@ -5886,8 +5874,6 @@ entity top_mdm_1_0_MDM_RISCV is
   attribute C_USE_JTAG_BSCAN of top_mdm_1_0_MDM_RISCV : entity is 1;
   attribute C_USE_UART : integer;
   attribute C_USE_UART of top_mdm_1_0_MDM_RISCV : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_mdm_1_0_MDM_RISCV : entity is "MDM_RISCV";
   attribute bscan_debug_core : string;
   attribute bscan_debug_core of top_mdm_1_0_MDM_RISCV : entity is "FALSE";
   attribute dont_touch : string;

@@ -2,10 +2,10 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Thu Jun 19 03:40:18 2025
+-- Date        : Thu Jun 19 03:40:17 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mdm_1_0/top_mdm_1_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top top_mdm_1_0 -prefix
+--               top_mdm_1_0_ top_mdm_1_0_stub.vhdl
 -- Design      : top_mdm_1_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tfbg676-2

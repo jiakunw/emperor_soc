@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Mon Aug 11 15:26:34 2025
+//Date        : Wed Aug 13 13:38:42 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,7 +223,7 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=1,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (GPI,
     GPO,
@@ -242,28 +242,10 @@ module top
 
   wire [8:0]GPI;
   wire [3:0]GPO;
-  wire [15:0]axi_smc_M00_AXI_ARADDR;
-  wire [2:0]axi_smc_M00_AXI_ARPROT;
-  wire axi_smc_M00_AXI_ARREADY;
-  wire axi_smc_M00_AXI_ARVALID;
-  wire [15:0]axi_smc_M00_AXI_AWADDR;
-  wire [2:0]axi_smc_M00_AXI_AWPROT;
-  wire axi_smc_M00_AXI_AWREADY;
-  wire axi_smc_M00_AXI_AWVALID;
-  wire axi_smc_M00_AXI_BREADY;
-  wire [1:0]axi_smc_M00_AXI_BRESP;
-  wire axi_smc_M00_AXI_BVALID;
-  wire [31:0]axi_smc_M00_AXI_RDATA;
-  wire axi_smc_M00_AXI_RREADY;
-  wire [1:0]axi_smc_M00_AXI_RRESP;
-  wire axi_smc_M00_AXI_RVALID;
-  wire [31:0]axi_smc_M00_AXI_WDATA;
-  wire axi_smc_M00_AXI_WREADY;
-  wire [3:0]axi_smc_M00_AXI_WSTRB;
-  wire axi_smc_M00_AXI_WVALID;
+  wire clk_wiz_clk_out1;
+  wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
   wire mdm_1_debug_sys_rst;
-  wire microblaze_riscv_0_Clk;
   wire [31:0]microblaze_riscv_0_M_AXI_DP_ARADDR;
   wire [2:0]microblaze_riscv_0_M_AXI_DP_ARPROT;
   wire microblaze_riscv_0_M_AXI_DP_ARREADY;
@@ -311,6 +293,8 @@ module top
   wire microblaze_riscv_0_ilmb_1_READY;
   wire microblaze_riscv_0_ilmb_1_UE;
   wire microblaze_riscv_0_ilmb_1_WAIT;
+  wire [2:0]mmio_subsystem_0_debug_r_state;
+  wire [2:0]mmio_subsystem_0_debug_w_next_state;
   wire reset;
   wire rs232_uart_rxd;
   wire rs232_uart_txd;
@@ -320,57 +304,17 @@ module top
   wire sys_diff_clock_clk_n;
   wire sys_diff_clock_clk_p;
 
-  top_axi_smc_1 axi_smc
-       (.M00_AXI_araddr(axi_smc_M00_AXI_ARADDR),
-        .M00_AXI_arprot(axi_smc_M00_AXI_ARPROT),
-        .M00_AXI_arready(axi_smc_M00_AXI_ARREADY),
-        .M00_AXI_arvalid(axi_smc_M00_AXI_ARVALID),
-        .M00_AXI_awaddr(axi_smc_M00_AXI_AWADDR),
-        .M00_AXI_awprot(axi_smc_M00_AXI_AWPROT),
-        .M00_AXI_awready(axi_smc_M00_AXI_AWREADY),
-        .M00_AXI_awvalid(axi_smc_M00_AXI_AWVALID),
-        .M00_AXI_bready(axi_smc_M00_AXI_BREADY),
-        .M00_AXI_bresp(axi_smc_M00_AXI_BRESP),
-        .M00_AXI_bvalid(axi_smc_M00_AXI_BVALID),
-        .M00_AXI_rdata(axi_smc_M00_AXI_RDATA),
-        .M00_AXI_rready(axi_smc_M00_AXI_RREADY),
-        .M00_AXI_rresp(axi_smc_M00_AXI_RRESP),
-        .M00_AXI_rvalid(axi_smc_M00_AXI_RVALID),
-        .M00_AXI_wdata(axi_smc_M00_AXI_WDATA),
-        .M00_AXI_wready(axi_smc_M00_AXI_WREADY),
-        .M00_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
-        .M00_AXI_wvalid(axi_smc_M00_AXI_WVALID),
-        .S00_AXI_araddr(microblaze_riscv_0_M_AXI_DP_ARADDR),
-        .S00_AXI_arprot(microblaze_riscv_0_M_AXI_DP_ARPROT),
-        .S00_AXI_arready(microblaze_riscv_0_M_AXI_DP_ARREADY),
-        .S00_AXI_arvalid(microblaze_riscv_0_M_AXI_DP_ARVALID),
-        .S00_AXI_awaddr(microblaze_riscv_0_M_AXI_DP_AWADDR),
-        .S00_AXI_awprot(microblaze_riscv_0_M_AXI_DP_AWPROT),
-        .S00_AXI_awready(microblaze_riscv_0_M_AXI_DP_AWREADY),
-        .S00_AXI_awvalid(microblaze_riscv_0_M_AXI_DP_AWVALID),
-        .S00_AXI_bready(microblaze_riscv_0_M_AXI_DP_BREADY),
-        .S00_AXI_bresp(microblaze_riscv_0_M_AXI_DP_BRESP),
-        .S00_AXI_bvalid(microblaze_riscv_0_M_AXI_DP_BVALID),
-        .S00_AXI_rdata(microblaze_riscv_0_M_AXI_DP_RDATA),
-        .S00_AXI_rready(microblaze_riscv_0_M_AXI_DP_RREADY),
-        .S00_AXI_rresp(microblaze_riscv_0_M_AXI_DP_RRESP),
-        .S00_AXI_rvalid(microblaze_riscv_0_M_AXI_DP_RVALID),
-        .S00_AXI_wdata(microblaze_riscv_0_M_AXI_DP_WDATA),
-        .S00_AXI_wready(microblaze_riscv_0_M_AXI_DP_WREADY),
-        .S00_AXI_wstrb(microblaze_riscv_0_M_AXI_DP_WSTRB),
-        .S00_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
-        .aclk(microblaze_riscv_0_Clk),
-        .aresetn(rst_clk_wiz_100M_peripheral_aresetn));
   top_clk_wiz_2 clk_wiz
        (.clk_in1_n(sys_diff_clock_clk_n),
         .clk_in1_p(sys_diff_clock_clk_p),
-        .clk_out1(microblaze_riscv_0_Clk),
+        .clk_out1(clk_wiz_clk_out1),
+        .clk_out2(clk_wiz_clk_out2),
         .locked(clk_wiz_locked),
         .reset(reset));
-  top_ila_0_0 ila_0
-       (.clk(microblaze_riscv_0_Clk),
+  top_ila_0_1 ila_0
+       (.clk(clk_wiz_clk_out1),
         .probe0(microblaze_riscv_0_M_AXI_DP_WREADY),
-        .probe1(microblaze_riscv_0_M_AXI_DP_AWADDR),
+        .probe1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .probe10(microblaze_riscv_0_M_AXI_DP_RDATA),
         .probe11(microblaze_riscv_0_M_AXI_DP_AWVALID),
         .probe12(microblaze_riscv_0_M_AXI_DP_AWREADY),
@@ -388,6 +332,12 @@ module top
         .probe7(microblaze_riscv_0_M_AXI_DP_WVALID),
         .probe8(microblaze_riscv_0_M_AXI_DP_ARVALID),
         .probe9(microblaze_riscv_0_M_AXI_DP_ARREADY));
+  top_ila_1_0 ila_1
+       (.clk(clk_wiz_clk_out2),
+        .probe0(mmio_subsystem_0_debug_r_state),
+        .probe1(mmio_subsystem_0_debug_w_next_state),
+        .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
+        .probe3(clk_wiz_clk_out1));
   top_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_riscv_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_riscv_0_debug_CLK),
@@ -403,7 +353,7 @@ module top
   (* KEEP_HIERARCHY = "yes" *) 
   top_microblaze_riscv_0_0 microblaze_riscv_0
        (.Byte_Enable(microblaze_riscv_0_dlmb_1_BE),
-        .Clk(microblaze_riscv_0_Clk),
+        .Clk(clk_wiz_clk_out1),
         .DCE(microblaze_riscv_0_dlmb_1_CE),
         .DReady(microblaze_riscv_0_dlmb_1_READY),
         .DUE(microblaze_riscv_0_dlmb_1_UE),
@@ -473,30 +423,32 @@ module top
         .ILMB_ready(microblaze_riscv_0_ilmb_1_READY),
         .ILMB_ue(microblaze_riscv_0_ilmb_1_UE),
         .ILMB_wait(microblaze_riscv_0_ilmb_1_WAIT),
-        .LMB_Clk(microblaze_riscv_0_Clk),
+        .LMB_Clk(clk_wiz_clk_out1),
         .SYS_Rst(rst_clk_wiz_100M_bus_struct_reset));
   top_mmio_subsystem_0_2 mmio_subsystem_0
-       (.S_AXI_araddr(axi_smc_M00_AXI_ARADDR),
-        .S_AXI_arprot(axi_smc_M00_AXI_ARPROT),
-        .S_AXI_arready(axi_smc_M00_AXI_ARREADY),
-        .S_AXI_arvalid(axi_smc_M00_AXI_ARVALID),
-        .S_AXI_awaddr(axi_smc_M00_AXI_AWADDR),
-        .S_AXI_awprot(axi_smc_M00_AXI_AWPROT),
-        .S_AXI_awready(axi_smc_M00_AXI_AWREADY),
-        .S_AXI_awvalid(axi_smc_M00_AXI_AWVALID),
-        .S_AXI_bready(axi_smc_M00_AXI_BREADY),
-        .S_AXI_bresp(axi_smc_M00_AXI_BRESP),
-        .S_AXI_bvalid(axi_smc_M00_AXI_BVALID),
-        .S_AXI_rdata(axi_smc_M00_AXI_RDATA),
-        .S_AXI_rready(axi_smc_M00_AXI_RREADY),
-        .S_AXI_rresp(axi_smc_M00_AXI_RRESP),
-        .S_AXI_rvalid(axi_smc_M00_AXI_RVALID),
-        .S_AXI_wdata(axi_smc_M00_AXI_WDATA),
-        .S_AXI_wready(axi_smc_M00_AXI_WREADY),
-        .S_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
-        .S_AXI_wvalid(axi_smc_M00_AXI_WVALID),
-        .aclk(microblaze_riscv_0_Clk),
+       (.S_AXI_araddr(microblaze_riscv_0_M_AXI_DP_ARADDR),
+        .S_AXI_arprot(microblaze_riscv_0_M_AXI_DP_ARPROT),
+        .S_AXI_arready(microblaze_riscv_0_M_AXI_DP_ARREADY),
+        .S_AXI_arvalid(microblaze_riscv_0_M_AXI_DP_ARVALID),
+        .S_AXI_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .S_AXI_awprot(microblaze_riscv_0_M_AXI_DP_AWPROT),
+        .S_AXI_awready(microblaze_riscv_0_M_AXI_DP_AWREADY),
+        .S_AXI_awvalid(microblaze_riscv_0_M_AXI_DP_AWVALID),
+        .S_AXI_bready(microblaze_riscv_0_M_AXI_DP_BREADY),
+        .S_AXI_bresp(microblaze_riscv_0_M_AXI_DP_BRESP),
+        .S_AXI_bvalid(microblaze_riscv_0_M_AXI_DP_BVALID),
+        .S_AXI_rdata(microblaze_riscv_0_M_AXI_DP_RDATA),
+        .S_AXI_rready(microblaze_riscv_0_M_AXI_DP_RREADY),
+        .S_AXI_rresp(microblaze_riscv_0_M_AXI_DP_RRESP),
+        .S_AXI_rvalid(microblaze_riscv_0_M_AXI_DP_RVALID),
+        .S_AXI_wdata(microblaze_riscv_0_M_AXI_DP_WDATA),
+        .S_AXI_wready(microblaze_riscv_0_M_AXI_DP_WREADY),
+        .S_AXI_wstrb(microblaze_riscv_0_M_AXI_DP_WSTRB),
+        .S_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
+        .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
+        .debug_r_state(mmio_subsystem_0_debug_r_state),
+        .debug_w_next_state(mmio_subsystem_0_debug_w_next_state),
         .in_ports(GPI),
         .out_ports(GPO),
         .rx(rs232_uart_rxd),
@@ -509,5 +461,5 @@ module top
         .mb_debug_sys_rst(mdm_1_debug_sys_rst),
         .mb_reset(rst_clk_wiz_100M_mb_reset),
         .peripheral_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
-        .slowest_sync_clk(microblaze_riscv_0_Clk));
+        .slowest_sync_clk(clk_wiz_clk_out1));
 endmodule

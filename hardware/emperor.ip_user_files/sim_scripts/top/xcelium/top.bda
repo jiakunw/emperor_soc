@@ -227,7 +227,7 @@
             "V5": {
                 "VT": "AC",
                 "BA": "0x46000000",
-                "HA": "0x46000FFF",
+                "HA": "0x4600FFFF",
                 "BP": "C_BASEADDR",
                 "HP": "C_HIGHADDR",
                 "MA": "Data",
@@ -238,7 +238,7 @@
                 "SX": "/mmio_subsystem_0",
                 "SI": "S_AXI",
                 "SS": "reg0",
-                "SV": "user.org:user:mmio_subsystem:1.0",
+                "SV": "user.org:user:mmio_subsystem:2.0",
                 "TM": "both",
                 "TU": "register"
             }

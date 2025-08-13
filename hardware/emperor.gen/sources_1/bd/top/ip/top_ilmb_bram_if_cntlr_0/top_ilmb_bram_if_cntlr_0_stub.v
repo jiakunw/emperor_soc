@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
 // Date        : Thu Jun 19 03:40:16 2025
 // Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_bram_if_cntlr_0/top_ilmb_bram_if_cntlr_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top top_ilmb_bram_if_cntlr_0 -prefix
+//               top_ilmb_bram_if_cntlr_0_ top_ilmb_bram_if_cntlr_0_stub.v
 // Design      : top_ilmb_bram_if_cntlr_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a200tfbg676-2

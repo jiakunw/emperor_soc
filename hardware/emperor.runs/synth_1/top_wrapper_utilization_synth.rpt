@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Mon Aug 11 15:57:37 2025
+| Date         : Wed Aug 13 13:56:34 2025
 | Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 | Command      : report_utilization -file top_wrapper_utilization_synth.rpt -pb top_wrapper_utilization_synth.pb
 | Design       : top_wrapper
@@ -171,11 +171,10 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | top_ilmb_v10_0           |    1 |
 | top_ilmb_bram_if_cntlr_0 |    1 |
 | top_ila_1_0              |    1 |
-| top_ila_0_0              |    1 |
+| top_ila_0_1              |    1 |
 | top_dlmb_v10_0           |    1 |
 | top_dlmb_bram_if_cntlr_0 |    1 |
 | top_clk_wiz_2            |    1 |
-| top_axi_smc_1            |    1 |
 +--------------------------+------+
 
 

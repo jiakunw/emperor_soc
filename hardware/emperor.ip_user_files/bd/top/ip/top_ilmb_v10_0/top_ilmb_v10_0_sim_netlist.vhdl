@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
 -- Date        : Thu Jun 19 03:40:19 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_v10_0/top_ilmb_v10_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_ilmb_v10_0 -prefix
+--               top_ilmb_v10_0_ top_ilmb_v10_0_sim_netlist.vhdl
 -- Design      : top_ilmb_v10_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -53,8 +53,6 @@ entity top_ilmb_v10_0_lmb_v10 is
   attribute C_LMB_NUM_SLAVES of top_ilmb_v10_0_lmb_v10 : entity is 1;
   attribute C_LMB_PROTOCOL : integer;
   attribute C_LMB_PROTOCOL of top_ilmb_v10_0_lmb_v10 : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_ilmb_v10_0_lmb_v10 : entity is "lmb_v10";
 end top_ilmb_v10_0_lmb_v10;
 
 architecture STRUCTURE of top_ilmb_v10_0_lmb_v10 is

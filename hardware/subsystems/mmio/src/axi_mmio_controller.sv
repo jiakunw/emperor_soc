@@ -66,7 +66,7 @@ module axi_mmio_controller
     input logic aclk, arst_n,
     // AXI slave interface with main Bus
     // write
-    input logic [15:0] S_AXI_awaddr,
+    input logic [31:0] S_AXI_awaddr,
     input logic [2:0] S_AXI_awprot,
     input logic S_AXI_awvalid,
     output logic S_AXI_awready,
@@ -78,7 +78,7 @@ module axi_mmio_controller
     output logic S_AXI_bvalid,
     input logic S_AXI_bready,
     // read
-    input logic [15:0] S_AXI_araddr,
+    input logic [31:0] S_AXI_araddr,
     input logic [2:0] S_AXI_arprot,
     input logic S_AXI_arvalid,
     output logic S_AXI_arready,
@@ -94,7 +94,11 @@ module axi_mmio_controller
     input logic [31:0] slot_rd_data [15:0],
     input logic [15:0] slot_wr_done, slot_rd_done, slot_idle,
     input logic [15:0] slot_slave_error, slot_decode_error,
-    output logic transaction_completed
+    output logic transaction_completed,
+    // debug
+    output logic [2:0] debug_r_state, debug_w_next_state,
+    output logic state_transition,
+    output logic [15:0] front_addr
     );
 
     enum logic [2:0] {
@@ -106,6 +110,12 @@ module axi_mmio_controller
         READ_2 = 3'd5,
         READ_RESP = 3'd6
     } r_state, w_next_state;
+
+    // debug
+    assign debug_r_state = r_state;
+    assign debug_w_next_state = w_next_state;
+    assign state_transition = S_AXI_awvalid && (S_AXI_awaddr[31:16] == 16'h4600);
+    assign front_addr = S_AXI_awaddr[31:16];
 
     // signal declarations
     logic [7:0] w_slot_addr, w_reg_addr;
@@ -148,14 +158,14 @@ module axi_mmio_controller
         case (r_state)
             INIT: begin
                 // when any of the devices is idle we can accept read/write addr
-                S_AXI_awready = S_AXI_awvalid && slot_idle[S_AXI_awaddr[7:4]]; 
-                S_AXI_arready = S_AXI_arvalid && slot_idle[S_AXI_araddr[7:4]];
+                S_AXI_awready = 1'b1; 
+                S_AXI_arready = 1'b1;
                 w_en_addr = S_AXI_awvalid || S_AXI_arvalid;
-                w_addr = (S_AXI_awready) ? S_AXI_awaddr :
-                         (S_AXI_arready) ? S_AXI_araddr :
+                w_addr = (S_AXI_awvalid) ? S_AXI_awaddr[15:0] :
+                         (S_AXI_arvalid) ? S_AXI_araddr[15:0] :
                          16'd0;
-                w_next_state = (S_AXI_awready) ? WRITE_1 :
-                               (S_AXI_arready) ? READ_1 :
+                w_next_state = (S_AXI_awvalid && (S_AXI_awaddr[31:16] == 16'h4600)) ? WRITE_1 :
+                               (S_AXI_arvalid && (S_AXI_araddr[31:16] == 16'h4600)) ? READ_1 :
                                INIT;
             end
             WRITE_1: begin

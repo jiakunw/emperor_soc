@@ -56,9 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "top_mmio_subsystem_0_2_synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param xicom.use_bs_reader 1
-set_param bd.open.in_stealth_mode 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tfbg676-2
@@ -69,7 +66,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/wt [current_project]
 set_property parent.project_path /home/wangjiakun/Development/emperor_soc/hardware/emperor.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:ac701:part0:1.4 [current_project]

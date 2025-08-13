@@ -1,0 +1,6 @@
+Duplicated file found; will not be sent for synthesis: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/1a36/src/const.sv
+Duplicated file found; will not be sent for synthesis: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/1a36/src/fifo.sv
+Duplicated file found; will not be sent for synthesis: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/1a36/src/rx_tx.sv
+Duplicated file found; will not be sent for synthesis: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/1a36/src/timer.sv
+Duplicated file found; will not be sent for synthesis: /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/1a36/src/uart.sv
+CRC performance measure: elapsed=00:00:00s;;memory_peak=2419.883MB;;memory_gain=0.000MB

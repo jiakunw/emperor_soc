@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/wangjiakun/Development/emperor_soc/hardware/emperor.hw/hw_1/wave/hw_ila_data_3/hw_ila_data_3.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="508"></ZoomStartTime>
+      <ZoomEndTime time="520"></ZoomEndTime>
+      <Cursor1Time time="512"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="477"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_0_debug_r_state">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_0_debug_r_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_0_debug_r_state[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_0_debug_w_next_state">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_0_debug_w_next_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_0_debug_w_next_state[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWVALID">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_AWVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/axi_smc_M00_AXI_awaddr">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/axi_smc_M00_AXI_awaddr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_smc_M00_AXI_awaddr[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/axi_smc_M00_AXI_awvalid">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/axi_smc_M00_AXI_awvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_smc_M00_AXI_awvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_0_S_AXI_wready">
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_0_S_AXI_wready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_0_S_AXI_wready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_0_S_AXI_awready">
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_0_S_AXI_awready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_0_S_AXI_awready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/axi_smc_M00_AXI_awvalid">
+      <obj_property name="ElementShortName">top_i/axi_smc_M00_AXI_awvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_smc_M00_AXI_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/axi_smc_M00_AXI_wdata">
+      <obj_property name="ElementShortName">top_i/axi_smc_M00_AXI_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_smc_M00_AXI_wdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/axi_smc_M00_AXI_wvalid">
+      <obj_property name="ElementShortName">top_i/axi_smc_M00_AXI_wvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_smc_M00_AXI_wvalid</obj_property>
+   </wvobject>
+</wave_config>

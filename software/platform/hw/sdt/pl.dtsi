@@ -220,7 +220,7 @@
 			status = "okay";
 			xlnx,ip-name = "mmio_subsystem";
 			xlnx,edk-iptype = "PERIPHERAL";
-			reg = <0x46000000 0x1000>;
+			reg = <0x46000000 0x10000>;
 			xlnx,num-input = <9>;
 			xlnx,name = "mmio_subsystem_0";
 		};

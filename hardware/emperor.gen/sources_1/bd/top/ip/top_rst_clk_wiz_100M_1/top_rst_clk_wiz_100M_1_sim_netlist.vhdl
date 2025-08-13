@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
 -- Date        : Thu Jun 19 03:40:17 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_rst_clk_wiz_100M_1 -prefix
+--               top_rst_clk_wiz_100M_1_ top_rst_clk_wiz_100M_1_sim_netlist.vhdl
 -- Design      : top_rst_clk_wiz_100M_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,8 +27,6 @@ entity top_rst_clk_wiz_100M_1_cdc_sync is
     mb_debug_sys_rst : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_rst_clk_wiz_100M_1_cdc_sync : entity is "cdc_sync";
 end top_rst_clk_wiz_100M_1_cdc_sync;
 
 architecture STRUCTURE of top_rst_clk_wiz_100M_1_cdc_sync is
@@ -248,8 +246,6 @@ entity top_rst_clk_wiz_100M_1_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_rst_clk_wiz_100M_1_upcnt_n : entity is "upcnt_n";
 end top_rst_clk_wiz_100M_1_upcnt_n;
 
 architecture STRUCTURE of top_rst_clk_wiz_100M_1_upcnt_n is
@@ -414,8 +410,6 @@ entity top_rst_clk_wiz_100M_1_lpf is
     mb_debug_sys_rst : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_rst_clk_wiz_100M_1_lpf : entity is "lpf";
 end top_rst_clk_wiz_100M_1_lpf;
 
 architecture STRUCTURE of top_rst_clk_wiz_100M_1_lpf is
@@ -604,8 +598,6 @@ entity top_rst_clk_wiz_100M_1_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_rst_clk_wiz_100M_1_sequence_psr : entity is "sequence_psr";
 end top_rst_clk_wiz_100M_1_sequence_psr;
 
 architecture STRUCTURE of top_rst_clk_wiz_100M_1_sequence_psr is
@@ -944,8 +936,6 @@ entity top_rst_clk_wiz_100M_1_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of top_rst_clk_wiz_100M_1_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of top_rst_clk_wiz_100M_1_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of top_rst_clk_wiz_100M_1_proc_sys_reset : entity is "proc_sys_reset";
 end top_rst_clk_wiz_100M_1_proc_sys_reset;
 
 architecture STRUCTURE of top_rst_clk_wiz_100M_1_proc_sys_reset is

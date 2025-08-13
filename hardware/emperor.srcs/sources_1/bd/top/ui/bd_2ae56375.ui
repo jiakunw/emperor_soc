@@ -1,48 +1,50 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.00947",
-   "Default View_TopLeft":"417,-823",
+   "Default View_ScaleFactor":"1.11538",
+   "Default View_TopLeft":"1200,1172",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
-preplace port rs232_uart -pg 1 -lvl 4 -x 1470 -y -380 -defaultsOSRD
-preplace port sys_diff_clock -pg 1 -lvl 0 -x 0 -y -40 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y -10 -defaultsOSRD
-preplace portBus GPO -pg 1 -lvl 4 -x 1470 -y -240 -defaultsOSRD
-preplace portBus GPI -pg 1 -lvl 1 -x 320 -y -720 -defaultsOSRD -top
-preplace inst clk_wiz -pg 1 -lvl 2 -x 560 -y 110 -defaultsOSRD
-preplace inst microblaze_riscv_0 -pg 1 -lvl 3 -x 1020 -y 130 -defaultsOSRD
-preplace inst microblaze_riscv_0_local_memory -pg 1 -lvl 3 -x 1020 -y 420 -defaultsOSRD
-preplace inst mdm_1 -pg 1 -lvl 1 -x 330 -y -190 -defaultsOSRD
-preplace inst rst_clk_wiz_100M -pg 1 -lvl 3 -x 1020 -y 720 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 3 -x 1020 -y 560 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 3 -x 1020 -y -210 -defaultsOSRD
-preplace inst mmio_subsystem_0 -pg 1 -lvl 3 -x 1020 -y -440 -defaultsOSRD
-preplace inst ila_1 -pg 1 -lvl 3 -x 1020 -y -50 -defaultsOSRD
-preplace netloc GPI_1 1 1 3 450 -530 NJ -530 1290
-preplace netloc clk_wiz_locked 1 2 1 670 120n
-preplace netloc mdm_1_debug_sys_rst 1 1 2 N -180 690
-preplace netloc microblaze_riscv_0_Clk 1 2 1 710 -440n
-preplace netloc mmio_subsystem_0_out_ports 1 3 1 1310 -450n
-preplace netloc reset_1 1 0 3 N -10 440 40 680
-preplace netloc rst_clk_wiz_100M_bus_struct_reset 1 2 2 760 330 1290
-preplace netloc rst_clk_wiz_100M_mb_reset 1 2 2 760 230 1280
-preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 2 2 720 320 1300
-preplace netloc axi_smc_M00_AXI 1 2 2 760 -120 1310J
-preplace netloc microblaze_riscv_0_M_AXI_DP 1 2 2 730 220 1290
-preplace netloc microblaze_riscv_0_debug 1 1 2 N -200 700
-preplace netloc microblaze_riscv_0_dlmb_1 1 2 2 740 30 1290
-preplace netloc microblaze_riscv_0_ilmb_1 1 2 2 750 40 1300
-preplace netloc mmio_subsystem_0_UART 1 3 1 1290J -410n
-preplace netloc sys_diff_clock_1 1 0 2 N -40 450
-levelinfo -pg 1 0 330 560 1020 1470
-pagesize -pg 1 -db -bbox -sgen -280 -820 1810 1210
+preplace port rs232_uart -pg 1 -lvl 3 -x 2020 -y 1250 -defaultsOSRD
+preplace port sys_diff_clock -pg 1 -lvl 0 -x 0 -y 980 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 1170 -defaultsOSRD
+preplace portBus GPO -pg 1 -lvl 3 -x 2020 -y 1060 -defaultsOSRD
+preplace portBus GPI -pg 1 -lvl 0 -x 0 -y 850 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 1 -x 830 -y 1360 -defaultsOSRD
+preplace inst microblaze_riscv_0 -pg 1 -lvl 2 -x 1620 -y 2520 -defaultsOSRD
+preplace inst microblaze_riscv_0_local_memory -pg 1 -lvl 2 -x 1620 -y 3140 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 1 -x 830 -y 1140 -defaultsOSRD
+preplace inst rst_clk_wiz_100M -pg 1 -lvl 2 -x 1620 -y 3380 -defaultsOSRD
+preplace inst mmio_subsystem_0 -pg 1 -lvl 2 -x 1620 -y 1410 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 2 -x 1620 -y 1930 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 2 -x 1620 -y 910 -defaultsOSRD
+preplace netloc GPI_1 1 0 3 30 790 NJ 790 1930
+preplace netloc clk_wiz_locked 1 1 1 940 1360n
+preplace netloc mdm_1_debug_sys_rst 1 1 1 950 1150n
+preplace netloc microblaze_riscv_0_M_AXI_DP_AWADDR 1 1 2 1300 1010 1960
+preplace netloc mmio_subsystem_0_debug_r_state 1 1 2 1280 800 1950
+preplace netloc mmio_subsystem_0_debug_w_next_state 1 1 2 1300 810 1970
+preplace netloc mmio_subsystem_0_out_ports 1 2 1 1990 1060n
+preplace netloc reset_1 1 0 2 710 3360 N
+preplace netloc rst_clk_wiz_100M_bus_struct_reset 1 1 2 1300 3050 1930
+preplace netloc rst_clk_wiz_100M_mb_reset 1 1 2 1300 2430 1970
+preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 1 2 1300 1300 1980
+preplace netloc clk_wiz_clk_out2 1 1 1 960 870n
+preplace netloc clk_wiz_clk_out1 1 1 1 1280 950n
+preplace netloc microblaze_riscv_0_debug 1 1 1 970 1130n
+preplace netloc microblaze_riscv_0_dlmb_1 1 1 2 1290 2610 1950
+preplace netloc microblaze_riscv_0_ilmb_1 1 1 2 1310 2620 1930
+preplace netloc mmio_subsystem_0_UART 1 2 1 2000J 1250n
+preplace netloc sys_diff_clock_1 1 0 1 720 980n
+preplace netloc microblaze_riscv_0_M_AXI_DP 1 1 2 1310 2000 1940
+levelinfo -pg 1 0 830 1620 2020
+pagesize -pg 1 -db -bbox -sgen -280 -1050 2140 3480
 "
 }
 {
    "da_axi4_cnt":"3",
    "da_board_cnt":"5",
-   "da_clkrst_cnt":"1",
+   "da_clkrst_cnt":"5",
    "da_mb_cnt":"2",
    "da_microblaze_riscv_cnt":"1"
 }

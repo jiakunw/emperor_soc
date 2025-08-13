@@ -2,10 +2,10 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-// Date        : Thu Jun 19 03:40:39 2025
+// Date        : Thu Jun 19 03:40:38 2025
 // Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top top_microblaze_riscv_0_0 -prefix
+//               top_microblaze_riscv_0_0_ top_microblaze_riscv_0_0_stub.v
 // Design      : top_microblaze_riscv_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a200tfbg676-2

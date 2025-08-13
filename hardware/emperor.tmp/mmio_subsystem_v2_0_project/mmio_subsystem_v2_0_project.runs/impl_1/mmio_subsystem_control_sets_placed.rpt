@@ -1,0 +1,134 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Aug 13 13:31:36 2025
+| Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
+| Command      : report_control_sets -verbose -file mmio_subsystem_control_sets_placed.rpt
+| Design       : mmio_subsystem
+| Device       : xc7a200t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    56 |
+|    Minimum number of control sets                        |    56 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   114 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    56 |
+| >= 0 to < 4        |    11 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |    32 |
+| >= 10 to < 12      |     3 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              46 |           17 |
+| No           | No                    | Yes                    |             105 |           40 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             399 |          131 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------+--------------------------------------------------------------+-------------------------------------+------------------+----------------+--------------+
+|             Clock Signal             |                         Enable Signal                        |           Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------------+--------------------------------------------------------------+-------------------------------------+------------------+----------------+--------------+
+|  control/w_decode_error__0           |                                                              |                                     |                1 |              1 |         1.00 |
+|  aclk_IBUF_BUFG                      | control/r_addr_reg[0]_1[2]                                   | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              1 |         1.00 |
+|  control/w_slave_error__0            |                                                              |                                     |                1 |              1 |         1.00 |
+|  control/w_rd_done__0                |                                                              |                                     |                1 |              1 |         1.00 |
+|  aclk_IBUF_BUFG                      | control/r_addr_reg[0]_1[3]                                   | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              1 |         1.00 |
+|  aclk_IBUF_BUFG                      | control/r_addr_reg[0]_1[1]                                   | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              1 |         1.00 |
+|  aclk_IBUF_BUFG                      | control/r_addr_reg[0]_1[0]                                   | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              1 |         1.00 |
+|  emperor_gpio/w_next_state           |                                                              |                                     |                1 |              2 |         2.00 |
+|  emperor_timer/w_next_state          |                                                              |                                     |                1 |              3 |         3.00 |
+|  control/w_next_state_reg[2]_i_2_n_0 |                                                              |                                     |                1 |              3 |         3.00 |
+|  emperor_uart/w_next_state           |                                                              |                                     |                1 |              3 |         3.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_inst/FSM_sequential_r_state_reg[1]_0[0] | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              4 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_inst/E[0]                               | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              4 |         2.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_inst/E[0]                               | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              4 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_rd_logic[3]_i_1_n_0      | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              4 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_6[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[1]_2[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_7[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[1]_0[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_0[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_9[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[1]_3[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_8[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[1]_1[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[0]_3[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[0]_1[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[0]_0[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[0]_2[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/E[0]                       | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_7[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                4 |              8 |         2.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_1[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_10[0]    | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_2[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_3[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_4[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                4 |              8 |         2.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_5[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_6[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_2[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_1[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_3[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_4[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_5[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_10[0]    | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/r_wr_logic_reg[0]_0[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_8[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                1 |              8 |         8.00 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_fifo/control/E[0]                       | emperor_uart/core/tx_fifo/rf/arst_n |                3 |              8 |         2.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_fifo/control/r_wr_logic_reg[1]_9[0]     | emperor_uart/core/tx_fifo/rf/arst_n |                2 |              8 |         4.00 |
+|  aclk_IBUF_BUFG                      | control/FSM_onehot_r_state_reg[1][0]                         | emperor_uart/core/tx_fifo/rf/arst_n |                3 |             10 |         3.33 |
+|  aclk_IBUF_BUFG                      | control/E[0]                                                 | emperor_uart/core/tx_fifo/rf/arst_n |                4 |             10 |         2.50 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/tx_inst/r_in_shift[7]_i_1_n_0              | emperor_uart/core/tx_fifo/rf/arst_n |                3 |             11 |         3.67 |
+|  aclk_IBUF_BUFG                      | emperor_uart/core/rx_inst/r_data_bits_received[3]_i_1_n_0    | emperor_uart/core/tx_fifo/rf/arst_n |                4 |             12 |         3.00 |
+|  aclk_IBUF_BUFG                      | control/w_en_addr                                            | emperor_uart/core/tx_fifo/rf/arst_n |               10 |             16 |         1.60 |
+|  aclk_IBUF_BUFG                      | emperor_timer/r_counter[31]_i_1_n_0                          | emperor_uart/core/tx_fifo/rf/arst_n |               21 |             32 |         1.52 |
+|  aclk_IBUF_BUFG                      | control/r_addr_reg[0]_0[0]                                   | emperor_uart/core/tx_fifo/rf/arst_n |               10 |             32 |         3.20 |
+|  w_rd_data__0                        |                                                              |                                     |               10 |             32 |         3.20 |
+|  aclk_IBUF_BUFG                      |                                                              | emperor_uart/core/tx_fifo/rf/arst_n |               40 |            105 |         2.62 |
++--------------------------------------+--------------------------------------------------------------+-------------------------------------+------------------+----------------+--------------+
+
+

@@ -20,13 +20,15 @@
 #include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
+#include "xil_cache.h"
 #include "emperor_gpio.h"
 
 
 int main()
 {
+    Xil_DCacheDisable();
     init_platform();
-
+    
     gpio_write(GPIO_LED_0, 1);
     // gpio_read(GPIO_SW_N);  
 
