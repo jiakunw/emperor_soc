@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:mmio_subsystem:2.0
-// IP Revision: 1
+// IP Revision: 2
 
 `timescale 1ns/1ps
 
@@ -82,8 +82,8 @@ module top_mmio_subsystem_1_0 (
   tx,
   debug_r_state,
   debug_w_next_state,
-  debug_state_transition,
-  debug_front_addr
+  debug_slot_wr_data,
+  debug_slot_chip_select
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
@@ -147,8 +147,10 @@ input wire rx;
 output wire tx;
 output wire [2 : 0] debug_r_state;
 output wire [2 : 0] debug_w_next_state;
-output wire debug_state_transition;
-output wire [15 : 0] debug_front_addr;
+output wire [511 : 0] debug_slot_wr_data;
+wire  [31:0] debug_slot_wr_data_unpacked [15:0];
+assign {>>{debug_slot_wr_data}} = debug_slot_wr_data_unpacked;
+output wire [15 : 0] debug_slot_chip_select;
 
   mmio_subsystem #(
     .NUM_INPUT(9),
@@ -181,7 +183,7 @@ output wire [15 : 0] debug_front_addr;
     .tx(tx),
     .debug_r_state(debug_r_state),
     .debug_w_next_state(debug_w_next_state),
-    .debug_state_transition(debug_state_transition),
-    .debug_front_addr(debug_front_addr)
+    .debug_slot_wr_data(debug_slot_wr_data_unpacked),
+    .debug_slot_chip_select(debug_slot_chip_select)
   );
 endmodule

@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Wed Aug 13 15:38:17 2025
+//Date        : Wed Aug 13 18:40:20 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,7 +223,7 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=11,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (GPI,
     GPO,
@@ -295,7 +295,6 @@ module top
   wire mmio_subsystem_1_S_AXI_wready;
   wire [15:0]mmio_subsystem_1_debug_front_addr;
   wire [2:0]mmio_subsystem_1_debug_r_state;
-  wire mmio_subsystem_1_debug_state_transition;
   wire [2:0]mmio_subsystem_1_debug_w_next_state;
   wire reset;
   wire rs232_uart_rxd;
@@ -313,35 +312,19 @@ module top
         .clk_out2(clk_wiz_clk_out2),
         .locked(clk_wiz_locked),
         .reset(reset));
-  top_ila_0_1 ila_0
-       (.clk(clk_wiz_clk_out1),
-        .probe0(1'b0),
-        .probe1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .probe10({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .probe11(1'b0),
-        .probe12(1'b0),
-        .probe13({1'b0,1'b0}),
-        .probe14({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .probe15({1'b1,1'b1,1'b1,1'b1}),
-        .probe16(1'b0),
-        .probe17({1'b0,1'b0,1'b0}),
-        .probe18({1'b0,1'b0,1'b0}),
-        .probe2({1'b0,1'b0}),
-        .probe3(1'b0),
-        .probe4(1'b0),
-        .probe5({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .probe6(1'b0),
-        .probe7(1'b0),
-        .probe8(1'b0),
-        .probe9(1'b0));
   top_ila_1_0 ila_1
        (.clk(clk_wiz_clk_out2),
         .probe0(mmio_subsystem_1_debug_r_state),
         .probe1(mmio_subsystem_1_debug_w_next_state),
+        .probe10(microblaze_riscv_0_M_AXI_DP_BREADY),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
         .probe3(clk_wiz_clk_out1),
         .probe4(mmio_subsystem_1_debug_front_addr),
-        .probe5(mmio_subsystem_1_debug_state_transition));
+        .probe5(mmio_subsystem_1_S_AXI_bvalid),
+        .probe6(microblaze_riscv_0_M_AXI_DP_WVALID),
+        .probe7(microblaze_riscv_0_M_AXI_DP_AWVALID),
+        .probe8(microblaze_riscv_0_M_AXI_DP_WDATA),
+        .probe9(mmio_subsystem_1_S_AXI_bresp));
   top_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_riscv_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_riscv_0_debug_CLK),
@@ -451,9 +434,8 @@ module top
         .S_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
         .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
-        .debug_front_addr(mmio_subsystem_1_debug_front_addr),
         .debug_r_state(mmio_subsystem_1_debug_r_state),
-        .debug_state_transition(mmio_subsystem_1_debug_state_transition),
+        .debug_slot_chip_select(mmio_subsystem_1_debug_front_addr),
         .debug_w_next_state(mmio_subsystem_1_debug_w_next_state),
         .in_ports(GPI),
         .out_ports(GPO),

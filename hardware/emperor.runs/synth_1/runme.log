@@ -8,12 +8,12 @@ WARNING: Default location for XILINX_HLS not found
   **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Wed Aug 13 15:38:21 2025
+  **** Start of session at: Wed Aug 13 18:42:02 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source top_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:01:17 . Memory (MB): peak = 1511.570 ; gain = 146.809 ; free physical = 4014 ; free virtual = 7293
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1504.031 ; gain = 24.840 ; free physical = 4211 ; free virtual = 8453
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
@@ -29,305 +29,68 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 110898
+INFO: [Synth 8-7075] Helper process launched with PID 360438
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2236.680 ; gain = 424.828 ; free physical = 1509 ; free virtual = 6182
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2213.203 ; gain = 419.797 ; free physical = 3234 ; free virtual = 7476
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_wrapper' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'top' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:226]
-INFO: [Synth 8-6157] synthesizing module 'top_clk_wiz_2' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_clk_wiz_2' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:316]
-INFO: [Synth 8-6157] synthesizing module 'top_ila_0_1' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_ila_0_1' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_0_1_stub.v:6]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:337]
-INFO: [Synth 8-6157] synthesizing module 'top_ila_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_ila_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'top_mdm_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mdm_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_mdm_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mdm_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'top_microblaze_riscv_0_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_riscv_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_microblaze_riscv_0_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_riscv_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'top_microblaze_riscv_0_0' is unconnected for instance 'microblaze_riscv_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:358]
-WARNING: [Synth 8-7023] instance 'microblaze_riscv_0' of module 'top_microblaze_riscv_0_0' has 52 connections declared, but only 51 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:358]
+INFO: [Synth 8-6157] synthesizing module 'top_clk_wiz_2' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_clk_wiz_2' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_clk_wiz_2_stub.v:6]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:315]
+INFO: [Synth 8-6157] synthesizing module 'top_ila_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_ila_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ila_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_mdm_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mdm_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_mdm_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mdm_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_microblaze_riscv_0_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_riscv_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_microblaze_riscv_0_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_microblaze_riscv_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'top_microblaze_riscv_0_0' is unconnected for instance 'microblaze_riscv_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:341]
+WARNING: [Synth 8-7023] instance 'microblaze_riscv_0' of module 'top_microblaze_riscv_0_0' has 52 connections declared, but only 51 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:341]
 INFO: [Synth 8-6157] synthesizing module 'microblaze_riscv_0_local_memory_imp_16BDO8R' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13]
-INFO: [Synth 8-6157] synthesizing module 'top_dlmb_bram_if_cntlr_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_dlmb_bram_if_cntlr_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'top_dlmb_v10_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_dlmb_v10_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_dlmb_bram_if_cntlr_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_dlmb_bram_if_cntlr_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_dlmb_v10_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_dlmb_v10_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_dlmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'top_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:138]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'top_dlmb_v10_0' has 25 connections declared, but only 24 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:138]
-INFO: [Synth 8-6157] synthesizing module 'top_ilmb_bram_if_cntlr_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_ilmb_bram_if_cntlr_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'top_ilmb_v10_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_ilmb_v10_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_ilmb_bram_if_cntlr_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_ilmb_bram_if_cntlr_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_ilmb_v10_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_ilmb_v10_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_ilmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'top_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:184]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'top_ilmb_v10_0' has 25 connections declared, but only 24 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:184]
-INFO: [Synth 8-6157] synthesizing module 'top_lmb_bram_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_lmb_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_lmb_bram_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'top_lmb_bram_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_lmb_bram_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_lmb_bram_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'top_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:209]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'top_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:209]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'top_lmb_bram_0' has 16 connections declared, but only 14 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:209]
 INFO: [Synth 8-6155] done synthesizing module 'microblaze_riscv_0_local_memory_imp_16BDO8R' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:13]
-INFO: [Synth 8-6157] synthesizing module 'top_mmio_subsystem_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mmio_subsystem_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_mmio_subsystem_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mmio_subsystem_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'top_rst_clk_wiz_100M_1' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top_rst_clk_wiz_100M_1' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-110459-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'top_rst_clk_wiz_100M_1' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:462]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'top_rst_clk_wiz_100M_1' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:462]
-WARNING: [Synth 8-7023] instance 'rst_clk_wiz_100M' of module 'top_rst_clk_wiz_100M_1' has 10 connections declared, but only 8 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:462]
+INFO: [Synth 8-6157] synthesizing module 'top_mmio_subsystem_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mmio_subsystem_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_mmio_subsystem_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_mmio_subsystem_1_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'debug_slot_wr_data' of module 'top_mmio_subsystem_1_0' is unconnected for instance 'mmio_subsystem_1' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:415]
+WARNING: [Synth 8-7023] instance 'mmio_subsystem_1' of module 'top_mmio_subsystem_1_0' has 29 connections declared, but only 28 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:415]
+INFO: [Synth 8-6157] synthesizing module 'top_rst_clk_wiz_100M_1' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_rst_clk_wiz_100M_1' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/.Xil/Vivado-360347-wangjiakun-Inspiron-14-Plus-7430/realtime/top_rst_clk_wiz_100M_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'top_rst_clk_wiz_100M_1' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:444]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'top_rst_clk_wiz_100M_1' is unconnected for instance 'rst_clk_wiz_100M' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:444]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_100M' of module 'top_rst_clk_wiz_100M_1' has 10 connections declared, but only 8 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:444]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:226]
 INFO: [Synth 8-6155] done synthesizing module 'top_wrapper' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/hdl/top_wrapper.v:13]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'mmio_subsystem_1'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:432]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_1'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:337]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'clk_wiz'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:309]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rst_clk_wiz_100M'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:462]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'microblaze_riscv_0_local_memory'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:410]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:316]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'mmio_subsystem_1'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:415]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_1'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:315]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'clk_wiz'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:308]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rst_clk_wiz_100M'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:444]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'microblaze_riscv_0_local_memory'. This will prevent further optimization [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/synth/top.v:393]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2315.617 ; gain = 503.766 ; free physical = 1499 ; free virtual = 6175
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2291.141 ; gain = 497.734 ; free physical = 3197 ; free virtual = 7479
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2327.492 ; gain = 515.641 ; free physical = 1511 ; free virtual = 6187
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2305.984 ; gain = 512.578 ; free physical = 3197 ; free virtual = 7479
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2327.492 ; gain = 515.641 ; free physical = 1511 ; free virtual = 6187
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2305.984 ; gain = 512.578 ; free physical = 3197 ; free virtual = 7479
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2327.492 ; gain = 0.000 ; free physical = 1509 ; free virtual = 6187
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc] for cell 'top_i/clk_wiz'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc] for cell 'top_i/clk_wiz'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0/top_microblaze_riscv_0_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_dlmb_v10_0/top_dlmb_v10_0/top_ilmb_v10_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/dlmb_v10'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_dlmb_v10_0/top_dlmb_v10_0/top_ilmb_v10_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/dlmb_v10'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_v10_0/top_ilmb_v10_0/top_ilmb_v10_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/ilmb_v10'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_v10_0/top_ilmb_v10_0/top_ilmb_v10_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/ilmb_v10'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_dlmb_bram_if_cntlr_0/top_dlmb_bram_if_cntlr_0/top_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_dlmb_bram_if_cntlr_0/top_dlmb_bram_if_cntlr_0/top_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_bram_if_cntlr_0/top_ilmb_bram_if_cntlr_0/top_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/ilmb_bram_if_cntlr'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ilmb_bram_if_cntlr_0/top_ilmb_bram_if_cntlr_0/top_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/ilmb_bram_if_cntlr'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_lmb_bram_0/top_lmb_bram_0/top_lmb_bram_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/lmb_bram'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_lmb_bram_0/top_lmb_bram_0/top_lmb_bram_0_in_context.xdc] for cell 'top_i/microblaze_riscv_0_local_memory/lmb_bram'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mdm_1_0/top_mdm_1_0/top_mdm_1_0_in_context.xdc] for cell 'top_i/mdm_1'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mdm_1_0/top_mdm_1_0/top_mdm_1_0_in_context.xdc] for cell 'top_i/mdm_1'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_in_context.xdc] for cell 'top_i/rst_clk_wiz_100M'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1/top_rst_clk_wiz_100M_1_in_context.xdc] for cell 'top_i/rst_clk_wiz_100M'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_0_1/top_ila_0_1/top_ila_0_0_in_context.xdc] for cell 'top_i/ila_0'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_0_1/top_ila_0_1/top_ila_0_0_in_context.xdc] for cell 'top_i/ila_0'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/top_ila_1_0/top_ila_1_0_in_context.xdc] for cell 'top_i/ila_1'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/top_ila_1_0/top_ila_1_0_in_context.xdc] for cell 'top_i/ila_1'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0_in_context.xdc] for cell 'top_i/mmio_subsystem_1'
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0_in_context.xdc] for cell 'top_i/mmio_subsystem_1'
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/constrs_1/new/mmio_subsystem.xdc]
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/constrs_1/new/mmio_subsystem.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/wangjiakun/Development/emperor_soc/hardware/emperor.srcs/constrs_1/new/mmio_subsystem.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_wrapper_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/dont_touch.xdc]
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2376.418 ; gain = 0.000 ; free physical = 1497 ; free virtual = 6198
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2376.418 ; gain = 0.000 ; free physical = 1503 ; free virtual = 6205
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'top_i/microblaze_riscv_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2376.418 ; gain = 564.566 ; free physical = 1545 ; free virtual = 6250
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a200tfbg676-2
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2384.422 ; gain = 572.570 ; free physical = 1545 ; free virtual = 6250
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for sys_diff_clock_clk_n. (constraint file  /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_diff_clock_clk_n. (constraint file  /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc, line 5).
-Applied set_property IO_BUFFER_TYPE = NONE for sys_diff_clock_clk_p. (constraint file  /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc, line 6).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_diff_clock_clk_p. (constraint file  /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_clk_wiz_2/top_clk_wiz_2/top_clk_wiz_2_in_context.xdc, line 7).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/clk_wiz. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0_local_memory/dlmb_v10. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0_local_memory/ilmb_v10. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0_local_memory/ilmb_bram_if_cntlr. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/microblaze_riscv_0_local_memory/lmb_bram. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/mdm_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/rst_clk_wiz_100M. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/ila_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/ila_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for top_i/mmio_subsystem_1. (constraint file  auto generated constraint).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2384.422 ; gain = 572.570 ; free physical = 1558 ; free virtual = 6263
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2384.422 ; gain = 572.570 ; free physical = 1558 ; free virtual = 6264
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 740 (col length:100)
-BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2384.422 ; gain = 572.570 ; free physical = 1560 ; free virtual = 6272
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2459.422 ; gain = 647.570 ; free physical = 1518 ; free virtual = 6241
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2459.422 ; gain = 647.570 ; free physical = 1518 ; free virtual = 6241
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2469.438 ; gain = 657.586 ; free physical = 1510 ; free virtual = 6234
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+------+-------------------------+----------+
-|      |BlackBox name            |Instances |
-+------+-------------------------+----------+
-|1     |top_clk_wiz_2            |         1|
-|2     |top_ila_0_1              |         1|
-|3     |top_ila_1_0              |         1|
-|4     |top_mdm_1_0              |         1|
-|5     |top_microblaze_riscv_0_0 |         1|
-|6     |top_dlmb_bram_if_cntlr_0 |         1|
-|7     |top_dlmb_v10_0           |         1|
-|8     |top_ilmb_bram_if_cntlr_0 |         1|
-|9     |top_ilmb_v10_0           |         1|
-|10    |top_lmb_bram_0           |         1|
-|11    |top_mmio_subsystem_1_0   |         1|
-|12    |top_rst_clk_wiz_100M_1   |         1|
-+------+-------------------------+----------+
-
-Report Cell Usage: 
-+------+-----------------------+------+
-|      |Cell                   |Count |
-+------+-----------------------+------+
-|1     |top_clk_wiz            |     1|
-|2     |top_dlmb_bram_if_cntlr |     1|
-|3     |top_dlmb_v10           |     1|
-|4     |top_ila_0              |     1|
-|5     |top_ila_1              |     1|
-|6     |top_ilmb_bram_if_cntlr |     1|
-|7     |top_ilmb_v10           |     1|
-|8     |top_lmb_bram           |     1|
-|9     |top_mdm_1              |     1|
-|10    |top_microblaze_riscv_0 |     1|
-|11    |top_mmio_subsystem_1   |     1|
-|12    |top_rst_clk_wiz_100M   |     1|
-|13    |IBUF                   |    11|
-|14    |OBUF                   |     5|
-+------+-----------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.250 ; gain = 819.398 ; free physical = 1386 ; free virtual = 6106
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2631.250 ; gain = 770.473 ; free physical = 1388 ; free virtual = 6108
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2631.258 ; gain = 819.398 ; free physical = 1388 ; free virtual = 6108
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2631.258 ; gain = 0.000 ; free physical = 1380 ; free virtual = 6102
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2631.258 ; gain = 0.000 ; free physical = 1519 ; free virtual = 6241
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Synth Design complete | Checksum: 58b5b641
-INFO: [Common 17-83] Releasing license: Synthesis
-58 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2631.258 ; gain = 1058.297 ; free physical = 1519 ; free virtual = 6241
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1872.371; main = 1712.313; forked = 438.100
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3312.988; main = 2631.254; forked = 928.562
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2655.262 ; gain = 0.000 ; free physical = 1518 ; free virtual = 6241
-INFO: [Common 17-1381] The checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/top_wrapper.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file top_wrapper_utilization_synth.rpt -pb top_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 15:40:30 2025...
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2305.984 ; gain = 0.000 ; free physical = 3197 ; free virtual = 7479

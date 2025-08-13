@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Wed Aug 13 15:16:44 2025
+//Date        : Wed Aug 13 18:04:41 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,7 +223,7 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=12,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=11,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (GPI,
     GPO,
@@ -248,21 +248,13 @@ module top
   wire mdm_1_debug_sys_rst;
   wire [31:0]microblaze_riscv_0_M_AXI_DP_ARADDR;
   wire [2:0]microblaze_riscv_0_M_AXI_DP_ARPROT;
-  wire microblaze_riscv_0_M_AXI_DP_ARREADY;
   wire microblaze_riscv_0_M_AXI_DP_ARVALID;
   wire [31:0]microblaze_riscv_0_M_AXI_DP_AWADDR;
   wire [2:0]microblaze_riscv_0_M_AXI_DP_AWPROT;
-  wire microblaze_riscv_0_M_AXI_DP_AWREADY;
   wire microblaze_riscv_0_M_AXI_DP_AWVALID;
   wire microblaze_riscv_0_M_AXI_DP_BREADY;
-  wire [1:0]microblaze_riscv_0_M_AXI_DP_BRESP;
-  wire microblaze_riscv_0_M_AXI_DP_BVALID;
-  wire [31:0]microblaze_riscv_0_M_AXI_DP_RDATA;
   wire microblaze_riscv_0_M_AXI_DP_RREADY;
-  wire [1:0]microblaze_riscv_0_M_AXI_DP_RRESP;
-  wire microblaze_riscv_0_M_AXI_DP_RVALID;
   wire [31:0]microblaze_riscv_0_M_AXI_DP_WDATA;
-  wire microblaze_riscv_0_M_AXI_DP_WREADY;
   wire [3:0]microblaze_riscv_0_M_AXI_DP_WSTRB;
   wire microblaze_riscv_0_M_AXI_DP_WVALID;
   wire microblaze_riscv_0_debug_CAPTURE;
@@ -293,9 +285,17 @@ module top
   wire microblaze_riscv_0_ilmb_1_READY;
   wire microblaze_riscv_0_ilmb_1_UE;
   wire microblaze_riscv_0_ilmb_1_WAIT;
+  wire mmio_subsystem_1_S_AXI_arready;
+  wire mmio_subsystem_1_S_AXI_awready;
+  wire [1:0]mmio_subsystem_1_S_AXI_bresp;
+  wire mmio_subsystem_1_S_AXI_bvalid;
+  wire [31:0]mmio_subsystem_1_S_AXI_rdata;
+  wire [1:0]mmio_subsystem_1_S_AXI_rresp;
+  wire mmio_subsystem_1_S_AXI_rvalid;
+  wire mmio_subsystem_1_S_AXI_wready;
   wire [15:0]mmio_subsystem_1_debug_front_addr;
   wire [2:0]mmio_subsystem_1_debug_r_state;
-  wire mmio_subsystem_1_debug_state_transition;
+  wire [511:0]mmio_subsystem_1_debug_slot_wr_data;
   wire [2:0]mmio_subsystem_1_debug_w_next_state;
   wire reset;
   wire rs232_uart_rxd;
@@ -313,35 +313,20 @@ module top
         .clk_out2(clk_wiz_clk_out2),
         .locked(clk_wiz_locked),
         .reset(reset));
-  top_ila_0_1 ila_0
-       (.clk(clk_wiz_clk_out1),
-        .probe0(microblaze_riscv_0_M_AXI_DP_WREADY),
-        .probe1({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .probe10(microblaze_riscv_0_M_AXI_DP_RDATA),
-        .probe11(microblaze_riscv_0_M_AXI_DP_AWVALID),
-        .probe12(microblaze_riscv_0_M_AXI_DP_AWREADY),
-        .probe13(microblaze_riscv_0_M_AXI_DP_RRESP),
-        .probe14(microblaze_riscv_0_M_AXI_DP_WDATA),
-        .probe15(microblaze_riscv_0_M_AXI_DP_WSTRB),
-        .probe16(microblaze_riscv_0_M_AXI_DP_RVALID),
-        .probe17(microblaze_riscv_0_M_AXI_DP_ARPROT),
-        .probe18(microblaze_riscv_0_M_AXI_DP_AWPROT),
-        .probe2(microblaze_riscv_0_M_AXI_DP_BRESP),
-        .probe3(microblaze_riscv_0_M_AXI_DP_BVALID),
-        .probe4(microblaze_riscv_0_M_AXI_DP_BREADY),
-        .probe5(microblaze_riscv_0_M_AXI_DP_ARADDR),
-        .probe6(microblaze_riscv_0_M_AXI_DP_RREADY),
-        .probe7(microblaze_riscv_0_M_AXI_DP_WVALID),
-        .probe8(microblaze_riscv_0_M_AXI_DP_ARVALID),
-        .probe9(microblaze_riscv_0_M_AXI_DP_ARREADY));
   top_ila_1_0 ila_1
        (.clk(clk_wiz_clk_out2),
         .probe0(mmio_subsystem_1_debug_r_state),
         .probe1(mmio_subsystem_1_debug_w_next_state),
+        .probe10(microblaze_riscv_0_M_AXI_DP_BREADY),
+        .probe11(mmio_subsystem_1_S_AXI_bvalid),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
         .probe3(clk_wiz_clk_out1),
         .probe4(mmio_subsystem_1_debug_front_addr),
-        .probe5(mmio_subsystem_1_debug_state_transition));
+        .probe5(mmio_subsystem_1_debug_slot_wr_data),
+        .probe6(microblaze_riscv_0_M_AXI_DP_WVALID),
+        .probe7(microblaze_riscv_0_M_AXI_DP_AWVALID),
+        .probe8(microblaze_riscv_0_M_AXI_DP_WDATA),
+        .probe9(mmio_subsystem_1_S_AXI_bresp));
   top_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_riscv_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_riscv_0_debug_CLK),
@@ -387,21 +372,21 @@ module top
         .Interrupt_Address({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .M_AXI_DP_ARADDR(microblaze_riscv_0_M_AXI_DP_ARADDR),
         .M_AXI_DP_ARPROT(microblaze_riscv_0_M_AXI_DP_ARPROT),
-        .M_AXI_DP_ARREADY(microblaze_riscv_0_M_AXI_DP_ARREADY),
+        .M_AXI_DP_ARREADY(mmio_subsystem_1_S_AXI_arready),
         .M_AXI_DP_ARVALID(microblaze_riscv_0_M_AXI_DP_ARVALID),
         .M_AXI_DP_AWADDR(microblaze_riscv_0_M_AXI_DP_AWADDR),
         .M_AXI_DP_AWPROT(microblaze_riscv_0_M_AXI_DP_AWPROT),
-        .M_AXI_DP_AWREADY(microblaze_riscv_0_M_AXI_DP_AWREADY),
+        .M_AXI_DP_AWREADY(mmio_subsystem_1_S_AXI_awready),
         .M_AXI_DP_AWVALID(microblaze_riscv_0_M_AXI_DP_AWVALID),
         .M_AXI_DP_BREADY(microblaze_riscv_0_M_AXI_DP_BREADY),
-        .M_AXI_DP_BRESP(microblaze_riscv_0_M_AXI_DP_BRESP),
-        .M_AXI_DP_BVALID(microblaze_riscv_0_M_AXI_DP_BVALID),
-        .M_AXI_DP_RDATA(microblaze_riscv_0_M_AXI_DP_RDATA),
+        .M_AXI_DP_BRESP(mmio_subsystem_1_S_AXI_bresp),
+        .M_AXI_DP_BVALID(mmio_subsystem_1_S_AXI_bvalid),
+        .M_AXI_DP_RDATA(mmio_subsystem_1_S_AXI_rdata),
         .M_AXI_DP_RREADY(microblaze_riscv_0_M_AXI_DP_RREADY),
-        .M_AXI_DP_RRESP(microblaze_riscv_0_M_AXI_DP_RRESP),
-        .M_AXI_DP_RVALID(microblaze_riscv_0_M_AXI_DP_RVALID),
+        .M_AXI_DP_RRESP(mmio_subsystem_1_S_AXI_rresp),
+        .M_AXI_DP_RVALID(mmio_subsystem_1_S_AXI_rvalid),
         .M_AXI_DP_WDATA(microblaze_riscv_0_M_AXI_DP_WDATA),
-        .M_AXI_DP_WREADY(microblaze_riscv_0_M_AXI_DP_WREADY),
+        .M_AXI_DP_WREADY(mmio_subsystem_1_S_AXI_wready),
         .M_AXI_DP_WSTRB(microblaze_riscv_0_M_AXI_DP_WSTRB),
         .M_AXI_DP_WVALID(microblaze_riscv_0_M_AXI_DP_WVALID),
         .Read_Strobe(microblaze_riscv_0_dlmb_1_READSTROBE),
@@ -432,28 +417,28 @@ module top
   top_mmio_subsystem_1_0 mmio_subsystem_1
        (.S_AXI_araddr(microblaze_riscv_0_M_AXI_DP_ARADDR),
         .S_AXI_arprot(microblaze_riscv_0_M_AXI_DP_ARPROT),
-        .S_AXI_arready(microblaze_riscv_0_M_AXI_DP_ARREADY),
+        .S_AXI_arready(mmio_subsystem_1_S_AXI_arready),
         .S_AXI_arvalid(microblaze_riscv_0_M_AXI_DP_ARVALID),
-        .S_AXI_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .S_AXI_awaddr(microblaze_riscv_0_M_AXI_DP_AWADDR),
         .S_AXI_awprot(microblaze_riscv_0_M_AXI_DP_AWPROT),
-        .S_AXI_awready(microblaze_riscv_0_M_AXI_DP_AWREADY),
+        .S_AXI_awready(mmio_subsystem_1_S_AXI_awready),
         .S_AXI_awvalid(microblaze_riscv_0_M_AXI_DP_AWVALID),
         .S_AXI_bready(microblaze_riscv_0_M_AXI_DP_BREADY),
-        .S_AXI_bresp(microblaze_riscv_0_M_AXI_DP_BRESP),
-        .S_AXI_bvalid(microblaze_riscv_0_M_AXI_DP_BVALID),
-        .S_AXI_rdata(microblaze_riscv_0_M_AXI_DP_RDATA),
+        .S_AXI_bresp(mmio_subsystem_1_S_AXI_bresp),
+        .S_AXI_bvalid(mmio_subsystem_1_S_AXI_bvalid),
+        .S_AXI_rdata(mmio_subsystem_1_S_AXI_rdata),
         .S_AXI_rready(microblaze_riscv_0_M_AXI_DP_RREADY),
-        .S_AXI_rresp(microblaze_riscv_0_M_AXI_DP_RRESP),
-        .S_AXI_rvalid(microblaze_riscv_0_M_AXI_DP_RVALID),
+        .S_AXI_rresp(mmio_subsystem_1_S_AXI_rresp),
+        .S_AXI_rvalid(mmio_subsystem_1_S_AXI_rvalid),
         .S_AXI_wdata(microblaze_riscv_0_M_AXI_DP_WDATA),
-        .S_AXI_wready(microblaze_riscv_0_M_AXI_DP_WREADY),
+        .S_AXI_wready(mmio_subsystem_1_S_AXI_wready),
         .S_AXI_wstrb(microblaze_riscv_0_M_AXI_DP_WSTRB),
         .S_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
         .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
-        .debug_front_addr(mmio_subsystem_1_debug_front_addr),
         .debug_r_state(mmio_subsystem_1_debug_r_state),
-        .debug_state_transition(mmio_subsystem_1_debug_state_transition),
+        .debug_slot_chip_select(mmio_subsystem_1_debug_front_addr),
+        .debug_slot_wr_data(mmio_subsystem_1_debug_slot_wr_data),
         .debug_w_next_state(mmio_subsystem_1_debug_w_next_state),
         .in_ports(GPI),
         .out_ports(GPO),

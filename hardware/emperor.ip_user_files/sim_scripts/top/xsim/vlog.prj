@@ -1,21 +1,20 @@
-verilog xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
+verilog xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/timer" \
 "../../../bd/top/ip/top_clk_wiz_2/top_clk_wiz_2_clk_wiz.v" \
 "../../../bd/top/ip/top_clk_wiz_2/top_clk_wiz_2.v" \
 "../../../bd/top/ip/top_lmb_bram_0/sim/top_lmb_bram_0.v" \
-"../../../bd/top/ip/top_ila_0_1/sim/top_ila_0_1.v" \
 "../../../bd/top/ip/top_ila_1_0/sim/top_ila_1_0.v" \
 
-sv xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
-"../../../bd/top/ipshared/9ebe/mmio_controller/axi_mmio_controller.sv" \
-"../../../bd/top/ipshared/9ebe/uart/tb/fifo_tb.sv" \
-"../../../bd/top/ipshared/9ebe/gpio/gpio.sv" \
-"../../../bd/top/ipshared/9ebe/uart/tb/rx_tb.sv" \
-"../../../bd/top/ipshared/9ebe/timer/tb/timer_tb.sv" \
-"../../../bd/top/ipshared/9ebe/uart/uart.sv" \
-"../../../bd/top/ipshared/9ebe/mmio_subsys.sv" \
+sv xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/timer" \
+"../../../bd/top/ipshared/8622/mmio_controller/axi_mmio_controller.sv" \
+"../../../bd/top/ipshared/8622/uart/tb/fifo_tb.sv" \
+"../../../bd/top/ipshared/8622/gpio/gpio.sv" \
+"../../../bd/top/ipshared/8622/uart/tb/rx_tb.sv" \
+"../../../bd/top/ipshared/8622/timer/tb/timer_tb.sv" \
+"../../../bd/top/ipshared/8622/uart/uart.sv" \
+"../../../bd/top/ipshared/8622/mmio_subsys.sv" \
 "../../../bd/top/ip/top_mmio_subsystem_1_0/sim/top_mmio_subsystem_1_0.sv" \
 
-verilog xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/9ebe/timer" \
+verilog xil_defaultlib --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/bc9d" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/uart" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/8622/timer" \
 "../../../bd/top/sim/top.v" \
 
 verilog xil_defaultlib "glbl.v"

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Wed Aug 13 15:17:17 2025
+| Date         : Wed Aug 13 18:05:45 2025
 | Host         : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 | Command      : report_utilization -file top_mmio_subsystem_1_0_utilization_synth.rpt -pb top_mmio_subsystem_1_0_utilization_synth.pb
 | Design       : top_mmio_subsystem_1_0
@@ -31,8 +31,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  541 |     0 |          0 |    134600 |  0.40 |
-|   LUT as Logic          |  541 |     0 |          0 |    134600 |  0.40 |
+| Slice LUTs*             | 1026 |     0 |          0 |    134600 |  0.76 |
+|   LUT as Logic          | 1026 |     0 |          0 |    134600 |  0.76 |
 |   LUT as Memory         |    0 |     0 |          0 |     46200 |  0.00 |
 | Slice Registers         |  550 |     0 |          0 |    269200 |  0.20 |
 |   Register as Flip Flop |  504 |     0 |          0 |    269200 |  0.19 |
@@ -152,13 +152,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
+| LUT6     |  682 |                 LUT |
 | FDCE     |  495 |        Flop & Latch |
-| LUT6     |  273 |                 LUT |
-| LUT5     |  123 |                 LUT |
-| LUT4     |  115 |                 LUT |
+| LUT5     |  199 |                 LUT |
+| LUT4     |  122 |                 LUT |
 | LDCE     |   46 |        Flop & Latch |
 | LUT2     |   44 |                 LUT |
-| LUT3     |   35 |                 LUT |
+| LUT3     |   36 |                 LUT |
 | LUT1     |   32 |                 LUT |
 | CARRY4   |   21 |          CarryLogic |
 | FDPE     |    9 |        Flop & Latch |

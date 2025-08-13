@@ -6,7 +6,6 @@
         device_id = "7a200t";
         #address-cells = <0x1>;
         #size-cells = <0x1>;
-        slrcount = <0x1>;
         family = "microblaze_riscv";
         pruned-sdt = <0x1>;
 
