@@ -238,7 +238,7 @@
                 "SX": "/mmio_subsystem_1",
                 "SI": "S_AXI",
                 "SS": "reg0",
-                "SV": "user.org:user:mmio_subsystem:2.0",
+                "SV": "user.org:user:mmio_subsystem:2.1",
                 "TM": "both",
                 "TU": "register"
             }

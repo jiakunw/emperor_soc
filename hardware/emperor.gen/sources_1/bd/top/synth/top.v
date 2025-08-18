@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Wed Aug 13 18:40:20 2025
+//Date        : Fri Aug 15 20:26:04 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -223,7 +223,7 @@ module microblaze_riscv_0_local_memory_imp_16BDO8R
         .web({microblaze_riscv_0_ilmb_cntlr_WE[0],microblaze_riscv_0_ilmb_cntlr_WE[1],microblaze_riscv_0_ilmb_cntlr_WE[2],microblaze_riscv_0_ilmb_cntlr_WE[3]}));
 endmodule
 
-(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=11,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=5,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
+(* CORE_GENERATION_INFO = "top,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=11,numNonXlnxBlks=1,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_board_cnt=5,da_clkrst_cnt=8,da_mb_cnt=2,da_microblaze_riscv_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "top.hwdef" *) 
 module top
    (GPI,
     GPO,
@@ -243,7 +243,6 @@ module top
   wire [8:0]GPI;
   wire [3:0]GPO;
   wire clk_wiz_clk_out1;
-  wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
   wire mdm_1_debug_sys_rst;
   wire [31:0]microblaze_riscv_0_M_AXI_DP_ARADDR;
@@ -293,9 +292,13 @@ module top
   wire [1:0]mmio_subsystem_1_S_AXI_rresp;
   wire mmio_subsystem_1_S_AXI_rvalid;
   wire mmio_subsystem_1_S_AXI_wready;
+  wire [7:0]mmio_subsystem_1_debug_addr;
   wire [15:0]mmio_subsystem_1_debug_front_addr;
+  wire [1:0]mmio_subsystem_1_debug_gpio_r_state;
+  wire [1:0]mmio_subsystem_1_debug_gpio_w_next_state;
   wire [2:0]mmio_subsystem_1_debug_r_state;
-  wire [2:0]mmio_subsystem_1_debug_w_next_state;
+  wire [15:0]mmio_subsystem_1_debug_slot_wr_done;
+  wire mmio_subsystem_1_debug_transaction_completed;
   wire reset;
   wire rs232_uart_rxd;
   wire rs232_uart_txd;
@@ -309,16 +312,19 @@ module top
        (.clk_in1_n(sys_diff_clock_clk_n),
         .clk_in1_p(sys_diff_clock_clk_p),
         .clk_out1(clk_wiz_clk_out1),
-        .clk_out2(clk_wiz_clk_out2),
         .locked(clk_wiz_locked),
         .reset(reset));
   top_ila_1_0 ila_1
-       (.clk(clk_wiz_clk_out2),
+       (.clk(clk_wiz_clk_out1),
         .probe0(mmio_subsystem_1_debug_r_state),
-        .probe1(mmio_subsystem_1_debug_w_next_state),
+        .probe1(mmio_subsystem_1_debug_addr),
         .probe10(microblaze_riscv_0_M_AXI_DP_BREADY),
+        .probe11(mmio_subsystem_1_debug_slot_wr_done),
+        .probe12(mmio_subsystem_1_debug_transaction_completed),
+        .probe13(mmio_subsystem_1_debug_gpio_r_state),
+        .probe14(mmio_subsystem_1_debug_gpio_w_next_state),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
-        .probe3(clk_wiz_clk_out1),
+        .probe3(mmio_subsystem_1_S_AXI_awready),
         .probe4(mmio_subsystem_1_debug_front_addr),
         .probe5(mmio_subsystem_1_S_AXI_bvalid),
         .probe6(microblaze_riscv_0_M_AXI_DP_WVALID),
@@ -434,9 +440,13 @@ module top
         .S_AXI_wvalid(microblaze_riscv_0_M_AXI_DP_WVALID),
         .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
+        .debug_addr(mmio_subsystem_1_debug_addr),
+        .debug_gpio_r_state(mmio_subsystem_1_debug_gpio_r_state),
+        .debug_gpio_w_next_state(mmio_subsystem_1_debug_gpio_w_next_state),
         .debug_r_state(mmio_subsystem_1_debug_r_state),
         .debug_slot_chip_select(mmio_subsystem_1_debug_front_addr),
-        .debug_w_next_state(mmio_subsystem_1_debug_w_next_state),
+        .debug_slot_wr_done(mmio_subsystem_1_debug_slot_wr_done),
+        .debug_transaction_completed(mmio_subsystem_1_debug_transaction_completed),
         .in_ports(GPI),
         .out_ports(GPO),
         .rx(rs232_uart_rxd),

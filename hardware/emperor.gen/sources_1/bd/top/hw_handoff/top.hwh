@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 13 18:40:22 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 15 20:26:07 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="xilinx.com:ac701:part0:1.4" DEVICE="7a200t" NAME="top" PACKAGE="fbg676" SPEEDGRADE="-2"/>
 
@@ -105,9 +105,9 @@
         <PARAMETER NAME="C_CLKOUT2_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="C_CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
-        <PARAMETER NAME="C_CLKOUT2_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="C_CLKOUT2_REQUESTED_PHASE" VALUE="1"/>
         <PARAMETER NAME="C_CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="C_CLKOUT2_USED" VALUE="1"/>
+        <PARAMETER NAME="C_CLKOUT2_USED" VALUE="0"/>
         <PARAMETER NAME="C_CLKOUT3_1" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT3_2" VALUE="0000"/>
         <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.000"/>
@@ -187,7 +187,7 @@
         <PARAMETER NAME="C_DIN_PORT" VALUE="din"/>
         <PARAMETER NAME="C_DIVCLK" VALUE="0000"/>
         <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
-        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="1.0"/>
+        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="0.1"/>
         <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="0.1"/>
         <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="0.1"/>
         <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="0.1"/>
@@ -239,7 +239,7 @@
         <PARAMETER NAME="C_MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT0_USE_FINE_PS" VALUE="FALSE"/>
-        <PARAMETER NAME="C_MMCM_CLKOUT1_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT1_DIVIDE" VALUE="1"/>
         <PARAMETER NAME="C_MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="C_MMCM_CLKOUT1_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="C_MMCM_CLKOUT1_USE_FINE_PS" VALUE="FALSE"/>
@@ -273,12 +273,12 @@
         <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
         <PARAMETER NAME="C_M_MAX" VALUE="64.000"/>
         <PARAMETER NAME="C_M_MIN" VALUE="2.000"/>
-        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="2"/>
+        <PARAMETER NAME="C_NUM_OUT_CLKS" VALUE="1"/>
         <PARAMETER NAME="C_OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="0"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_out1__100.00000______0.000______50.0______112.316_____89.971"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk_out2__100.00000______0.000______50.0______112.316_____89.971"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="no_CLK_OUT2_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="no_CLK_OUT3_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
@@ -413,9 +413,9 @@
         <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="89.971"/>
         <PARAMETER NAME="CLKOUT2_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
-        <PARAMETER NAME="CLKOUT2_REQUESTED_PHASE" VALUE="0.000"/>
+        <PARAMETER NAME="CLKOUT2_REQUESTED_PHASE" VALUE="1"/>
         <PARAMETER NAME="CLKOUT2_SEQUENCE_NUMBER" VALUE="1"/>
-        <PARAMETER NAME="CLKOUT2_USED" VALUE="true"/>
+        <PARAMETER NAME="CLKOUT2_USED" VALUE="false"/>
         <PARAMETER NAME="CLKOUT3_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="CLKOUT3_JITTER" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT3_MATCHED_ROUTING" VALUE="false"/>
@@ -519,7 +519,7 @@
         <PARAMETER NAME="MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT0_USE_FINE_PS" VALUE="false"/>
-        <PARAMETER NAME="MMCM_CLKOUT1_DIVIDE" VALUE="10"/>
+        <PARAMETER NAME="MMCM_CLKOUT1_DIVIDE" VALUE="1"/>
         <PARAMETER NAME="MMCM_CLKOUT1_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT1_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT1_USE_FINE_PS" VALUE="false"/>
@@ -551,7 +551,7 @@
         <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
-        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="2"/>
+        <PARAMETER NAME="NUM_OUT_CLKS" VALUE="1"/>
         <PARAMETER NAME="OPTIMIZE_CLOCKING_STRUCTURE_EN" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_MMCM" VALUE="false"/>
         <PARAMETER NAME="OVERRIDE_PLL" VALUE="false"/>
@@ -652,19 +652,14 @@
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="Clk"/>
             <CONNECTION INSTANCE="microblaze_riscv_0_local_memory_dlmb_v10" PORT="LMB_Clk"/>
             <CONNECTION INSTANCE="microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr" PORT="LMB_Clk"/>
             <CONNECTION INSTANCE="microblaze_riscv_0_local_memory_ilmb_v10" PORT="LMB_Clk"/>
             <CONNECTION INSTANCE="microblaze_riscv_0_local_memory_ilmb_bram_if_cntlr" PORT="LMB_Clk"/>
             <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="ila_1" PORT="probe3"/>
-            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="Clk"/>
-            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="aclk"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
-          <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="clk"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -721,7 +716,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="11"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="15"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -863,7 +858,7 @@
         <PARAMETER NAME="C_PROBE119_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE11_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE11_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_PROBE120_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE120_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE120_WIDTH" VALUE="1"/>
@@ -929,7 +924,7 @@
         <PARAMETER NAME="C_PROBE139_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE13_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE13_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="2"/>
         <PARAMETER NAME="C_PROBE140_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE140_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE140_WIDTH" VALUE="1"/>
@@ -962,7 +957,7 @@
         <PARAMETER NAME="C_PROBE149_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="2"/>
         <PARAMETER NAME="C_PROBE150_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE150_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE150_WIDTH" VALUE="1"/>
@@ -1130,7 +1125,7 @@
         <PARAMETER NAME="C_PROBE19_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE1_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE1_WIDTH" VALUE="3"/>
+        <PARAMETER NAME="C_PROBE1_WIDTH" VALUE="8"/>
         <PARAMETER NAME="C_PROBE200_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE200_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE200_WIDTH" VALUE="1"/>
@@ -3829,9 +3824,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out2">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out2"/>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="2" NAME="probe0" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_r_state">
@@ -3839,9 +3834,9 @@
             <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_r_state"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_w_next_state">
+        <PORT DIR="I" LEFT="7" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_addr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_w_next_state"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="probe2" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWADDR">
@@ -3849,9 +3844,9 @@
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe3" RIGHT="0" SIGIS="undef" SIGNAME="clk_wiz_clk_out1">
+        <PORT DIR="I" LEFT="0" NAME="probe3" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_slot_chip_select">
@@ -3887,6 +3882,26 @@
         <PORT DIR="I" LEFT="0" NAME="probe10" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_BREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_slot_wr_done">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_slot_wr_done"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe12" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_transaction_completed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_transaction_completed"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="probe13" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_r_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_gpio_r_state"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="probe14" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_w_next_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_gpio_w_next_state"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5614,7 +5629,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="2" FULLNAME="/mmio_subsystem_1" HWVERSION="2.0" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.0">
+    <MODULE COREREVISION="5" FULLNAME="/mmio_subsystem_1" HWVERSION="2.1" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="0x10000" USAGE="register"/>
@@ -5678,6 +5693,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_AWREADY"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe3"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_awvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_AWVALID">
@@ -5776,6 +5792,21 @@
             <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="7" NAME="debug_addr" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="debug_gpio_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_r_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe13"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="debug_gpio_w_next_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_w_next_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe14"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="2" NAME="debug_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_r_state">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="probe0"/>
@@ -5786,10 +5817,14 @@
             <CONNECTION INSTANCE="ila_1" PORT="probe4"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="511" NAME="debug_slot_wr_data" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="2" NAME="debug_w_next_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_w_next_state">
+        <PORT DIR="O" LEFT="15" NAME="debug_slot_wr_done" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_slot_wr_done">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_1" PORT="probe1"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe11"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="debug_transaction_completed" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_transaction_completed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe12"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="8" NAME="in_ports" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_GPI">

@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Wed Aug 13 18:40:27 2025
-# Process ID         : 359760
+# Start of session at: Fri Aug 15 19:05:27 2025
+# Process ID         : 270507
 # Current directory  : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1
 # Command line       : vivado -log top_ila_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_ila_1_0.tcl
 # Log file           : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1/top_ila_1_0.vds
@@ -13,16 +13,15 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.1 LTS
 # Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
-# CPU Frequency      : 414.664 MHz
+# CPU Frequency      : 712.132 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 16
 # Host memory        : 16438 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20733 MB
-# Available Virtual  : 9227 MB
+# Available Virtual  : 7467 MB
 #-----------------------------------------------------------
 source top_ila_1_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1504.109 ; gain = 24.840 ; free physical = 4231 ; free virtual = 8412
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
@@ -34,9 +33,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg676-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 359851
+INFO: [Synth 8-7075] Helper process launched with PID 270688
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2175.676 ; gain = 419.766 ; free physical = 3303 ; free virtual = 7535
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2175.605 ; gain = 418.797 ; free physical = 460 ; free virtual = 4773
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'tms_int', assumed default net type 'wire' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog/xsdbm_v3_0_3_bs_core_ext.vh:30]
 INFO: [Synth 8-11241] undeclared symbol 'runtest_int', assumed default net type 'wire' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog/xsdbm_v3_0_3_bs_core_ext.vh:32]
@@ -152,16 +151,42 @@ INFO: [Synth 8-6157] synthesizing module 'SRLC16E' [/tools/Xilinx/Vivado/2024.2/
 INFO: [Synth 8-6155] done synthesizing module 'SRLC16E' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:149134]
 INFO: [Synth 8-6157] synthesizing module 'FDRE' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:43188]
 INFO: [Synth 8-6155] done synthesizing module 'FDRE' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:43188]
-WARNING: [Synth 8-7071] port 'clk_nobuf' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7071] port 'clkdiv_out' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7071] port 'trig_in' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7071] port 'trig_in_ack' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7071] port 'trig_out' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7071] port 'trig_out_ack' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
-WARNING: [Synth 8-7023] instance 'inst' of module 'ila_v6_2_16_ila' has 1033 connections declared, but only 1027 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3229]
+WARNING: [Synth 8-7071] port 'clk_nobuf' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7071] port 'clkdiv_out' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7071] port 'trig_in' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7071] port 'trig_in_ack' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7071] port 'trig_out' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7071] port 'trig_out_ack' of module 'ila_v6_2_16_ila' is unconnected for instance 'inst' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
+WARNING: [Synth 8-7023] instance 'inst' of module 'ila_v6_2_16_ila' has 1033 connections declared, but only 1027 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:3237]
 INFO: [Synth 8-6155] done synthesizing module 'top_ila_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:48]
-WARNING: [Synth 8-3848] Net sl_iport0 in module/entity top_ila_1_0 does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:118]
+WARNING: [Synth 8-3848] Net sl_iport0 in module/entity top_ila_1_0 does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_ila_1_0/synth/top_ila_1_0.v:126]
 WARNING: [Synth 8-7129] Port CLKB in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[119] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[118] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[117] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[116] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[115] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[114] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[113] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[112] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[111] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[110] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[109] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[108] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[107] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[106] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[105] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[104] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[103] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[102] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[101] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[100] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[99] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[98] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[97] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[96] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[95] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DOUTA_I[94] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTA_I[93] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTA_I[92] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTA_I[91] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
@@ -235,47 +260,21 @@ WARNING: [Synth 8-7129] Port DOUTA_I[24] in module blk_mem_gen_v8_4_9_blk_mem_ou
 WARNING: [Synth 8-7129] Port DOUTA_I[23] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTA_I[22] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DOUTA_I[21] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[20] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[19] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[18] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[17] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[16] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[15] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[14] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[13] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[12] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[11] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[10] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[9] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[8] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[7] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[6] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[5] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[4] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[3] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[2] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[1] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DOUTA_I[0] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port SBITERR_I in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DBITERR_I in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port RDADDRECC_I[9] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port RDADDRECC_I[8] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
-WARNING: [Synth 8-7129] Port RDADDRECC_I[7] in module blk_mem_gen_v8_4_9_blk_mem_output_block is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2603.121 ; gain = 847.211 ; free physical = 2922 ; free virtual = 7162
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2605.051 ; gain = 848.242 ; free physical = 1423 ; free virtual = 5623
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2603.121 ; gain = 847.211 ; free physical = 2922 ; free virtual = 7162
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2605.051 ; gain = 848.242 ; free physical = 1423 ; free virtual = 5623
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2603.121 ; gain = 847.211 ; free physical = 2922 ; free virtual = 7162
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2605.051 ; gain = 848.242 ; free physical = 1423 ; free virtual = 5623
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2603.121 ; gain = 0.000 ; free physical = 2925 ; free virtual = 7162
-INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2605.051 ; gain = 0.000 ; free physical = 1424 ; free virtual = 5629
+INFO: [Netlist 29-17] Analyzing 197 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -291,30 +290,30 @@ Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs
 Finished Parsing XDC File [/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2667.152 ; gain = 0.000 ; free physical = 2941 ; free virtual = 7178
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2669.082 ; gain = 0.000 ; free physical = 1408 ; free virtual = 5633
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 119 instances were transformed.
-  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 104 instances
-  CFGLUT5 => SRLC32E: 15 instances
+  A total of 143 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 124 instances
+  CFGLUT5 => SRLC32E: 19 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2667.152 ; gain = 0.000 ; free physical = 2942 ; free virtual = 7179
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2669.082 ; gain = 0.000 ; free physical = 1408 ; free virtual = 5633
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2667.152 ; gain = 911.242 ; free physical = 2931 ; free virtual = 7172
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2669.082 ; gain = 912.273 ; free physical = 1393 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2931 ; free virtual = 7172
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2677.086 ; gain = 920.277 ; free physical = 1393 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2931 ; free virtual = 7172
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2677.086 ; gain = 920.277 ; free physical = 1393 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized0'
@@ -329,6 +328,10 @@ INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in modul
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized9'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized10'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized11'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized12'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized13'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized14'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized15'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'ltlib_v1_0_2_generic_memrd'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -464,6 +467,46 @@ INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in m
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
 *
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized12'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized13'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized14'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                    IDLE |                             0001 |                             0001
+                     REG |                             0010 |                             0010
+                     P2S |                             0100 |                             0100
+                     S2P |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'xsdbs_v1_0_4_reg_p2s__parameterized15'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
               RESET_ADDR |                          0000001 |                          0000001
             REQUEST_READ |                          0000010 |                          0000010
            WAIT_READ_ACK |                          0000100 |                          0000100
@@ -474,7 +517,7 @@ INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in m
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'ltlib_v1_0_2_generic_memrd'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2938 ; free virtual = 7177
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 2677.086 ; gain = 920.277 ; free physical = 1391 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -496,25 +539,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2945 ; free virtual = 7184
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1384 ; free virtual = 5583
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2941 ; free virtual = 7184
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1381 ; free virtual = 5587
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2940 ; free virtual = 7183
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1381 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 2675.156 ; gain = 919.246 ; free physical = 2946 ; free virtual = 7185
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1384 ; free virtual = 5591
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -572,37 +615,37 @@ INFO: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0
 INFO: [Synth 8-3295] tying undriven pin inst:trig_in to constant 0
 INFO: [Synth 8-3295] tying undriven pin inst:trig_out_ack to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2941 ; free virtual = 7181
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2941 ; free virtual = 7181
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2936 ; free virtual = 7175
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5589
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2936 ; free virtual = 7175
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5589
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2936 ; free virtual = 7175
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5589
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2936 ; free virtual = 7175
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5589
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -618,52 +661,53 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |CARRY4   |    41|
-|2     |CFGLUT5  |   119|
-|3     |LUT1     |    38|
-|4     |LUT2     |   126|
-|5     |LUT3     |   119|
-|6     |LUT4     |   168|
-|7     |LUT5     |   120|
-|8     |LUT6     |   630|
-|9     |MUXF7    |     4|
-|10    |RAMB36E1 |     3|
-|11    |SRL16E   |    97|
-|12    |SRLC16E  |     2|
-|13    |SRLC32E  |    17|
-|14    |FDRE     |  1902|
-|15    |FDSE     |    10|
+|1     |CARRY4   |    50|
+|2     |CFGLUT5  |   143|
+|3     |LUT1     |    42|
+|4     |LUT2     |   156|
+|5     |LUT3     |   130|
+|6     |LUT4     |   200|
+|7     |LUT5     |   141|
+|8     |LUT6     |   720|
+|9     |MUXF7    |    20|
+|10    |RAMB18E1 |     1|
+|11    |RAMB36E1 |     3|
+|12    |SRL16E   |   123|
+|13    |SRLC16E  |     2|
+|14    |SRLC32E  |    17|
+|15    |FDRE     |  2190|
+|16    |FDSE     |    10|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.094 ; gain = 925.184 ; free physical = 2936 ; free virtual = 7175
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.094 ; gain = 936.285 ; free physical = 1382 ; free virtual = 5589
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 3209 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 2681.094 ; gain = 861.152 ; free physical = 2932 ; free virtual = 7175
-Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 2681.102 ; gain = 925.184 ; free physical = 2932 ; free virtual = 7175
+Synthesis finished with 0 errors, 0 critical warnings and 3527 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2693.094 ; gain = 872.254 ; free physical = 1382 ; free virtual = 5589
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2693.102 ; gain = 936.285 ; free physical = 1383 ; free virtual = 5590
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2681.102 ; gain = 0.000 ; free physical = 3092 ; free virtual = 7335
-INFO: [Netlist 29-17] Analyzing 167 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2693.102 ; gain = 0.000 ; free physical = 1543 ; free virtual = 5749
+INFO: [Netlist 29-17] Analyzing 217 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2737.121 ; gain = 0.000 ; free physical = 3105 ; free virtual = 7344
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2749.121 ; gain = 0.000 ; free physical = 1545 ; free virtual = 5752
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 119 instances were transformed.
-  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 104 instances
-  CFGLUT5 => SRLC32E: 15 instances
+  A total of 143 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 124 instances
+  CFGLUT5 => SRLC32E: 19 instances
 
-Synth Design complete | Checksum: 670f2d86
+Synth Design complete | Checksum: 8b513a6d
 INFO: [Common 17-83] Releasing license: Synthesis
-206 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
+214 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:01:06 . Memory (MB): peak = 2737.121 ; gain = 1192.215 ; free physical = 3105 ; free virtual = 7344
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2121.977; main = 1913.021; forked = 268.457
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3601.285; main = 2737.125; forked = 926.125
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2761.133 ; gain = 0.000 ; free physical = 3104 ; free virtual = 7344
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 2749.121 ; gain = 1204.285 ; free physical = 1545 ; free virtual = 5752
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2050.878; main = 1839.047; forked = 240.344
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3619.223; main = 2749.125; forked = 926.125
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2773.133 ; gain = 0.000 ; free physical = 1546 ; free virtual = 5753
 INFO: [Common 17-1381] The checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1/top_ila_1_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP top_ila_1_0, cache-ID = 39ea9313c9d60953
-INFO: [Coretcl 2-1174] Renamed 165 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2761.133 ; gain = 0.000 ; free physical = 3082 ; free virtual = 7335
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP top_ila_1_0, cache-ID = 64e966fd5c9086fe
+INFO: [Coretcl 2-1174] Renamed 188 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2773.133 ; gain = 0.000 ; free physical = 1531 ; free virtual = 5748
 INFO: [Common 17-1381] The checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_ila_1_0_synth_1/top_ila_1_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_ila_1_0_utilization_synth.rpt -pb top_ila_1_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 18:41:50 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Aug 15 19:06:17 2025...

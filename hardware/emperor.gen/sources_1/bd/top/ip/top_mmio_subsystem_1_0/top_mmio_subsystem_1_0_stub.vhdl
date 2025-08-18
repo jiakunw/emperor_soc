@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Wed Aug 13 18:05:45 2025
+-- Date        : Fri Aug 15 20:27:16 2025
 -- Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0_stub.vhdl
@@ -41,9 +41,12 @@ entity top_mmio_subsystem_1_0 is
     rx : in STD_LOGIC;
     tx : out STD_LOGIC;
     debug_r_state : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    debug_w_next_state : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    debug_slot_wr_data : out STD_LOGIC_VECTOR ( 511 downto 0 );
-    debug_slot_chip_select : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    debug_addr : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    debug_slot_wr_done : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_slot_chip_select : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    debug_transaction_completed : out STD_LOGIC;
+    debug_gpio_r_state : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    debug_gpio_w_next_state : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
 
   attribute CHECK_LICENSE_TYPE : string;
@@ -58,7 +61,7 @@ architecture stub of top_mmio_subsystem_1_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "aclk,arst_n,S_AXI_awaddr[31:0],S_AXI_awprot[2:0],S_AXI_awvalid,S_AXI_awready,S_AXI_wdata[31:0],S_AXI_wstrb[3:0],S_AXI_wvalid,S_AXI_wready,S_AXI_bresp[1:0],S_AXI_bvalid,S_AXI_bready,S_AXI_araddr[31:0],S_AXI_arprot[2:0],S_AXI_arvalid,S_AXI_arready,S_AXI_rdata[31:0],S_AXI_rresp[1:0],S_AXI_rvalid,S_AXI_rready,in_ports[8:0],out_ports[3:0],rx,tx,debug_r_state[2:0],debug_w_next_state[2:0],debug_slot_wr_data[511:0],debug_slot_chip_select[15:0]";
+  attribute black_box_pad_pin of stub : architecture is "aclk,arst_n,S_AXI_awaddr[31:0],S_AXI_awprot[2:0],S_AXI_awvalid,S_AXI_awready,S_AXI_wdata[31:0],S_AXI_wstrb[3:0],S_AXI_wvalid,S_AXI_wready,S_AXI_bresp[1:0],S_AXI_bvalid,S_AXI_bready,S_AXI_araddr[31:0],S_AXI_arprot[2:0],S_AXI_arvalid,S_AXI_arready,S_AXI_rdata[31:0],S_AXI_rresp[1:0],S_AXI_rvalid,S_AXI_rready,in_ports[8:0],out_ports[3:0],rx,tx,debug_r_state[2:0],debug_addr[7:0],debug_slot_wr_done[15:0],debug_slot_chip_select[15:0],debug_transaction_completed,debug_gpio_r_state[1:0],debug_gpio_w_next_state[1:0]";
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 aclk CLK";
   attribute X_INTERFACE_MODE : string;

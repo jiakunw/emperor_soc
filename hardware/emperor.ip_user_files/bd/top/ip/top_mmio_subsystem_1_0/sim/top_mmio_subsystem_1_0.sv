@@ -47,8 +47,8 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:mmio_subsystem:2.0
-// IP Revision: 2
+// IP VLNV: user.org:user:mmio_subsystem:2.1
+// IP Revision: 5
 
 `timescale 1ns/1ps
 
@@ -81,9 +81,12 @@ module top_mmio_subsystem_1_0 (
   rx,
   tx,
   debug_r_state,
-  debug_w_next_state,
-  debug_slot_wr_data,
-  debug_slot_chip_select
+  debug_addr,
+  debug_slot_wr_done,
+  debug_slot_chip_select,
+  debug_transaction_completed,
+  debug_gpio_r_state,
+  debug_gpio_w_next_state
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
@@ -146,11 +149,12 @@ input wire rx;
 (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART TxD" *)
 output wire tx;
 output wire [2 : 0] debug_r_state;
-output wire [2 : 0] debug_w_next_state;
-output wire [511 : 0] debug_slot_wr_data;
-wire  [31:0] debug_slot_wr_data_unpacked [15:0];
-assign {>>{debug_slot_wr_data}} = debug_slot_wr_data_unpacked;
+output wire [7 : 0] debug_addr;
+output wire [15 : 0] debug_slot_wr_done;
 output wire [15 : 0] debug_slot_chip_select;
+output wire debug_transaction_completed;
+output wire [1 : 0] debug_gpio_r_state;
+output wire [1 : 0] debug_gpio_w_next_state;
 
   mmio_subsystem #(
     .NUM_INPUT(9),
@@ -182,8 +186,11 @@ output wire [15 : 0] debug_slot_chip_select;
     .rx(rx),
     .tx(tx),
     .debug_r_state(debug_r_state),
-    .debug_w_next_state(debug_w_next_state),
-    .debug_slot_wr_data(debug_slot_wr_data_unpacked),
-    .debug_slot_chip_select(debug_slot_chip_select)
+    .debug_addr(debug_addr),
+    .debug_slot_wr_done(debug_slot_wr_done),
+    .debug_slot_chip_select(debug_slot_chip_select),
+    .debug_transaction_completed(debug_transaction_completed),
+    .debug_gpio_r_state(debug_gpio_r_state),
+    .debug_gpio_w_next_state(debug_gpio_w_next_state)
   );
 endmodule

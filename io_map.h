@@ -4,12 +4,11 @@
 #define SYS_CLK_FREQ 100
 
 // io base address for microblaze MCS
-#define BRIDGE_BASE  0xc0000000
+#define BRIDGE_BASE  0x46000000
 
 // sloy module defination
 #define S0_SYS_TIMER  0
-#define S1_UART1      1
-#define S2_LED        2
-#define S3_SW         3
+#define S1_GPIO       1
+#define S2_UART       2
 
 #endif // IO_MAP_INCLUDED

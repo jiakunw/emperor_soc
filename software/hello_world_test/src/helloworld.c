@@ -35,17 +35,17 @@ int main()
     // print("Successfully ran Hello World application");
     while (1) {
         gpio_write(GPIO_LED_0, 1);
-        // for (int i = 0; i < 99999; i++) {}
-        // gpio_write(GPIO_LED_0, 0);
-        // gpio_write(GPIO_LED_1, 1);
-        // for (int i = 0; i < 99999; i++) {}
-        // gpio_write(GPIO_LED_1, 0);
-        // gpio_write(GPIO_LED_2, 1);
-        // for (int i = 0; i < 99999; i++) {}
-        // gpio_write(GPIO_LED_2, 0);
-        // gpio_write(GPIO_LED_3, 1);
-        // for (int i = 0; i < 99999; i++) {}
-        // gpio_write(GPIO_LED_3, 0);
+        for (int i = 0; i < 11999999; i++) {}
+        gpio_write(GPIO_LED_0, 0);
+        gpio_write(GPIO_LED_1, 1);
+        for (int i = 0; i < 11999999; i++) {}
+        gpio_write(GPIO_LED_1, 0);
+        gpio_write(GPIO_LED_2, 1);
+        for (int i = 0; i < 11999999; i++) {}
+        gpio_write(GPIO_LED_2, 0);
+        gpio_write(GPIO_LED_3, 1);
+        for (int i = 0; i < 11999999; i++) {}
+        gpio_write(GPIO_LED_3, 0);
     }
 
     cleanup_platform();

@@ -9,24 +9,17 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0"></ZoomStartTime>
-      <ZoomEndTime time="1,025"></ZoomEndTime>
-      <Cursor1Time time="0"></Cursor1Time>
+      <ZoomStartTime time="511"></ZoomStartTime>
+      <ZoomEndTime time="524"></ZoomEndTime>
+      <Cursor1Time time="517"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="453"></NameColumnWidth>
+      <NameColumnWidth column_width="421"></NameColumnWidth>
       <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="15" />
    <wave_markers>
    </wave_markers>
-   <wvobject type="logic" fp_name="top_i/clk_wiz_clk_out1">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">top_i/clk_wiz_clk_out1</obj_property>
-      <obj_property name="ObjectShortName">clk_wiz_clk_out1</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]</obj_property>
@@ -73,18 +66,70 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_slot_wr_data">
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_S_AXI_bresp">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_slot_wr_data[511:0]</obj_property>
-      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_slot_wr_data[511:0]</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_bresp[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_w_next_state">
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_bvalid">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_w_next_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_w_next_state[2:0]</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_bvalid</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_bvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_awready">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_awready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_awready</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_BREADY">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_BREADY</obj_property>
+      <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_BREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_slot_wr_done">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_slot_wr_done[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_slot_wr_done[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_addr">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_addr[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_debug_transaction_completed">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_transaction_completed</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_transaction_completed</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_gpio_r_state">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_gpio_r_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_gpio_r_state[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_debug_gpio_w_next_state">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_gpio_w_next_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_gpio_w_next_state[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

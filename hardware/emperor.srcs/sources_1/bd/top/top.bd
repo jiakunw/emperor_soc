@@ -114,11 +114,17 @@
           "CLKOUT2_PHASE_ERROR": {
             "value": "89.971"
           },
+          "CLKOUT2_REQUESTED_PHASE": {
+            "value": "1"
+          },
           "CLKOUT2_USED": {
-            "value": "true"
+            "value": "false"
           },
           "CLK_IN1_BOARD_INTERFACE": {
             "value": "sys_diff_clock"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk_out2"
           },
           "MMCM_CLKFBOUT_MULT_F": {
             "value": "5.000"
@@ -130,10 +136,10 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "10"
+            "value": "1"
           },
           "NUM_OUT_CLKS": {
-            "value": "2"
+            "value": "1"
           },
           "PRIM_SOURCE": {
             "value": "Differential_clock_capable_pin"
@@ -411,13 +417,22 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "11"
+            "value": "15"
           },
           "C_PROBE0_WIDTH": {
             "value": "3"
           },
+          "C_PROBE11_WIDTH": {
+            "value": "16"
+          },
+          "C_PROBE13_WIDTH": {
+            "value": "2"
+          },
+          "C_PROBE14_WIDTH": {
+            "value": "2"
+          },
           "C_PROBE1_WIDTH": {
-            "value": "3"
+            "value": "8"
           },
           "C_PROBE2_WIDTH": {
             "value": "32"
@@ -440,8 +455,8 @@
         }
       },
       "mmio_subsystem_1": {
-        "vlnv": "user.org:user:mmio_subsystem:2.0",
-        "ip_revision": "2",
+        "vlnv": "user.org:user:mmio_subsystem:2.1",
+        "ip_revision": "5",
         "xci_name": "top_mmio_subsystem_1_0",
         "xci_path": "ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci",
         "inst_hier_path": "mmio_subsystem_1",
@@ -502,17 +517,11 @@
       "clk_wiz_clk_out1": {
         "ports": [
           "clk_wiz/clk_out1",
+          "microblaze_riscv_0/Clk",
           "microblaze_riscv_0_local_memory/LMB_Clk",
           "rst_clk_wiz_100M/slowest_sync_clk",
-          "ila_1/probe3",
-          "microblaze_riscv_0/Clk",
+          "ila_1/clk",
           "mmio_subsystem_1/aclk"
-        ]
-      },
-      "clk_wiz_clk_out2": {
-        "ports": [
-          "clk_wiz/clk_out2",
-          "ila_1/clk"
         ]
       },
       "clk_wiz_locked": {
@@ -607,7 +616,8 @@
       "mmio_subsystem_1_S_AXI_awready": {
         "ports": [
           "mmio_subsystem_1/S_AXI_awready",
-          "microblaze_riscv_0/M_AXI_DP_AWREADY"
+          "microblaze_riscv_0/M_AXI_DP_AWREADY",
+          "ila_1/probe3"
         ]
       },
       "mmio_subsystem_1_S_AXI_bresp": {
@@ -648,10 +658,28 @@
           "microblaze_riscv_0/M_AXI_DP_WREADY"
         ]
       },
+      "mmio_subsystem_1_debug_addr": {
+        "ports": [
+          "mmio_subsystem_1/debug_addr",
+          "ila_1/probe1"
+        ]
+      },
       "mmio_subsystem_1_debug_front_addr": {
         "ports": [
           "mmio_subsystem_1/debug_slot_chip_select",
           "ila_1/probe4"
+        ]
+      },
+      "mmio_subsystem_1_debug_gpio_r_state": {
+        "ports": [
+          "mmio_subsystem_1/debug_gpio_r_state",
+          "ila_1/probe13"
+        ]
+      },
+      "mmio_subsystem_1_debug_gpio_w_next_state": {
+        "ports": [
+          "mmio_subsystem_1/debug_gpio_w_next_state",
+          "ila_1/probe14"
         ]
       },
       "mmio_subsystem_1_debug_r_state": {
@@ -660,10 +688,16 @@
           "ila_1/probe0"
         ]
       },
-      "mmio_subsystem_1_debug_w_next_state": {
+      "mmio_subsystem_1_debug_slot_wr_done": {
         "ports": [
-          "mmio_subsystem_1/debug_w_next_state",
-          "ila_1/probe1"
+          "mmio_subsystem_1/debug_slot_wr_done",
+          "ila_1/probe11"
+        ]
+      },
+      "mmio_subsystem_1_debug_transaction_completed": {
+        "ports": [
+          "mmio_subsystem_1/debug_transaction_completed",
+          "ila_1/probe12"
         ]
       },
       "mmio_subsystem_1_out_ports": {

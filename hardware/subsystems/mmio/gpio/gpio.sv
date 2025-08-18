@@ -37,6 +37,7 @@ module gpio
     // slot interface
     input logic chip_select,
     input logic read, write,
+    input logic transaction_completed,
     input logic [7:0] addr,
     input logic [31:0] wr_data,
     output logic [31:0] rd_data,
@@ -44,7 +45,9 @@ module gpio
     output logic slave_error, decode_error,
     // external interface: with buttons, switches, and LEDs
     input logic [8:0] in_ports,
-    output logic [3:0] out_ports
+    output logic [3:0] out_ports,
+    // debug
+    output logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state
     );
 
     // signal declaration
@@ -61,10 +64,8 @@ module gpio
         DONE   = 2'b10
     } r_state, w_next_state;
 
-    enum logic {
-        STABLE = 1'b0,
-        DEBOUNCE = 1'b1
-    } r_debounce_state, w_next_debounce_state;
+    assign debug_gpio_r_state = r_state;
+    assign debug_gpio_w_next_state = w_next_state;
 
     // enabling signals
     assign w_en = chip_select && (read || write);
@@ -92,15 +93,15 @@ module gpio
                         end
                         8'h04: begin
                             w_wr_done = 1'b1;
-                            w_led_data[1] = wr_data[1];
+                            w_led_data[1] = wr_data[0];
                         end
                         8'h08: begin
                             w_wr_done = 1'b1;
-                            w_led_data[2] = wr_data[2];
+                            w_led_data[2] = wr_data[0];
                         end
                         8'h0c: begin
                             w_wr_done = 1'b1;
-                            w_led_data[3] = wr_data[3];
+                            w_led_data[3] = wr_data[0];
                         end
                         default: begin
                             w_decode_error = 1'b1;
@@ -114,41 +115,46 @@ module gpio
                         end
                         8'h14: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[1];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h18: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[2];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h1c: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[3];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h20: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[4];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h24: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[5];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h28: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[6];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h2c: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[7];
+                            w_rd_data = r_input_data[0];
                         end
                         8'h30: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[8];
+                            w_rd_data = r_input_data[0];
                         end
                         default: begin
                             w_decode_error = 1'b1;
                         end
                     endcase
                 end
+            end
+            DONE: begin
+                w_slave_error = slave_error;
+                w_decode_error = decode_error;
+                w_next_state = (transaction_completed) ? IDLE : DONE;
             end
         endcase
     end
