@@ -9,15 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="511"></ZoomStartTime>
-      <ZoomEndTime time="524"></ZoomEndTime>
-      <Cursor1Time time="517"></Cursor1Time>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="1,025"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="421"></NameColumnWidth>
+      <NameColumnWidth column_width="405"></NameColumnWidth>
       <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="21" />
    <wave_markers>
    </wave_markers>
    <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR">
@@ -131,6 +131,49 @@
       <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_gpio_w_next_state[1:0]</obj_property>
       <obj_property name="ObjectShortName">mmio_subsystem_1_debug_gpio_w_next_state[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_wready">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_wready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_wready</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_rvalid">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_rvalid</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_rvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_bvalid">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_bvalid</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_bvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="top_i/mmio_subsystem_1_S_AXI_bresp">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_bresp[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_awready">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_awready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_awready</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_S_AXI_arready">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_S_AXI_arready</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_S_AXI_arready</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

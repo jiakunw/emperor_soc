@@ -417,7 +417,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "15"
+            "value": "20"
           },
           "C_PROBE0_WIDTH": {
             "value": "3"
@@ -456,7 +456,7 @@
       },
       "mmio_subsystem_1": {
         "vlnv": "user.org:user:mmio_subsystem:2.1",
-        "ip_revision": "5",
+        "ip_revision": "7",
         "xci_name": "top_mmio_subsystem_1_0",
         "xci_path": "ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci",
         "inst_hier_path": "mmio_subsystem_1",
@@ -551,6 +551,7 @@
       "microblaze_riscv_0_M_AXI_DP_ARVALID": {
         "ports": [
           "microblaze_riscv_0/M_AXI_DP_ARVALID",
+          "ila_1/probe16",
           "mmio_subsystem_1/S_AXI_arvalid"
         ]
       },
@@ -584,6 +585,7 @@
       "microblaze_riscv_0_M_AXI_DP_RREADY": {
         "ports": [
           "microblaze_riscv_0/M_AXI_DP_RREADY",
+          "ila_1/probe19",
           "mmio_subsystem_1/S_AXI_rready"
         ]
       },
@@ -610,7 +612,8 @@
       "mmio_subsystem_1_S_AXI_arready": {
         "ports": [
           "mmio_subsystem_1/S_AXI_arready",
-          "microblaze_riscv_0/M_AXI_DP_ARREADY"
+          "microblaze_riscv_0/M_AXI_DP_ARREADY",
+          "ila_1/probe17"
         ]
       },
       "mmio_subsystem_1_S_AXI_awready": {
@@ -649,13 +652,15 @@
       "mmio_subsystem_1_S_AXI_rvalid": {
         "ports": [
           "mmio_subsystem_1/S_AXI_rvalid",
-          "microblaze_riscv_0/M_AXI_DP_RVALID"
+          "microblaze_riscv_0/M_AXI_DP_RVALID",
+          "ila_1/probe18"
         ]
       },
       "mmio_subsystem_1_S_AXI_wready": {
         "ports": [
           "mmio_subsystem_1/S_AXI_wready",
-          "microblaze_riscv_0/M_AXI_DP_WREADY"
+          "microblaze_riscv_0/M_AXI_DP_WREADY",
+          "ila_1/probe15"
         ]
       },
       "mmio_subsystem_1_debug_addr": {

@@ -624,6 +624,89 @@
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                "name": "probe15",
+                                "id": 15,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 15,
+                                "nets": [
+                                    {
+                                        "name": "top_i/mmio_subsystem_1_S_AXI_wready",
+                                        "isBus": false,
+                                        "parentNetId": 107
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe16",
+                                "id": 16,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 16,
+                                "nets": [
+                                    {
+                                        "name": "top_i/microblaze_riscv_0_M_AXI_DP_ARVALID",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe17",
+                                "id": 17,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 17,
+                                "nets": [
+                                    {
+                                        "name": "top_i/mmio_subsystem_1_S_AXI_arready",
+                                        "isBus": false,
+                                        "parentNetId": 43
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe18",
+                                "id": 18,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 18,
+                                "nets": [
+                                    {
+                                        "name": "top_i/mmio_subsystem_1_S_AXI_rvalid",
+                                        "isBus": false,
+                                        "parentNetId": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe19",
+                                "id": 19,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 19,
+                                "nets": [
+                                    {
+                                        "name": "top_i/microblaze_riscv_0_M_AXI_DP_RREADY",
+                                        "isBus": false
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -631,7 +714,7 @@
                 "parent_nets": [
                     {
                         "id": 0,
-                        "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]_0[2]",
+                        "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]_0[3]",
                         "state_reg": [
                             {
                                 "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]",
@@ -693,10 +776,41 @@
                     },
                     {
                         "id": 60,
-                        "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]_0[1]",
+                        "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]_0[2]",
                         "state_reg": [
                             {
                                 "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[2]",
+                                "states": [
+                                    {
+                                        "name": "WRITE_1",
+                                        "val": "00010"
+                                    },
+                                    {
+                                        "name": "WRITE_RESP",
+                                        "val": "00100"
+                                    },
+                                    {
+                                        "name": "READ_1",
+                                        "val": "01000"
+                                    },
+                                    {
+                                        "name": "READ_RESP",
+                                        "val": "10000"
+                                    },
+                                    {
+                                        "name": "INIT",
+                                        "val": "00001"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 107,
+                        "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[4]_0[1]",
+                        "state_reg": [
+                            {
+                                "name": "top_i/mmio_subsystem_1/inst/control/FSM_onehot_r_state_reg[1]",
                                 "states": [
                                     {
                                         "name": "WRITE_1",

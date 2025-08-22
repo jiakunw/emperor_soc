@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:mmio_subsystem:2.1
-// IP Revision: 5
+// IP Revision: 7
 
 (* X_CORE_INFO = "mmio_subsystem,Vivado 2024.2" *)
 (* CHECK_LICENSE_TYPE = "top_mmio_subsystem_1_0,mmio_subsystem,{}" *)

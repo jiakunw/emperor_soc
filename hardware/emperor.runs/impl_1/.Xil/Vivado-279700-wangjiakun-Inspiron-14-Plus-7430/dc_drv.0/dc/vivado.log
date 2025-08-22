@@ -1,0 +1,70 @@
+WARNING: Default location for XILINX_HLS not found
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Aug 22 20:03:40 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/.Xil/Vivado-279700-wangjiakun-Inspiron-14-Plus-7430/dc_drv.0/dc/debug_ip_core.tcl
+# set_param project.singleFileAddWarning.threshold 0
+# set_param chipscope.maxJobs 4
+# set_param synth.enableIncremental 0
+# set_param runs.launchOptions { -jobs 8  }
+# set_param chipscope.flow 0
+# set_param ips.addSpecialDataToCacheID 0
+# set script_paths /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/.Xil/Vivado-279700-wangjiakun-Inspiron-14-Plus-7430/dbg_hub_CV.0/out/get_cs_ip.tcl
+# foreach script_path $script_paths { 
+#     source $script_path
+#     lappend debug_ip_vlnv $ip_vlnv 
+#     lappend debug_ip_module_name $ip_module_name
+#     lappend debug_params $params
+#     lappend debug_intf_params $intf_params
+#     lappend debug_connectivity $connectivity
+#     lappend debug_output_xci $output_xci
+#     lappend debug_output_dcp $output_dcp
+#     lappend debug_output_dir $output_dir
+#     lappend debug_synth_opts $synth_opts
+#     lappend debug_xdc_files $xdc_files
+# }
+## set_param project.singleFileAddWarning.threshold 0
+## set_param chipscope.maxJobs 4
+## set_param synth.enableIncremental 0
+## set_param runs.launchOptions { -jobs 8  }
+## set_param chipscope.flow 0
+## set part xc7a200tfbg676-2
+## set board_part_repo_paths {}
+## set board_part xilinx.com:ac701:part0:1.4
+## set board_connections {}
+## set tool_flow Vivado
+## set ip_vlnv xilinx.com:ip:xsdbm:3.0
+## set ip_module_name dbg_hub
+## set params {{{PARAM_VALUE.C_BSCAN_MODE} {false} {PARAM_VALUE.C_BSCAN_MODE_WITH_CORE} {false} {PARAM_VALUE.C_CLK_INPUT_FREQ_HZ} {300000000} {PARAM_VALUE.C_ENABLE_CLK_DIVIDER} {false} {PARAM_VALUE.C_EN_BSCANID_VEC} {false} {PARAM_VALUE.C_NUM_BSCAN_MASTER_PORTS} {0} {PARAM_VALUE.C_TWO_PRIM_MODE} {false} {PARAM_VALUE.C_USER_SCAN_CHAIN} {1} {PARAM_VALUE.C_USE_EXT_BSCAN} {false} {PARAM_VALUE.C_XSDB_NUM_SLAVES} {1}}}
+## set intf_params {}
+## set connectivity {}
+## set output_xci /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/.Xil/Vivado-279700-wangjiakun-Inspiron-14-Plus-7430/dbg_hub_CV.0/out/result.xci
+## set output_dcp /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/.Xil/Vivado-279700-wangjiakun-Inspiron-14-Plus-7430/dbg_hub_CV.0/out/result.dcp
+## set output_dir /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/impl_1/.Xil/Vivado-279700-wangjiakun-Inspiron-14-Plus-7430/dbg_hub_CV.0/out
+## set ip_repo_paths /home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio
+## set ip_output_repo /home/wangjiakun/Development/emperor_soc/hardware/emperor.cache/ip
+## set ip_cache_permissions {read write}
+## set oopbus_ip_repo_paths [get_param chipscope.oopbus_ip_repo_paths]
+## set synth_opts {}
+## set xdc_files {}
+# set debug_ip_repo_paths $ip_repo_paths
+# set debug_ip_output_repo $ip_output_repo
+# set debug_ip_cache_permissions $ip_cache_permissions
+# set debug_oopbus_ip_repo_paths [get_param chipscope.oopbus_ip_repo_paths]
+# set ordering_constrs 1
+# set jobs 4
+# source {/tools/Xilinx/Vivado/2024.2/scripts/ip/ipxchipscope.tcl}
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1512.508 ; gain = 143.840 ; free physical = 160 ; free virtual = 2056
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+IP SYNTH XDC FILES = 
+Current synth_xdc_files = 
+DBG: creating temporary IP: dbg_hub
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2

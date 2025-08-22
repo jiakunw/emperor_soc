@@ -4,7 +4,7 @@
     "xci_name": "top_mmio_subsystem_1_0",
     "cell_name": "mmio_subsystem_1",
     "component_reference": "user.org:user:mmio_subsystem:2.1",
-    "ip_revision": "5",
+    "ip_revision": "7",
     "gen_directory": "../../../../../../emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0",
     "parameters": {
       "component_parameters": {
@@ -31,7 +31,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "5" } ],
+        "IPREVISION": [ { "value": "7" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

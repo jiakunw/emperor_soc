@@ -33,6 +33,7 @@ int main()
 
     // print("Hello World\n\r");
     // print("Successfully ran Hello World application");
+    // gpio_write(GPIO_LED_0, 1);
     while (1) {
         gpio_write(GPIO_LED_0, 1);
         for (int i = 0; i < 11999999; i++) {}

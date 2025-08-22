@@ -1,19 +1,19 @@
 Vivado Simulator v2024.2.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mmio_subsys_tb_behav xil_defaultlib.mmio_subsys_tb xil_defaultlib.glbl -log elaborate.log 
+Running: /tools/Xilinx/Vivado/2024.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mmio_subsys_tb_behav xil_defaultlib.mmio_subsys_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3823] variable 'slot_wr_data' might have multiple concurrent drivers [/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio/mmio_subsys.sv:168]
+WARNING: [VRFC 10-3823] variable 'slot_wr_data' might have multiple concurrent drivers [/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio/mmio_subsys.sv:179]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.$unit_axi_mmio_controller_sv_139...
+Compiling package xil_defaultlib.$unit_axi_mmio_controller_sv_940...
 Compiling module xil_defaultlib.axi_mmio_controller
 Compiling module xil_defaultlib.timer
-Compiling module xil_defaultlib.gpio
+Compiling module xil_defaultlib.gpio(NUM_INPUT=9,NUM_OUTPUT=4)
 Compiling module xil_defaultlib.buad_generator
 Compiling module xil_defaultlib.rx
 Compiling module xil_defaultlib.fifo_controller(ADDR_WIDTH=4)

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 15 20:26:07 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 22 20:29:11 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="xilinx.com:ac701:part0:1.4" DEVICE="7a200t" NAME="top" PACKAGE="fbg676" SPEEDGRADE="-2"/>
 
@@ -716,7 +716,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="15"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="20"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -3904,6 +3904,31 @@
             <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_gpio_w_next_state"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe15" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe16" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe17" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe18" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="probe19" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RREADY"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -4404,6 +4429,7 @@
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_ARVALID" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARVALID">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe16"/>
             <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_arvalid"/>
           </CONNECTIONS>
           <CONNECTIONS>
@@ -4471,6 +4497,7 @@
         </PORT>
         <PORT DIR="O" NAME="M_AXI_DP_RREADY" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RREADY">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe19"/>
             <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rready"/>
           </CONNECTIONS>
           <CONNECTIONS>
@@ -5629,7 +5656,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="5" FULLNAME="/mmio_subsystem_1" HWVERSION="2.1" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.1">
+    <MODULE COREREVISION="7" FULLNAME="/mmio_subsystem_1" HWVERSION="2.1" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="0x10000" USAGE="register"/>
@@ -5663,6 +5690,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_ARREADY"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe17"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_arvalid" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_ARVALID">
@@ -5750,6 +5778,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RVALID"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RVALID"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe18"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="S_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WDATA">
@@ -5764,6 +5793,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WREADY"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_WREADY"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe15"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="S_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_WSTRB">

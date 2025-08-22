@@ -124,9 +124,9 @@
   <BlockFileSet Type="BlockSrcs" Name="top_mmio_subsystem_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="top_axi_smc_1"/>
   <BlockFileSet Type="BlockSrcs" Name="top_rst_clk_wiz_100M_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="top_lmb_bram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="top_ila_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="top_clk_wiz_2"/>
   <BlockFileSet Type="BlockSrcs" Name="top_mdm_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="top_lmb_bram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="top_ila_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="top_dlmb_bram_if_cntlr_0"/>
 </GenRun>

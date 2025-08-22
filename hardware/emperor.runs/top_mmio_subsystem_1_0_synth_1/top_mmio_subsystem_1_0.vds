@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Fri Aug 15 20:26:12 2025
-# Process ID         : 96109
+# Start of session at: Fri Aug 22 20:29:15 2025
+# Process ID         : 10305
 # Current directory  : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_mmio_subsystem_1_0_synth_1
 # Command line       : vivado -log top_mmio_subsystem_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_mmio_subsystem_1_0.tcl
 # Log file           : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_mmio_subsystem_1_0_synth_1/top_mmio_subsystem_1_0.vds
@@ -13,16 +13,16 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.1 LTS
 # Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
-# CPU Frequency      : 400.732 MHz
+# CPU Frequency      : 520.124 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 16
 # Host memory        : 16438 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20733 MB
-# Available Virtual  : 4904 MB
+# Available Virtual  : 15253 MB
 #-----------------------------------------------------------
 source top_mmio_subsystem_1_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1511.543 ; gain = 146.809 ; free physical = 3974 ; free virtual = 7348
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1503.738 ; gain = 58.840 ; free physical = 4665 ; free virtual = 14223
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
@@ -34,67 +34,81 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg676-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 96377
+INFO: [Synth 8-7075] Helper process launched with PID 10364
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2161.352 ; gain = 419.797 ; free physical = 2364 ; free virtual = 6414
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2153.414 ; gain = 417.828 ; free physical = 3800 ; free virtual = 13358
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-11121] redeclaration of ANSI port 'transaction_completed' is not allowed [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:128]
-INFO: [Synth 8-11241] undeclared symbol 'w_wr_rn', assumed default net type 'wire' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/tb/../fifo.sv:235]
-WARNING: [Synth 8-10929] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/tb/../timer.sv:149]
-WARNING: [Synth 8-10929] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:382]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'transaction_completed' is not allowed [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:129]
+INFO: [Synth 8-11241] undeclared symbol 'w_wr_rn', assumed default net type 'wire' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:235]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'fifo_controller' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:130]
+INFO: [Synth 8-9937] previous definition of design element 'fifo_controller' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:130]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'register_file' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:190]
+INFO: [Synth 8-9937] previous definition of design element 'register_file' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:190]
+INFO: [Synth 8-11241] undeclared symbol 'w_wr_rn', assumed default net type 'wire' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:235]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:267]
+INFO: [Synth 8-9937] previous definition of design element 'fifo' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../fifo.sv:267]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'rx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../rx_tx.sv:123]
+INFO: [Synth 8-9937] previous definition of design element 'rx' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../rx_tx.sv:123]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'tx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../rx_tx.sv:244]
+INFO: [Synth 8-9937] previous definition of design element 'tx' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/tb/../rx_tx.sv:244]
+WARNING: [Synth 8-10929] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/tb/../timer.sv:149]
+WARNING: [Synth 8-10929] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/tb/../timer.sv:149]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'timer' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/tb/../timer.sv:268]
+INFO: [Synth 8-9937] previous definition of design element 'timer' is here [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/tb/../timer.sv:268]
+WARNING: [Synth 8-10929] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:382]
 INFO: [Synth 8-6157] synthesizing module 'top_mmio_subsystem_1_0' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0/synth/top_mmio_subsystem_1_0.sv:53]
-INFO: [Synth 8-6157] synthesizing module 'mmio_subsystem' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_subsys.sv:52]
-INFO: [Synth 8-6157] synthesizing module 'axi_mmio_controller' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:64]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:159]
-INFO: [Synth 8-6155] done synthesizing module 'axi_mmio_controller' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:64]
-INFO: [Synth 8-6157] synthesizing module 'timer' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:52]
-WARNING: [Synth 8-151] case item 8'b00000000 is unreachable [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:107]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:101]
-INFO: [Synth 8-6155] done synthesizing module 'timer' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:52]
-INFO: [Synth 8-6157] synthesizing module 'gpio' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:32]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:82]
-INFO: [Synth 8-6155] done synthesizing module 'gpio' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:32]
-INFO: [Synth 8-6157] synthesizing module 'uart' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:237]
-INFO: [Synth 8-6157] synthesizing module 'uart_core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:84]
-INFO: [Synth 8-6157] synthesizing module 'buad_generator' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:25]
-INFO: [Synth 8-6155] done synthesizing module 'buad_generator' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:25]
-INFO: [Synth 8-6157] synthesizing module 'rx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/rx_tx.sv:43]
-INFO: [Synth 8-6155] done synthesizing module 'rx' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/rx_tx.sv:43]
-INFO: [Synth 8-6157] synthesizing module 'fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:217]
-INFO: [Synth 8-6157] synthesizing module 'fifo_controller' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:30]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:87]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_controller' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:30]
-INFO: [Synth 8-6157] synthesizing module 'register_file' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:157]
-INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:157]
-INFO: [Synth 8-6155] done synthesizing module 'fifo' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/fifo.sv:217]
-WARNING: [Synth 8-7071] port 'valid_rd' of module 'fifo' is unconnected for instance 'rx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:137]
-WARNING: [Synth 8-7071] port 'num_elements' of module 'fifo' is unconnected for instance 'rx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:137]
-WARNING: [Synth 8-7023] instance 'rx_fifo' of module 'fifo' has 11 connections declared, but only 9 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:137]
-INFO: [Synth 8-6157] synthesizing module 'tx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/rx_tx.sv:161]
-INFO: [Synth 8-6155] done synthesizing module 'tx' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/rx_tx.sv:161]
-WARNING: [Synth 8-7071] port 'valid_rd' of module 'fifo' is unconnected for instance 'tx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:167]
-WARNING: [Synth 8-7071] port 'num_elements' of module 'fifo' is unconnected for instance 'tx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:167]
-WARNING: [Synth 8-7023] instance 'tx_fifo' of module 'fifo' has 11 connections declared, but only 9 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:167]
-INFO: [Synth 8-6155] done synthesizing module 'uart_core' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:84]
-WARNING: [Synth 8-7071] port 'rx_done_tick' of module 'uart_core' is unconnected for instance 'core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:286]
-WARNING: [Synth 8-7071] port 'tx_idle' of module 'uart_core' is unconnected for instance 'core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:286]
-WARNING: [Synth 8-7023] instance 'core' of module 'uart_core' has 18 connections declared, but only 16 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:286]
-WARNING: [Synth 8-151] case item 8'b00000000 is unreachable [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:332]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:326]
-INFO: [Synth 8-6155] done synthesizing module 'uart' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:237]
-INFO: [Synth 8-6155] done synthesizing module 'mmio_subsystem' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_subsys.sv:52]
+INFO: [Synth 8-6157] synthesizing module 'mmio_subsystem' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_subsys.sv:52]
+INFO: [Synth 8-6157] synthesizing module 'axi_mmio_controller' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:64]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:159]
+INFO: [Synth 8-6155] done synthesizing module 'axi_mmio_controller' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:64]
+INFO: [Synth 8-6157] synthesizing module 'timer' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:52]
+WARNING: [Synth 8-151] case item 8'b00000000 is unreachable [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:107]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:101]
+INFO: [Synth 8-6155] done synthesizing module 'timer' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:52]
+INFO: [Synth 8-6157] synthesizing module 'gpio' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:32]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:82]
+INFO: [Synth 8-6155] done synthesizing module 'gpio' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:32]
+INFO: [Synth 8-6157] synthesizing module 'uart' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:237]
+INFO: [Synth 8-6157] synthesizing module 'uart_core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:84]
+INFO: [Synth 8-6157] synthesizing module 'buad_generator' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:25]
+INFO: [Synth 8-6155] done synthesizing module 'buad_generator' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:25]
+INFO: [Synth 8-6157] synthesizing module 'rx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/rx_tx.sv:43]
+INFO: [Synth 8-6155] done synthesizing module 'rx' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/rx_tx.sv:43]
+INFO: [Synth 8-6157] synthesizing module 'fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:217]
+INFO: [Synth 8-6157] synthesizing module 'fifo_controller' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:30]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:87]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_controller' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:30]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:157]
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:157]
+INFO: [Synth 8-6155] done synthesizing module 'fifo' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/fifo.sv:217]
+WARNING: [Synth 8-7071] port 'valid_rd' of module 'fifo' is unconnected for instance 'rx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:137]
+WARNING: [Synth 8-7071] port 'num_elements' of module 'fifo' is unconnected for instance 'rx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:137]
+WARNING: [Synth 8-7023] instance 'rx_fifo' of module 'fifo' has 11 connections declared, but only 9 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:137]
+INFO: [Synth 8-6157] synthesizing module 'tx' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/rx_tx.sv:161]
+INFO: [Synth 8-6155] done synthesizing module 'tx' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/rx_tx.sv:161]
+WARNING: [Synth 8-7071] port 'valid_rd' of module 'fifo' is unconnected for instance 'tx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:167]
+WARNING: [Synth 8-7071] port 'num_elements' of module 'fifo' is unconnected for instance 'tx_fifo' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:167]
+WARNING: [Synth 8-7023] instance 'tx_fifo' of module 'fifo' has 11 connections declared, but only 9 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:167]
+INFO: [Synth 8-6155] done synthesizing module 'uart_core' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:84]
+WARNING: [Synth 8-7071] port 'rx_done_tick' of module 'uart_core' is unconnected for instance 'core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:286]
+WARNING: [Synth 8-7071] port 'tx_idle' of module 'uart_core' is unconnected for instance 'core' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:286]
+WARNING: [Synth 8-7023] instance 'core' of module 'uart_core' has 18 connections declared, but only 16 given [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:286]
+WARNING: [Synth 8-151] case item 8'b00000000 is unreachable [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:332]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:326]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:237]
+INFO: [Synth 8-6155] done synthesizing module 'mmio_subsystem' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_subsys.sv:52]
 INFO: [Synth 8-6155] done synthesizing module 'top_mmio_subsystem_1_0' (0#1) [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ip/top_mmio_subsystem_1_0/synth/top_mmio_subsystem_1_0.sv:53]
-WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:168]
-WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:103]
-WARNING: [Synth 8-87] always_comb on 'w_slave_error_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:110]
-WARNING: [Synth 8-87] always_comb on 'w_rd_data_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:115]
-WARNING: [Synth 8-87] always_comb on 'w_rd_done_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:116]
-WARNING: [Synth 8-87] always_comb on 'w_decode_error_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:161]
-WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:68]
-WARNING: [Synth 8-3848] Net idle in module/entity gpio does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:44]
-WARNING: [Synth 8-6014] Unused sequential element r_status_reg was removed.  [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:427]
-WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:328]
-WARNING: [Synth 8-3848] Net slot_signal_received in module/entity mmio_subsystem does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_subsys.sv:96]
+WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:168]
+WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:103]
+WARNING: [Synth 8-87] always_comb on 'w_slave_error_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:110]
+WARNING: [Synth 8-87] always_comb on 'w_rd_data_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:115]
+WARNING: [Synth 8-87] always_comb on 'w_rd_done_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:116]
+WARNING: [Synth 8-87] always_comb on 'w_decode_error_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:161]
+WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:68]
+WARNING: [Synth 8-3848] Net idle in module/entity gpio does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:44]
+WARNING: [Synth 8-6014] Unused sequential element r_status_reg was removed.  [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:427]
+WARNING: [Synth 8-87] always_comb on 'w_next_state_reg' did not result in combinational logic [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:328]
+WARNING: [Synth 8-3848] Net slot_signal_received in module/entity mmio_subsystem does not have driver. [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_subsys.sv:96]
 WARNING: [Synth 8-7129] Port wr_data[31] in module uart is either unconnected or has no load
 WARNING: [Synth 8-7129] Port wr_data[30] in module uart is either unconnected or has no load
 WARNING: [Synth 8-7129] Port wr_data[29] in module uart is either unconnected or has no load
@@ -192,53 +206,53 @@ WARNING: [Synth 8-7129] Port slot_idle[2] in module axi_mmio_controller is eithe
 WARNING: [Synth 8-7129] Port slot_idle[1] in module axi_mmio_controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port slot_idle[0] in module axi_mmio_controller is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2246.289 ; gain = 504.734 ; free physical = 2248 ; free virtual = 6301
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2237.352 ; gain = 501.766 ; free physical = 3712 ; free virtual = 13271
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2261.133 ; gain = 519.578 ; free physical = 2248 ; free virtual = 6301
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2252.195 ; gain = 516.609 ; free physical = 3712 ; free virtual = 13271
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2261.133 ; gain = 519.578 ; free physical = 2248 ; free virtual = 6301
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2252.195 ; gain = 516.609 ; free physical = 3712 ; free virtual = 13271
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2261.133 ; gain = 0.000 ; free physical = 2246 ; free virtual = 6301
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2252.195 ; gain = 0.000 ; free physical = 3712 ; free virtual = 13271
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2405.883 ; gain = 0.000 ; free physical = 2287 ; free virtual = 6370
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2404.945 ; gain = 0.000 ; free physical = 3722 ; free virtual = 13281
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2405.883 ; gain = 0.000 ; free physical = 2293 ; free virtual = 6377
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2404.945 ; gain = 0.000 ; free physical = 3722 ; free virtual = 13281
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2405.883 ; gain = 664.328 ; free physical = 2360 ; free virtual = 6444
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2404.945 ; gain = 669.359 ; free physical = 3761 ; free virtual = 13319
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2413.887 ; gain = 672.332 ; free physical = 2360 ; free virtual = 6444
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2412.949 ; gain = 677.363 ; free physical = 3761 ; free virtual = 13319
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2413.887 ; gain = 672.332 ; free physical = 2360 ; free virtual = 6444
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2412.949 ; gain = 677.363 ; free physical = 3765 ; free virtual = 13324
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'axi_mmio_controller'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'timer'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'rx'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'tx'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:168]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:168]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:168]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:168]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -249,9 +263,9 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg
                READ_RESP |                            10000 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'one-hot' in module 'axi_mmio_controller'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/mmio_controller/axi_mmio_controller.sv:168]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:103]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:103]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:168]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:103]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:103]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -260,12 +274,12 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg
                     DONE |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'one-hot' in module 'timer'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:103]
-WARNING: [Synth 8-327] inferring latch for variable 'w_rd_data_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:115]
-WARNING: [Synth 8-327] inferring latch for variable 'w_decode_error_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:161]
-WARNING: [Synth 8-327] inferring latch for variable 'w_slave_error_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:110]
-WARNING: [Synth 8-327] inferring latch for variable 'w_rd_done_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/timer/timer.sv:116]
-WARNING: [Synth 8-327] inferring latch for variable 'w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/src/gpio.sv:68]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:103]
+WARNING: [Synth 8-327] inferring latch for variable 'w_rd_data_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:115]
+WARNING: [Synth 8-327] inferring latch for variable 'w_decode_error_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:161]
+WARNING: [Synth 8-327] inferring latch for variable 'w_slave_error_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:110]
+WARNING: [Synth 8-327] inferring latch for variable 'w_rd_done_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/timer/timer.sv:116]
+WARNING: [Synth 8-327] inferring latch for variable 'w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/src/gpio.sv:68]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -284,8 +298,8 @@ INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encodin
                     STOP |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'tx'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:328]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:328]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:328]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:328]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -294,9 +308,9 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg
                     DONE |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'one-hot' in module 'uart'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/98ab/uart/uart.sv:328]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_w_next_state_reg' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/uart/uart.sv:328]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2413.887 ; gain = 672.332 ; free physical = 2363 ; free virtual = 6448
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2412.949 ; gain = 677.363 ; free physical = 3765 ; free virtual = 13324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -309,7 +323,7 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit       Adders := 10    
 	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 5     
+	               32 Bit    Registers := 6     
 	               16 Bit    Registers := 1     
 	               10 Bit    Registers := 2     
 	                9 Bit    Registers := 2     
@@ -318,11 +332,11 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 7     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 17    
+	                1 Bit    Registers := 18    
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 17    
-	   5 Input   32 Bit        Muxes := 17    
+	   5 Input   32 Bit        Muxes := 1     
 	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
 	   2 Input   16 Bit        Muxes := 2     
 	   5 Input   16 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 1     
@@ -342,7 +356,7 @@ Detailed RTL Component Info :
 	   5 Input    2 Bit        Muxes := 4     
 	   4 Input    2 Bit        Muxes := 4     
 	   3 Input    2 Bit        Muxes := 1     
-	   5 Input    1 Bit        Muxes := 20    
+	   5 Input    1 Bit        Muxes := 21    
 	   2 Input    1 Bit        Muxes := 103   
 	   4 Input    1 Bit        Muxes := 28    
 	   3 Input    1 Bit        Muxes := 23    
@@ -363,31 +377,70 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port S_AXI_awprot[2] in module axi_mmio_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_awprot[1] in module axi_mmio_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_awprot[0] in module axi_mmio_controller is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_wstrb[3] in module axi_mmio_controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wr_data[31] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wr_data[30] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wr_data[29] in module uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wr_data[28] in module uart is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[15] with 1st driver pin 'inst/control/slot_wr_data_reg[15]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[15] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[15] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[14] with 1st driver pin 'inst/control/slot_wr_data_reg[14]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[14] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[14] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[13] with 1st driver pin 'inst/control/slot_wr_data_reg[13]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[13] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[13] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[12] with 1st driver pin 'inst/control/slot_wr_data_reg[12]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[12] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[12] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[11] with 1st driver pin 'inst/control/slot_wr_data_reg[11]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[11] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[11] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[10] with 1st driver pin 'inst/control/slot_wr_data_reg[10]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[10] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[10] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[9] with 1st driver pin 'inst/control/slot_wr_data_reg[9]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[9] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[9] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[8] with 1st driver pin 'inst/control/slot_wr_data_reg[8]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[8] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[8] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[7] with 1st driver pin 'inst/control/slot_wr_data_reg[7]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[7] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[7] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[6] with 1st driver pin 'inst/control/slot_wr_data_reg[6]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[6] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[6] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[5] with 1st driver pin 'inst/control/slot_wr_data_reg[5]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[5] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[5] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[4] with 1st driver pin 'inst/control/slot_wr_data_reg[4]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[4] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[4] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[3] with 1st driver pin 'inst/control/slot_wr_data_reg[3]/Q' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin slot_wr_data[3] with 2nd driver pin 'GND' [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net slot_wr_data[3] is connected to at least one constant driver which has been preserved, other driver is ignored [/home/wangjiakun/Development/emperor_soc/hardware/emperor.gen/sources_1/bd/top/ipshared/aff3/mmio_controller/axi_mmio_controller.sv:219]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2413.887 ; gain = 672.332 ; free physical = 3752 ; free virtual = 7815
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2412.949 ; gain = 677.363 ; free physical = 3757 ; free virtual = 13317
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2440.887 ; gain = 699.332 ; free physical = 3738 ; free virtual = 7774
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2432.949 ; gain = 697.363 ; free physical = 3689 ; free virtual = 13248
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2441.887 ; gain = 700.332 ; free physical = 3738 ; free virtual = 7774
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 2433.949 ; gain = 698.363 ; free physical = 3689 ; free virtual = 13248
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2459.910 ; gain = 718.355 ; free physical = 3723 ; free virtual = 7759
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 2450.973 ; gain = 715.387 ; free physical = 3675 ; free virtual = 13234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -405,37 +458,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3606 ; free virtual = 7643
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3606 ; free virtual = 7643
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3598 ; free virtual = 7635
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3598 ; free virtual = 7635
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3598 ; free virtual = 7635
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3598 ; free virtual = 7635
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -452,45 +505,45 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |CARRY4 |    21|
-|2     |LUT1   |    32|
-|3     |LUT2   |    44|
-|4     |LUT3   |    44|
-|5     |LUT4   |   135|
-|6     |LUT5   |    86|
-|7     |LUT6   |   284|
-|8     |FDCE   |   477|
+|2     |LUT1   |    33|
+|3     |LUT2   |    58|
+|4     |LUT3   |    56|
+|5     |LUT4   |    99|
+|6     |LUT5   |    61|
+|7     |LUT6   |   259|
+|8     |FDCE   |   390|
 |9     |FDPE   |     9|
 |10    |LD     |    48|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.723 ; gain = 870.168 ; free physical = 3598 ; free virtual = 7635
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.785 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 57 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2611.723 ; gain = 725.418 ; free physical = 3597 ; free virtual = 7634
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2611.730 ; gain = 870.168 ; free physical = 3597 ; free virtual = 7634
+Synthesis finished with 0 errors, 39 critical warnings and 111 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2604.785 ; gain = 716.449 ; free physical = 3548 ; free virtual = 13107
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2604.793 ; gain = 869.199 ; free physical = 3548 ; free virtual = 13107
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2611.730 ; gain = 0.000 ; free physical = 3753 ; free virtual = 7794
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2604.793 ; gain = 0.000 ; free physical = 3720 ; free virtual = 13279
 INFO: [Netlist 29-17] Analyzing 69 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2667.750 ; gain = 0.000 ; free physical = 3774 ; free virtual = 7816
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2660.812 ; gain = 0.000 ; free physical = 3719 ; free virtual = 13279
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 48 instances were transformed.
   LD => LDCE: 48 instances
 
-Synth Design complete | Checksum: 632e6e2e
+Synth Design complete | Checksum: 3bd4735b
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 140 Warnings, 0 Critical Warnings and 0 Errors encountered.
+69 Infos, 141 Warnings, 45 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 2667.750 ; gain = 1136.395 ; free physical = 3774 ; free virtual = 7816
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1851.905; main = 1679.525; forked = 440.013
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3342.453; main = 2667.754; forked = 928.562
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2691.762 ; gain = 0.000 ; free physical = 3774 ; free virtual = 7817
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:34 . Memory (MB): peak = 2660.812 ; gain = 1138.230 ; free physical = 3719 ; free virtual = 13279
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1733.176; main = 1733.176; forked = 243.155
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3339.078; main = 2660.816; forked = 926.125
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2684.824 ; gain = 0.000 ; free physical = 3719 ; free virtual = 13279
 INFO: [Common 17-1381] The checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_mmio_subsystem_1_0_synth_1/top_mmio_subsystem_1_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP top_mmio_subsystem_1_0, cache-ID = 48a2db1e2ccc2167
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Coretcl 2-1174] Renamed 15 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2691.762 ; gain = 0.000 ; free physical = 3768 ; free virtual = 7815
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2684.824 ; gain = 0.000 ; free physical = 3719 ; free virtual = 13279
 INFO: [Common 17-1381] The checkpoint '/home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/top_mmio_subsystem_1_0_synth_1/top_mmio_subsystem_1_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_mmio_subsystem_1_0_utilization_synth.rpt -pb top_mmio_subsystem_1_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Aug 15 20:27:17 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Aug 22 20:30:02 2025...

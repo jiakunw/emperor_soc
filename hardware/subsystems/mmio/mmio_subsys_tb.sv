@@ -36,7 +36,7 @@
 // Date: 06/27/2025
 //------------------------------------------------------------
 module mmio_subsys_tb();
-    logic clk, arst_n;
+    logic aclk, arst_n;
     // AXI slave interface with main Bus
     // write
     logic [31:0] S_AXI_awaddr;
@@ -66,19 +66,19 @@ module mmio_subsys_tb();
     logic rx;
     logic tx;
     // debug
-    output logic [2:0] debug_r_state;
-    output logic [7:0] debug_addr;
-    output logic [15:0] debug_slot_wr_done;
-    output logic [15:0] debug_slot_chip_select;
-    output logic debug_transaction_completed;
-    output logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state;
+    logic [2:0] debug_r_state;
+    logic [7:0] debug_addr;
+    logic [15:0] debug_slot_wr_done;
+    logic [15:0] debug_slot_chip_select;
+    logic debug_transaction_completed;
+    logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state;
 
     mmio_subsystem dut (.*);
 
     //the system clock
     initial begin
-        clk = 1'b0;
-        forever #5 clk = ~clk;
+        aclk = 1'b0;
+        forever #5 aclk = ~aclk;
     end
 
     task test_timer();
@@ -93,16 +93,16 @@ module mmio_subsys_tb();
         $display("wait for S_AXI_awready");
         wait(S_AXI_awready == 1'b1);
         $display("received S_AXI_awready");
-        repeat($urandom_range(0,5)) @(posedge clk);
+        repeat($urandom_range(0,5)) @(posedge aclk);
         S_AXI_awvalid = 1'b0;
         S_AXI_wdata = 32'd200;
         S_AXI_wstrb = 4'b1111;
-        repeat($urandom_range(0,3)) @(posedge clk);
+        repeat($urandom_range(0,3)) @(posedge aclk);
         S_AXI_wvalid = 1'b1;
         $display("wait for S_AXI_wready");
         wait(S_AXI_wready == 1'b1);
         $display("received S_AXI_wready");
-        @(posedge clk);
+        @(posedge aclk);
         #5;
         S_AXI_wvalid = 1'b0;
         S_AXI_bready = 1'b1;
@@ -111,10 +111,10 @@ module mmio_subsys_tb();
         $display("received S_AXI_bvalid");
         $display("write response should be AXI_RESP_OKAY");
         assert(S_AXI_bresp == AXI_RESP_OKAY);
-        @(posedge clk);
+        @(posedge aclk);
         #5;
-        S_AXI_bready = 1'b0;
-        repeat($urandom_range(0,5)) @(posedge clk);
+        
+        repeat($urandom_range(0,5)) @(posedge aclk);
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
         $display("done with setting the auto reload register");
@@ -128,29 +128,29 @@ module mmio_subsys_tb();
         $display("wait for S_AXI_awready");
         wait(S_AXI_awready == 1'b1);
         $display("received S_AXI_awready");
-        repeat($urandom_range(0,5)) @(posedge clk);
+        repeat($urandom_range(0,5)) @(posedge aclk);
         S_AXI_awvalid = 1'b0;
         S_AXI_wdata = 32'd1;
         S_AXI_wstrb = 4'b1111;
-        repeat($urandom_range(0,3)) @(posedge clk);
+        repeat($urandom_range(0,3)) @(posedge aclk);
         S_AXI_wvalid = 1'b1;
         $display("wait for S_AXI_wready!");
         wait(S_AXI_wready == 1'b1);
-        @(posedge clk);
+        @(posedge aclk);
         #5;
         S_AXI_wvalid = 1'b0;
         $display("received S_AXI_wready");
-        @(posedge clk);
+        @(posedge aclk);
         S_AXI_bready = 1'b1;
         $display("wait for S_AXI_bvalid");
         wait(S_AXI_bvalid == 1'b1);
         $display("received S_AXI_bvalid");
         $display("write response should be AXI_RESP_OKAY");
         assert(S_AXI_bresp == AXI_RESP_OKAY);
-        @(posedge clk);
+        @(posedge aclk);
         #5;
-        S_AXI_bready = 1'b0;
-        repeat($urandom_range(0,5)) @(posedge clk);
+        
+        repeat($urandom_range(0,5)) @(posedge aclk);
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
         $display("done with setting the control register");
@@ -158,7 +158,7 @@ module mmio_subsys_tb();
         $display(" ");
 
         $display("letting the counter run until finishes");
-        repeat(200) @(posedge clk);
+        repeat(200) @(posedge aclk);
 
         $display(" ");
 
@@ -169,9 +169,9 @@ module mmio_subsys_tb();
         $display("wait for S_AXI_arready");
         wait(S_AXI_arready);
         $display("received S_AXI_arready");
-        repeat($urandom_range(0,5)) @(posedge clk);
+        repeat($urandom_range(0,5)) @(posedge aclk);
         S_AXI_arvalid = 1'b0;
-        repeat($urandom_range(0,3)) @(posedge clk);
+        repeat($urandom_range(0,3)) @(posedge aclk);
         S_AXI_rready = 1'b1;
         $display("wait for S_AXI_rvalid");
         wait(S_AXI_rvalid);
@@ -181,14 +181,13 @@ module mmio_subsys_tb();
         S_AXI_rready = 1'b1;
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
-        @(posedge clk);
-        @(posedge clk);
-        S_AXI_rready = 1'b0;
+        @(posedge aclk);
+        @(posedge aclk);
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
         $display("done with reading the counter value");
-        @(posedge clk);
-        @(posedge clk);
+        @(posedge aclk);
+        @(posedge aclk);
 
         $display(" ");
 
@@ -200,9 +199,9 @@ module mmio_subsys_tb();
             $display("wait for S_AXI_arready");
             wait(S_AXI_arready);
             $display("received S_AXI_arready");
-            repeat($urandom_range(0,5)) @(posedge clk);
+            repeat($urandom_range(0,5)) @(posedge aclk);
             S_AXI_arvalid = 1'b0;
-            repeat($urandom_range(0,3)) @(posedge clk);
+            repeat($urandom_range(0,3)) @(posedge aclk);
             S_AXI_rready = 1'b1;
             $display("wait for S_AXI_rvalid");
             wait(S_AXI_rvalid);
@@ -210,13 +209,13 @@ module mmio_subsys_tb();
             S_AXI_rready = 1'b1;
             $display("read response should be AXI_RESP_DECERR");
             assert(S_AXI_rresp == AXI_RESP_DECERR);
-            @(posedge clk);
-            @(posedge clk);
-            S_AXI_rready = 1'b0;
+            @(posedge aclk);
+            @(posedge aclk);
+
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
-            @(posedge clk);
-            @(posedge clk);
+            @(posedge aclk);
+            @(posedge aclk);
         end
 
         $display(" ");
@@ -229,30 +228,30 @@ module mmio_subsys_tb();
             $display("wait for S_AXI_awready");
             wait(S_AXI_awready);
             $display("received S_AXI_awready");
-            repeat($urandom_range(0,5)) @(posedge clk);
+            repeat($urandom_range(0,5)) @(posedge aclk);
             S_AXI_awvalid = 1'b0;
             S_AXI_wdata = 32'd200;
             S_AXI_wstrb = 4'b1111;
-            repeat($urandom_range(0,3)) @(posedge clk);
+            repeat($urandom_range(0,3)) @(posedge aclk);
             S_AXI_wvalid = 1'b1;
             $display("wait for S_AXI_wready");
             wait(S_AXI_wready);
             $display("received S_AXI_wready");
-            @(posedge clk);
+            @(posedge aclk);
             #5;
             S_AXI_wvalid = 1'b0;
             S_AXI_bready = 1'b1;
-            @(posedge clk);
-            @(posedge clk);
+            @(posedge aclk);
+            @(posedge aclk);
             $display("wait for S_AXI_bvalid");
             wait(S_AXI_bvalid);
             $display("received S_AXI_bvalid");
             $display("write response should be AXI_RESP_OKAY");
             assert(S_AXI_bresp == AXI_RESP_OKAY);
-            S_AXI_bready = 1'b0;
-            @(posedge clk);
+            
+            @(posedge aclk);
             #5;
-            repeat($urandom_range(0,5)) @(posedge clk);
+            repeat($urandom_range(0,5)) @(posedge aclk);
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
         end
@@ -272,45 +271,45 @@ module mmio_subsys_tb();
         end
     end
 
-    task write_data(logic [7:0] addr, logic [31:0] data_to_write);
-        @(posedge clk); #1;
+    task write_data(logic [31:0] addr, logic [31:0] data_to_write);
+        @(posedge aclk); #1;
         S_AXI_awaddr = addr;    // uart tx address
+        S_AXI_wdata = data_to_write;
+        @(posedge aclk); #1;
+        $display("wait for S_AXI_awready");
         S_AXI_awprot = 3'd0;
         S_AXI_awvalid = 1'b1;
         S_AXI_wvalid = 1'b1;
-        S_AXI_bready = 1'b1;
-        S_AXI_wdata = data_to_write;
-        $display("wait for S_AXI_awready");
         wait(S_AXI_awready == 1'b1);
+        @(posedge aclk); #1;
         $display("received S_AXI_awready");
-        @(posedge clk); #1;
         S_AXI_awvalid = 1'b0;
         S_AXI_wstrb = 4'b0001;
-        repeat($urandom_range(1,3)) @(posedge clk);  #1;
         $display("wait for S_AXI_wready");
-        @(posedge clk); #1;
+        // @(posedge aclk); #1;
         wait(S_AXI_wready == 1'b1);
         $display("received S_AXI_wready");
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         S_AXI_wvalid = 1'b0;
         $display("wait for S_AXI_bvalid");
         wait(S_AXI_bvalid == 1'b1);
         $display("received S_AXI_bvalid");
-        // repeat($urandom_range(1,3)) @(posedge clk); #1;
+        // repeat($urandom_range(1,3)) @(posedge aclk); #1;
         // $display("received S_AXI_bvalid");
     endtask
 
-    task read_data(logic [7:0] addr);
-        @(posedge clk); #1;
+    task read_data(logic [31:0] addr);
+        @(posedge aclk); #1;
         S_AXI_araddr = addr;    // uart tx address
+        @(posedge aclk); #1;
         S_AXI_arprot = 3'd0;
         S_AXI_arvalid = 1'b1;
+        S_AXI_rready = 1'b1;
         $display("wait for S_AXI_arready");
         wait(S_AXI_arready == 1'b1);
         $display("received S_AXI_arready");
-        repeat($urandom_range(1,5)) @(posedge clk); #1;
+        @(posedge aclk); #1;
         S_AXI_arvalid = 1'b0;
-        repeat($urandom_range(1,3)) @(posedge clk); #1;
         S_AXI_rready = 1'b1;
         $display("wait for S_AXI_rvalid");
         wait(S_AXI_rvalid);
@@ -318,11 +317,11 @@ module mmio_subsys_tb();
         // S_AXI_rready = 1'b1;
         // $display("read response should be AXI_RESP_DECERR");
         // assert(S_AXI_rresp == AXI_RESP_DECERR);
-        // @(posedge clk); #1
-        // S_AXI_rready = 1'b0;
+        // @(posedge aclk); #1
+        
         // $display("contrl should go back to INIT state");
         // assert(dut.control.r_state == 3'd0);
-        // @(posedge clk); #1;
+        // @(posedge aclk); #1;
     endtask
 
     task test_uart();
@@ -332,43 +331,43 @@ module mmio_subsys_tb();
         $display(" ");
         $display("write 16 data to uart tx, testing AXI write protocol");
         for (int i = 0; i < 16; i++) begin
-            write_data(8'b0010_0001, {24'b0, burst_data[i]});
+            write_data(32'h4600_0204, {24'b0, burst_data[i]});
             $display("write response should be AXI_RESP_OKAY");
             assert(S_AXI_bresp == AXI_RESP_OKAY);
-            @(posedge clk); #1;
-            S_AXI_bready = 1'b0;
-            repeat($urandom_range(1,3)) @(posedge clk); #1
+            @(posedge aclk); #1;
+            
+            repeat($urandom_range(1,3)) @(posedge aclk); #1
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
-            // @(posedge clk); #1;
+            // @(posedge aclk); #1;
             // S_AXI_awaddr = 8'b0010_0001;    // uart tx address
             // S_AXI_awprot = 3'd0;
             // S_AXI_awvalid = 1'b1;
             // $display("wait for S_AXI_awready");
             // wait(S_AXI_awready == 1'b1);
             // $display("received S_AXI_awready");
-            // repeat($urandom_range(1,5)) @(posedge clk); #1;
+            // repeat($urandom_range(1,5)) @(posedge aclk); #1;
             // S_AXI_awvalid = 1'b0;
             // S_AXI_wdata = {24'b0, burst_data[i]};
             // S_AXI_wstrb = 4'b0001;
-            // repeat($urandom_range(1,3)) @(posedge clk);  #1;
+            // repeat($urandom_range(1,3)) @(posedge aclk);  #1;
             // S_AXI_wvalid = 1'b1;
             // $display("wait for S_AXI_wready");
-            // @(posedge clk); #1;
+            // @(posedge aclk); #1;
             // wait(S_AXI_wready == 1'b1);
             // $display("received S_AXI_wready");
-            // @(posedge clk); #1;
+            // @(posedge aclk); #1;
             // S_AXI_wvalid = 1'b0;
             // S_AXI_bready = 1'b1;
             // $display("wait for S_AXI_bvalid");
             // wait(S_AXI_bvalid == 1'b1);
-            // repeat($urandom_range(1,3)) @(posedge clk); #1;
+            // repeat($urandom_range(1,3)) @(posedge aclk); #1;
             // $display("received S_AXI_bvalid");
             // $display("write response should be AXI_RESP_OKAY");
             // assert(S_AXI_bresp == AXI_RESP_OKAY);
-            // @(posedge clk); #1;
-            // S_AXI_bready = 1'b0;
-            // repeat($urandom_range(0,5)) @(posedge clk);
+            // @(posedge aclk); #1;
+            // 
+            // repeat($urandom_range(0,5)) @(posedge aclk);
             // $display("contrl should go back to INIT state");
             // assert(dut.control.r_state == 3'd0);
         end
@@ -381,12 +380,12 @@ module mmio_subsys_tb();
         $display("");
 
         $display("clear TX's FIFO");
-        write_data(8'b0010_0011, 32'd2);
+        write_data(32'h4600_020c, 32'd2);
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_OKAY);
-        @(posedge clk); #1;
-        S_AXI_bready = 1'b0;
-        repeat($urandom_range(0,5)) @(posedge clk); #1;
+        @(posedge aclk); #1;
+        
+        repeat($urandom_range(0,5)) @(posedge aclk); #1;
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
         $display("TX FIFO should be empty");
@@ -404,52 +403,48 @@ module mmio_subsys_tb();
             assert(dut.emperor_uart.core.tx_fifo.rf.r_reg_array[i] == 0);
         end
         $display("read status register, should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, should be 0");
         assert(S_AXI_rdata == 32'd0);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("");
         $display("test invalid read");
         $display("right now rx fifo is empty, reading from it should cause an invalid read");
-        read_data(8'b0010_0000);
+        read_data(32'h4600_0200);
         $display("read response should be AXI_RESP_SLVERR");
         assert(S_AXI_rresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("read from the status register, 8th bit should be 1 and rest should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, 8th bit should be 1 and rest should be 0");
         assert(S_AXI_rdata == 32'h0000_0100);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("read from the status register, this time it should be zeroed out");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, this time it should be zeroed out");
         assert(S_AXI_rdata == 32'd0);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("");
         $display("test invalid write");
@@ -457,192 +452,182 @@ module mmio_subsys_tb();
         write_data(8'b0010_0000, $urandom_range(0, 255));
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_bready = 1'b0;
+        @(posedge aclk); #1
+        
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("read from the status register, 8th bit should be 1 and rest should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, 8th bit should be 1 and rest should be 0");
         assert(S_AXI_rdata == 32'h0000_0200);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("read from the status register, this time it should be zeroed out");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, this time it should be zeroed out");
         assert(S_AXI_rdata == 32'd0)
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("");
         $display("status register is read only, writing to it should cause error");
-        write_data(8'b0010_0100, $urandom_range(0, 255));
+        write_data(32'h4600_0210, $urandom_range(0, 255));
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_bready = 1'b0;
+        @(posedge aclk); #1
+        
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("read from the status register, 8th bit should be 1 and rest should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, 8th bit should be 1 and rest should be 0");
         assert(S_AXI_rdata == 32'h0000_0200);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("read from the status register, this time it should be zeroed out");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, this time it should be zeroed out");
         assert(S_AXI_rdata == 32'd0);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("");
         $display("test 2 successive invalid writes");
         $display("status register is read only, writing to it should cause error");
-        write_data(8'b0010_0100, $urandom_range(0, 255));
+        write_data(32'h4600_0210, $urandom_range(0, 255));
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_bready = 1'b0;
+        @(posedge aclk); #1
+        
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("rx's fifo is read only, writing to it should give an error");
-        write_data(8'b0010_0000, $urandom_range(0, 255));
+        write_data(32'h4600_0200, $urandom_range(0, 255));
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("read from the status register, 8th bit should be 1 and rest should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, 8th bit should be 1 and rest should be 0");
         assert(S_AXI_rdata == 32'h0000_0200);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("read from the status register, this time it should be zeroed out");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, this time it should be zeroed out");
         assert(S_AXI_rdata == 32'd0);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("");
         $display("test 1 invalid read and 1 invalid write");
         $display("right now rx fifo is empty, reading from it should cause an invalid read");
-        read_data(8'b0010_0000);
+        read_data(32'h4600_0200);
         $display("read response should be AXI_RESP_SLVERR");
         assert(S_AXI_rresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("rx's fifo is read only, writing to it should give an error");
-        write_data(8'b0010_0000, $urandom_range(0, 255));
+        write_data(32'h4600_0200, $urandom_range(0, 255));
         $display("write response should be AXI_RESP_SLVERR");
         assert(S_AXI_bresp == AXI_RESP_SLVERR);
-        @(posedge clk); #1
-        S_AXI_bready = 1'b0;
+        @(posedge aclk); #1
+        
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
         
         $display("read from the status register, 8th bit should be 1 and rest should be 0");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, 8th bit and 9th should be 1 and rest should be 0");
         assert(S_AXI_rdata == 32'h0000_0300);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display("read from the status register, this time it should be zeroed out");
-        read_data(8'b0010_0100);
+        read_data(32'h4600_0210);
         $display("read response should be AXI_RESP_OKAY");
         assert(S_AXI_rresp == AXI_RESP_OKAY);
         $display("read status register, this time it should be zeroed out");
         assert(S_AXI_rdata == 32'd0);
-        @(posedge clk); #1
-        S_AXI_rready = 1'b0;
+        @(posedge aclk); #1
         $display("contrl should go back to INIT state");
         assert(dut.control.r_state == 3'd0);
-        @(posedge clk); #1;
+        @(posedge aclk); #1;
 
         $display(" ");
         $display("test decode error");
         for (int i = 1; i < 10; i++) begin
-            read_data(8'b0010_0100 + i);
+            read_data(32'h4600_0210 + (i*4));
             $display("read response should be AXI_RESP_DECERR");
             assert(S_AXI_rresp == AXI_RESP_DECERR);
-            @(posedge clk); #1
-            S_AXI_rready = 1'b0;
+            @(posedge aclk); #1
+
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
-            @(posedge clk); #1;
+            @(posedge aclk); #1;
         end
         for (int i = 1; i < 10; i++) begin
-            write_data(8'b0010_0100 + i, $urandom_range(0, 255));
+            write_data(32'h4600_0210 + (i*4), $urandom_range(0, 255));
             $display("write response should be AXI_RESP_DECERR");
             assert(S_AXI_bresp == AXI_RESP_DECERR);
-            @(posedge clk); #1
-            S_AXI_bready = 1'b0;
+            @(posedge aclk); #1
+            
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
-            @(posedge clk); #1;
+            @(posedge aclk); #1;
         end
     endtask
 
     task run_testbench();
-        @(posedge clk);
+        @(posedge aclk);
         // test_timer();
         test_uart();
-        @(posedge clk);
+        @(posedge aclk);
     endtask
 
     // run test
@@ -655,16 +640,16 @@ module mmio_subsys_tb();
         S_AXI_wdata = 'b0;
         S_AXI_wstrb = 'b0;
         S_AXI_wvalid = 'b0;
-        S_AXI_bready = 'b0;
+        S_AXI_bready = 'b1;
         S_AXI_araddr = 'b0;
         S_AXI_arprot = 'b0;
         S_AXI_arvalid = 'b0;
-        S_AXI_rready = 'b0;
-        @(posedge clk);
+        S_AXI_rready = 'b1;
+        @(posedge aclk);
 
         arst_n = 1'b1;
-        @(posedge clk);
-        @(posedge clk);
+        @(posedge aclk);
+        @(posedge aclk);
 
         // -------------------------------
         // run test
@@ -685,7 +670,7 @@ module mmio_subsys_tb();
                 cycle_cnt = 0;
                 // wait 3000 clock cycles
                 repeat (30000) begin
-                    @(posedge clk);
+                    @(posedge aclk);
                     cycle_cnt++;
                 end
                 $display("** TIMEOUT: test did not finish after %0d cycles (time=%0t) **",
