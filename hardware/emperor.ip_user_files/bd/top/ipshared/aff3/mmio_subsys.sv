@@ -100,7 +100,7 @@ module mmio_subsystem
     logic [15:0] slot_wr_done, slot_rd_done, slot_idle;
     logic [15:0] slot_slave_error, slot_decode_error;
     logic transaction_completed;
-    logic write;
+    logic write, read;
 
     axi_mmio_controller control (.*);
 
@@ -108,7 +108,7 @@ module mmio_subsystem
         .clk(aclk), 
         .arst_n,
         .chip_select(slot_chip_select[0]),
-        .read(S_AXI_rready), 
+        .read, 
         .write,
         .addr(reg_addr),
         .wr_data(slot_wr_data),
@@ -128,7 +128,7 @@ module mmio_subsystem
         .clk(aclk), 
         .arst_n,
         .chip_select(slot_chip_select[1]),
-        .read(S_AXI_rready), 
+        .read, 
         .write,
         .addr(reg_addr),
         .wr_data(slot_wr_data),
@@ -155,7 +155,7 @@ module mmio_subsystem
         .arst_n,
         // slot interface
         .chip_select(slot_chip_select[2]),
-        .read(S_AXI_rready), 
+        .read, 
         .write,
         .addr(reg_addr),
         .wr_data(slot_wr_data),

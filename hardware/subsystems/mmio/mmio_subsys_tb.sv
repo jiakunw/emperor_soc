@@ -74,6 +74,31 @@ module mmio_subsys_tb();
     logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state;
 
     mmio_subsystem dut (.*);
+    
+    axi_uartlite_0 golden (
+        .s_axi_aclk(aclk),
+        .s_axi_aresetn(arst_n),
+        .interrupt(),
+        .s_axi_awaddr(4'd0), // IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        .s_axi_awvalid(1'b0),
+        .s_axi_awready(),
+        .s_axi_wdata(32'd0),
+        .s_axi_wstrb(4'd3),
+        .s_axi_wvalid(1'd0),
+        .s_axi_wready(),
+        .s_axi_bresp(),
+        .s_axi_bvalid(),
+        .s_axi_bready(1'b1),
+        .s_axi_araddr(4'd0), // IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        .s_axi_arvalid(1'b1), // : IN STD_LOGIC;
+        .s_axi_arready(), // : OUT STD_LOGIC;
+        .s_axi_rdata(), // OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        .s_axi_rresp(), // : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        .s_axi_rvalid(), // : OUT STD_LOGIC;
+        .s_axi_rready(1'b0), // : IN STD_LOGIC;
+        .rx(tx),
+        .tx()
+  );
 
     //the system clock
     initial begin
@@ -301,16 +326,15 @@ module mmio_subsys_tb();
     task read_data(logic [31:0] addr);
         @(posedge aclk); #1;
         S_AXI_araddr = addr;    // uart tx address
+        S_AXI_rready = 1'b1;
         @(posedge aclk); #1;
         S_AXI_arprot = 3'd0;
         S_AXI_arvalid = 1'b1;
-        S_AXI_rready = 1'b1;
         $display("wait for S_AXI_arready");
         wait(S_AXI_arready == 1'b1);
         $display("received S_AXI_arready");
         @(posedge aclk); #1;
         S_AXI_arvalid = 1'b0;
-        S_AXI_rready = 1'b1;
         $display("wait for S_AXI_rvalid");
         wait(S_AXI_rvalid);
         $display("received S_AXI_rvalid");
@@ -329,6 +353,8 @@ module mmio_subsys_tb();
         $display(" ");
         $display("***************** start uart test *****************");
         $display(" ");
+        write_data(32'h4600_0208, 32'h54);
+        // read_data(32'h4600_0210);
         $display("write 16 data to uart tx, testing AXI write protocol");
         for (int i = 0; i < 16; i++) begin
             write_data(32'h4600_0204, {24'b0, burst_data[i]});
@@ -339,37 +365,6 @@ module mmio_subsys_tb();
             repeat($urandom_range(1,3)) @(posedge aclk); #1
             $display("contrl should go back to INIT state");
             assert(dut.control.r_state == 3'd0);
-            // @(posedge aclk); #1;
-            // S_AXI_awaddr = 8'b0010_0001;    // uart tx address
-            // S_AXI_awprot = 3'd0;
-            // S_AXI_awvalid = 1'b1;
-            // $display("wait for S_AXI_awready");
-            // wait(S_AXI_awready == 1'b1);
-            // $display("received S_AXI_awready");
-            // repeat($urandom_range(1,5)) @(posedge aclk); #1;
-            // S_AXI_awvalid = 1'b0;
-            // S_AXI_wdata = {24'b0, burst_data[i]};
-            // S_AXI_wstrb = 4'b0001;
-            // repeat($urandom_range(1,3)) @(posedge aclk);  #1;
-            // S_AXI_wvalid = 1'b1;
-            // $display("wait for S_AXI_wready");
-            // @(posedge aclk); #1;
-            // wait(S_AXI_wready == 1'b1);
-            // $display("received S_AXI_wready");
-            // @(posedge aclk); #1;
-            // S_AXI_wvalid = 1'b0;
-            // S_AXI_bready = 1'b1;
-            // $display("wait for S_AXI_bvalid");
-            // wait(S_AXI_bvalid == 1'b1);
-            // repeat($urandom_range(1,3)) @(posedge aclk); #1;
-            // $display("received S_AXI_bvalid");
-            // $display("write response should be AXI_RESP_OKAY");
-            // assert(S_AXI_bresp == AXI_RESP_OKAY);
-            // @(posedge aclk); #1;
-            // 
-            // repeat($urandom_range(0,5)) @(posedge aclk);
-            // $display("contrl should go back to INIT state");
-            // assert(dut.control.r_state == 3'd0);
         end
 
         $display("check data consistancy");

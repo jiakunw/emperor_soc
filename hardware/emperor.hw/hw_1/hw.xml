@@ -4320,7 +4320,7 @@
         <net name="top_i/microblaze_riscv_0_M_AXI_DP_RVALID"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -4609,6 +4609,58 @@
       </probeOptions>
       <nets>
         <net name="top_i/mmio_subsystem_1_S_AXI_bvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe20[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[31]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[30]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[29]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[28]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[27]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[26]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[25]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[24]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[23]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[22]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[21]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[20]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[19]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[18]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[17]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[16]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[15]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[14]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[13]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[12]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[11]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[10]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[9]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[8]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[7]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[6]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[5]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[4]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[3]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[2]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[1]"/>
+        <net name="top_i/mmio_subsystem_1_S_AXI_rdata[0]"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">

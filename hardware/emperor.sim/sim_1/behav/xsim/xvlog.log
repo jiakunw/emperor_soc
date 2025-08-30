@@ -19,7 +19,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/wangjiakun/Development/
 INFO: [VRFC 10-311] analyzing module buad_generator
 INFO: [VRFC 10-311] analyzing module uart_core
 INFO: [VRFC 10-311] analyzing module uart
-WARNING: [VRFC 10-8497] literal value 'h10 truncated to fit in 4 bits [/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio/uart/uart.sv:382]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio/mmio_subsys_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mmio_subsystem
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'mmio_subsystem' [/home/wangjiakun/Development/emperor_soc/hardware/subsystems/mmio/mmio_subsys.sv:52]

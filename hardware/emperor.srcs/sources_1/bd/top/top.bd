@@ -417,7 +417,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "20"
+            "value": "21"
           },
           "C_PROBE0_WIDTH": {
             "value": "3"
@@ -433,6 +433,9 @@
           },
           "C_PROBE1_WIDTH": {
             "value": "8"
+          },
+          "C_PROBE20_WIDTH": {
+            "value": "32"
           },
           "C_PROBE2_WIDTH": {
             "value": "32"
@@ -640,7 +643,8 @@
       "mmio_subsystem_1_S_AXI_rdata": {
         "ports": [
           "mmio_subsystem_1/S_AXI_rdata",
-          "microblaze_riscv_0/M_AXI_DP_RDATA"
+          "microblaze_riscv_0/M_AXI_DP_RDATA",
+          "ila_1/probe20"
         ]
       },
       "mmio_subsystem_1_S_AXI_rresp": {

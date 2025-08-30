@@ -180,9 +180,10 @@ module tx
     } r_state, w_next_state;
 
     // signal declaration
-    logic [3:0] r_sampling_ticks, w_next_sampling_ticks;
+    logic [4:0] r_sampling_ticks, w_next_sampling_ticks;
     logic [$clog2(DATA_BITS)-1:0] r_data_bits_sent, w_next_data_bits_sent;
     logic [DATA_BITS-1:0] r_in_shift, w_in_shift;
+    logic tx_sample_point;
 
     // register update
     always_ff @(posedge clk, negedge arst_n) begin
@@ -208,6 +209,7 @@ module tx
         w_next_data_bits_sent = r_data_bits_sent;
         w_in_shift = r_in_shift;
         tx_idle = 1'b0;
+        tx_sample_point = r_sampling_ticks == 16;
 
         case (r_state)
             IDLE: begin
@@ -219,18 +221,18 @@ module tx
             end
             START: begin
                 tx = 1'b0;
-                w_next_sampling_ticks = (r_sampling_ticks == 15) ? 0 :
+                w_next_sampling_ticks = (tx_sample_point) ? 0 :
                                         r_sampling_ticks + tick;
-                w_next_state = (r_sampling_ticks == 15) ? DATA : START;
+                w_next_state = (tx_sample_point) ? DATA : START;
             end
             DATA: begin
-                w_next_sampling_ticks = (r_sampling_ticks == 15) ? 0 :
+                w_next_sampling_ticks = (tx_sample_point) ? 0 :
                                         r_sampling_ticks + tick;
-                w_next_data_bits_sent = (r_sampling_ticks == 15) ? r_data_bits_sent + 1 :
+                w_next_data_bits_sent = (tx_sample_point) ? r_data_bits_sent + 1 :
                                             r_data_bits_sent;
-                w_in_shift = (r_sampling_ticks == 15) ? {1'b0, r_in_shift[DATA_BITS-1:1]} : r_in_shift;
+                w_in_shift = (tx_sample_point) ? {1'b0, r_in_shift[DATA_BITS-1:1]} : r_in_shift;
                 tx = r_in_shift[0];
-                w_next_state = ((r_data_bits_sent == DATA_BITS-1) && (r_sampling_ticks == 15)) ? STOP : DATA;         
+                w_next_state = ((r_data_bits_sent == DATA_BITS-1) && (tx_sample_point)) ? STOP : DATA;         
             end
             STOP: begin
                 tx = 1'b1;

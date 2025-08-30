@@ -22,31 +22,32 @@
 #include "xil_printf.h"
 #include "xil_cache.h"
 #include "emperor_gpio.h"
+#include "emperor_uart.h"
 
 
 int main()
 {
     Xil_DCacheDisable();
     init_platform();
-    
-    // gpio_read(GPIO_SW_N);  
 
-    // print("Hello World\n\r");
-    // print("Successfully ran Hello World application");
-    // gpio_write(GPIO_LED_0, 1);
+    uart_init(115200);
+    
+    put_byte('S');
+    // put_byte('A');
+
     while (1) {
-        gpio_write(GPIO_LED_0, 1);
-        for (int i = 0; i < 11999999; i++) {}
-        gpio_write(GPIO_LED_0, 0);
-        gpio_write(GPIO_LED_1, 1);
-        for (int i = 0; i < 11999999; i++) {}
-        gpio_write(GPIO_LED_1, 0);
-        gpio_write(GPIO_LED_2, 1);
-        for (int i = 0; i < 11999999; i++) {}
-        gpio_write(GPIO_LED_2, 0);
-        gpio_write(GPIO_LED_3, 1);
-        for (int i = 0; i < 11999999; i++) {}
-        gpio_write(GPIO_LED_3, 0);
+        // gpio_write(GPIO_LED_0, 1);
+        // for (int i = 0; i < 11999999; i++) {}
+        // gpio_write(GPIO_LED_0, 0);
+        // gpio_write(GPIO_LED_1, 1);
+        // for (int i = 0; i < 11999999; i++) {}
+        // gpio_write(GPIO_LED_1, 0);
+        // gpio_write(GPIO_LED_2, 1);
+        // for (int i = 0; i < 11999999; i++) {}
+        // gpio_write(GPIO_LED_2, 0);
+        // gpio_write(GPIO_LED_3, 1);
+        // for (int i = 0; i < 11999999; i++) {}
+        // gpio_write(GPIO_LED_3, 0);
     }
 
     cleanup_platform();

@@ -5,7 +5,7 @@
 void set_baud_rate(uint32_t baud) {
     struct uart_reg_map *uart = UART_BASE;
 
-    uint32_t dvsr = SYS_CLK_FREQ / 16 / baud - 1;
+    uint32_t dvsr = 100000000 / 16 / baud;
     uart->dvsr_reg = dvsr;
 }
 
@@ -45,13 +45,13 @@ char get_byte() {
 void clear_rx() {
     struct uart_reg_map *uart = UART_BASE;
 
-    rx->ctrl_reg |= 1;
-    rx->ctrl_reg &= 2;
+    uart->ctrl_reg |= 1;
+    uart->ctrl_reg &= 2;
 }
 
 void clear_tx() {
     struct uart_reg_map *uart = UART_BASE;
 
-    rx->ctrl_reg |= 2;
-    rx->ctrl_reg &= 1;
+    uart->ctrl_reg |= 2;
+    uart->ctrl_reg &= 1;
 }

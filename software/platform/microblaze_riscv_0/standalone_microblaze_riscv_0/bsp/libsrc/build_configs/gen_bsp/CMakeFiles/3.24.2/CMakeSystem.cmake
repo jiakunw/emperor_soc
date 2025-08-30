@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-6.14.0-24-generic")
+set(CMAKE_HOST_SYSTEM "Linux-6.14.0-27-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "6.14.0-24-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "6.14.0-27-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/wangjiakun/Development/emperor_soc/software/platform/microblaze_riscv_0/standalone_microblaze_riscv_0/bsp/microblaze_riscv_toolchain.cmake")

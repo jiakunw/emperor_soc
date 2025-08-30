@@ -1,4 +1,4 @@
-# 2025-08-22T23:06:01.283048
+# 2025-08-29T23:24:31.672961
 import vitis
 
 client = vitis.create_client()
@@ -9,7 +9,17 @@ status = platform.update_hw(hw_design = "$COMPONENT_LOCATION/../../hardware/top.
 
 status = platform.build()
 
+status = platform.build()
+
 comp = client.get_component(name="hello_world_test")
+comp.build()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
 comp.build()
 
 status = platform.build()

@@ -1,7 +1,6 @@
 vlib questa_lib/work
 vlib questa_lib/msim
 
-vlib questa_lib/msim/xpm
 vlib questa_lib/msim/xil_defaultlib
 vlib questa_lib/msim/microblaze_v11_0_14
 vlib questa_lib/msim/microblaze_riscv_v1_0_3
@@ -13,7 +12,6 @@ vlib questa_lib/msim/mdm_riscv_v1_0_3
 vlib questa_lib/msim/lib_cdc_v1_0_3
 vlib questa_lib/msim/proc_sys_reset_v5_0_16
 
-vmap xpm questa_lib/msim/xpm
 vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 vmap microblaze_v11_0_14 questa_lib/msim/microblaze_v11_0_14
 vmap microblaze_riscv_v1_0_3 questa_lib/msim/microblaze_riscv_v1_0_3
@@ -24,13 +22,6 @@ vmap axi_lite_ipif_v3_0_4 questa_lib/msim/axi_lite_ipif_v3_0_4
 vmap mdm_riscv_v1_0_3 questa_lib/msim/mdm_riscv_v1_0_3
 vmap lib_cdc_v1_0_3 questa_lib/msim/lib_cdc_v1_0_3
 vmap proc_sys_reset_v5_0_16 questa_lib/msim/proc_sys_reset_v5_0_16
-
-vlog -work xpm -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/aff3/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/aff3/bc9d" \
-"/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-
-vcom -work xpm -64 -93  \
-"/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/aff3/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/aff3/bc9d" \
 "../../../bd/top/ip/top_clk_wiz_2/top_clk_wiz_2_clk_wiz.v" \

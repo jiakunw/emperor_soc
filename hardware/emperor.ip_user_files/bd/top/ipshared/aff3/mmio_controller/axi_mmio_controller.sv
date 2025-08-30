@@ -89,7 +89,7 @@ module axi_mmio_controller
     // slot interface
     output logic [15:0] slot_chip_select,
     input logic [15:0] slot_signal_received,
-    output logic write,
+    output logic read, write,
     output logic [7:0] reg_addr,
     output logic [31:0] slot_wr_data,
     input logic [31:0] slot_rd_data [15:0],
@@ -146,7 +146,8 @@ module axi_mmio_controller
         S_AXI_rdata = 32'd0;
         // slot
         slot_chip_select = 16'd0;
-        
+        read = 1'b0;
+        write = 1'b0;
         update_wr_data_w = 1'b0;
 
         // others
@@ -173,6 +174,7 @@ module axi_mmio_controller
                 S_AXI_wready = 1'b1;
                 update_wr_data_w = S_AXI_wvalid;
                 slot_chip_select[w_slot_addr[3:0]] = S_AXI_wvalid;
+                write = 1'b1;
                 w_next_state = (slot_wr_done[w_slot_addr[3:0]]) ? WRITE_RESP : WRITE_1;
             end
             WRITE_RESP: begin    // executing done transaction, waiting for it to be done
@@ -184,6 +186,7 @@ module axi_mmio_controller
             end
             READ_1: begin
                 slot_chip_select[w_slot_addr[3:0]] = 1'b1;
+                read = 1'b1;
                 w_next_state = (slot_rd_done[w_slot_addr[3:0]]) ? READ_RESP : READ_1;
             end
             READ_RESP: begin
@@ -217,12 +220,9 @@ module axi_mmio_controller
     always_ff @(posedge aclk, negedge arst_n) begin
         if (!arst_n) begin
             slot_wr_data <= 32'd0;
-            write <= 1'b0;
         end else if (update_wr_data_w) begin
             slot_wr_data <= S_AXI_wdata;
-            write <= 1'b1;
         end else begin
-            write <= 1'b0;
             slot_wr_data <= slot_wr_data;
         end
     end

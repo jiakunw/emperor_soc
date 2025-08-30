@@ -1,25 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="200778" HostCore="16" HostMemory="16052796">
+    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="9064" HostCore="16" HostMemory="16052804">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="261608" HostCore="16" HostMemory="16052796">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="279629" HostCore="16" HostMemory="16052796">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="11567" HostCore="16" HostMemory="16052808">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="73858" HostCore="16" HostMemory="16052808">
+    <Process Command="vivado" Owner="wangjiakun" Host="wangjiakun-Inspiron-14-Plus-7430" Pid="71993" HostCore="16" HostMemory="16052804">
     </Process>
 </ProcessHandle>

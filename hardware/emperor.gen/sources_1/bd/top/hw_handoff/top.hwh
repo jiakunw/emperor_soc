@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 22 20:29:11 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 29 23:16:50 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="xilinx.com:ac701:part0:1.4" DEVICE="7a200t" NAME="top" PACKAGE="fbg676" SPEEDGRADE="-2"/>
 
@@ -716,7 +716,7 @@
         <PARAMETER NAME="C_MU_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_NEXT_SLAVE" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MONITOR_SLOTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="20"/>
+        <PARAMETER NAME="C_NUM_OF_PROBES" VALUE="21"/>
         <PARAMETER NAME="C_PIPE_IFACE" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE0_TYPE" VALUE="0"/>
@@ -1158,7 +1158,7 @@
         <PARAMETER NAME="C_PROBE209_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE20_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE20_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_PROBE20_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_PROBE210_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE210_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE210_WIDTH" VALUE="1"/>
@@ -3929,6 +3929,11 @@
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RREADY"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="31" NAME="probe20" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="S_AXI_rdata"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -5758,6 +5763,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RDATA"/>
             <CONNECTION INSTANCE="microblaze_riscv_0" PORT="M_AXI_DP_RDATA"/>
+            <CONNECTION INSTANCE="ila_1" PORT="probe20"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S_AXI_rready" SIGIS="undef" SIGNAME="microblaze_riscv_0_M_AXI_DP_RREADY">

@@ -330,7 +330,7 @@ module uart
             ACTIVE: begin
                 w_next_state = DONE;
                 case (addr)
-                    4'h00: begin  // read rx's fifo
+                    8'h00: begin  // read rx's fifo
                         if (read) begin
                             w_rd_done = 1'b1;
                             if (rx_empty) begin  // cannot read when rx fifo empty
@@ -346,7 +346,7 @@ module uart
                             w_status[9] = 1'b1;
                         end
                     end
-                    4'h04: begin  // write to tx fifo
+                    8'h04: begin  // write to tx fifo
                         if (write) begin
                             w_wr_done = 1'b1;
                             if (tx_full) begin  // cannot write when tx fifo full
@@ -361,7 +361,7 @@ module uart
                             w_rd_done = 1'b1;
                         end
                     end
-                    4'h08: begin  // dvsr register
+                    8'h08: begin  // dvsr register
                         if (write) begin
                             w_wr_done = 1'b1;
                             w_en_dvsr = 1'b1;
@@ -370,7 +370,7 @@ module uart
                             w_rd_data = {{(32-DVSR_WIDTH){1'b0}}, r_dvsr};
                         end
                     end
-                    4'h0c: begin   // control register
+                    8'h0c: begin   // control register
                         if (write) begin
                             w_wr_done = 1'b1;
                             w_control = wr_data[1:0];
@@ -379,7 +379,7 @@ module uart
                             w_rd_data = {30'b0, r_control};
                         end
                     end
-                    4'h10: begin   // status register read only
+                    8'h10: begin   // status register read only
                         if (write) begin
                             w_wr_done = 1'b1;
                             w_slave_error = 1'b1;

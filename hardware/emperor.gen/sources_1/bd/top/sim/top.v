@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Fri Aug 22 20:29:11 2025
+//Date        : Fri Aug 29 23:16:50 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -329,6 +329,7 @@ module top
         .probe18(mmio_subsystem_1_S_AXI_rvalid),
         .probe19(microblaze_riscv_0_M_AXI_DP_RREADY),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
+        .probe20(mmio_subsystem_1_S_AXI_rdata),
         .probe3(mmio_subsystem_1_S_AXI_awready),
         .probe4(mmio_subsystem_1_debug_front_addr),
         .probe5(mmio_subsystem_1_S_AXI_bvalid),
