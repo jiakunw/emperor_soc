@@ -13,7 +13,7 @@
 #define XPS_BOARD_AC701
 
 #define XPAR_LMB_BRAM_0_BASEADDRESS 0x0
-#define XPAR_LMB_BRAM_0_HIGHADDRESS 0x3fff
+#define XPAR_LMB_BRAM_0_HIGHADDRESS 0xffff
 
 /*  CPU parameters definition */
 #define XPAR_CPU_CORE_CLOCK_FREQ_HZ 100000000

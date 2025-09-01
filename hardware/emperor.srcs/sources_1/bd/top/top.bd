@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x35DE759BB5EC74E0",
+      "boundary_crc": "0x57EFE89EE21545F1",
       "device": "xc7a200tfbg676-2",
       "gen_directory": "../../../../emperor.gen/sources_1/bd/top",
       "name": "top",
@@ -29,17 +29,7 @@
       "rs232_uart": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:uart:1.0",
-        "vlnv": "xilinx.com:interface:uart_rtl:1.0",
-        "port_maps": {
-          "RxD": {
-            "physical_name": "rs232_uart_rxd",
-            "direction": "I"
-          },
-          "TxD": {
-            "physical_name": "rs232_uart_txd",
-            "direction": "O"
-          }
-        }
+        "vlnv": "xilinx.com:interface:uart_rtl:1.0"
       },
       "sys_diff_clock": {
         "mode": "Slave",
@@ -89,6 +79,26 @@
         "direction": "I",
         "left": "8",
         "right": "0"
+      },
+      "RX": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "TX": {
+        "type": "data",
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -417,7 +427,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "21"
+            "value": "22"
           },
           "C_PROBE0_WIDTH": {
             "value": "3"
@@ -459,7 +469,7 @@
       },
       "mmio_subsystem_1": {
         "vlnv": "user.org:user:mmio_subsystem:2.1",
-        "ip_revision": "7",
+        "ip_revision": "8",
         "xci_name": "top_mmio_subsystem_1_0",
         "xci_path": "ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci",
         "inst_hier_path": "mmio_subsystem_1",
@@ -515,6 +525,12 @@
         "ports": [
           "GPI",
           "mmio_subsystem_1/in_ports"
+        ]
+      },
+      "RX_1": {
+        "ports": [
+          "RX",
+          "mmio_subsystem_1/rx"
         ]
       },
       "clk_wiz_clk_out1": {
@@ -715,6 +731,13 @@
           "GPO"
         ]
       },
+      "mmio_subsystem_1_tx": {
+        "ports": [
+          "mmio_subsystem_1/tx",
+          "ila_1/probe21",
+          "TX"
+        ]
+      },
       "reset_1": {
         "ports": [
           "reset",
@@ -749,7 +772,7 @@
               "SEG_dlmb_bram_if_cntlr_Mem": {
                 "address_block": "/microblaze_riscv_0_local_memory/dlmb_bram_if_cntlr/SLMB/Mem",
                 "offset": "0x00000000",
-                "range": "16K",
+                "range": "64K",
                 "offset_high_param": "C_HIGHADDR"
               },
               "SEG_mmio_subsystem_1_reg0": {

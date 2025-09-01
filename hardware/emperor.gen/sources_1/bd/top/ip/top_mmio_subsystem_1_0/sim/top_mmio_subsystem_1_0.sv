@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:mmio_subsystem:2.1
-// IP Revision: 7
+// IP Revision: 8
 
 `timescale 1ns/1ps
 

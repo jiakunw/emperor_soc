@@ -9,17 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="510"></ZoomStartTime>
-      <ZoomEndTime time="523"></ZoomEndTime>
-      <Cursor1Time time="515"></Cursor1Time>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="13"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="381"></NameColumnWidth>
+      <NameColumnWidth column_width="365"></NameColumnWidth>
       <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
-   <wave_markers>
-   </wave_markers>
+   <WVObjectSize size="26" />
    <wvobject type="array" fp_name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]</obj_property>
@@ -196,6 +194,20 @@
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">top_i/microblaze_riscv_0_M_AXI_DP_RREADY</obj_property>
       <obj_property name="ObjectShortName">microblaze_riscv_0_M_AXI_DP_RREADY</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/TX">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/TX</obj_property>
+      <obj_property name="ObjectShortName">TX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="top_i/mmio_subsystem_1_debug_transaction_completed">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">top_i/mmio_subsystem_1_debug_transaction_completed</obj_property>
+      <obj_property name="ObjectShortName">mmio_subsystem_1_debug_transaction_completed</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

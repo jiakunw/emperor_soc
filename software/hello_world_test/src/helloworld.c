@@ -19,10 +19,10 @@
 
 #include <stdio.h>
 #include "platform.h"
-#include "xil_printf.h"
 #include "xil_cache.h"
 #include "emperor_gpio.h"
-#include "emperor_uart.h"
+// #include "emperor_uart.h"
+#include "emperor_print.h"
 
 
 int main()
@@ -30,9 +30,19 @@ int main()
     Xil_DCacheDisable();
     init_platform();
 
-    uart_init(115200);
+    print_init(115200);
+
+    // put_byte('K');
+    // put_byte('A');
+    // put_byte('f');
     
-    put_byte('S');
+    // print("s");
+    // print("\n\n");
+    // printf("I love quant");
+    print("I love FPGAs %d\n", 8848);
+    print("I love quant\n");
+    // printf("I love FPGA %d, \nI love quant\n", 100);
+    print("我喜欢吃饭 %d\n", 3);
     // put_byte('A');
 
     while (1) {

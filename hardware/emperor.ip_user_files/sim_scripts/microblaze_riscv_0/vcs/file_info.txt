@@ -1,0 +1,7 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../../../../../tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,
+xpm_memory.sv,systemverilog,xpm,../../../../../../../../../tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_VCOMP.vhd,
+microblaze_v11_0_vh_rfs.vhd,vhdl,microblaze_v11_0_14,../../../ipstatic/hdl/microblaze_v11_0_vh_rfs.vhd,
+microblaze_riscv_v1_0_vh_rfs.vhd,vhdl,microblaze_riscv_v1_0_3,../../../ipstatic/hdl/microblaze_riscv_v1_0_vh_rfs.vhd,
+microblaze_riscv_0.vhd,vhdl,xil_defaultlib,../../../../emperor.gen/sources_1/ip/microblaze_riscv_0/sim/microblaze_riscv_0.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

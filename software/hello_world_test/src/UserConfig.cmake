@@ -33,6 +33,7 @@ set(USER_COMPILE_SOURCES
 "../../drivers/src/emperor_gpio.c"
 "../../drivers/src/emperor_uart.c"
 "../../drivers/include/io_map.h"
+"../../drivers/src/emperor_print.c"
 )
 
 # -----------------------------------------

@@ -3,90 +3,103 @@
 #include "emperor_uart.h"
 #include <stdarg.h>
 
-void print_init(uint32_t baud) {
-    uart_init(baud);
+static inline void tx_char(char c) {
+    if (c == '\n') { put_byte('\r'); put_byte('\n'); }
+    else           { put_byte((uint8_t)c); }
 }
 
-void print_char(char c) {
-    put_byte(c);
+static inline char hex_digit(uint8_t v) {
+    return (v < 10) ? (char)('0' + v) : (char)('A' + (v - 10));
 }
 
-void print_str(const char *str) {
-    while (*str) {
-        print_char(*str++);
-    }
+void print_init(uint32_t baud) { uart_init(baud); }
+
+void print_char(char c) { put_byte((uint8_t)c); }
+
+void print_str(const char *s) {
+    if (!s) return;
+    while (*s) print_char(*s++);
 }
 
-void print_dec(uint32_t val) {
-    char buffer[10]; // Enough for 32-bit decimal
-    char *ptr = buffer + sizeof(buffer) - 1;
-    *ptr = '\0';
-    
-    if (val == 0) {
-        print_char('0');
-        return;
-    }
-    
-    while (val != 0) {
-        *--ptr = '0' + (val % 10); // last digit of val
-        val /= 10;
-    }
-    
-    print_str(ptr);
+static void print_udec(uint32_t v) {
+    char buf[10]; // 0..4294967295
+    int i = 0;
+    if (v == 0) { print_char('0'); return; }
+    while (v && i < (int)sizeof(buf)) { buf[i++] = '0' + (v % 10); v /= 10; }
+    while (i--) print_char(buf[i]);
 }
 
-void print_hex(uint32_t val) {
+void print_dec(uint32_t v) { print_udec(v); }
+
+void print_hex(uint32_t v) {
     print_str("0x");
-    for (int i = 28; i >= 0; i -= 4) {
-        uint8_t nibble = (val >> i) & 0xF;
-        print_char(nibble < 10 ? '0' + nibble : 'A' + nibble - 10);
-    }
+    for (int i = 28; i >= 0; i -= 4)
+        print_char(hex_digit((v >> i) & 0xF));
 }
 
-void print_hex_byte(uint8_t val) {
+void print_hex_byte(uint8_t v) {
     print_str("0x");
-    uint8_t nibble = (val >> 4) & 0xF;
-    print_char(nibble < 10 ? '0' + nibble : 'A' + nibble - 10);
-    nibble = val & 0xF;
-    print_char(nibble < 10 ? '0' + nibble : 'A' + nibble - 10);
+    print_char(hex_digit((v >> 4) & 0xF));
+    print_char(hex_digit(v & 0xF));
 }
 
-void printf(const char *format, ...) {
-    va_list args;
-    va_start(args, format); // initialize multiple args
-    
-    while (*format) {
-        if (*format == '%') {
-            format++;
-            switch (*format) {
-                case 'c':
-                    print_char(va_arg(args, int)); // va_arg parse next argument
-                    break;
-                case 's':
-                    print_str(va_arg(args, char*));
-                    break;
-                case 'd':
-                    print_dec(va_arg(args, uint32_t));
-                    break;
-                case 'x':
-                    print_hex(va_arg(args, uint32_t));
-                    break;
-                case 'b':
-                    print_hex_byte(va_arg(args, uint32_t));
-                    break;
-                case '%':
-                    print_char('%');
-                    break;
-                default:
-                    print_char('%');
-                    print_char(*format);
-                    break;
-            }
-        } else {
-            print_char(*format);
+int print(const char *fmt, ...) {
+    va_list ap;
+    va_start(ap, fmt);
+    int count = 0;
+
+    while (*fmt) {
+        if (*fmt != '%') { tx_char(*fmt++); ++count; continue; }
+        ++fmt;  // skip '%'
+
+        int width = 0;
+        char pad = ' ';
+        if (*fmt == '0') { pad = '0'; ++fmt; }
+        while (*fmt >= '0' && *fmt <= '9') {
+            width = width * 10 + (*fmt - '0'); ++fmt;
         }
-        format++;
+
+        switch (*fmt) {
+        case '%': print_char('%'); ++count; break;
+        case 'c': { int c = va_arg(ap, int); print_char((char)c); ++count; } break;
+        case 's': { const char* s = va_arg(ap, const char*); 
+                    if (!s) s = "(null)";
+                    while (*s) { print_char(*s++); ++count; } } break;
+        case 'd': { int v = va_arg(ap, int);
+                    if (v < 0) { print_char('-'); ++count; v = -v; }
+                    // fall through to %u
+                    uint32_t uv = (uint32_t)v;
+                    char tmp[11]; int i=0;
+                    if (uv==0) tmp[i++]='0';
+                    while (uv) { tmp[i++] = '0' + (uv % 10); uv/=10; }
+                    int padn = width - i;
+                    while (padn-- > 0) { print_char(pad); ++count; }
+                    while (i--) { print_char(tmp[i]); ++count; }
+                  } break;
+        case 'u': { uint32_t v = va_arg(ap, uint32_t);
+                    char tmp[10]; int i=0;
+                    if (v==0) tmp[i++]='0';
+                    while (v) { tmp[i++] = '0' + (v % 10); v/=10; }
+                    int padn = width - i;
+                    while (padn-- > 0) { print_char(pad); ++count; }
+                    while (i--) { print_char(tmp[i]); ++count; }
+                  } break;
+        case 'x': { uint32_t v = va_arg(ap, uint32_t);
+                    char tmp[8]; int i=0;
+                    if (v==0) tmp[i++]='0';
+                    while (v && i < 8) { tmp[i++] = hex_digit(v & 0xF); v >>= 4; }
+                    int padn = width - i;
+                    while (padn-- > 0) { print_char(pad); ++count; }
+                    while (i--) { print_char(tmp[i]); ++count; }
+                  } break;
+        default:
+            // unsupported format
+            print_char('%'); print_char(*fmt);
+            count += 2;
+            break;
+        }
+        ++fmt;
     }
-    
-    va_end(args);   // clear multi arg data structure
+    va_end(ap);
+    return count;
 }

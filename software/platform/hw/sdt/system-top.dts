@@ -12,15 +12,15 @@
 		xlnx,ip-name = "lmb_bram_if_cntlr";
 		device_type = "memory";
 		memory_type = "memory";
-		reg = <0x00000000 0x4000>;
+		reg = <0x00000000 0x10000>;
 	};
 	chosen {
 	};
 	aliases {
 	};
 	cpus_microblaze_riscv_0: cpus_microblaze_riscv@0 {
-		address-map = <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr_memory 0x00000000 0x4000>, 
-			      <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr 0x00000000 0x4000>, 
+		address-map = <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr_memory 0x00000000 0x10000>, 
+			      <0x00000000 &microblaze_riscv_0_local_memory_dlmb_bram_if_cntlr 0x00000000 0x10000>, 
 			      <0x46000000 &mmio_subsystem_1 0x46000000 0x10000>;
 		#ranges-address-cells = <0x1>;
 		#ranges-size-cells = <0x1>;

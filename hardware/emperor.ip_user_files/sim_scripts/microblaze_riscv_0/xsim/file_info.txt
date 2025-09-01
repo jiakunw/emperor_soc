@@ -1,0 +1,2 @@
+microblaze_riscv_0.vhd,vhdl,xil_defaultlib,../../../../emperor.gen/sources_1/ip/microblaze_riscv_0/sim/microblaze_riscv_0.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -33,10 +33,11 @@
     </Object>
   </ObjectList>
   <ObjectList object_type="hw_probe" gui_info="">
+    <Object name="top_i/TX" gui_info="Trigger Setup=0"/>
     <Object name="top_i/axi_smc_M00_AXI_AWADDR[15:0]" gui_info=""/>
     <Object name="top_i/axi_smc_M00_AXI_AWVALID" gui_info="Trigger Setup=0"/>
     <Object name="top_i/microblaze_riscv_0_M_AXI_DP_ARADDR[31:0]" gui_info="Trigger Setup=0"/>
-    <Object name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]" gui_info="Trigger Setup=0"/>
+    <Object name="top_i/microblaze_riscv_0_M_AXI_DP_AWADDR[31:0]" gui_info=""/>
     <Object name="top_i/microblaze_riscv_0_M_AXI_DP_AWVALID" gui_info=""/>
     <Object name="top_i/microblaze_riscv_0_M_AXI_DP_BRESP[1:0]" gui_info=""/>
     <Object name="top_i/microblaze_riscv_0_M_AXI_DP_WDATA[31:0]" gui_info=""/>
@@ -3257,6 +3258,27 @@
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe21[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="top_i/TX"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
@@ -4012,7 +4034,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe8[0]"/>
+        <Option Id="MAP" value="probe16[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -4320,7 +4342,7 @@
         <net name="top_i/microblaze_riscv_0_M_AXI_DP_RVALID"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
