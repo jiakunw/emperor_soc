@@ -7,7 +7,7 @@
 <Project Product="Vivado" Version="7" Minor="68" Path="/home/wangjiakun/Development/emperor_soc/hardware/emperor.tmp/mmio_subsystem_v2_1_project/mmio_subsystem_v2_1_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="488fa647679149f8bf306b469cb12cfb"/>
+    <Option Name="Id" Val="61f0c5c44fc242b79da78789b043c0ac"/>
     <Option Name="Part" Val="xc7a200tfbg676-2"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -134,6 +134,13 @@
       <File Path="$PPRDIR/../../subsystems/mmio/uart/rx_tx.sv">
         <FileInfo>
           <Attr Name="Library" Val=""/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../subsystems/mmio/src/spi.sv">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

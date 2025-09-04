@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" --include "../../../../emperor.gen/sources_1/bd/top/ipshared/d100/bc9d" \
+"../../../../subsystems/mmio/spi/spi.sv" \
+"../../../../subsystems/mmio/spi/tb/spi_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

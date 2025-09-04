@@ -6,20 +6,15 @@
 
 (* BLOCK_STUB = "true" *)
 module top (
-  rs232_uart_rxd,
-  rs232_uart_txd,
   sys_diff_clock_clk_n,
   sys_diff_clock_clk_p,
   reset,
   GPO,
-  GPI
+  GPI,
+  RX,
+  TX
 );
 
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *)
-  (* X_INTERFACE_MODE = "master rs232_uart" *)
-  input rs232_uart_rxd;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart TxD" *)
-  output rs232_uart_txd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_N" *)
   (* X_INTERFACE_MODE = "slave sys_diff_clock" *)
   (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_diff_clock, CAN_DEBUG false, FREQ_HZ 200000000" *)
@@ -34,6 +29,14 @@ module top (
   output [3:0]GPO;
   (* X_INTERFACE_IGNORE = "true" *)
   input [8:0]GPI;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.RX DATA" *)
+  (* X_INTERFACE_MODE = "slave DATA.RX" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.RX, LAYERED_METADATA undef" *)
+  input RX;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.TX DATA" *)
+  (* X_INTERFACE_MODE = "master DATA.TX" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TX, LAYERED_METADATA undef" *)
+  output TX;
 
   // stub module has no contents
 

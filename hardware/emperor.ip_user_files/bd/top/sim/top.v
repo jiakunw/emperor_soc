@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Sun Aug 31 06:01:25 2025
+//Date        : Thu Sep  4 10:49:08 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -227,21 +227,23 @@ endmodule
 module top
    (GPI,
     GPO,
+    RX,
+    TX,
     reset,
-    rs232_uart_rxd,
-    rs232_uart_txd,
     sys_diff_clock_clk_n,
     sys_diff_clock_clk_p);
   input [8:0]GPI;
   output [3:0]GPO;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.RX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.RX, LAYERED_METADATA undef" *) input RX;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.TX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TX, LAYERED_METADATA undef" *) output TX;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input rs232_uart_rxd;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart TxD" *) output rs232_uart_txd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_diff_clock, CAN_DEBUG false, FREQ_HZ 200000000" *) input sys_diff_clock_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_P" *) input sys_diff_clock_clk_p;
 
   wire [8:0]GPI;
   wire [3:0]GPO;
+  wire RX;
+  wire TX;
   wire clk_wiz_clk_out1;
   wire clk_wiz_locked;
   wire mdm_1_debug_sys_rst;
@@ -300,8 +302,6 @@ module top
   wire [15:0]mmio_subsystem_1_debug_slot_wr_done;
   wire mmio_subsystem_1_debug_transaction_completed;
   wire reset;
-  wire rs232_uart_rxd;
-  wire rs232_uart_txd;
   wire [0:0]rst_clk_wiz_100M_bus_struct_reset;
   wire rst_clk_wiz_100M_mb_reset;
   wire [0:0]rst_clk_wiz_100M_peripheral_aresetn;
@@ -330,6 +330,7 @@ module top
         .probe19(microblaze_riscv_0_M_AXI_DP_RREADY),
         .probe2(microblaze_riscv_0_M_AXI_DP_AWADDR),
         .probe20(mmio_subsystem_1_S_AXI_rdata),
+        .probe21(TX),
         .probe3(mmio_subsystem_1_S_AXI_awready),
         .probe4(mmio_subsystem_1_debug_front_addr),
         .probe5(mmio_subsystem_1_S_AXI_bvalid),
@@ -455,8 +456,8 @@ module top
         .debug_transaction_completed(mmio_subsystem_1_debug_transaction_completed),
         .in_ports(GPI),
         .out_ports(GPO),
-        .rx(rs232_uart_rxd),
-        .tx(rs232_uart_txd));
+        .rx(RX),
+        .tx(TX));
   top_rst_clk_wiz_100M_1 rst_clk_wiz_100M
        (.aux_reset_in(1'b1),
         .bus_struct_reset(rst_clk_wiz_100M_bus_struct_reset),

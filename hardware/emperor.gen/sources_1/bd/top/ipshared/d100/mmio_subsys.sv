@@ -83,6 +83,11 @@ module mmio_subsystem
     // uart external
     input logic rx,
     output logic tx,
+    // spi external
+    output logic sclk,
+    input logic miso,
+    output logic mosi,
+    output logic ss_n,
     // debug
     output logic [2:0] debug_r_state, 
     output logic [7:0] debug_addr,
@@ -172,10 +177,35 @@ module mmio_subsystem
         .debug_uart_tick(debug_transaction_completed)
     );
 
-    assign slot_wr_done[15:3] = 15'd0;
-    assign slot_idle[15:3] = 15'd0;
-    assign slot_slave_error[15:3] = 15'd0;
-    assign slot_decode_error[15:3] = 15'd0;
+    spi #(
+        .NUM_SLAVES(1)
+    ) emperor_spi (
+        .clk(aclk), 
+        .arst_n,
+        // slot interface
+        .chip_select(slot_chip_select[3]),
+        .read, 
+        .write,
+        .addr(reg_addr),
+        .wr_data(slot_wr_data),
+        .rd_data(slot_rd_data[3]),
+        .wr_done(slot_wr_done[3]), 
+        .rd_done(slot_rd_done[3]), 
+        .idle(slot_idle[3]),
+        .transaction_completed,
+        .slave_error(slot_slave_error[3]), 
+        .decode_error(slot_decode_error[3]),
+        // interface with downstream (external device)
+        .sclk,
+        .miso,
+        .mosi,
+        .ss_n
+    );
+
+    assign slot_wr_done[15:4] = 0;
+    assign slot_idle[15:4] = 0;
+    assign slot_slave_error[15:4] = 0;
+    assign slot_decode_error[15:4] = 0;
 
 
 endmodule : mmio_subsystem
