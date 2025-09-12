@@ -91,12 +91,12 @@ vlog -work xil_defaultlib -64 -incr -mfcu  -sv "+incdir+../../../../emperor.gen/
 "../../../bd/top/ipshared/d100/uart/fifo.sv" \
 "../../../bd/top/ipshared/d100/uart/tb/fifo_tb.sv" \
 "../../../bd/top/ipshared/d100/uart/rx_tx.sv" \
-"../../../bd/top/ipshared/d100/uart/tb/rx_tb.sv" \
 "../../../bd/top/ipshared/d100/timer/timer.sv" \
 "../../../bd/top/ipshared/d100/timer/tb/timer_tb.sv" \
 "../../../bd/top/ipshared/d100/uart/uart.sv" \
 "../../../bd/top/ipshared/d100/mmio_subsys.sv" \
 "../../../bd/top/ipshared/d100/src/gpio.sv" \
+"../../../bd/top/ipshared/d100/src/spi.sv" \
 "../../../bd/top/ip/top_mmio_subsystem_1_0/sim/top_mmio_subsystem_1_0.sv" \
 
 vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/3cbc" "+incdir+../../../bd/top/ipshared/d100/bc9d" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/814a/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/1017/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/52c0/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/2276/hdl/verilog" "+incdir+../../../../emperor.gen/sources_1/bd/top/ipshared/d100/bc9d" \

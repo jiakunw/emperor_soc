@@ -83,18 +83,14 @@ module mmio_subsystem
     // uart external
     input logic rx,
     output logic tx,
-    // spi external
-    output logic sclk,
-    input logic miso,
-    output logic mosi,
-    output logic ss_n,
+    // i2c external
+    output tri scl,
+    input tri sda,
     // debug
     output logic [2:0] debug_r_state, 
     output logic [7:0] debug_addr,
     output logic [15:0] debug_slot_wr_done,
-    output logic [15:0] debug_slot_chip_select,
-    output logic debug_transaction_completed,
-    output logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state
+    output logic [15:0] debug_slot_chip_select
     );
 
     // signal declarations
@@ -145,9 +141,7 @@ module mmio_subsystem
         .slave_error(slot_slave_error[1]), 
         .decode_error(slot_decode_error[1]),
         .in_ports,
-        .out_ports,
-        .debug_gpio_r_state,
-        .debug_gpio_w_next_state
+        .out_ports
     );
 
     uart #(
@@ -174,15 +168,18 @@ module mmio_subsystem
         // interface with downstream (external device)
         .rx,
         .tx,
-        .debug_uart_tick(debug_transaction_completed)
+        .debug_uart_tick()
     );
 
-    spi #(
-        .NUM_SLAVES(1)
-    ) emperor_spi (
+    i2c #(
+        .DATA_BITS(8),
+        .DVSR_WIDTH(10),
+        .STOP_BIT_TICK(16),
+        .FIFO_LENGTH(16)
+    ) emperor_i2c (
         .clk(aclk), 
         .arst_n,
-        // slot interface
+        // slot interfacee
         .chip_select(slot_chip_select[3]),
         .read, 
         .write,
@@ -196,11 +193,34 @@ module mmio_subsystem
         .slave_error(slot_slave_error[3]), 
         .decode_error(slot_decode_error[3]),
         // interface with downstream (external device)
-        .sclk,
-        .miso,
-        .mosi,
-        .ss_n
+        .scl,
+        .sda
     );
+
+    // spi #(
+    //     .NUM_SLAVES(1)
+    // ) emperor_spi (
+    //     .clk(aclk), 
+    //     .arst_n,
+    //     // slot interfacee
+    //     .chip_select(slot_chip_select[3]),
+    //     .read, 
+    //     .write,
+    //     .addr(reg_addr),
+    //     .wr_data(slot_wr_data),
+    //     .rd_data(slot_rd_data[3]),
+    //     .wr_done(slot_wr_done[3]), 
+    //     .rd_done(slot_rd_done[3]), 
+    //     .idle(slot_idle[3]),
+    //     .transaction_completed,
+    //     .slave_error(slot_slave_error[3]), 
+    //     .decode_error(slot_decode_error[3]),
+    //     // interface with downstream (external device)
+    //     .sclk,
+    //     .miso,
+    //     .mosi,
+    //     .ss_n
+    // );
 
     assign slot_wr_done[15:4] = 0;
     assign slot_idle[15:4] = 0;

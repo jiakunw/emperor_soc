@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1756670686" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/top_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1757361887" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/top_wrapper.dcp">
   <File Type="RDS-DCP" Name="top_wrapper.dcp"/>
   <File Type="RDS-RDS" Name="top_wrapper.vds"/>
   <File Type="REPORTS-TCL" Name="top_wrapper_reports.tcl"/>
   <File Type="PA-TCL" Name="top_wrapper.tcl"/>
-  <File Type="RDS-UTIL" Name="spi_core_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="spi_core_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="top_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_wrapper_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/top/top.bd">
@@ -22,7 +22,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/subsystems/mmio/mmio_controller/axi_mmio_controller.sv">
+    <File Path="$PPRDIR/subsystems/mmio/spi/spi.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -38,23 +38,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/subsystems/mmio/gpio/gpio.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/subsystems/mmio/uart/rx_tx.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/subsystems/mmio/timer/timer.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -70,9 +54,33 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/subsystems/mmio/mmio_subsys.sv">
+    <File Path="$PPRDIR/subsystems/mmio/mmio_controller/axi_mmio_controller.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/subsystems/mmio/gpio/gpio.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/subsystems/mmio/timer/timer.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/subsystems/mmio/mmio_subsys.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -118,8 +126,8 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="top_clk_wiz_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="top_lmb_bram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="top_dlmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="top_mmio_subsystem_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="top_ila_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="top_lmb_bram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="top_dlmb_bram_if_cntlr_0"/>
 </GenRun>

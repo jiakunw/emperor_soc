@@ -84,7 +84,7 @@ module mmio_subsystem
     input logic rx,
     output logic tx,
     // spi external
-    output logic sclk,
+    output logic sclk, 
     input logic miso,
     output logic mosi,
     output logic ss_n,
@@ -93,7 +93,6 @@ module mmio_subsystem
     output logic [7:0] debug_addr,
     output logic [15:0] debug_slot_wr_done,
     output logic [15:0] debug_slot_chip_select,
-    output logic debug_transaction_completed,
     output logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state
     );
 
@@ -174,7 +173,7 @@ module mmio_subsystem
         // interface with downstream (external device)
         .rx,
         .tx,
-        .debug_uart_tick(debug_transaction_completed)
+        .debug_uart_tick()
     );
 
     spi #(
@@ -182,7 +181,7 @@ module mmio_subsystem
     ) emperor_spi (
         .clk(aclk), 
         .arst_n,
-        // slot interface
+        // slot interfacee
         .chip_select(slot_chip_select[3]),
         .read, 
         .write,

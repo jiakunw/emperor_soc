@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Sep  4 10:49:08 2025" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep  9 04:04:44 2025" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="xilinx.com:ac701:part0:1.4" DEVICE="7a200t" NAME="top" PACKAGE="fbg676" SPEEDGRADE="-2"/>
 
@@ -14,9 +14,29 @@
         <CONNECTION INSTANCE="mmio_subsystem_1" PORT="out_ports"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="MISO" SIGIS="data" SIGNAME="External_Ports_MISO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="miso"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="MOSI" SIGIS="data" SIGNAME="mmio_subsystem_1_mosi">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="mosi"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" NAME="RX" SIGIS="data" SIGNAME="External_Ports_RX">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mmio_subsystem_1" PORT="rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="SCLK" SIGIS="clk" SIGNAME="mmio_subsystem_1_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="SS_N" SIGIS="undef" SIGNAME="mmio_subsystem_1_ss_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mmio_subsystem_1" PORT="ss_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="TX" SIGIS="data"/>
@@ -917,7 +937,7 @@
         <PARAMETER NAME="C_PROBE139_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE13_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE13_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE140_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE140_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE140_WIDTH" VALUE="1"/>
@@ -950,7 +970,7 @@
         <PARAMETER NAME="C_PROBE149_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE150_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE150_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE150_WIDTH" VALUE="1"/>
@@ -3882,19 +3902,19 @@
             <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_slot_wr_done"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="probe12" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_transaction_completed">
+        <PORT DIR="I" LEFT="0" NAME="probe12" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_sclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_transaction_completed"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="sclk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="probe13" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_r_state">
+        <PORT DIR="I" LEFT="0" NAME="probe13" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_mosi">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_gpio_r_state"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="mosi"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="probe14" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_w_next_state">
+        <PORT DIR="I" LEFT="0" NAME="probe14" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_ss_n">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="debug_gpio_w_next_state"/>
+            <CONNECTION INSTANCE="mmio_subsystem_1" PORT="ss_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="probe15" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_S_AXI_wready">
@@ -5655,7 +5675,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="8" FULLNAME="/mmio_subsystem_1" HWVERSION="2.1" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.1">
+    <MODULE COREREVISION="9" FULLNAME="/mmio_subsystem_1" HWVERSION="2.1" INSTANCE="mmio_subsystem_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mmio_subsystem" VLNV="user.org:user:mmio_subsystem:2.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="0x10000" USAGE="register"/>
@@ -5827,16 +5847,6 @@
             <CONNECTION INSTANCE="ila_1" PORT="probe1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="debug_gpio_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_r_state">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_1" PORT="probe13"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="debug_gpio_w_next_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_gpio_w_next_state">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_1" PORT="probe14"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="2" NAME="debug_r_state" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_r_state">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_1" PORT="probe0"/>
@@ -5852,19 +5862,37 @@
             <CONNECTION INSTANCE="ila_1" PORT="probe11"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="debug_transaction_completed" SIGIS="undef" SIGNAME="mmio_subsystem_1_debug_transaction_completed">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_1" PORT="probe12"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" LEFT="8" NAME="in_ports" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_GPI">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="GPI"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="miso" SIGIS="undef" SIGNAME="External_Ports_MISO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="MISO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="mosi" SIGIS="undef" SIGNAME="mmio_subsystem_1_mosi">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe13"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="MOSI"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="3" NAME="out_ports" RIGHT="0" SIGIS="undef" SIGNAME="mmio_subsystem_1_out_ports">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="GPO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk" SIGIS="undef" SIGNAME="mmio_subsystem_1_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe12"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="SCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ss_n" SIGIS="undef" SIGNAME="mmio_subsystem_1_ss_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_1" PORT="probe14"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="SS_N"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

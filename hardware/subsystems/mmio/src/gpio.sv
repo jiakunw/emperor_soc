@@ -45,9 +45,7 @@ module gpio
     output logic slave_error, decode_error,
     // external interface: with buttons, switches, and LEDs
     input logic [8:0] in_ports,
-    output logic [3:0] out_ports,
-    // debug
-    output logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state
+    output logic [3:0] out_ports
     );
 
     // signal declaration
@@ -63,9 +61,6 @@ module gpio
         ACTIVE = 2'b01,
         DONE   = 2'b10
     } r_state, w_next_state;
-
-    assign debug_gpio_r_state = r_state;
-    assign debug_gpio_w_next_state = w_next_state;
 
     // enabling signals
     assign w_en = chip_select && (read || write);
@@ -220,4 +215,3 @@ module gpio
     end
 
 endmodule : gpio
-

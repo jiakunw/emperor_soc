@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon Sep  1 04:04:48 2025
-# Process ID         : 36355
+# Start of session at: Tue Sep  9 04:06:56 2025
+# Process ID         : 45437
 # Current directory  : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1
 # Command line       : vivado -log top_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_wrapper.tcl
 # Log file           : /home/wangjiakun/Development/emperor_soc/hardware/emperor.runs/synth_1/top_wrapper.vds
@@ -13,12 +13,12 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.1 LTS
 # Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
-# CPU Frequency      : 862.104 MHz
+# CPU Frequency      : 758.699 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 16
 # Host memory        : 16438 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20733 MB
-# Available Virtual  : 9420 MB
+# Available Virtual  : 11618 MB
 #-----------------------------------------------------------
 source top_wrapper.tcl -notrace

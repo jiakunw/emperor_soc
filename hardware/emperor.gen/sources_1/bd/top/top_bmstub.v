@@ -12,7 +12,11 @@ module top (
   GPO,
   GPI,
   RX,
-  TX
+  TX,
+  SCLK,
+  SS_N,
+  MOSI,
+  MISO
 );
 
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_N" *)
@@ -37,6 +41,20 @@ module top (
   (* X_INTERFACE_MODE = "master DATA.TX" *)
   (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TX, LAYERED_METADATA undef" *)
   output TX;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SCLK CLK" *)
+  (* X_INTERFACE_MODE = "master CLK.SCLK" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SCLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
+  output SCLK;
+  (* X_INTERFACE_IGNORE = "true" *)
+  output SS_N;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.MOSI DATA" *)
+  (* X_INTERFACE_MODE = "master DATA.MOSI" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.MOSI, LAYERED_METADATA undef" *)
+  output MOSI;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.MISO DATA" *)
+  (* X_INTERFACE_MODE = "slave DATA.MISO" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.MISO, LAYERED_METADATA undef" *)
+  input MISO;
 
   // stub module has no contents
 

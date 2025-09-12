@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x57EFE89EE21545F1",
+      "boundary_crc": "0xD5C58DD80461DD26",
       "device": "xc7a200tfbg676-2",
       "gen_directory": "../../../../emperor.gen/sources_1/bd/top",
       "name": "top",
@@ -93,6 +93,51 @@
       "TX": {
         "type": "data",
         "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "SCLK": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "SS_N": {
+        "direction": "O"
+      },
+      "MOSI": {
+        "type": "data",
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "MISO": {
+        "type": "data",
+        "direction": "I",
         "parameters": {
           "LAYERED_METADATA": {
             "value": "undef",
@@ -436,10 +481,10 @@
             "value": "16"
           },
           "C_PROBE13_WIDTH": {
-            "value": "2"
+            "value": "1"
           },
           "C_PROBE14_WIDTH": {
-            "value": "2"
+            "value": "1"
           },
           "C_PROBE1_WIDTH": {
             "value": "8"
@@ -469,7 +514,7 @@
       },
       "mmio_subsystem_1": {
         "vlnv": "user.org:user:mmio_subsystem:2.1",
-        "ip_revision": "8",
+        "ip_revision": "9",
         "xci_name": "top_mmio_subsystem_1_0",
         "xci_path": "ip/top_mmio_subsystem_1_0/top_mmio_subsystem_1_0.xci",
         "inst_hier_path": "mmio_subsystem_1",
@@ -525,6 +570,12 @@
         "ports": [
           "GPI",
           "mmio_subsystem_1/in_ports"
+        ]
+      },
+      "MISO_1": {
+        "ports": [
+          "MISO",
+          "mmio_subsystem_1/miso"
         ]
       },
       "RX_1": {
@@ -695,18 +746,6 @@
           "ila_1/probe4"
         ]
       },
-      "mmio_subsystem_1_debug_gpio_r_state": {
-        "ports": [
-          "mmio_subsystem_1/debug_gpio_r_state",
-          "ila_1/probe13"
-        ]
-      },
-      "mmio_subsystem_1_debug_gpio_w_next_state": {
-        "ports": [
-          "mmio_subsystem_1/debug_gpio_w_next_state",
-          "ila_1/probe14"
-        ]
-      },
       "mmio_subsystem_1_debug_r_state": {
         "ports": [
           "mmio_subsystem_1/debug_r_state",
@@ -719,16 +758,31 @@
           "ila_1/probe11"
         ]
       },
-      "mmio_subsystem_1_debug_transaction_completed": {
+      "mmio_subsystem_1_mosi": {
         "ports": [
-          "mmio_subsystem_1/debug_transaction_completed",
-          "ila_1/probe12"
+          "mmio_subsystem_1/mosi",
+          "ila_1/probe13",
+          "MOSI"
         ]
       },
       "mmio_subsystem_1_out_ports": {
         "ports": [
           "mmio_subsystem_1/out_ports",
           "GPO"
+        ]
+      },
+      "mmio_subsystem_1_sclk": {
+        "ports": [
+          "mmio_subsystem_1/sclk",
+          "ila_1/probe12",
+          "SCLK"
+        ]
+      },
+      "mmio_subsystem_1_ss_n": {
+        "ports": [
+          "mmio_subsystem_1/ss_n",
+          "ila_1/probe14",
+          "SS_N"
         ]
       },
       "mmio_subsystem_1_tx": {
