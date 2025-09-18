@@ -31,12 +31,13 @@
 //     - 32'h04: TX's FIFO
 //     - 32'h08: Slave address register
 //     - 32'h0c: Divisor's register
-//     - 32'h10: Control Register: 6 bit register for I2C command, 
+//     - 32'h10: Control Register: 7 bit register for I2C command, 
 //              and clear TX FIFO:
 //                 0th bit: I2C enable
 //                 [3:1] bit: storing I2C command
 //                 4th bit: clear TX FIFO
 //                 5th bit: master ACK enable
+//                 6th bit: I2C write enable
 //     - 32'h14: Status Register: status of I2C, 4 bits, read only
 //                 0th bit: 1'b1 if RX's FIFO has valid data (not empty)
 //                 1th bit: 1'b1 if RX's FIFO is full 
@@ -83,9 +84,9 @@ module i2c
     // signal declaractions
     logic w_tx_full, w_tx_empty, w_rx_empty, w_rx_full;
     logic [DVSR_WIDTH-1:0] w_dvsr, r_dvsr;
-    logic [5:0] r_control, w_control;
+    logic [6:0] r_control, w_control;
     logic [7:0] r_status, w_status;
-    logic [7:0] r_slave_addr, w_slave_addr;
+    logic [6:0] r_slave_addr, w_slave_addr;
     logic w_wr_done, w_rd_done;
     logic w_slave_error, w_decode_error;
     logic [31:0] w_rd_data;
@@ -95,6 +96,12 @@ module i2c
     i2c_cmd_t r_cmd;
     logic w_fifo_rd, w_fifo_wr;
     logic w_ready;
+    
+    enum logic [1:0] {
+        IDLE   = 2'b00, 
+        ACTIVE = 2'b01,
+        DONE   = 2'b10
+    } r_state, w_next_state;
 
     // module instantiation
     // i2c master
@@ -108,7 +115,8 @@ module i2c
         .rx_full(w_rx_full),
         .tx_empty(w_tx_empty),
         .en_ack(r_control[5]),
-        .wr_i2c(r_status[0]),
+        .en_i2c(r_control[0]),
+        .en_wr(r_control[6]),
         .scl,
         .sda,
         .ready(w_ready), 
@@ -169,7 +177,7 @@ module i2c
         w_status[1] = w_rx_full;
         w_status[2] = ~w_tx_empty;
         w_status[3] = w_tx_full;
-        w_status[4] = (done_tick) ? w_ack_slave : r_status[4]
+        w_status[4] = (done_tick) ? w_ack_slave : r_status[4];
         w_status[5] = ~w_ready;
         w_status[6] = r_status[6];
         w_status[7] = r_status[7];
@@ -206,7 +214,7 @@ module i2c
                                 w_slave_error = 1'b1;
                                 w_status[7] = 1'b1;
                             end else begin
-                                w_en_wr = 1'b1;
+                                w_fifo_wr = 1'b1;
                             end
                         end else if (read) begin   // tx fifo is write only
                             w_slave_error = 1'b1;
@@ -226,19 +234,19 @@ module i2c
                     8'h08: begin   // slave address register
                         if (write) begin
                             w_wr_done = 1'b1;
-                            w_slave_addr = wr_data[7:0];
+                            w_slave_addr = wr_data[6:0];
                         end else if (read) begin
                             w_rd_done = 1'b1;
-                            w_rd_data = {24'b0, r_slave_addr};
+                            w_rd_data = {25'b0, r_slave_addr};
                         end
                     end
                     8'h10: begin   // control register
                         if (write) begin
                             w_wr_done = 1'b1;
-                            w_control = wr_data[5:0];
+                            w_control = wr_data[6:0];
                         end else if (read) begin
                             w_rd_done = 1'b1;
-                            w_rd_data = {27'b0, r_control};
+                            w_rd_data = {26'b0, r_control};
                         end
                     end
                     8'h14: begin   // status register read only

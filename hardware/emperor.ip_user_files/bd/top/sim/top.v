@@ -2,7 +2,7 @@
 //Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-//Date        : Tue Sep  9 01:38:50 2025
+//Date        : Tue Sep  9 04:04:42 2025
 //Host        : wangjiakun-Inspiron-14-Plus-7430 running 64-bit Ubuntu 24.04.1 LTS
 //Command     : generate_target top.bd
 //Design      : top
@@ -227,14 +227,22 @@ endmodule
 module top
    (GPI,
     GPO,
+    MISO,
+    MOSI,
     RX,
+    SCLK,
+    SS_N,
     TX,
     reset,
     sys_diff_clock_clk_n,
     sys_diff_clock_clk_p);
   input [8:0]GPI;
   output [3:0]GPO;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.MISO DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.MISO, LAYERED_METADATA undef" *) input MISO;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.MOSI DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.MOSI, LAYERED_METADATA undef" *) output MOSI;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.RX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.RX, LAYERED_METADATA undef" *) input RX;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SCLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output SCLK;
+  output SS_N;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.TX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TX, LAYERED_METADATA undef" *) output TX;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sys_diff_clock CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_diff_clock, CAN_DEBUG false, FREQ_HZ 200000000" *) input sys_diff_clock_clk_n;
@@ -242,7 +250,11 @@ module top
 
   wire [8:0]GPI;
   wire [3:0]GPO;
+  wire MISO;
+  wire MOSI;
   wire RX;
+  wire SCLK;
+  wire SS_N;
   wire TX;
   wire clk_wiz_clk_out1;
   wire clk_wiz_locked;
@@ -296,11 +308,8 @@ module top
   wire mmio_subsystem_1_S_AXI_wready;
   wire [7:0]mmio_subsystem_1_debug_addr;
   wire [15:0]mmio_subsystem_1_debug_front_addr;
-  wire [1:0]mmio_subsystem_1_debug_gpio_r_state;
-  wire [1:0]mmio_subsystem_1_debug_gpio_w_next_state;
   wire [2:0]mmio_subsystem_1_debug_r_state;
   wire [15:0]mmio_subsystem_1_debug_slot_wr_done;
-  wire mmio_subsystem_1_debug_transaction_completed;
   wire reset;
   wire [0:0]rst_clk_wiz_100M_bus_struct_reset;
   wire rst_clk_wiz_100M_mb_reset;
@@ -320,9 +329,9 @@ module top
         .probe1(mmio_subsystem_1_debug_addr),
         .probe10(microblaze_riscv_0_M_AXI_DP_BREADY),
         .probe11(mmio_subsystem_1_debug_slot_wr_done),
-        .probe12(mmio_subsystem_1_debug_transaction_completed),
-        .probe13(mmio_subsystem_1_debug_gpio_r_state),
-        .probe14(mmio_subsystem_1_debug_gpio_w_next_state),
+        .probe12(SCLK),
+        .probe13(MOSI),
+        .probe14(SS_N),
         .probe15(mmio_subsystem_1_S_AXI_wready),
         .probe16(microblaze_riscv_0_M_AXI_DP_ARVALID),
         .probe17(mmio_subsystem_1_S_AXI_arready),
@@ -448,15 +457,16 @@ module top
         .aclk(clk_wiz_clk_out1),
         .arst_n(rst_clk_wiz_100M_peripheral_aresetn),
         .debug_addr(mmio_subsystem_1_debug_addr),
-        .debug_gpio_r_state(mmio_subsystem_1_debug_gpio_r_state),
-        .debug_gpio_w_next_state(mmio_subsystem_1_debug_gpio_w_next_state),
         .debug_r_state(mmio_subsystem_1_debug_r_state),
         .debug_slot_chip_select(mmio_subsystem_1_debug_front_addr),
         .debug_slot_wr_done(mmio_subsystem_1_debug_slot_wr_done),
-        .debug_transaction_completed(mmio_subsystem_1_debug_transaction_completed),
         .in_ports(GPI),
+        .miso(MISO),
+        .mosi(MOSI),
         .out_ports(GPO),
         .rx(RX),
+        .sclk(SCLK),
+        .ss_n(SS_N),
         .tx(TX));
   top_rst_clk_wiz_100M_1 rst_clk_wiz_100M
        (.aux_reset_in(1'b1),

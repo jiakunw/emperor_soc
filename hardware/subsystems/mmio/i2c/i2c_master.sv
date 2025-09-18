@@ -19,7 +19,7 @@
 //     din          - Input write data
 //     dvsr         - Clock divisor = f_sys/4*f_i2c
 //     cmd          - I2C command
-//     wr_i2c       - Write enable signal
+//     en_i2c       - Write enable signal
 //     ready        - I2C ready or not                                                                                                                                                                                 
 //     done         - Done sending/receiving data
 //     ack          - ACK from slave (master write only)
@@ -43,11 +43,12 @@
 module i2c_master
 (
     input logic clk, arst_n,
-    input logic [7:0] din, slave_addr,
+    input logic [7:0] din, 
+    input logic [6:0] slave_addr,
     input logic [15:0] dvsr,
     input i2c_cmd_t cmd,
-    input logic en_ack,
-    input logic wr_i2c, rx_full, tx_empty,
+    input logic en_ack, en_i2c, en_wr,
+    input logic rx_full, tx_empty,
     output logic ready, done_tick, ack,
     output logic [7:0] dout,
     // external
@@ -80,13 +81,13 @@ module i2c_master
     end
 
     // only master drives SCL wire
-    assign scl = (r_src) ? 1'bz : 1'b0;
+    assign scl = (r_scl) ? 1'bz : 1'b0;
 
     // gives slave control only in data phase when:
     //  1. master is reading from slave
     //  2. waiting for slave to send ACK
     assign w_slave_control = (w_data_phase && r_cmd==RD_CMD && r_bit<8) ||
-                             (w_data_phase && (r_cmd==WR_CMD || r_use_addr) && r_bit==8);
+                             (w_data_phase && (r_cmd==WR_CMD || r_cmd==START_CMD) && r_bit==8);
 
     // sda wire driven by w_slave_control when the condition is met, otherwise by master
     assign sda = (w_slave_control || r_sda) ? 1'bz : 1'b0; 
@@ -94,8 +95,8 @@ module i2c_master
     // output
     assign dout = r_rx[8:1];
     assign ack = r_rx[0];
-    assign w_master_nack = rx_full | ~en_ack;  // used by master in read operation
-    assign w_half = {divisor[14:0], 1'b0};
+    assign w_master_nack = rx_full | ~en_ack | ~en_i2c;  // used by master in read operation
+    assign w_half = {dvsr[14:0], 1'b0};
 
     //**************************************************************
     // FSMD 
@@ -131,14 +132,13 @@ module i2c_master
         w_data_phase = 1'b0;
         done_tick = 1'b0;
         ready = 1'b0;
-        w_use_addr = r_use_addr;
         w_next_scl = 1'b1;
         w_next_sda = 1'b1;
 
         case (r_state)
             IDLE: begin
                 ready = 1'b1;
-                if (wr_i2c && cmd==START_CMD) begin
+                if (en_i2c && cmd==START_CMD) begin
                     w_next_state = START1;
                     w_next_cnt = 0;
                 end else begin
@@ -177,7 +177,7 @@ module i2c_master
                         default: begin
                             w_next_bit = 0;
                             w_next_state = (!tx_empty) ? DATA1 : HOLD;
-                            w_next_tx = {(r_cmd == START_CMD) ? slave_addr : din, !w_master_nack};
+                            w_next_tx = {(r_cmd == START_CMD) ? {slave_addr, ~en_wr} : din, !w_master_nack};
                         end
                     endcase
                 end
@@ -217,9 +217,9 @@ module i2c_master
                     w_next_cnt = 0;
                     if (r_bit == 8) begin
                         w_next_state = HOLD;
-                        done = 1'b1;
+                        done_tick = 1'b1;
                     end else begin
-                        c_next_bit = r_bit + 1;
+                        w_next_bit = r_bit + 1;
                         w_next_state = DATA1;
                         w_next_tx = r_tx << 1;
                     end

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:mmio_subsystem:2.1
-// IP Revision: 8
+// IP Revision: 9
 
 `timescale 1ns/1ps
 
@@ -80,13 +80,14 @@ module top_mmio_subsystem_1_0 (
   out_ports,
   rx,
   tx,
+  sclk,
+  miso,
+  mosi,
+  ss_n,
   debug_r_state,
   debug_addr,
   debug_slot_wr_done,
-  debug_slot_chip_select,
-  debug_transaction_completed,
-  debug_gpio_r_state,
-  debug_gpio_w_next_state
+  debug_slot_chip_select
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
@@ -148,13 +149,14 @@ output wire [3 : 0] out_ports;
 input wire rx;
 (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART TxD" *)
 output wire tx;
+output wire sclk;
+input wire miso;
+output wire mosi;
+output wire ss_n;
 output wire [2 : 0] debug_r_state;
 output wire [7 : 0] debug_addr;
 output wire [15 : 0] debug_slot_wr_done;
 output wire [15 : 0] debug_slot_chip_select;
-output wire debug_transaction_completed;
-output wire [1 : 0] debug_gpio_r_state;
-output wire [1 : 0] debug_gpio_w_next_state;
 
   mmio_subsystem #(
     .NUM_INPUT(9),
@@ -185,12 +187,13 @@ output wire [1 : 0] debug_gpio_w_next_state;
     .out_ports(out_ports),
     .rx(rx),
     .tx(tx),
+    .sclk(sclk),
+    .miso(miso),
+    .mosi(mosi),
+    .ss_n(ss_n),
     .debug_r_state(debug_r_state),
     .debug_addr(debug_addr),
     .debug_slot_wr_done(debug_slot_wr_done),
-    .debug_slot_chip_select(debug_slot_chip_select),
-    .debug_transaction_completed(debug_transaction_completed),
-    .debug_gpio_r_state(debug_gpio_r_state),
-    .debug_gpio_w_next_state(debug_gpio_w_next_state)
+    .debug_slot_chip_select(debug_slot_chip_select)
   );
 endmodule

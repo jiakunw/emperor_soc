@@ -65,13 +65,14 @@ module mmio_subsys_tb();
     // uart external
     logic rx;
     logic tx;
+    // i2c external
+    tri scl;
+    tri sda;
     // debug
-    logic [2:0] debug_r_state;
+    logic [2:0] debug_r_state; 
     logic [7:0] debug_addr;
     logic [15:0] debug_slot_wr_done;
     logic [15:0] debug_slot_chip_select;
-    logic debug_transaction_completed;
-    logic [1:0] debug_gpio_r_state, debug_gpio_w_next_state;
 
     mmio_subsystem dut (.*);
     
@@ -616,6 +617,15 @@ module mmio_subsys_tb();
             assert(dut.control.r_state == 3'd0);
             @(posedge aclk); #1;
         end
+    endtask
+
+    task test_i2c();
+        $display(" ");
+        $display("***************** start i2c test *****************");
+        $display(" ");
+        write_data(32'h4600_030c, 32'd250); // SCL 100kHz
+        write_data(32'h4600_0310, 32'h0000_0013); // ACK enable and START_CMD and I2C enable
+        write_data(32'h4600_0308, 32'h0000_0074); // I2C bus switch addr
     endtask
 
     task run_testbench();
