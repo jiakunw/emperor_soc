@@ -1,5 +1,6 @@
 // i2c.sv
 `timescale 1ns / 1ps
+`default_nettype none
 
 //------------------------------------------------------------
 // Module: i2c

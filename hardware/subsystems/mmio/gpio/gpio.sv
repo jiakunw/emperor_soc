@@ -1,6 +1,7 @@
 // gpio.sv
 // `include "../../const.sv"
 `timescale 1ns / 1ps
+`default_nettype none
 
 //------------------------------------------------------------
 // Module: gpio

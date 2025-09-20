@@ -1,4 +1,5 @@
 // const.sv
+`timescale 1ns / 1ps
 
 // === AXI Interface ===
 typedef enum logic [1:0] {

@@ -1,5 +1,6 @@
 // mmio_subsys.sv
 `timescale 1ns / 1ps
+`default_nettype none
 
 //------------------------------------------------------------
 // Module: mmio_subsystem

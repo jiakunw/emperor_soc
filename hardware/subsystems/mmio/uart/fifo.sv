@@ -1,6 +1,7 @@
 // fifo.sv
 // `include "../../const.sv"
 `timescale 1ns / 1ps
+`default_nettype none
 
 //------------------------------------------------------------
 // Module: fifo_controller
@@ -231,8 +232,6 @@ module fifo
     // signal declaration
     logic [ADDR_WIDTH-1:0] w_wr_addr, w_rd_addr;
     logic w_wr_en;
-
-    assign w_wr_rn = write && !full;
 
     fifo_controller #(.ADDR_WIDTH(ADDR_WIDTH)) control (
         .clk,

@@ -1,6 +1,7 @@
 // axi_mmio_controller.sv
-`include "/home/wangjiakun/Development/emperor_soc/hardware/subsystems/const.sv"
+// `include "/home/wangjiakun/Development/emperor_soc/hardware/subsystems/const.sv"
 `timescale 1ns / 1ps
+`default_nettype none
 
 //------------------------------------------------------------
 // Module: axi_mmio_controller
