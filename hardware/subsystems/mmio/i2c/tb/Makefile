@@ -16,7 +16,9 @@ SRC = ../../../const.sv \
 SRC += ../../mmio_controller/axi_mmio_controller.sv \
        ../../mmio_subsys.sv
 # Add testbench source files
-SRC += emperor_i2c_env.sv \
+SRC += emperor_axi_lite_if.sv \
+       emperor_axi_pkg.sv \
+       emperor_i2c_env.sv \
        emperor_i2c_pkg.sv \
        emperor_i2c_test_base.sv \
        emperor_i2c_test_reg_access.sv \
