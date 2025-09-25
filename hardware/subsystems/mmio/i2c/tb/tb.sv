@@ -78,7 +78,7 @@ module tb();
   end
   
   initial begin
-    uvm_config_db#(virtual emperor_axi_lite_if)::set(null, "uvm_test_top.env.axi_agent", "axi_if", axi_if);
+    uvm_config_db#(virtual emperor_axi_lite_if)::set(null, "uvm_test_top.env.axi_lite_agent", "vif", axi_if);
     //Start UVM test and phases
     run_test("");
   end

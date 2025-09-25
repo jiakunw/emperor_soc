@@ -7,6 +7,7 @@
 
     package emperor_i2c_test_pkg;
         import emperor_i2c_pkg::*;
+        import emperor_axi_lite_pkg::*;
 
         `include "emperor_i2c_test_base.sv"
         `include "emperor_i2c_test_reg_access.sv"

@@ -3,18 +3,25 @@
 `ifndef EMPEROR_AXI_LITE_AGENT
     `define EMPEROR_AXI_LITE_AGENT
 
-    class emperor_axi_lite_agent extends uvm_agent
+    class emperor_axi_lite_agent extends uvm_agent;
         emperor_axi_lite_agent_config agent_config;
+        emperor_axi_lite_driver driver;
+        emperor_axi_lite_sequencer sequencer;
 
         `uvm_component_utils(emperor_axi_lite_agent)
 
         function new(string name="", uvm_component parent);
-            super.mew(name, parent)
+            super.new(name, parent);
         endfunction
 
         virtual function void build_phase(uvm_phase phase);
             super.build_phase(phase);
             agent_config = emperor_axi_lite_agent_config::type_id::create("agent_config", this);
+
+            if(agent_config.get_active_passive() == UVM_ACTIVE) begin
+                driver    = emperor_axi_lite_driver::type_id::create("driver", this);
+                sequencer = emperor_axi_lite_sequencer::type_id::create("sequencer", this);
+            end
         endfunction
 
         virtual function void connect_phase(uvm_phase phase);
@@ -25,6 +32,10 @@
                 `uvm_fatal("AXI_NO_VIF", "unable to get AXI LITE virtual interface")
             end else begin
                 agent_config.set_vif(vif);
+            end
+
+            if(agent_config.get_active_passive() == UVM_ACTIVE) begin
+                driver.seq_item_port.connect(sequencer.seq_item_export);
             end
         endfunction
     endclass

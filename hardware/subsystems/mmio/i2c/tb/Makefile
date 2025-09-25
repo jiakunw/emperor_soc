@@ -16,8 +16,18 @@ SRC = ../../../const.sv \
 SRC += ../../mmio_controller/axi_mmio_controller.sv \
        ../../mmio_subsys.sv
 # Add testbench source files
-SRC += emperor_axi_lite_if.sv \
-       emperor_axi_pkg.sv \
+SRC += emperor_axi_lite_types.sv \
+       emperor_axi_lite_seq_item_base.sv \
+       emperor_axi_lite_seq_item_drv.sv \
+	   emperor_axi_lite_sequencer.sv \
+	   emperor_axi_lite_driver.sv \
+       emperor_axi_lite_agent_config.sv \
+	   emperor_axi_lite_agent.sv \
+	   emperor_axi_lite_sequence_base.sv \
+	   emperor_axi_lite_sequence_simple.sv \
+	   emperor_axi_lite_sequence_op.sv \
+	   emperor_axi_lite_if.sv \
+       emperor_axi_lite_pkg.sv \
        emperor_i2c_env.sv \
        emperor_i2c_pkg.sv \
        emperor_i2c_test_base.sv \

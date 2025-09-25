@@ -17,7 +17,35 @@ import uvm_pkg::*;
         virtual task run_phase(uvm_phase phase);
             phase.raise_objection(this, "TEST_DONE");
             `uvm_info("DEBUG", "test starts", UVM_LOW)  // last arg is verbosity
+
             #100ns;
+
+            for (int i = 0; i < 10; i++) begin
+                emperor_axi_lite_seq_item_drv seq_item = emperor_axi_lite_seq_item_drv::type_id::create("item");
+                seq_item.randomize();
+                `uvm_info("DEBUG", $sformatf("[%0d] sequence item: %0s", i, seq_item.toString()), UVM_LOW)
+            end
+
+            begin
+                emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
+
+                void'(seq_simple.randomize() with {
+                    item.addr == 'h222;
+                });
+
+                seq_simple.start(env.axi_lite_agent.sequencer);
+            end
+
+            begin
+            emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
+
+            void'(seq_rw.randomize() with {
+                addr == 'h4;
+            });
+
+            seq_rw.start(env.axi_lite_agent.sequencer);
+            end
+
             `uvm_info("DEBUG", "test finished", UVM_LOW)
             phase.drop_objection(this, "TEST_DONE");
         endtask
