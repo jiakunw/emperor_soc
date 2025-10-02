@@ -58,22 +58,11 @@ module tb();
   //Initial reset generator
   initial begin
     arst_n = 1;
-    axi_if.S_AXI_awaddr = 'b0;
-    axi_if.S_AXI_awprot = 'b0;
-    axi_if.S_AXI_awvalid = 'b0;
-    axi_if.S_AXI_wdata = 'b0;
-    axi_if.S_AXI_wstrb = 'b0;
-    axi_if.S_AXI_wvalid = 'b0;
-    axi_if.S_AXI_bready = 'b1;
-    axi_if.S_AXI_araddr = 'b0;
-    axi_if.S_AXI_arprot = 'b0;
-    axi_if.S_AXI_arvalid = 'b0;
-    axi_if.S_AXI_rready = 'b1;
     #6ns;
     
     arst_n = 0;
     
-    #30ns;
+    #6ns;
     arst_n = 1;
   end
   

@@ -19,6 +19,10 @@
             soft post_drive_delay <= 5;
         }
 
+        constraint addr_alignment_default {
+            soft addr % 4 == 0;
+        }
+
         `uvm_object_utils(emperor_axi_lite_seq_item_drv)
 
         function new(string name="");

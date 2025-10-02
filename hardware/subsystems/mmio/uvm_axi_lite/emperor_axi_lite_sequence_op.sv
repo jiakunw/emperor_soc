@@ -18,6 +18,7 @@
     endfunction
     
     virtual task body();
+        // you can start another sequence or drive item
 //       cfs_apb_item_drv item = cfs_apb_item_drv::type_id::create("item");
       
 //       void'(item.randomize() with {

@@ -38,12 +38,12 @@ import emperor_axi_lite_types::*;
 
         // Getter for the AXI agent Active/Passive control
         virtual function uvm_active_passive_enum get_active_passive();
-        return active_passive;
+            return active_passive;
         endfunction
     
         // Setter for the AXI agent Active/Passive control
         virtual function void set_active_passive(uvm_active_passive_enum value);
-        active_passive = value;
+            active_passive = value;
         endfunction
     
         // start simulation phase

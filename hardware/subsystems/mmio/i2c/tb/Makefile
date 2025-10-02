@@ -16,18 +16,18 @@ SRC = ../../../const.sv \
 SRC += ../../mmio_controller/axi_mmio_controller.sv \
        ../../mmio_subsys.sv
 # Add testbench source files
-SRC += emperor_axi_lite_types.sv \
-       emperor_axi_lite_seq_item_base.sv \
-       emperor_axi_lite_seq_item_drv.sv \
-	   emperor_axi_lite_sequencer.sv \
-	   emperor_axi_lite_driver.sv \
-       emperor_axi_lite_agent_config.sv \
-	   emperor_axi_lite_agent.sv \
-	   emperor_axi_lite_sequence_base.sv \
-	   emperor_axi_lite_sequence_simple.sv \
-	   emperor_axi_lite_sequence_op.sv \
-	   emperor_axi_lite_if.sv \
-       emperor_axi_lite_pkg.sv \
+SRC += ../../uvm_axi_lite/emperor_axi_lite_if.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_types.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_seq_item_base.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_seq_item_drv.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_sequencer.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_agent_config.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_driver.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_agent.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_sequence_base.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_sequence_simple.sv \
+	   ../../uvm_axi_lite/emperor_axi_lite_sequence_op.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_pkg.sv \
        emperor_i2c_env.sv \
        emperor_i2c_pkg.sv \
        emperor_i2c_test_base.sv \
@@ -40,6 +40,8 @@ SRC += emperor_axi_lite_types.sv \
 # Set the number of threads to use for parallel compilation (2 * cores)
 CORES = $(shell getconf _NPROCESSORS_ONLN)
 THREADS = $(shell echo $$((2 * $(CORES))))
+
+INCDIR += +incdir+../../uvm_axi_lite
 
 # UVM directory
 UVM_HOME = $(VCS_HOME)/etc/uvm-1.2
@@ -57,7 +59,7 @@ VCSFLAGS += $(COMMON_FLAGS)
 default : full
 
 full : $(SRC)
-	$(SIM) $(VCSFLAGS) -o $(TARGET) $(SRC)
+	$(SIM) $(VCSFLAGS) $(INCDIR) -o $(TARGET) $(SRC)
 
 clean:
 	-rm -r csrc

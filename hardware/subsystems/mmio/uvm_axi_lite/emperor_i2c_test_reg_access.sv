@@ -37,13 +37,23 @@ import uvm_pkg::*;
             end
 
             begin
-            emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
+                emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
 
-            void'(seq_rw.randomize() with {
-                addr == 'h4;
-            });
+                void'(seq_rw.randomize() with {
+                    addr == 'h4;
+                });
 
-            seq_rw.start(env.axi_lite_agent.sequencer);
+                seq_rw.start(env.axi_lite_agent.sequencer);
+            end
+
+            begin
+                cfs_apb_sequence_random seq_random = cfs_apb_sequence_random::type_id::create("seq_random");
+
+                void'(seq_random.randomize() with {
+                    num_items == 3;
+                });
+
+                seq_random.start(env.apb_agent.sequencer);
             end
 
             `uvm_info("DEBUG", "test finished", UVM_LOW)

@@ -5,8 +5,8 @@
 
     class emperor_axi_lite_agent extends uvm_agent;
         emperor_axi_lite_agent_config agent_config;
-        emperor_axi_lite_driver driver;
-        emperor_axi_lite_sequencer sequencer;
+        emperor_axi_lite_driver driver; // driver handler
+        emperor_axi_lite_sequencer sequencer;   // sequencer handler
 
         `uvm_component_utils(emperor_axi_lite_agent)
 
@@ -35,6 +35,7 @@
             end
 
             if(agent_config.get_active_passive() == UVM_ACTIVE) begin
+                driver.agent_config = agent_config;
                 driver.seq_item_port.connect(sequencer.seq_item_export);
             end
         endfunction
