@@ -5,28 +5,6 @@ import emperor_i2c_test_pkg::*;
 
 module tb();
     logic aclk, arst_n;
-    // AXI slave interface with main Bus
-    // write
-    // logic [31:0] S_AXI_awaddr;
-    // logic [2:0] S_AXI_awprot;
-    // logic S_AXI_awvalid;
-    // logic S_AXI_awready;
-    // logic [31:0] S_AXI_wdata;
-    // logic [3:0] S_AXI_wstrb;
-    // logic S_AXI_wvalid;
-    // logic S_AXI_wready;
-    // logic [1:0] S_AXI_bresp;
-    // logic S_AXI_bvalid;
-    // logic S_AXI_bready;
-    // // read
-    // logic [31:0] S_AXI_araddr;
-    // logic [2:0] S_AXI_arprot;
-    // logic S_AXI_arvalid;
-    // logic S_AXI_arready;
-    // logic [31:0] S_AXI_rdata;
-    // logic [1:0] S_AXI_rresp;
-    // logic S_AXI_rvalid;
-    // logic S_AXI_rready;
     // external gpio
     logic [8:0] in_ports;
     logic [3:0] out_ports;

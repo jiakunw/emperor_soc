@@ -4,12 +4,12 @@
   `define CFS_APB_SEQUENCE_OP
 
   class emperor_axi_lite_sequence_op extends emperor_axi_lite_sequence_base;
-    
-    //Address
-    rand axi_addr addr;
-    
-    //Write data
-    rand axi_data wr_data;
+    rand int unsigned num_items;
+
+    // constraints
+    constraint min_num_items_default {
+        soft num_items >= 10;
+    }
     
     `uvm_object_utils(emperor_axi_lite_sequence_op)
     
@@ -40,17 +40,10 @@
       
       //The above code can be replaced with `uvm_do macros
       emperor_axi_lite_seq_item_drv item;
-      
-      `uvm_do_with(item, {
-        dir  == AXI_READ;
-        addr == local::addr;
-      });
-      
-      `uvm_do_with(item, {
-        dir  == AXI_WRITE;
-        addr == local::addr;
-        data == wr_data;
-      });
+
+      for (int i = 0; i < num_items; i++) begin
+          `uvm_do_with(item);
+      end
       
     endtask
 

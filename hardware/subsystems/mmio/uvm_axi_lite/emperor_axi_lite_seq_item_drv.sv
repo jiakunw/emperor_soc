@@ -7,16 +7,12 @@
         rand axi_dir dir;
         rand axi_addr addr;
         rand axi_data data;
-        rand int unsigned pre_drive_delay;
-        rand int unsigned post_drive_delay;
+        rand int unsigned delay;
 
         // constraints
         constraint pre_drive_delay_default {
-            soft pre_drive_delay <= 5;
-        }
-
-        constraint post_drive_delay_default {
-            soft post_drive_delay <= 5;
+            soft delay >= 1;
+            soft delay <= 5;
         }
 
         constraint addr_alignment_default {
@@ -35,7 +31,7 @@
             if(dir == AXI_WRITE) begin
                 result = $sformatf("%s, data: %0x", result, data);
             end
-            result = $sformatf("%s, pre_drive_delay: %0d, post_drive_delay: %0d", result, pre_drive_delay, post_drive_delay);
+            result = $sformatf("%s, delay: %0d", result, delay);
             return result;
         endfunction
     endclass

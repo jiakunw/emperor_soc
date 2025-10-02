@@ -27,6 +27,7 @@ SRC += ../../uvm_axi_lite/emperor_axi_lite_if.sv \
 	   ../../uvm_axi_lite/emperor_axi_lite_sequence_base.sv \
 	   ../../uvm_axi_lite/emperor_axi_lite_sequence_simple.sv \
 	   ../../uvm_axi_lite/emperor_axi_lite_sequence_op.sv \
+	   ../../emperor_axi_lite_monitor_item.sv \
        ../../uvm_axi_lite/emperor_axi_lite_pkg.sv \
        emperor_i2c_env.sv \
        emperor_i2c_pkg.sv \
