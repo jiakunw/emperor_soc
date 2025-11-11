@@ -20,7 +20,7 @@ import emperor_axi_lite_types::*;
         endtask
 
         protected virtual task run_transactions();
-            emperor_axi_lite_vif vif = agent_config.get_vif();
+            emperor_axi_lite_vif_t vif = agent_config.get_vif();
 
             // initialize signals, always use non-blocking assignments
             vif.S_AXI_awaddr  = 'b0;
@@ -41,6 +41,8 @@ import emperor_axi_lite_types::*;
                 seq_item_port.get_next_item(seq_item);  // fetch next seq item from sequencer 
                 
                 single_transaction(seq_item);
+
+                repeat(seq_item.halt) @(posedge vif.aclk);
                 
                 seq_item_port.item_done();  // telling sequencer that we are done with this seq item
             end
@@ -56,7 +58,7 @@ import emperor_axi_lite_types::*;
         endtask
 
         protected virtual task write_transaction(emperor_axi_lite_seq_item_drv seq_item);
-            emperor_axi_lite_vif vif = agent_config.get_vif();
+            emperor_axi_lite_vif_t vif = agent_config.get_vif();
 
             `uvm_info("DRIVER", $sformatf("start writing data: %x to address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
             @(posedge vif.aclk) #seq_item.delay;
@@ -85,7 +87,7 @@ import emperor_axi_lite_types::*;
         endtask
 
         protected virtual task read_transaction(emperor_axi_lite_seq_item_drv seq_item);
-            emperor_axi_lite_vif vif = agent_config.get_vif();
+            emperor_axi_lite_vif_t vif = agent_config.get_vif();
 
             `uvm_info("DRIVER", $sformatf("start reading data: %x from address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
             @(posedge vif.aclk); #seq_item.delay;

@@ -89,15 +89,51 @@ module gpio
                         end
                         8'h04: begin
                             w_wr_done = 1'b1;
-                            w_led_data[1] = wr_data[0];
+                            w_led_data[1] = wr_data[1];
                         end
                         8'h08: begin
                             w_wr_done = 1'b1;
-                            w_led_data[2] = wr_data[0];
+                            w_led_data[2] = wr_data[2];
                         end
                         8'h0c: begin
                             w_wr_done = 1'b1;
-                            w_led_data[3] = wr_data[0];
+                            w_led_data[3] = wr_data[3];
+                        end
+                        8'h10: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h14: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h18: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h1c: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h20: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h24: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h28: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h2c: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h30: begin
+                            w_wr_done = 1'b1;
+                            w_slave_error = 1'b1;
                         end
                         default: begin
                             w_decode_error = 1'b1;
@@ -105,41 +141,57 @@ module gpio
                     endcase
                 end else if (read) begin
                     case (addr)
+                        8'h00: begin
+                            w_rd_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h04: begin
+                            w_rd_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h08: begin
+                            w_rd_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
+                        8'h0c: begin
+                            w_rd_done = 1'b1;
+                            w_slave_error = 1'b1;
+                        end
                         8'h10: begin
                             w_rd_done = 1'b1;
                             w_rd_data = r_input_data[0];
                         end
                         8'h14: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[1];
                         end
                         8'h18: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[2];
                         end
                         8'h1c: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[3];
                         end
                         8'h20: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[4];
                         end
                         8'h24: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[5];
                         end
                         8'h28: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[6];
                         end
                         8'h2c: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[7];
                         end
                         8'h30: begin
                             w_rd_done = 1'b1;
-                            w_rd_data = r_input_data[0];
+                            w_rd_data = r_input_data[8];
                         end
                         default: begin
                             w_decode_error = 1'b1;

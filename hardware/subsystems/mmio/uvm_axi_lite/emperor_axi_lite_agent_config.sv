@@ -9,7 +9,7 @@ import emperor_axi_lite_types::*;
     class emperor_axi_lite_agent_config extends uvm_component;
         // virtual interface
         // vif 是敏感资源（直接操纵 DUT 的信号）。你不希望外部随便改
-        local emperor_axi_lite_vif vif;
+        local emperor_axi_lite_vif_t vif;
 
         local uvm_active_passive_enum active_passive;
 
@@ -23,12 +23,12 @@ import emperor_axi_lite_types::*;
         endfunction
 
         // getter for virtual interface
-        virtual function emperor_axi_lite_vif get_vif();
+        virtual function emperor_axi_lite_vif_t get_vif();
             return vif;
         endfunction
 
         // setter for virtual interface
-        virtual function void set_vif(emperor_axi_lite_vif val);
+        virtual function void set_vif(emperor_axi_lite_vif_t val);
             if (vif == null) begin
                 vif = val;
             end else begin
