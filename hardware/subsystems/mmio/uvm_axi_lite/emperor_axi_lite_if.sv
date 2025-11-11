@@ -3,8 +3,6 @@
 `ifndef EMPEROR_AXI_LITE_IF
     `define EMPEROR_AXI_LITE_IF
 
-    `include "uvm_macros.svh"
-
     interface emperor_axi_lite_if(input logic aclk, input logic arst_n);
         // AXI slave interface with main Bus
         // write
