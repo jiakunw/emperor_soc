@@ -8,21 +8,15 @@
         rand axi_addr_t addr;
         rand axi_data_t data;
         rand int unsigned delay;
-        rand int unsigned halt;
 
         // constraints
         constraint pre_drive_delay_default {
             soft delay >= 1;
-            soft delay <= 5;
+            soft delay <= 15;
         }
 
         constraint addr_alignment_default {
             soft addr % 4 == 0;
-        }
-
-        constraint halt_default {
-            soft halt >= 5;
-            soft halt <= 50;
         }
 
         `uvm_object_utils(emperor_axi_lite_seq_item_drv)

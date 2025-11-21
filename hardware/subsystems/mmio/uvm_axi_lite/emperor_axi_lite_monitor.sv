@@ -26,28 +26,63 @@
                 emperor_axi_lite_vif_t vif = axi_lite_agent_config.axi_lite_vif;
                 emperor_axi_lite_monitor_item item = emperor_axi_lite_monitor_item::type_id::create("item");
 
-                while (!vif.S_AXI_arvalid || !vif.S_AXI_awvalid) begin
+                while (!vif.in_transaction) begin
                     @(posedge vif.aclk);
-                    item.delay++;
+                    item.interval++;
                 end
 
-                while (!vif.S_AXI_bvalid || !if.S_AXI_rvalid) begin
-                    @(posedge vif.aclk);
-                    item.duration++;
-                end
+                item.awvalid_awready_delay = 0;
+                item.arvalid_arready_delay = 0;
 
-                if (vif.S_AXI_bvalid) begin
-                    item.response = axi_lite_resp_t'(vif.S_AXI_bresp);
+                item.wvalid_wready_delay = 0;
+                item.cp_rvalid_rready_delay = 0;
+                item.bvalid_bready_delay = 0;
+
+                item.duration = 0;
+
+                if (vif.S_AXI_awvalid) begin
                     item.op = AXI_WRITE;
                     item.addr = vif.S_AXI_awaddr;
+
+                    while (!vif.S_AXI_awready) begin
+                        @(posedge vif.aclk);
+                        item.awvalid_awready_delay++;
+                        item.duration++;
+                    end
+
+                    while (!vif.S_AXI_wready) begin
+                        @(posedge vif.aclk);
+                        item.wvalid_wready_delay++;
+                        item.duration++;
+                    end
+
                     item.data = vif.S_AXI_wdata;
-                end else if (vif.S_AXI_rvalid) begin
-                    item.response = axi_lite_resp_t'(vif.S_AXI_rresp);
+
+                    while (!vif.S_AXI_bready) begin
+                        @(posedge vif.aclk);
+                        item.bvalid_bready_delay++;
+                        item.duration++;
+                    end
+
+                    item.response = (axi_lite_resp_t')vif.S_AXI_bresp;
+                end else begin
                     item.op = AXI_READ;
                     item.addr = vif.S_AXI_araddr;
+
+                    while (!vif.S_AXI_arready) begin
+                        @(posedge vif.aclk);
+                        item.arvalid_arready_delay++;
+                        item.duration++;
+                    end
+
+                    while (!vif.S_AXI_rready) begin
+                        @(posedge vif.aclk);
+                        item.rvalid_rready_delay++;
+                        item.duration++;
+                    end
+
                     item.data = vif.S_AXI_rdata;
-                end else begin
-                    `uvm_fatal("NORESP", "no response")
+                    item.response = (axi_lite_resp_t')vif.S_AXI_rresp;
                 end
 
                 output_port.write(item);

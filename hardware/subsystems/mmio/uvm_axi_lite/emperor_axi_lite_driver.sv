@@ -22,27 +22,27 @@ import emperor_axi_lite_types::*;
         protected virtual task run_transactions();
             emperor_axi_lite_vif_t vif = agent_config.get_vif();
 
-            // initialize signals, always use non-blocking assignments
-            vif.S_AXI_awaddr  = 'b0;
-            vif.S_AXI_awprot  = 'b0;
-            vif.S_AXI_awvalid = 'b0;
-            vif.S_AXI_wdata   = 'b0;
-            vif.S_AXI_wstrb   = 'b0;
-            vif.S_AXI_wvalid  = 'b0;
-            vif.S_AXI_bready  = 'b1;
-            vif.S_AXI_araddr  = 'b0;
-            vif.S_AXI_arprot  = 'b0;
-            vif.S_AXI_arvalid = 'b0;
-            vif.S_AXI_rready  = 'b1;
+            // // initialize signals, always use non-blocking assignments
+            // vif.S_AXI_awaddr  = 'b0;
+            // vif.S_AXI_awprot  = 'b0;
+            // vif.S_AXI_awvalid = 'b0;
+            // vif.S_AXI_wdata   = 'b0;
+            // vif.S_AXI_wstrb   = 'b0;
+            // vif.S_AXI_wvalid  = 'b0;
+            // vif.S_AXI_bready  = 'b1;
+            // vif.S_AXI_araddr  = 'b0;
+            // vif.S_AXI_arprot  = 'b0;
+            // vif.S_AXI_arvalid = 'b0;
+            // vif.S_AXI_rready  = 'b1;
 
             forever begin
                 emperor_axi_lite_seq_item_drv seq_item;
+
+                vif.in_transaction = 0;
                 
                 seq_item_port.get_next_item(seq_item);  // fetch next seq item from sequencer 
                 
-                single_transaction(seq_item);
-
-                repeat(seq_item.halt) @(posedge vif.aclk);
+                single_transaction(seq_item, vif);
                 
                 seq_item_port.item_done();  // telling sequencer that we are done with this seq item
             end
@@ -50,18 +50,17 @@ import emperor_axi_lite_types::*;
 
         protected virtual task single_transaction(emperor_axi_lite_seq_item_drv seq_item);
             if (seq_item.dir == AXI_READ) begin
-                read_transaction(seq_item);
+                read_transaction(seq_item, vif);
             end else begin
-                write_transaction(seq_item);
+                write_transaction(seq_item, vif);
             end
             // `uvm_info("DEBUG", $sformatf("Driving \"%0s\": %0s", seq_item.get_full_name(), seq_item.toString()), UVM_NONE)
         endtask
 
-        protected virtual task write_transaction(emperor_axi_lite_seq_item_drv seq_item);
-            emperor_axi_lite_vif_t vif = agent_config.get_vif();
-
+        protected virtual task write_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
             `uvm_info("DRIVER", $sformatf("start writing data: %x to address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
             @(posedge vif.aclk) #seq_item.delay;
+            vif.in_transaction = 1;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_wdata = seq_item.data;
@@ -84,13 +83,14 @@ import emperor_axi_lite_types::*;
             `uvm_info("DRIVER", "wait for S_AXI_bvalid", UVM_MEDIUM)
             wait(vif.S_AXI_bvalid == 1'b1);
             `uvm_info("DRIVER", "received S_AXI_bvalid", UVM_MEDIUM)
+            vif.in_transaction = 0;
         endtask
 
-        protected virtual task read_transaction(emperor_axi_lite_seq_item_drv seq_item);
-            emperor_axi_lite_vif_t vif = agent_config.get_vif();
+        protected virtual task read_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
 
             `uvm_info("DRIVER", $sformatf("start reading data: %x from address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
             @(posedge vif.aclk); #seq_item.delay;
+            vif.in_transaction = 1;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_rready = 1'b1;
@@ -107,6 +107,7 @@ import emperor_axi_lite_types::*;
             `uvm_info("DRIVER", "wait for S_AXI_rvalid", UVM_MEDIUM);
             wait(vif.S_AXI_rvalid);
             `uvm_info("DRIVER", "received S_AXI_rvalid", UVM_MEDIUM);
+            vif.in_transaction = 0;
         endtask
     endclass
 `endif

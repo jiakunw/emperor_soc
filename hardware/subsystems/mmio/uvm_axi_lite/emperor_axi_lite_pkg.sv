@@ -16,5 +16,6 @@
         `include "emperor_axi_lite_agent.sv"
         `include "emperor_axi_lite_sequence_base.sv"
         `include "emperor_axi_lite_sequence_simple.sv"
+        `include "axi_lite_coverage.sv"
     endpackage
 `endif

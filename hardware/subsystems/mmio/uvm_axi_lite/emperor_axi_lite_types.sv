@@ -10,18 +10,17 @@
         import uvm_pkg::*;
 
         // virtual interface def
-        typedef virtual emperor_axi_lite_if emperor_axi_lite_vif_t;
+        typedef virtual emperor_axi_lite_if emperor_axi_lite_vif;
 
         // AXI transaction 
-        typedef enum bit {AXI_READ = 0, AXI_WRITE = 1} axi_op_t;
+        typedef enum bit {AXI_READ = 0, AXI_WRITE = 1} axi_op;
 
         // AXI address
-        typedef bit [31:0] axi_addr_t;
+        typedef bit [31:0] axi_addr;
 
         // AXI data
-        typedef bit [31:0] axi_data_t;
+        typedef bit [31:0] axi_data;
 
-        // AXI response
         typedef resp_t axi_lite_resp_t;
     endpackage
 `endif
