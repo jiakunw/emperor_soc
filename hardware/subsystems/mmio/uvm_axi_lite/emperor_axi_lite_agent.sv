@@ -20,7 +20,7 @@
             super.build_phase(phase);
             agent_config = emperor_axi_lite_agent_config::type_id::create("agent_config", this);
 
-            monitor = cfs_apb_monitor::type_id::create("monitor", this);
+            monitor = emperor_axi_lite_monitor::type_id::create("monitor", this);
 
             coverage = axi_lite_coverage::type_id::create("coverage", this);
 
@@ -31,10 +31,10 @@
         endfunction
 
         virtual function void connect_phase(uvm_phase phase);
-            emperor_axi_lite_vif vif;
+            emperor_axi_lite_vif_t vif;
             super.connect_phase(phase);
 
-            if (uvm_config_db#(emperor_axi_lite_vif)::get(this, "", "vif", vif) == 0) begin
+            if (uvm_config_db#(emperor_axi_lite_vif_t)::get(this, "", "vif", vif) == 0) begin
                 `uvm_fatal("AXI_NO_VIF", "unable to get AXI LITE virtual interface")
             end else begin
                 agent_config.set_vif(vif);

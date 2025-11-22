@@ -3,6 +3,8 @@
 `ifndef EMPEROR_AXI_LITE_SEQ_ITEM_DRV
     `define EMPEROR_AXI_LITE_SEQ_ITEM_DRV
 
+    import const_pkg::*;
+
     class emperor_axi_lite_seq_item_drv extends emperor_axi_lite_seq_item_base;
         rand axi_op_t op;
         rand axi_addr_t addr;

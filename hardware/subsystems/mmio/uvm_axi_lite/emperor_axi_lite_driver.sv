@@ -48,8 +48,8 @@ import emperor_axi_lite_types::*;
             end
         endtask
 
-        protected virtual task single_transaction(emperor_axi_lite_seq_item_drv seq_item);
-            if (seq_item.dir == AXI_READ) begin
+        protected virtual task single_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
+            if (seq_item.op == AXI_READ) begin
                 read_transaction(seq_item, vif);
             end else begin
                 write_transaction(seq_item, vif);
@@ -74,7 +74,7 @@ import emperor_axi_lite_types::*;
             @(posedge vif.aclk); #seq_item.delay;
             `uvm_info("DRIVER", "received S_AXI_awready", UVM_MEDIUM)
             vif.S_AXI_awvalid = 1'b0;
-            S_AXI_wstrb = 4'b0001;
+            vif.S_AXI_wstrb = 4'b0001;
             `uvm_info("DRIVER", "wait for S_AXI_wready", UVM_MEDIUM)
             wait(vif.S_AXI_wready == 1'b1);
             `uvm_info("DRIVER", "received S_AXI_wready", UVM_MEDIUM)

@@ -10,10 +10,10 @@
         //Port for sending the collected item
         uvm_analysis_port#(emperor_axi_lite_monitor_item) output_port;
 
-        emperor_axi_lite_agent_config axi_lite_agent_config;
+        emperor_axi_lite_agent_config agent_config;
 
-        function new(string name="");
-            super.new(name);
+        function new(string name="", uvm_component parent);
+            super.new(name, parent);
             output_port = new("output_port", this);
         endfunction
 
@@ -23,7 +23,7 @@
 
         protected virtual task collect_transactions();
             forever begin
-                emperor_axi_lite_vif_t vif = axi_lite_agent_config.axi_lite_vif;
+                emperor_axi_lite_vif_t vif = agent_config.get_vif();
                 emperor_axi_lite_monitor_item item = emperor_axi_lite_monitor_item::type_id::create("item");
 
                 while (!vif.in_transaction) begin
@@ -35,7 +35,7 @@
                 item.arvalid_arready_delay = 0;
 
                 item.wvalid_wready_delay = 0;
-                item.cp_rvalid_rready_delay = 0;
+                item.rvalid_rready_delay = 0;
                 item.bvalid_bready_delay = 0;
 
                 item.duration = 0;
@@ -64,7 +64,7 @@
                         item.duration++;
                     end
 
-                    item.response = (axi_lite_resp_t')vif.S_AXI_bresp;
+                    item.response = axi_lite_resp_t'(vif.S_AXI_bresp);
                 end else begin
                     item.op = AXI_READ;
                     item.addr = vif.S_AXI_araddr;
@@ -82,7 +82,7 @@
                     end
 
                     item.data = vif.S_AXI_rdata;
-                    item.response = (axi_lite_resp_t')vif.S_AXI_rresp;
+                    item.response = axi_lite_resp_t'(vif.S_AXI_rresp);
                 end
 
                 output_port.write(item);

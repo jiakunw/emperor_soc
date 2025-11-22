@@ -9,12 +9,12 @@
         `uvm_object_utils(emperor_axi_lite_monitor_item)
 
         // basics
-        axi_op op;
+        axi_op_t op;
         axi_lite_resp_t response;
         int unsigned duration;
         int unsigned interval;
-        axi_addr addr;
-        axi_data data;
+        axi_addr_t addr;
+        axi_data_t data;
 
         // handshake delay
         int unsigned awvalid_awready_delay;
@@ -27,8 +27,8 @@
             super.new(name);
         endfunction
 
-        virtual function string toString();
-            string result = super.toString();
+        virtual function string convert2string();
+            string result = super.convert2string();
             
             result = $sformatf("operation: %0s, addr: %0x, data: %0x, response: %0s, interval: %0d",
                                 op.name(), addr, data, response.name(), interval);

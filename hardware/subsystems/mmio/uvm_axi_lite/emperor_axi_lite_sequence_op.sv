@@ -6,10 +6,10 @@
   class emperor_axi_lite_sequence_op extends emperor_axi_lite_sequence_base;
     
     //Address
-    rand axi_addr addr;
+    rand axi_addr_t addr;
     
     //Write data
-    rand axi_data wr_data;
+    rand axi_data_t wr_data;
     
     `uvm_object_utils(emperor_axi_lite_sequence_op)
     
@@ -42,12 +42,12 @@
       emperor_axi_lite_seq_item_drv item;
       
       `uvm_do_with(item, {
-        dir  == AXI_READ;
+        op  == AXI_READ;
         addr == local::addr;
       });
       
       `uvm_do_with(item, {
-        dir  == AXI_WRITE;
+        op  == AXI_WRITE;
         addr == local::addr;
         data == wr_data;
       });

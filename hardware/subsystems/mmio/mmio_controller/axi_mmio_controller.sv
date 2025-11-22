@@ -3,6 +3,8 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
+import const_pkg::*;
+
 //------------------------------------------------------------
 // Module: axi_mmio_controller
 // Description:
@@ -89,18 +91,19 @@ module axi_mmio_controller
     input logic S_AXI_rready,
     // slot interface
     output logic [15:0] slot_chip_select,
+    input logic [15:0] slot_signal_received,
     output logic read, write,
     output logic [7:0] reg_addr,
     output logic [31:0] slot_wr_data,
     input logic [31:0] slot_rd_data [15:0],
     input logic [15:0] slot_wr_done, slot_rd_done, slot_idle,
     input logic [15:0] slot_slave_error, slot_decode_error,
-    output logic transaction_completed
+    output logic transaction_completed,
     // debug
-    // output logic [2:0] debug_r_state, 
-    // output logic [7:0] debug_addr,
-    // output logic [15:0] debug_slot_wr_done,
-    // output logic [15:0] debug_slot_chip_select 
+    output logic [2:0] debug_r_state, 
+    output logic [7:0] debug_addr,
+    output logic [15:0] debug_slot_wr_done,
+    output logic [15:0] debug_slot_chip_select 
 );
 
     enum logic [2:0] {
@@ -112,10 +115,10 @@ module axi_mmio_controller
     } r_state, w_next_state;
 
     // debug
-    // assign debug_r_state = r_state;
-    // assign debug_addr = reg_addr;
-    // assign debug_slot_wr_done = slot_wr_done;
-    // assign debug_slot_chip_select = slot_chip_select;
+    assign debug_r_state = r_state;
+    assign debug_addr = reg_addr;
+    assign debug_slot_wr_done = slot_wr_done;
+    assign debug_slot_chip_select = slot_chip_select;
 
     // signal declarations
     logic [7:0] w_slot_addr, w_reg_addr;
@@ -124,6 +127,7 @@ module axi_mmio_controller
     logic [31:0] r_wr_data;
     logic [3:0] r_wstrb;
     logic [31:0] w_rd_data;
+    logic transaction_completed;
     logic update_wr_data_w;
 
     assign w_slot_addr = r_addr[15:8];

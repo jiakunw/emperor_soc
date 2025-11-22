@@ -3,7 +3,7 @@ TARGET = simv
 
 # Source files
 # Add regular source files
-SRC = ../../../const.sv \
+SRC = ../../../const_pkg.sv \
       ../../timer/timer.sv \
       ../../gpio/gpio.sv \
       ../../uart/fifo.sv \
@@ -24,17 +24,19 @@ SRC += ../../uvm_axi_lite/emperor_axi_lite_if.sv \
        ../../uvm_axi_lite/emperor_axi_lite_sequencer.sv \
        ../../uvm_axi_lite/emperor_axi_lite_agent_config.sv \
        ../../uvm_axi_lite/emperor_axi_lite_driver.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_monitor_item.sv \
+       ../../uvm_axi_lite/emperor_axi_lite_monitor.sv \
+       ../../uvm_axi_lite/axi_lite_coverage.sv \
        ../../uvm_axi_lite/emperor_axi_lite_agent.sv \
        ../../uvm_axi_lite/emperor_axi_lite_sequence_base.sv \
        ../../uvm_axi_lite/emperor_axi_lite_sequence_simple.sv \
        ../../uvm_axi_lite/emperor_axi_lite_sequence_op.sv \
-       ../../emperor_axi_lite_monitor_item.sv \
        ../../uvm_axi_lite/emperor_axi_lite_pkg.sv \
        emperor_i2c_env.sv \
        emperor_i2c_pkg.sv \
        emperor_i2c_test_base.sv \
        emperor_i2c_test_reg_access.sv \
-	   emperor_i2c_test_pkg.sv \
+	emperor_i2c_test_pkg.sv \
        tb.sv
 # SRC := $(filter-out nodeTB.sv, $(SRC))
 # SRC := $(sort $(SRC)) # Removes duplicates
