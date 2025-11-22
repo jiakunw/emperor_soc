@@ -26,21 +26,21 @@ import uvm_pkg::*;
                 `uvm_info("DEBUG", $sformatf("[%0d] sequence item: %0s", i, seq_item.toString()), UVM_LOW)
             end
 
-            begin
-                emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
+            // begin
+            //     emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
 
-                void'(seq_simple.randomize() with {
-                    item.addr == 'h222;
-                });
+            //     void'(seq_simple.randomize() with {
+            //         item.addr == 'h222;
+            //     });
 
-                seq_simple.start(env.axi_lite_agent.sequencer);
-            end
+            //     seq_simple.start(env.axi_lite_agent.sequencer);
+            // end
 
             begin
             emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
 
             void'(seq_rw.randomize() with {
-                addr == 'h4;
+                addr == 32'h4600_0300;
             });
 
             seq_rw.start(env.axi_lite_agent.sequencer);

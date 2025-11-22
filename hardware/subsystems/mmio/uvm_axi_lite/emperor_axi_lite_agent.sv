@@ -45,6 +45,7 @@
                 driver.seq_item_port.connect(sequencer.seq_item_export);
             end
 
+            coverage.agent_config = agent_config;
             monitor.agent_config = agent_config;
             monitor.output_port.connect(coverage.port_item);
         endfunction
