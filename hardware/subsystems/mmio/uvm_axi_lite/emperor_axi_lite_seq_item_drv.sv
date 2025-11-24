@@ -10,11 +10,17 @@
         rand axi_addr_t addr;
         rand axi_data_t data;
         rand int unsigned delay;
+        rand int unsigned halt;
 
         // constraints
         constraint pre_drive_delay_default {
             soft delay >= 1;
-            soft delay <= 15;
+            soft delay <= 5;
+        }
+
+        constraint drive_halt_default {
+            soft halt >= 0;
+            soft halt <= 10;
         }
 
         constraint addr_alignment_default {

@@ -26,11 +26,6 @@
                 emperor_axi_lite_vif_t vif = agent_config.get_vif();
                 emperor_axi_lite_monitor_item item = emperor_axi_lite_monitor_item::type_id::create("item");
 
-                while (!vif.in_transaction) begin
-                    @(posedge vif.aclk);
-                    item.interval++;
-                end
-
                 item.awvalid_awready_delay = 0;
                 item.arvalid_arready_delay = 0;
 
@@ -40,22 +35,26 @@
 
                 item.duration = 0;
 
-                if (vif.S_AXI_awvalid) begin
-                    item.op = AXI_WRITE;
-                    item.addr = vif.S_AXI_awaddr;
+                while (!vif.in_transaction) begin
+                    @(posedge vif.aclk);
+                    item.interval++;
+                end
 
-                    while (!vif.S_AXI_awready) begin
+                if (vif.transaction_type) begin
+                    item.op = AXI_WRITE;
+
+                    while (!vif.S_AXI_awready && !vif.S_AXI_awvalid) begin
                         @(posedge vif.aclk);
                         item.awvalid_awready_delay++;
                         item.duration++;
                     end
+                    item.addr = vif.S_AXI_awaddr;
 
-                    while (!vif.S_AXI_wready) begin
+                    while (!vif.S_AXI_wready && !vif.S_AXI_wvalid) begin
                         @(posedge vif.aclk);
                         item.wvalid_wready_delay++;
                         item.duration++;
                     end
-
                     item.data = vif.S_AXI_wdata;
 
                     while (!vif.S_AXI_bready) begin
@@ -67,15 +66,15 @@
                     item.response = axi_lite_resp_t'(vif.S_AXI_bresp);
                 end else begin
                     item.op = AXI_READ;
-                    item.addr = vif.S_AXI_araddr;
 
-                    while (!vif.S_AXI_arready) begin
+                    while (!vif.S_AXI_arready && !vif.S_AXI_arvalid) begin
                         @(posedge vif.aclk);
                         item.arvalid_arready_delay++;
                         item.duration++;
                     end
+                    item.addr = vif.S_AXI_araddr;
 
-                    while (!vif.S_AXI_rready) begin
+                    while (!vif.S_AXI_rready && !vif.S_AXI_rvalid) begin
                         @(posedge vif.aclk);
                         item.rvalid_rready_delay++;
                         item.duration++;

@@ -42,6 +42,7 @@ import emperor_axi_lite_types::*;
                 
                 seq_item_port.get_next_item(seq_item);  // fetch next seq item from sequencer 
                 
+                repeat(seq_item.halt) @(posedge vif.aclk);
                 single_transaction(seq_item, vif);
                 
                 seq_item_port.item_done();  // telling sequencer that we are done with this seq item
@@ -59,11 +60,13 @@ import emperor_axi_lite_types::*;
 
         protected virtual task write_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
             `uvm_info("DRIVER", $sformatf("start writing data: %x to address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
-            @(posedge vif.aclk) #seq_item.delay;
             vif.in_transaction = 1;
+            vif.transaction_type = bit'(AXI_WRITE);
+            @(posedge vif.aclk) #seq_item.delay;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_wdata = seq_item.data;
+            vif.S_AXI_bready = 1'b1;
             vif.S_AXI_awprot = 3'd0;
             vif.S_AXI_arprot = 3'd0;
             @(posedge vif.aclk); #seq_item.delay;
@@ -83,14 +86,16 @@ import emperor_axi_lite_types::*;
             `uvm_info("DRIVER", "wait for S_AXI_bvalid", UVM_MEDIUM)
             wait(vif.S_AXI_bvalid == 1'b1);
             `uvm_info("DRIVER", "received S_AXI_bvalid", UVM_MEDIUM)
+            @(posedge vif.aclk);
             vif.in_transaction = 0;
+            vif.transaction_type = 0;
         endtask
 
         protected virtual task read_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
 
             `uvm_info("DRIVER", $sformatf("start reading data: %x from address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
-            @(posedge vif.aclk); #seq_item.delay;
             vif.in_transaction = 1;
+            @(posedge vif.aclk); #seq_item.delay;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_rready = 1'b1;
@@ -107,6 +112,7 @@ import emperor_axi_lite_types::*;
             `uvm_info("DRIVER", "wait for S_AXI_rvalid", UVM_MEDIUM);
             wait(vif.S_AXI_rvalid);
             `uvm_info("DRIVER", "received S_AXI_rvalid", UVM_MEDIUM);
+            @(posedge vif.aclk);
             vif.in_transaction = 0;
         endtask
     endclass

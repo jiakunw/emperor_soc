@@ -37,10 +37,10 @@ module tb();
     tri scl;
     tri sda;
     // debug
-    logic [2:0] debug_r_state; 
-    logic [7:0] debug_addr;
-    logic [15:0] debug_slot_wr_done;
-    logic [15:0] debug_slot_chip_select;
+    // logic [2:0] debug_r_state; 
+    // logic [7:0] debug_addr;
+    // logic [15:0] debug_slot_wr_done;
+    // logic [15:0] debug_slot_chip_select;
 
   // AXI-Lite interface
   emperor_axi_lite_if axi_if(.aclk(aclk), .arst_n(arst_n));
@@ -58,6 +58,17 @@ module tb();
   //Initial reset generator
   initial begin
     arst_n = 1;
+    axi_if.S_AXI_awaddr = 0;
+    axi_if.S_AXI_awprot = 0;
+    axi_if.S_AXI_awvalid = 0;
+    axi_if.S_AXI_wdata = 0;
+    axi_if.S_AXI_wstrb = 0;
+    axi_if.S_AXI_wvalid = 0;
+    axi_if.S_AXI_bready = 0;
+    axi_if.S_AXI_araddr = 0;
+    axi_if.S_AXI_arprot = 0;
+    axi_if.S_AXI_arvalid = 0;
+    axi_if.S_AXI_rready = 0;
     #6ns;
     
     arst_n = 0;
@@ -67,9 +78,18 @@ module tb();
   end
   
   initial begin
-    uvm_config_db#(virtual emperor_axi_lite_if)::set(null, "uvm_test_top.env.axi_lite_agent", "vif", axi_if);
-    //Start UVM test and phases
-    run_test("");
+    fork 
+      begin
+        uvm_config_db#(virtual emperor_axi_lite_if)::set(null, "uvm_test_top.env.axi_lite_agent", "vif", axi_if);
+        //Start UVM test and phases
+        run_test("");
+      end
+      begin
+        #1000ns
+        `uvm_fatal("TIMEOUT", "Simulated timed out after 1000ns.")
+      end
+    join_any
+    disable fork;
   end
   
   //Instantiate the DUT

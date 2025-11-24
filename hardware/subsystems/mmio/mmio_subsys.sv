@@ -86,12 +86,12 @@ module mmio_subsystem
     output logic tx,
     // i2c external
     output tri scl,
-    input tri sda,
+    input tri sda
     // debug
-    output logic [2:0] debug_r_state, 
-    output logic [7:0] debug_addr,
-    output logic [15:0] debug_slot_wr_done,
-    output logic [15:0] debug_slot_chip_select
+    // output logic [2:0] debug_r_state, 
+    // output logic [7:0] debug_addr,
+    // output logic [15:0] debug_slot_wr_done,
+    // output logic [15:0] debug_slot_chip_select
     );
 
     // signal declarations

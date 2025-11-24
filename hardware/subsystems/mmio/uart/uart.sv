@@ -460,8 +460,8 @@ module uart
     // error signal register
     always_ff @(posedge clk, negedge arst_n) begin
         if (!arst_n) begin
-            slave_error <= 1'b1;
-            decode_error <= 1'b1;
+            slave_error <= 1'b0;
+            decode_error <= 1'b0;
         end else begin
             slave_error <= w_slave_error;
             decode_error <= w_decode_error;

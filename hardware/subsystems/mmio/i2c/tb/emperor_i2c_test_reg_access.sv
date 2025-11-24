@@ -20,11 +20,11 @@ import uvm_pkg::*;
 
             #100ns;
 
-            for (int i = 0; i < 10; i++) begin
-                emperor_axi_lite_seq_item_drv seq_item = emperor_axi_lite_seq_item_drv::type_id::create("item");
-                seq_item.randomize();
-                `uvm_info("DEBUG", $sformatf("[%0d] sequence item: %0s", i, seq_item.toString()), UVM_LOW)
-            end
+            // for (int i = 0; i < 10; i++) begin
+            //     emperor_axi_lite_seq_item_drv seq_item = emperor_axi_lite_seq_item_drv::type_id::create("item");
+            //     seq_item.randomize();
+            //     `uvm_info("DEBUG", $sformatf("[%0d] sequence item: %0s", i, seq_item.toString()), UVM_LOW)
+            // end
 
             // begin
             //     emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
@@ -45,6 +45,8 @@ import uvm_pkg::*;
 
             seq_rw.start(env.axi_lite_agent.sequencer);
             end
+
+            #100ns;
 
             `uvm_info("DEBUG", "test finished", UVM_LOW)
             phase.drop_objection(this, "TEST_DONE");

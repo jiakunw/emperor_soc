@@ -162,10 +162,10 @@ module i2c
 
     assign w_en = chip_select & (read | write);
     assign r_cmd = i2c_cmd_t'(r_control[3:1]);
-    assign idle = 1'b1;
 
     // decoder
     always_comb begin : decode
+        idle = 1'b1;
         w_wr_done = 1'b0;
         w_rd_data = w_rx_fifo_out;
         w_fifo_rd = 1'b0;
@@ -274,6 +274,78 @@ module i2c
                 w_next_state = (transaction_completed) ? IDLE : DONE;
             end
         endcase
+    end
+
+    // next state register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n)
+            r_state <= IDLE;
+        else 
+            r_state <= w_next_state;
+    end
+
+    // slave address register 
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n)
+            r_slave_addr <= 7'b0;
+        else 
+            r_slave_addr <= w_slave_addr;
+    end
+
+    // dvsr register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n)
+            r_dvsr <= 0;
+        else 
+            r_dvsr <= w_dvsr;
+    end   
+
+    // control register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n)
+            r_control <= 0;
+        else 
+            r_control <= w_control;
+    end  
+
+    // status register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n)
+            r_status <= 0;
+        else 
+            r_status <= w_status;
+    end     
+
+    // error signals register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n) begin
+            slave_error <= 1'b0;
+            decode_error <= 1'b0;
+        end else begin
+            slave_error <= w_slave_error;
+            decode_error <= w_decode_error;
+        end
+    end
+
+    // read data register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n) begin
+            rd_data <= 32'd0;
+        end else begin
+            rd_data <= w_rd_data;
+        end
+    end
+
+    // slot read/write done
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n) begin
+            wr_done <= 1'b0;
+            rd_done <= 1'b0;
+        end
+        else begin
+            wr_done <= w_wr_done;
+            rd_done <= w_rd_done;
+        end
     end
 
 endmodule : i2c

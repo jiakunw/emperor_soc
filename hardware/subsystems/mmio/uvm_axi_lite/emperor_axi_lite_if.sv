@@ -29,5 +29,6 @@
 
         // in a transaction
         bit in_transaction;
+        bit transaction_type;
     endinterface
 `endif

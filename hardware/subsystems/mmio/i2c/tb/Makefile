@@ -51,8 +51,9 @@ INCDIR += +incdir+../../uvm_axi_lite
 UVM_HOME = $(VCS_HOME)/etc/uvm-1.2
 
 # VCS flags
+COVERAGE_FLAGS = 
 VCSFLAGS = -full64 -sverilog -debug_all +lint=all +warn=all -j$(THREADS) +v2k
-COMMON_FLAGS += -ntb_opts uvm +incdir+$(UVM_HOME)/src -timescale=1ns/1ps
+COMMON_FLAGS += -ntb_opts uvm +incdir+$(UVM_HOME)/src -timescale=1ns/1ps $(COVERAGE_FLAGS)
 
 # Simulator
 SIM = vcs
