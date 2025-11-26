@@ -1,0 +1,189 @@
+// formal_axi_tb.sv
+`timescale 1ns / 1ps
+
+// 16'h4600_01XX is GPIO's address, only use that
+module v_axi_mmio_controller
+(
+    input logic aclk, arst_n,
+    // AXI slave interface with main Bus
+    // write
+    input logic [31:0] S_AXI_awaddr,
+    input logic [2:0] S_AXI_awprot,
+    input logic S_AXI_awvalid,
+    input logic S_AXI_awready,
+    input logic [31:0] S_AXI_wdata,
+    input logic [3:0] S_AXI_wstrb,
+    input logic S_AXI_wvalid,
+    input logic S_AXI_wready,
+    input logic [1:0] S_AXI_bresp,
+    input logic S_AXI_bvalid,
+    input logic S_AXI_bready,
+    // read
+    input logic [31:0] S_AXI_araddr,
+    input logic [2:0] S_AXI_arprot,
+    input logic S_AXI_arvalid,
+    input logic S_AXI_arready,
+    input logic [31:0] S_AXI_rdata,
+    input logic [1:0] S_AXI_rresp,
+    input logic S_AXI_rvalid,
+    input logic S_AXI_rready,
+    // gpio external
+    input logic [8:0] in_ports,
+    input logic [8:0] out_ports,
+    // uart external
+    input logic rx,
+    input logic tx,
+    // i2c external
+    input tri scl,
+    input tri sda
+);
+    // handshake signals
+    // write
+    logic write_addr_handshake;
+    logic write_data_handshake;
+    logic write_response_handshake;
+    // read
+    logic read_addr_handshake;
+    logic read_response_handshake;
+
+    // write handshakes
+    assign write_addr_handshake = S_AXI_awvalid & S_AXI_awready;
+    assign write_data_handshake = S_AXI_wvalid & S_AXI_wready;
+    assign write_response_handshake = S_AXI_bvalid & S_AXI_bready;
+    // read handshakes
+    assign read_addr_handshake = S_AXI_arvalid & S_AXI_arready;
+    assign read_response_handshake = S_AXI_rvalid & S_AXI_rready;
+
+    // other signals
+    // logic [7:0] slot_addr;
+
+    // always_ff @(posedge aclk) begin
+    //     if (S_AXI_awvalid)
+    //         slot_addr <= S_AXI_awaddr[15:8];
+    //     else if (S_AXI_arvalid)
+    //         slot_addr <= S_AXI_awaddr[15:8];
+    // end
+    
+    /*********************************** assumed properties ***********************************/
+
+
+    // write
+    property p_gpio_waddr;
+        @(posedge aclk) disable iff (!arst_n)
+            S_AXI_awaddr[31:8] == 24'h4600_01;
+    endproperty
+
+    property p_addr_write_stable;
+        @(posedge aclk) disable iff (!arst_n)
+            (S_AXI_awvalid && $past(S_AXI_awvalid)) |-> 
+                $stable(S_AXI_awaddr);
+    endproperty
+
+    property p_secure_write_access;
+        @(posedge aclk) disable iff (!arst_n) 
+            (S_AXI_awprot == 2'd0);
+    endproperty
+
+    property p_deassert_awvalid_after_handshake;
+        @(posedge aclk) disable iff (!arst_n)
+            (write_addr_handshake) |=>
+                (!S_AXI_awvalid until_with write_response_handshake);
+    endproperty
+
+    property p_data_write_stable;
+        @(posedge aclk) disable iff (!arst_n)
+            (S_AXI_wvalid && $past(S_AXI_wvalid)) |-> 
+                $stable(S_AXI_wdata);
+    endproperty
+
+    property p_deassert_wvalid_after_handshake;
+        @(posedge aclk) disable iff (!arst_n)
+            (write_data_handshake) |=>
+                (!S_AXI_wvalid until_with write_response_handshake);
+    endproperty
+
+    // property p_resp_write_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_bvalid && $past(S_AXI_bvalid)) |-> 
+    //             $stable(S_AXI_bresp);
+    // endproperty
+
+    // read
+    property p_gpio_raddr;
+        @(posedge aclk) disable iff (!arst_n)
+            S_AXI_araddr[31:8] == 24'h4600_01;
+    endproperty
+
+    property p_addr_read_stable;
+        @(posedge aclk) disable iff (!arst_n) 
+            (S_AXI_arvalid && $past(S_AXI_arvalid)) |-> 
+                $stable(S_AXI_araddr);
+    endproperty
+
+    property p_deassert_arvalid_after_handshake;
+        @(posedge aclk) disable iff (!arst_n) 
+            (read_addr_handshake) |=>
+                (!S_AXI_arvalid until_with read_response_handshake);
+    endproperty
+
+    // property p_data_read_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
+    //             $stable(S_AXI_rdata);
+    // endproperty
+
+    // property p_resp_read_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
+    //             $stable(S_AXI_rresp);
+    // endproperty
+
+    // slave devices
+    property p_gpio_in_ports;
+        @(posedge aclk) disable iff (!arst_n)
+            in_ports == 9'd0;
+    endproperty
+
+    property p_uart_rx;
+        @(posedge aclk) disable iff (!arst_n)
+            rx == 1'b0;
+    endproperty
+
+    property p_i2c_sda;
+        @(posedge aclk) disable iff (!arst_n)
+            sda == 1'b0;
+    endproperty
+
+    /*********************************** assumed assertions ***********************************/
+
+    // write
+    asm_gpio_waddr: assume property (p_gpio_waddr);
+    asm_addr_write_stable: assume property(p_addr_write_stable);
+    asm_secure_write_access: assume property(p_secure_write_access);
+    asm_deassert_awvalid_after_handshake: assume property(p_deassert_awvalid_after_handshake);
+    asm_data_write_stable: assume property(p_data_write_stable);
+    asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
+
+    // read
+    asm_gpio_raddr: assume property(p_gpio_raddr);
+    asm_addr_read_stable: assume property(p_addr_read_stable);
+    asm_deassert_arvalid_after_handshake: assume property(p_deassert_arvalid_after_handshake);
+
+    // device
+    asm_gpio_in_ports: assume property(p_gpio_in_ports);
+    asm_uart_rx: assume property(p_uart_rx);
+    asm_i2c_sda: assume property(p_i2c_sda);
+
+    c_rd_addr_00: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0100);
+    c_wr_addr_00: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0100);
+    c_rd_addr_04: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0104);
+    c_wr_addr_04: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0104);
+    c_rd_addr_08: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0108);
+    c_wr_addr_08: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0108);
+    c_rd_addr_0c: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_010c);
+    c_wr_addr_0c: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_010c);
+    c_rd_addr_10: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0110);
+    c_wr_addr_10: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0110);
+
+
+endmodule

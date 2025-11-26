@@ -1,7 +1,7 @@
 // fifo.sv
 // `include "../../const.sv"
 `timescale 1ns / 1ps
-`default_nettype none
+// `default_nettype none
 
 //------------------------------------------------------------
 // Module: fifo_controller

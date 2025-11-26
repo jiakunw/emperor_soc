@@ -1,7 +1,7 @@
 // axi_mmio_controller.sv
 // `include "/home/wangjiakun/Development/emperor_soc/hardware/subsystems/const.sv"
 `timescale 1ns / 1ps
-`default_nettype none
+// `default_nettype none
 
 import const_pkg::*;
 
