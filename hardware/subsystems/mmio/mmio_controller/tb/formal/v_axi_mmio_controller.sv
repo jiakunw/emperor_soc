@@ -29,16 +29,15 @@ module v_axi_mmio_controller
     input logic [1:0] S_AXI_rresp,
     input logic S_AXI_rvalid,
     input logic S_AXI_rready,
-    // slot interface
-    input logic [15:0] slot_chip_select,
-    input logic [15:0] slot_signal_received,
-    input logic read, write,
-    input logic [7:0] reg_addr,
-    input logic [31:0] slot_wr_data,
-    input logic [31:0] slot_rd_data [15:0],
-    input logic [15:0] slot_wr_done, slot_rd_done, slot_idle,
-    input logic [15:0] slot_slave_error, slot_decode_error,
-    input logic transaction_completed
+    // gpio external
+    input logic [8:0] in_ports,
+    input logic [8:0] out_ports,
+    // uart external
+    input logic rx,
+    input logic tx,
+    // i2c external
+    input tri scl,
+    input tri sda
 );
     // handshake signals
     // write
@@ -55,12 +54,27 @@ module v_axi_mmio_controller
     assign write_response_handshake = S_AXI_bvalid & S_AXI_bready;
     // read handshakes
     assign read_addr_handshake = S_AXI_arvalid & S_AXI_arready;
-    assign read_response_handshake = S_AXI_rvalid & S_AXI_rready'
+    assign read_response_handshake = S_AXI_rvalid & S_AXI_rready;
 
     // other signals
+    // logic [7:0] slot_addr;
+
+    // always_ff @(posedge aclk) begin
+    //     if (S_AXI_awvalid)
+    //         slot_addr <= S_AXI_awaddr[15:8];
+    //     else if (S_AXI_arvalid)
+    //         slot_addr <= S_AXI_awaddr[15:8];
+    // end
     
-    // assumed properties
+    /*********************************** assumed properties ***********************************/
+
+
     // write
+    property p_gpio_waddr;
+        @(posedge aclk) disable iff (!arst_n)
+            S_AXI_awaddr[31:8] == 24'h4600_01;
+    endproperty
+
     property p_addr_write_stable;
         @(posedge aclk) disable iff (!arst_n)
             (S_AXI_awvalid && $past(S_AXI_awvalid)) |-> 
@@ -90,13 +104,18 @@ module v_axi_mmio_controller
                 (!S_AXI_wvalid until_with write_response_handshake)
     endproperty
 
-    property p_resp_write_stable;
-        @(posedge aclk) disable iff (!arst_n) 
-            (S_AXI_bvalid && $past(S_AXI_bvalid)) |-> 
-                $stable(S_AXI_bresp);
-    endproperty
+    // property p_resp_write_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_bvalid && $past(S_AXI_bvalid)) |-> 
+    //             $stable(S_AXI_bresp);
+    // endproperty
 
     // read
+    property p_gpio_raddr;
+        @(posedge aclk) disable iff (!arst_n)
+            S_AXI_araddr[31:8] == 24'h4600_01;
+    endproperty
+
     property p_addr_read_stable;
         @(posedge aclk) disable iff (!arst_n) 
             (S_AXI_arvalid && $past(S_AXI_arvalid)) |-> 
@@ -109,42 +128,52 @@ module v_axi_mmio_controller
                 (!S_AXI_arvalid until_with read_response_handshake);
     endproperty
 
-    property p_data_read_stable;
-        @(posedge aclk) disable iff (!arst_n) 
-            (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
-                $stable(S_AXI_rdata);
-    endproperty
+    // property p_data_read_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
+    //             $stable(S_AXI_rdata);
+    // endproperty
 
-    property p_resp_read_stable;
-        @(posedge aclk) disable iff (!arst_n) 
-            (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
-                $stable(S_AXI_rresp);
-    endproperty
+    // property p_resp_read_stable;
+    //     @(posedge aclk) disable iff (!arst_n) 
+    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
+    //             $stable(S_AXI_rresp);
+    // endproperty
 
-    // slave device
-    property p_onehot_slot_wr_done;
-        @(posedge aclk) disable iff (!arst_n) 
-            $onehot(slot_wr_done);
-    endproperty
-
-    property p_onehot_slot_rd_done;
-        @(posedge aclk) disable iff (!arst_n) 
-            $onehot(slot_rd_done);
-    endproperty
-
-    property p_onehot_slot_slave_error;
+    // slave devices
+    property p_gpio_in_ports;
         @(posedge aclk) disable iff (!arst_n)
-            $onehot(slot_slave_error);
+            in_ports == 9'd0;
     endproperty
 
-    property p_onehot_slot_decode_error;
+    property p_uart_rx;
         @(posedge aclk) disable iff (!arst_n)
-            $onehot(slot_decode_error);
+            rx == 1'b0;
     endproperty
 
-    property p_assertion_slot_wr_done;
+    property p_i2c_sda;
         @(posedge aclk) disable iff (!arst_n)
-            S_AXI_awvalid |-> ##[0:$] slot_wr_done;  // Eventually slot_wr_done will be asserted
+            sda == 1'b0;
     endproperty
+
+    /*********************************** assumed assertions ***********************************/
+
+    // write
+    asm_gpio_waddr: assume property (p_gpio_waddr);
+    asm_addr_write_stable: assume property(p_addr_write_stable);
+    asm_secure_write_access: assume property(p_secure_write_access);
+    asm_deassert_awvalid_after_handshake: assume property(p_deassert_awvalid_after_handshake);
+    asm_data_write_stable: assume property(p_data_write_stable);
+    asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
+
+    // read
+    asm_gpio_raddr: assume property(p_gpio_raddr);
+    asm_addr_read_stable: assume property(p_addr_read_stable);
+    asm_deassert_arvalid_after_handshake: assume property(p_deassert_arvalid_after_handshake);
+
+    // device
+    asm_gpio_in_ports: assume property(p_gpio_in_ports);
+    asm_uart_rx: assume property(p_uart_rx);
+    asm_i2c_sda: assume property(p_i2c_sda);
 
 endmodule

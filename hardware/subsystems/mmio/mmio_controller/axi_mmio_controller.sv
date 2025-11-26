@@ -213,7 +213,7 @@ module axi_mmio_controller
     // address register
     always_ff @(posedge aclk, negedge arst_n) begin
         if (!arst_n)
-            r_addr <= 8'd0;
+            r_addr <= 16'd0;
         else if (w_en_addr)
             r_addr <= w_addr;
     end   
