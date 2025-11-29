@@ -1,0 +1,79 @@
+property p_cover_fsm_init;
+    @(posedge aclk) disable iff(!arst_n)
+        (r_state==INIT);
+endproperty
+
+property p_cover_fsm_write_1;
+    @(posedge aclk) disable iff(!arst_n)
+        (r_state==WRITE_1);
+endproperty
+
+property p_cover_fsm_write_resp;
+    @(posedge aclk) disable iff(!arst_n)
+        (r_state==WRITE_RESP);
+endproperty
+
+property p_cover_fsm_read_1;
+    @(posedge aclk) disable iff(!arst_n)
+        (r_state==READ_1);
+endproperty
+
+property p_cover_fsm_read_resp;
+    @(posedge aclk) disable iff(!arst_n)
+        (r_state==READ_RESP);
+endproperty
+
+property p_cover_handshake_write_address;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_awvalid && S_AXI_awready);
+endproperty
+
+property p_cover_handshake_write;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_wvalid && S_AXI_wready);
+endproperty
+
+property p_cover_handshake_write_response;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_bvalid && S_AXI_bready);
+endproperty
+
+property p_cover_handshake_read_address;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_arvalid && S_AXI_arready);
+endproperty
+
+property p_cover_handshake_read;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_rvalid && S_AXI_rready);
+endproperty
+
+property p_cover_bresp_okay;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_bresp == AXI_RESP_OKAY);
+endproperty
+
+property p_cover_bresp_slverr;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_bresp == AXI_RESP_SLVERR);
+endproperty
+
+property p_cover_bresp_decerr;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_bresp == AXI_RESP_DECERR);
+endproperty
+
+property p_cover_rresp_okay;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_rresp == AXI_RESP_OKAY);
+endproperty
+
+property p_cover_rresp_slverr;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_rresp == AXI_RESP_SLVERR);
+endproperty
+
+property p_cover_rresp_decerr;
+    @(posedge aclk) disable iff(!arst_n)
+        (S_AXI_rresp == AXI_RESP_DECERR);
+endproperty
