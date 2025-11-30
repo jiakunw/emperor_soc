@@ -8,4 +8,13 @@ package const_pkg;
       AXI_RESP_SLVERR = 2'b10,  // slave error
       AXI_RESP_DECERR = 2'b11   // decode error
   } resp_t;
+
+  // AXI mmio controller states
+  typedef enum logic [2:0] {
+    INIT       = 3'd0,
+    WRITE_1    = 3'd1,
+    WRITE_RESP = 3'd2,
+    READ_1     = 3'd3,
+    READ_RESP  = 3'd4
+  } axi_mmio_state_t;
 endpackage

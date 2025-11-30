@@ -105,13 +105,7 @@ module axi_mmio_controller
     // output logic [15:0] debug_slot_chip_select 
 );
 
-    enum logic [2:0] {
-        INIT = 3'd0,
-        WRITE_1 = 3'd1,
-        WRITE_RESP = 3'd2,
-        READ_1 = 3'd3,
-        READ_RESP = 3'd4
-    } r_state, w_next_state;
+    axi_mmio_state_t r_state, w_next_state;
 
     // debug
     // assign debug_r_state = r_state;

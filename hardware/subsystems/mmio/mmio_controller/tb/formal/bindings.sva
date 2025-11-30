@@ -32,5 +32,6 @@ bind mmio_subsystem v_axi_mmio_controller v_monitor (
     .tx(tx),
     // i2c external
     .scl(scl),
-    .sda(sda)
+    .sda(sda),
+    .r_state(control.r_state)
 );
