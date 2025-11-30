@@ -95,7 +95,7 @@ module mmio_subsystem
     );
 
     // signal declarations
-    logic [15:0] slot_chip_select, slot_signal_received;
+    logic [15:0] slot_chip_select;
     logic [7:0] reg_addr;
     logic [31:0] slot_wr_data;
     logic [31:0] slot_rd_data [15:0];
@@ -224,9 +224,16 @@ module mmio_subsystem
     // );
 
     assign slot_wr_done[15:4] = 0;
+    assign slot_rd_done[15:4] = 0;
     assign slot_idle[15:4] = 0;
     assign slot_slave_error[15:4] = 0;
     assign slot_decode_error[15:4] = 0;
+
+    always_comb begin
+        for (int i = 4; i < 16; i++) begin
+	    slot_rd_data[i] = 0;
+	end
+    end
 
 
 endmodule : mmio_subsystem

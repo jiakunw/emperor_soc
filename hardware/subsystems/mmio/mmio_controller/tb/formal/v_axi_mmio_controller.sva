@@ -67,39 +67,56 @@ module v_axi_mmio_controller
     /*********************************** assumed properties ***********************************/
 
 
+    // reset
+    property p_reset_eventually_release;
+	@(posedge aclk)
+	    1'b1 |-> ##[0:$] arst_n;
+    endproperty
+
     // write
     property p_gpio_waddr;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             S_AXI_awaddr[31:8] == 24'h4600_01;
     endproperty
 
+    property p_addr_write_initiation;
+	@(posedge aclk) 
+	    ##[0:$] S_AXI_awvalid;
+    endproperty
+
     property p_addr_write_stable;
-        @(posedge aclk) disable iff (!arst_n)
-            (S_AXI_awvalid && $past(S_AXI_awvalid)) |-> 
-                $stable(S_AXI_awaddr);
+        @(posedge aclk) 
+            (S_AXI_awvalid && $past(S_AXI_awvalid)) |-> $stable(S_AXI_awaddr);
+    endproperty
+
+    property p_data_write_initiation;
+        @(posedge aclk) 
+            ##[0:$] S_AXI_wvalid;
     endproperty
 
     property p_secure_write_access;
-        @(posedge aclk) disable iff (!arst_n) 
+        @(posedge aclk) 
             (S_AXI_awprot == 2'd0);
     endproperty
 
     property p_deassert_awvalid_after_handshake;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             (write_addr_handshake) |=>
-                (!S_AXI_awvalid until_with write_response_handshake);
+                (!S_AXI_awvalid &&  !write_response_handshake)[*0:$]
+                ##1 write_response_handshake;
     endproperty
 
     property p_data_write_stable;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             (S_AXI_wvalid && $past(S_AXI_wvalid)) |-> 
                 $stable(S_AXI_wdata);
     endproperty
 
     property p_deassert_wvalid_after_handshake;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             (write_data_handshake) |=>
-                (!S_AXI_wvalid until_with write_response_handshake);
+                (!S_AXI_wvalid && !write_response_handshake)[*0:$]
+                ##1 write_response_handshake;
     endproperty
 
     // property p_resp_write_stable;
@@ -110,20 +127,21 @@ module v_axi_mmio_controller
 
     // read
     property p_gpio_raddr;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             S_AXI_araddr[31:8] == 24'h4600_01;
     endproperty
 
     property p_addr_read_stable;
-        @(posedge aclk) disable iff (!arst_n) 
+        @(posedge aclk) 
             (S_AXI_arvalid && $past(S_AXI_arvalid)) |-> 
                 $stable(S_AXI_araddr);
     endproperty
 
     property p_deassert_arvalid_after_handshake;
-        @(posedge aclk) disable iff (!arst_n) 
+        @(posedge aclk) 
             (read_addr_handshake) |=>
-                (!S_AXI_arvalid until_with read_response_handshake);
+                (!S_AXI_arvalid && !read_response_handshake)[*0:$]
+                ##1 read_response_handshake;
     endproperty
 
     // property p_data_read_stable;
@@ -140,29 +158,35 @@ module v_axi_mmio_controller
 
     // slave devices
     property p_gpio_in_ports;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             in_ports == 9'd0;
     endproperty
 
     property p_uart_rx;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             rx == 1'b0;
     endproperty
 
     property p_i2c_sda;
-        @(posedge aclk) disable iff (!arst_n)
+        @(posedge aclk) 
             sda == 1'b0;
     endproperty
 
     /*********************************** assumed assertions ***********************************/
 
+
+    // reset
+    // asm_reset_eventually_release: assume property (p_reset_eventually_release);
+
     // write
     asm_gpio_waddr: assume property (p_gpio_waddr);
     asm_addr_write_stable: assume property(p_addr_write_stable);
-    asm_secure_write_access: assume property(p_secure_write_access);
-    asm_deassert_awvalid_after_handshake: assume property(p_deassert_awvalid_after_handshake);
-    asm_data_write_stable: assume property(p_data_write_stable);
-    asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
+    // asm_addr_write_initiation: assume property(p_addr_write_initiation);
+    // asm_data_data_initiation: assume property(p_data_write_initiation);
+    // asm_secure_write_access: assume property(p_secure_write_access);
+    // asm_deassert_awvalid_after_handshake: assume property(p_deassert_awvalid_after_handshake);
+    // asm_data_write_stable: assume property(p_data_write_stable);
+    // asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
 
     // read
     asm_gpio_raddr: assume property(p_gpio_raddr);
@@ -174,6 +198,25 @@ module v_axi_mmio_controller
     asm_uart_rx: assume property(p_uart_rx);
     asm_i2c_sda: assume property(p_i2c_sda);
 
+    /*********************************** coverage properties ***********************************/
+
+    property p_cover_handshake_write_address;
+        @(posedge aclk) 
+            (write_addr_handshake);
+    endproperty
+
+    property p_cover_handshake_write;
+        @(posedge aclk) disable iff(!arst_n)
+            (write_data_handshake);
+    endproperty
+
+    property p_cover_handshake_write_response;
+        @(posedge aclk) disable iff(!arst_n)
+            (write_response_handshake);
+    endproperty
+
+
+
     c_rd_addr_00: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0100);
     c_wr_addr_00: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0100);
     c_rd_addr_04: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0104);
@@ -184,6 +227,10 @@ module v_axi_mmio_controller
     c_wr_addr_0c: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_010c);
     c_rd_addr_10: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0110);
     c_wr_addr_10: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0110);
+
+    c_cover_handshake_write_address: cover property(p_cover_handshake_write_address);
+    c_cover_handshake_write: cover property(p_cover_handshake_write);
+    c_cover_handshake_write_response: cover property(p_cover_handshake_write_response);
 
 
 endmodule

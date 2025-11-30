@@ -91,7 +91,6 @@ module axi_mmio_controller
     input logic S_AXI_rready,
     // slot interface
     output logic [15:0] slot_chip_select,
-    input logic [15:0] slot_signal_received,
     output logic read, write,
     output logic [7:0] reg_addr,
     output logic [31:0] slot_wr_data,
@@ -127,7 +126,6 @@ module axi_mmio_controller
     logic [31:0] r_wr_data;
     logic [3:0] r_wstrb;
     logic [31:0] w_rd_data;
-    logic transaction_completed;
     logic update_wr_data_w;
 
     assign w_slot_addr = r_addr[15:8];

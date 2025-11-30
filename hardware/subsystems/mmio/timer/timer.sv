@@ -137,7 +137,7 @@ module timer
                         w_rd_done = 1'b1;
                     end
                 end
-                4'h0c: begin
+                8'h0c: begin
                     if (write) begin
                         w_eg = wr_data[0];
                         w_wr_done = 1'b1;
@@ -147,7 +147,7 @@ module timer
                         w_rd_done = 1'b1;
                     end
                 end
-                4'h10: begin
+                8'h10: begin
                     if (write) begin
                         w_slave_error = 1'b1;
                         w_status[2] = 1'b1;
