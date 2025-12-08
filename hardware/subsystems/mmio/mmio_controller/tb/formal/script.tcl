@@ -1,5 +1,5 @@
 # Analyze design under verification files
-set ROOT_PATH /user/stud/fall25/jw4865/emperor_soc/hardware/subsystems
+set ROOT_PATH /user/stud/fall25/sg4631/emperor_soc/hardware/subsystems
 set RTL_PATH ${ROOT_PATH}/mmio
 set TARGET_PATH ${RTL_PATH}/mmio_controller
 set PROP_PATH ${TARGET_PATH}/tb/formal
@@ -29,7 +29,7 @@ elaborate -top mmio_subsystem \
 
 # Set up Clocks and Resets
 clock aclk
-reset arst_n
+reset !arst_n
 
 # Get design information to check general complexity
 get_design_info

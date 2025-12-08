@@ -39,6 +39,9 @@ module v_axi_mmio_controller
     // bus internal
     input logic [2:0] r_state
 );
+    //arst_n signal
+    logic arst_n_signal = arst_n;
+
     // handshake signals
     // write
     logic write_addr_handshake;
@@ -83,6 +86,11 @@ module v_axi_mmio_controller
     property p_reset_eventually_release;
 	@(posedge aclk)
 	    1'b1 |-> ##[0:$] arst_n;
+    endproperty
+
+    property p_reset_eventually_done;
+        @(posedge aclk)
+	    (!arst_n) |=> arst_n;
     endproperty
 
     // write
@@ -190,7 +198,9 @@ module v_axi_mmio_controller
 
 
     // reset
-    // asm_reset_eventually_release: assume property (p_reset_eventually_release);
+    //asm_reset_eventually_release: assume property (p_reset_eventually_release);
+    asm_reset_eventually_done: assume property (p_reset_eventually_done);
+    
 
     // write
     asm_gpio_waddr: assume property (p_gpio_waddr);
@@ -214,15 +224,23 @@ module v_axi_mmio_controller
     asm_i2c_sda: assume property(p_i2c_sda);
 
     /*********************************** coverage properties ***********************************/
-
+    property p_cover_arst_n_signal;
+    	@(posedge aclk)
+	     arst_n;
+    endproperty
 
     property p_cover_fsm_init;
-        @(posedge aclk) 
+        @(posedge aclk)
             (r_state==INIT);
     endproperty
 
+    property p_cover_INIT_and_write_handshake;
+       @(posedge aclk) disable iff (!arst_n)
+           (r_state == INIT) && write_addr_handshake;
+    endproperty
+
     property p_cover_fsm_write_1;
-        @(posedge aclk)
+        @(posedge aclk) disable iff (!arst_n)
             (r_state==WRITE_1);
     endproperty
 
@@ -314,6 +332,8 @@ module v_axi_mmio_controller
 
     /*********************************** coverage assertions ***********************************/
 
+    c_cover_arst_n_signal: cover property(p_cover_arst_n_signal);
+    c_cover_INIT_and_write_handshake: cover property(p_cover_INIT_and_write_handshake);
 
     // fsm
     c_cover_fsm_init: cover property(p_cover_fsm_init);
@@ -362,6 +382,10 @@ module v_axi_mmio_controller
 	@(posedge aclk) r_state == WRITE_RESP |=> !(r_state == WRITE_1) && !(r_state == READ_1) && !(r_state == READ_RESP);
     endproperty
 
+    property p_state_INIT_to_WRITE_1;
+    	@(posedge aclk) ((r_state == INIT) && write_addr_handshake) |=> r_state == WRITE_1;
+    endproperty
+
     // read
     property p_state_READ_1_to_READ_RESP;
         @(posedge aclk) r_state == READ_1 |=> ##[0:$] (r_state == READ_RESP);
@@ -377,6 +401,10 @@ module v_axi_mmio_controller
 
     property p_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP;
         @(posedge aclk) r_state == READ_RESP |=> !(r_state == WRITE_1) && !(r_state == READ_1) && !(r_state == WRITE_RESP);
+    endproperty
+
+    property p_state_INIT_to_READ_1;
+        @(posedge aclk) ((r_state == INIT) && read_addr_handshake) |=> r_state == READ_1;
     endproperty
 
     // handshakes
@@ -434,11 +462,14 @@ module v_axi_mmio_controller
     ast_state_WRITE_RESP_to_IDLE: assert property(p_state_WRITE_RESP_to_IDLE);
     ast_state_WRITE_1_no_IDLE_READ_1_READ_RESP: assert property(p_state_WRITE_1_no_IDLE_READ_1_READ_RESP);
     ast_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP: assert property(p_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP);
+    ast_state_INIT_to_WRITE_1: assert property(p_state_INIT_to_WRITE_1);
+
     // read
     ast_state_READ_1_to_READ_RESP: assert property(p_state_READ_1_to_READ_RESP);
     ast_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP: assert property(p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP);
     ast_state_READ_RESP_to_IDLE: assert property(p_state_READ_RESP_to_IDLE);
     ast_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP: assert property(p_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP);
+    ast_state_INIT_to_READ_1: assert property(p_state_INIT_to_READ_1);
     
     // handshakes
     ast_write_addr_handshake: assert property(p_write_addr_handshake);
