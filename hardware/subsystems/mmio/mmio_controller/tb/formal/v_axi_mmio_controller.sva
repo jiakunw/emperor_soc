@@ -96,7 +96,7 @@ module v_axi_mmio_controller
     // write
     property p_gpio_waddr;
         @(posedge aclk) 
-            S_AXI_awaddr[31:8] == 24'h4600_01;
+            S_AXI_awaddr[31:8] == 24'h4600_01 && S_AXI_awaddr % 4 == 0;
     endproperty
 
     property p_addr_write_initiation;
@@ -111,7 +111,7 @@ module v_axi_mmio_controller
 
     property p_data_write_initiation;
         @(posedge aclk) 
-            write_addr_handshake |-> ##[0:$] S_AXI_wvalid;
+            write_addr_handshake |-> ##[0:3] S_AXI_wvalid;
     endproperty
 
     property p_secure_write_access;
@@ -146,7 +146,7 @@ module v_axi_mmio_controller
     // read
     property p_gpio_raddr;
         @(posedge aclk) 
-            S_AXI_araddr[31:8] == 24'h4600_01;
+            S_AXI_araddr[31:8] == 24'h4600_01 && S_AXI_araddr % 4 == 0;
     endproperty
 
     property p_addr_read_initiation;
@@ -198,8 +198,8 @@ module v_axi_mmio_controller
 
 
     // reset
-    //asm_reset_eventually_release: assume property (p_reset_eventually_release);
-    asm_reset_eventually_done: assume property (p_reset_eventually_done);
+    // asm_reset_eventually_release: assume property (p_reset_eventually_release);
+    // asm_reset_eventually_done: assume property (p_reset_eventually_done);
     
 
     // write

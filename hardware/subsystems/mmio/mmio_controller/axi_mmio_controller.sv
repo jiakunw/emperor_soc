@@ -169,7 +169,7 @@ module axi_mmio_controller
                 update_wr_data_w = S_AXI_wvalid;
                 slot_chip_select[w_slot_addr[3:0]] = S_AXI_wvalid;
                 write = 1'b1;
-                w_next_state = (slot_wr_done[w_slot_addr[3:0]]) ? WRITE_RESP : WRITE_1;
+                w_next_state = (S_AXI_wvalid) ? WRITE_RESP : WRITE_1;
             end
             WRITE_RESP: begin    // executing done transaction, waiting for it to be done
                 S_AXI_bresp = (slot_slave_error[w_slot_addr[3:0]]) ? AXI_RESP_SLVERR :
