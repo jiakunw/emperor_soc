@@ -367,11 +367,11 @@ module v_axi_mmio_controller
     endproperty
 
     property p_state_WRITE_1_to_WRITE_RESP;
-        @(posedge aclk) r_state == WRITE_1 |=> ##[0:$] (r_state == WRITE_RESP);
+        @(posedge aclk) (r_state == WRITE_1 && write_data_handshake) |=> ##[0:$] (r_state == WRITE_RESP);
     endproperty
 
     property p_state_WRITE_RESP_to_IDLE;
-        @(posedge aclk) r_state == WRITE_RESP |=> ##[0:$] (r_state == INIT);
+        @(posedge aclk) (r_state == WRITE_RESP && S_AXI_bready) |=> ##[0:$] (r_state == INIT);
     endproperty
 
     property p_state_WRITE_1_no_IDLE_READ_1_READ_RESP;
@@ -388,7 +388,7 @@ module v_axi_mmio_controller
 
     // read
     property p_state_READ_1_to_READ_RESP;
-        @(posedge aclk) r_state == READ_1 |=> ##[0:$] (r_state == READ_RESP);
+        @(posedge aclk) (r_state == READ_1) |=> ##[0:$] (r_state == READ_RESP||READ_1 ) ;
     endproperty
 
     property p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP;
@@ -396,7 +396,7 @@ module v_axi_mmio_controller
     endproperty
 
     property p_state_READ_RESP_to_IDLE;
-        @(posedge aclk) r_state == READ_RESP |=> ##[0:$] (r_state == INIT);
+        @(posedge aclk) (r_state == READ_RESP && S_AXI_rready) |=> ##[0:$] (r_state == INIT);
     endproperty
 
     property p_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP;
