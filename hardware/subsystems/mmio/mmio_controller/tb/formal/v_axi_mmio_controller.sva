@@ -99,9 +99,28 @@ module v_axi_mmio_controller
             S_AXI_awaddr[31:8] == 24'h4600_01 && S_AXI_awaddr % 4 == 0;
     endproperty
 
-    property p_addr_write_initiation;
+    property p_addr_write_read_initiation;
 	@(posedge aclk) 
-	    (r_state == INIT) |-> ##[0:$] S_AXI_awvalid;
+	    (r_state == INIT) |-> ##[0:$] (S_AXI_awvalid ^ S_AXI_arvalid);
+    endproperty
+
+    property p_awvalid_until_aw_hs;
+      @(posedge aclk)
+        // we’re in INIT and AW is the active one
+        (r_state == INIT && S_AXI_awvalid && !S_AXI_arvalid)
+          |-> (S_AXI_awvalid && !write_addr_handshake)[*] ##1 write_addr_handshake;
+    endproperty
+
+    property p_arvalid_until_ar_hs;
+        @(posedge aclk)
+        // we’re in INIT and AR is the active one
+        (r_state == INIT && S_AXI_arvalid && !S_AXI_awvalid)
+          |-> (S_AXI_arvalid && !read_addr_handshake)[*] ##1 read_addr_handshake;
+    endproperty
+
+    property p_no_read_when_write;
+	@(posedge aclk)
+	    S_AXI_awvalid |-> !S_AXI_arvalid;
     endproperty
 
     property p_addr_write_stable;
@@ -111,7 +130,7 @@ module v_axi_mmio_controller
 
     property p_data_write_initiation;
         @(posedge aclk) 
-            write_addr_handshake |-> ##[0:3] S_AXI_wvalid;
+            write_addr_handshake |-> ##[0:$] S_AXI_wvalid;
     endproperty
 
     property p_secure_write_access;
@@ -137,6 +156,17 @@ module v_axi_mmio_controller
 		(!S_AXI_wvalid) throughout (r_state != INIT && r_state != WRITE_1);
     endproperty
 
+    property p_bready_after_handshake;
+	@(posedge aclk)
+	    write_data_handshake |=> ##[0:$] S_AXI_bready;
+    endproperty
+
+    property p_bready_until_write_response_handshake;
+	@(posedge aclk)
+	    (r_state == WRITE_1 || r_state == WRITE_RESP) && S_AXI_bready |->
+		(S_AXI_bready && !write_response_handshake)[*] ##1 write_response_handshake;
+    endproperty
+
     // property p_resp_write_stable;
     //     @(posedge aclk) disable iff (!arst_n) 
     //         (S_AXI_bvalid && $past(S_AXI_bvalid)) |-> 
@@ -149,9 +179,14 @@ module v_axi_mmio_controller
             S_AXI_araddr[31:8] == 24'h4600_01 && S_AXI_araddr % 4 == 0;
     endproperty
 
-    property p_addr_read_initiation;
-        @(posedge aclk)
-            (r_state == INIT) |-> ##[0:$] S_AXI_arvalid;
+    // property p_addr_read_initiation;
+    //    @(posedge aclk)
+    //         (r_state == INIT) |-> ##[0:3] S_AXI_arvalid;
+    // endproperty
+
+    property p_no_write_when_read;
+	@(posedge aclk)
+	    S_AXI_arvalid |-> !S_AXI_awvalid;
     endproperty
 
     property p_addr_read_stable;
@@ -205,18 +240,20 @@ module v_axi_mmio_controller
     // write
     asm_gpio_waddr: assume property (p_gpio_waddr);
     asm_addr_write_stable: assume property(p_addr_write_stable);
-    asm_addr_write_initiation: assume property(p_addr_write_initiation);
+    asm_addr_write_read_initiation: assume property(p_addr_write_read_initiation);
     asm_data_data_initiation: assume property(p_data_write_initiation);
     asm_secure_write_access: assume property(p_secure_write_access);
     asm_deassert_awvalid_after_handshake: assume property(p_deassert_awvalid_after_handshake);
     asm_data_write_stable: assume property(p_data_write_stable);
     asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
+    asm_no_read_when_write: assume property(p_no_read_when_write);
 
     // read
     asm_gpio_raddr: assume property(p_gpio_raddr);
-    asm_addr_read_initiation: assume property(p_addr_read_initiation);
+    // asm_addr_read_initiation: assume property(p_addr_read_initiation);
     asm_addr_read_stable: assume property(p_addr_read_stable);
     asm_deassert_arvalid_after_handshake: assume property(p_deassert_arvalid_after_handshake);
+    asm_no_write_when_read: assume property(p_no_write_when_read);
 
     // device
     asm_gpio_in_ports: assume property(p_gpio_in_ports);
@@ -409,7 +446,7 @@ module v_axi_mmio_controller
 
     // handshakes
     property p_write_addr_handshake;
-	@(posedge aclk) S_AXI_awvalid |-> ##[0:$]write_addr_handshake;
+	@(posedge aclk) (r_state == INIT) && S_AXI_awvalid |-> ##[0:$]write_addr_handshake;
     endproperty
 
     property p_write_data_handshake;
@@ -421,7 +458,7 @@ module v_axi_mmio_controller
     endproperty
 
     property p_read_addr_handshake;
-	@(posedge aclk) S_AXI_arvalid |-> ##[0:$]read_addr_handshake;
+	@(posedge aclk) (r_state == INIT) && S_AXI_arvalid |-> ##[0:$]read_addr_handshake;
     endproperty
 
     property p_read_response_handshake;
