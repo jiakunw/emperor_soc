@@ -111,13 +111,6 @@ module v_axi_mmio_controller
           |=> (S_AXI_awvalid || write_addr_handshake);
     endproperty
 
-    property p_arvalid_until_ar_hs;
-        @(posedge aclk)
-        // we’re in INIT and AR is the active one
-        (S_AXI_arvalid && !S_AXI_awvalid)
-          |=> (S_AXI_arvalid || read_addr_handshake);
-    endproperty
-
     property p_no_read_when_write;
 	@(posedge aclk)
 	    S_AXI_awvalid |-> !S_AXI_arvalid;
@@ -194,6 +187,19 @@ module v_axi_mmio_controller
     //         (r_state == INIT) |-> ##[0:3] S_AXI_arvalid;
     // endproperty
 
+    property p_addr_read_initiation;
+	@(posedge aclk)
+            (r_state == INIT) |-> ##[0:$] S_AXI_arvalid;
+    endproperty
+    
+
+    property p_arvalid_until_ar_hs;
+        @(posedge aclk)
+        // we’re in INIT and AR is the active one
+        (S_AXI_arvalid && !S_AXI_arready)
+          |=> (S_AXI_arvalid || read_addr_handshake);
+    endproperty
+
     property p_no_write_when_read;
 	@(posedge aclk)
 	    S_AXI_arvalid |-> !S_AXI_awvalid;
@@ -265,7 +271,7 @@ module v_axi_mmio_controller
 
     // read
     asm_gpio_raddr: assume property(p_gpio_raddr);
-    // asm_addr_read_initiation: assume property(p_addr_read_initiation);
+    asm_addr_read_initiation: assume property(p_addr_read_initiation);
     asm_addr_read_stable: assume property(p_addr_read_stable);
     asm_deassert_arvalid_after_handshake: assume property(p_deassert_arvalid_after_handshake);
     asm_no_write_when_read: assume property(p_no_write_when_read);
@@ -391,6 +397,11 @@ module v_axi_mmio_controller
 
     c_cover_arst_n_signal: cover property(p_cover_arst_n_signal);
     c_cover_INIT_and_write_handshake: cover property(p_cover_INIT_and_write_handshake);
+
+    // COV_init_to_read1: cover property (@(posedge aclk)
+  
+    //   (r_state==INIT && read_addr_handshake) ##1 (r_state==READ_1)
+    // );
 
     // fsm
     c_cover_fsm_init: cover property(p_cover_fsm_init);
@@ -522,6 +533,12 @@ module v_axi_mmio_controller
     ast_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP: assert property(p_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP);
     ast_state_INIT_to_WRITE_1: assert property(p_state_INIT_to_WRITE_1);
 
+
+    // AST_antecedent_reachable: assert property (@(posedge aclk)
+    // ##[0:$] (r_state==INIT && read_addr_handshake)
+    // );
+
+    // AST_2: assert property (@(posedge aclk) ##[0:$] S_AXI_arvalid);
     // read
     // ast_state_INIT_to_READ_1: assert property(p_state_INIT_to_READ_1);
     ast_state_READ_1_to_READ_RESP: assert property(p_state_READ_1_to_READ_RESP);
