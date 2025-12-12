@@ -194,6 +194,7 @@ module gpio
                             w_rd_data = r_input_data[8];
                         end
                         default: begin
+			    w_rd_done = 1'b1;
                             w_decode_error = 1'b1;
                         end
                     endcase
