@@ -136,6 +136,7 @@ module gpio
                             w_slave_error = 1'b1;
                         end
                         default: begin
+			    w_wr_done = 1'b1;
                             w_decode_error = 1'b1;
                         end
                     endcase

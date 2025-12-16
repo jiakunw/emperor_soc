@@ -172,6 +172,7 @@ module axi_mmio_controller
                 w_next_state = (S_AXI_wvalid) ? WRITE_RESP : WRITE_1;
             end
             WRITE_RESP: begin    // executing done transaction, waiting for it to be done
+	        write = 1'b1;
                 S_AXI_bresp = (slot_slave_error[w_slot_addr[3:0]]) ? AXI_RESP_SLVERR :
                               (slot_decode_error[w_slot_addr[3:0]]) ? AXI_RESP_DECERR :
                               AXI_RESP_OKAY;
@@ -219,6 +220,6 @@ module axi_mmio_controller
         end else begin
             slot_wr_data <= slot_wr_data;
         end
-    end
+     end
 
 endmodule : axi_mmio_controller

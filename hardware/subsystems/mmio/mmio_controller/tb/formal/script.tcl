@@ -11,12 +11,12 @@ analyze -sv \
   ${ROOT_PATH}/const_pkg.sv 
 
 analyze -sv \
-  ${RTL_PATH}/gpio/gpio.sv \
-  ${TARGET_PATH}/axi_mmio_controller.sv \
+  /user/stud/fall25/jw4865/emperor_soc/hardware/subsystems/mmio/gpio/gpio.sv \
+  /user/stud/fall25/jw4865/emperor_soc/hardware/subsystems/mmio/mmio_controller/axi_mmio_controller.sv \
   ${RTL_PATH}/mmio_subsys.sv
 
 # Analyze property files
-analyze -sva \
+  analyze -sva \
   bindings.sva \
   v_axi_mmio_controller.sva
 
