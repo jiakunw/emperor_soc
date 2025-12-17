@@ -154,9 +154,14 @@ module v_axi_mmio_controller
 		(!S_AXI_wvalid) throughout (s_in_transaction);
     endproperty
 
+    property p_no_ilegal_bready;
+	@(posedge aclk)
+	    (r_state == INIT) || (r_state == WRITE_1) |-> !S_AXI_bready;
+    endproperty
+
     property p_bready_after_handshake;
 	@(posedge aclk)
-	    write_data_handshake |=> ##[0:$] S_AXI_bready;
+	    write_data_handshake |=> ##[0:2] S_AXI_bready;
     endproperty
 
     property p_bready_until_write_response_handshake;
@@ -191,7 +196,6 @@ module v_axi_mmio_controller
 	@(posedge aclk)
             (r_state == INIT) |-> ##[0:$] S_AXI_arvalid;
     endproperty
-    
 
     property p_arvalid_until_ar_hs;
         @(posedge aclk)
@@ -215,6 +219,21 @@ module v_axi_mmio_controller
         @(posedge aclk) 
             (read_addr_handshake) |=>
      		(!S_AXI_arvalid) throughout (s_in_transaction);
+    endproperty
+
+    property p_no_illegal_rready;
+	@(posedge aclk)
+	    (r_state == INIT) |-> !S_AXI_rready;
+    endproperty
+
+    property p_rready_initiation;
+	@(posedge aclk)
+	    (read_addr_handshake) |=> ##[0:$]S_AXI_rready;
+    endproperty
+
+    property p_rready_stable;
+	@(posedge aclk)
+	    S_AXI_rready && !S_AXI_rvalid |=> S_AXI_rready;
     endproperty
 
     // property p_data_read_stable;
@@ -266,8 +285,10 @@ module v_axi_mmio_controller
     asm_data_write_stable: assume property(p_data_write_stable);
     asm_deassert_wvalid_after_handshake: assume property(p_deassert_wvalid_after_handshake);
     asm_no_read_when_write: assume property(p_no_read_when_write);
+    asm_bready_after_handshake: assume property(p_bready_after_handshake);
     asm_bready_until_write_response_handshake: assume property(p_bready_until_write_response_handshake);
     asm_bready_deasserts_after_handshake: assume property(p_bready_deasserts_after_handshake);
+    asm_no_ilegal_bready: assume property(p_no_ilegal_bready);
 
     // read
     asm_gpio_raddr: assume property(p_gpio_raddr);
@@ -275,6 +296,9 @@ module v_axi_mmio_controller
     asm_addr_read_stable: assume property(p_addr_read_stable);
     asm_deassert_arvalid_after_handshake: assume property(p_deassert_arvalid_after_handshake);
     asm_no_write_when_read: assume property(p_no_write_when_read);
+    asm_no_illegal_rready: assume property(p_no_illegal_rready);
+    asm_rready_initiation: assume property(p_rready_initiation);
+    asm_rready_stable: assume property(p_rready_stable);
 
     // device
     asm_gpio_in_ports: assume property(p_gpio_in_ports);

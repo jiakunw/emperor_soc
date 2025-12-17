@@ -202,6 +202,8 @@ module gpio
                 end
             end
             DONE: begin
+		w_rd_done = 1'b1;
+		w_wr_done = 1'b1;
                 w_slave_error = slave_error;
                 w_decode_error = decode_error;
                 w_next_state = (transaction_completed) ? IDLE : DONE;
