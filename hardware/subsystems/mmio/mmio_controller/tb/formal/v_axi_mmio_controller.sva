@@ -473,6 +473,17 @@ module v_axi_mmio_controller
         ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_OKAY);
     endproperty
 
+    property p_slave_write_slv_error;
+    @(posedge aclk) S_AXI_awvalid && S_AXI_awaddr[7:0] inside {8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30} |=>
+        ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_SLVERR);
+    endproperty
+
+    property p_slave_write_decode_error;
+    @(posedge aclk) S_AXI_awvalid && S_AXI_awaddr[7:0] !inside 
+        {8'h00, 8'h04, 8'h08, 8'h0c, 8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30} |=>
+        ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_DECERR);
+    endproperty
+
     // read
     property p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP;
 	@(posedge aclk) r_state == READ_1 |=> !(r_state == WRITE_1) && !(r_state == INIT) && !(r_state == WRITE_RESP); 
@@ -538,7 +549,7 @@ module v_axi_mmio_controller
     endproperty
 
     property p_slave_read_response_assertion;
-        @(posedge aclk) write_addr_handshake |-> ##[0:$]S_AXI_rvalid;
+        @(posedge aclk) read_addr_handshake |-> ##[0:$]S_AXI_rvalid;
     endproperty
 
 
@@ -558,6 +569,8 @@ module v_axi_mmio_controller
     ast_state_INIT_to_WRITE_1: assert property(p_state_INIT_to_WRITE_1);
     ast_slave_write_response_stable: assert property(p_slave_write_response_stable);
     ast_slave_write_okay: assert property(p_slave_write_okay);
+    ast_slave_write_slv_error: assert property(p_slave_write_slv_error);
+    ast_slave_write_decode_error: assert property(p_slave_write_decode_error);
 
     // read
     ast_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP: assert property(p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP);
