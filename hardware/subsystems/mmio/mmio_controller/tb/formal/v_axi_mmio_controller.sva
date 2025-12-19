@@ -175,22 +175,12 @@ module v_axi_mmio_controller
 	    write_response_handshake |=> (!write_response_handshake) throughout (r_state != INIT);
     endproperty
 
-    // property p_resp_write_stable;
-    //     @(posedge aclk) disable iff (!arst_n) 
-    //         (S_AXI_bvalid && $past(S_AXI_bvalid)) |-> 
-    //             $stable(S_AXI_bresp);
-    // endproperty
 
     // read
     property p_gpio_raddr;
         @(posedge aclk) 
             S_AXI_araddr[31:8] == 24'h4600_01 && S_AXI_araddr % 4 == 0;
     endproperty
-
-    // property p_addr_read_initiation;
-    //    @(posedge aclk)
-    //         (r_state == INIT) |-> ##[0:3] S_AXI_arvalid;
-    // endproperty
 
     property p_addr_read_initiation;
 	@(posedge aclk)
@@ -235,18 +225,6 @@ module v_axi_mmio_controller
 	@(posedge aclk)
 	    S_AXI_rready && !S_AXI_rvalid |=> S_AXI_rready;
     endproperty
-
-    // property p_data_read_stable;
-    //     @(posedge aclk) disable iff (!arst_n) 
-    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
-    //             $stable(S_AXI_rdata);
-    // endproperty
-
-    // property p_resp_read_stable;
-    //     @(posedge aclk) disable iff (!arst_n) 
-    //         (S_AXI_rvalid && $past(S_AXI_rvalid)) |-> 
-    //             $stable(S_AXI_rresp);
-    // endproperty
 
     // slave devices
     property p_gpio_in_ports;
@@ -311,6 +289,7 @@ module v_axi_mmio_controller
 	     arst_n;
     endproperty
 
+    // fsm states
     property p_cover_fsm_init;
         @(posedge aclk)
             (r_state==INIT);
@@ -404,19 +383,6 @@ module v_axi_mmio_controller
     endproperty
 
 
-    // slave device
-    c_rd_addr_00: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0100);
-    c_wr_addr_00: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0100);
-    c_rd_addr_04: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0104);
-    c_wr_addr_04: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0104);
-    c_rd_addr_08: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0108);
-    c_wr_addr_08: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0108);
-    c_rd_addr_0c: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_010c);
-    c_wr_addr_0c: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_010c);
-    c_rd_addr_10: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0110);
-    c_wr_addr_10: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0110);
-
-
     /*********************************** coverage assertions ***********************************/
 
     c_cover_arst_n_signal: cover property(p_cover_arst_n_signal);
@@ -450,10 +416,28 @@ module v_axi_mmio_controller
     c_cover_rresp_slverr: cover property(p_cover_rresp_slverr);
     c_cover_rresp_decerr: cover property(p_cover_rresp_decerr);
 
+    // slave device register access
+    c_rd_addr_00: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0100);
+    c_wr_addr_00: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0100);
+    c_rd_addr_04: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0104);
+    c_wr_addr_04: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0104);
+    c_rd_addr_08: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0108);
+    c_wr_addr_08: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0108);
+    c_rd_addr_0c: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_010c);
+    c_wr_addr_0c: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_010c);
+    c_rd_addr_10: cover property (@(posedge aclk) S_AXI_araddr == 32'h4600_0110);
+    c_wr_addr_10: cover property (@(posedge aclk) S_AXI_awaddr == 32'h4600_0110);
+
     
     /*********************************** assertion properties ***********************************/
 
-    // fsm
+
+    ///////////////////////
+    ////              ////
+    ////    safety   ////
+    ////            ////
+    ///////////////////
+
     // write
     property p_state_IDLE_to_WRITE_1;
 	@(posedge aclk) (r_state == INIT && write_addr_handshake) |=> r_state == WRITE_1;
@@ -479,11 +463,12 @@ module v_axi_mmio_controller
     	@(posedge aclk) ((r_state == INIT) && write_addr_handshake) |=> r_state == WRITE_1;
     endproperty
 
-    // read
-    property p_state_READ_1_to_READ_RESP;
-        @(posedge aclk) (r_state == READ_1) |=> ##[0:$](r_state == READ_RESP) ;
+    property p_slave_write_response_stable;
+	@(posedge aclk) S_AXI_bvalid && $past(S_AXI_bvalid) |->
+	    $stable(S_AXI_bresp);
     endproperty
 
+    // read
     property p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP;
 	@(posedge aclk) r_state == READ_1 |=> !(r_state == WRITE_1) && !(r_state == INIT) && !(r_state == WRITE_RESP); 
     endproperty
@@ -500,7 +485,13 @@ module v_axi_mmio_controller
         @(posedge aclk) ((r_state == INIT) && read_addr_handshake) |=> r_state == READ_1;
     endproperty
 
-    // handshakes
+    /////////////////////////
+    ////                ////
+    ////    liveness   ////
+    ////              ////
+    /////////////////////
+
+    // write
     property p_write_addr_handshake;
 	@(posedge aclk) (r_state == INIT) && S_AXI_awvalid |-> ##[0:$]write_addr_handshake;
     endproperty
@@ -509,30 +500,25 @@ module v_axi_mmio_controller
         @(posedge aclk) write_addr_handshake |-> ##[0:$]write_data_handshake; 
     endproperty
 
-    property p_write_response_handshake;
-        @(posedge aclk) write_data_handshake |-> ##[0:$]write_response_handshake; 
-    endproperty
-
-    property p_read_addr_handshake;
-	@(posedge aclk) (r_state == INIT) && S_AXI_arvalid |-> ##[0:$]read_addr_handshake;
-    endproperty
-
-    property p_read_response_handshake;
-	@(posedge aclk) read_addr_handshake |-> ##[0:$] read_response_handshake;
-    endproperty
-
-    // device 
     property p_slave_write_response_assertion;
         @(posedge aclk) write_data_handshake |-> ##[0:$]S_AXI_bvalid;
     endproperty
 
-    property p_slave_write_response_stable;
-	@(posedge aclk) S_AXI_bvalid && $past(S_AXI_bvalid) |->
-	    $stable(S_AXI_bresp);
+    property p_write_response_handshake;
+        @(posedge aclk) write_data_handshake |-> ##[0:$]write_response_handshake; 
     endproperty
 
-    property p_slave_read_response_assertion;
-        @(posedge aclk) write_addr_handshake |-> ##[0:$]S_AXI_rvalid;
+    // read
+    property p_read_addr_handshake;
+	@(posedge aclk) (r_state == INIT) && S_AXI_arvalid |-> ##[0:$]read_addr_handshake;
+    endproperty
+
+    property p_state_READ_1_to_READ_RESP;
+    @(posedge aclk) (r_state == READ_1) |=> ##[0:$](r_state == READ_RESP) ;
+    endproperty
+
+    property p_read_response_handshake;
+	@(posedge aclk) read_addr_handshake |-> ##[0:$] read_response_handshake;
     endproperty
 
     property p_slave_read_response_stable;
@@ -545,45 +531,52 @@ module v_axi_mmio_controller
 	    $stable(S_AXI_rdata);
     endproperty
 
-    
+    property p_slave_read_response_assertion;
+        @(posedge aclk) write_addr_handshake |-> ##[0:$]S_AXI_rvalid;
+    endproperty
+
+
     /*********************************** assert properties ***********************************/
 
-    // fsm
+    ///////////////////////
+    ////              ////
+    ////    safety   ////
+    ////            ////
+    ///////////////////
+
     // write
-    // ast_state_IDLE_to_WRITE_1: assert property(p_state_IDLE_to_WRITE_1);
     ast_state_WRITE_1_to_WRITE_RESP: assert property(p_state_WRITE_1_to_WRITE_RESP);
     ast_state_WRITE_RESP_to_IDLE: assert property(p_state_WRITE_RESP_to_IDLE);
     ast_state_WRITE_1_no_IDLE_READ_1_READ_RESP: assert property(p_state_WRITE_1_no_IDLE_READ_1_READ_RESP);
     ast_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP: assert property(p_state_WRIRE_RESP_no_WRITE_1_READ_1_READ_RESP);
     ast_state_INIT_to_WRITE_1: assert property(p_state_INIT_to_WRITE_1);
+    ast_slave_write_response_stable: assert property(p_slave_write_response_stable);
 
-
-    // AST_antecedent_reachable: assert property (@(posedge aclk)
-    // ##[0:$] (r_state==INIT && read_addr_handshake)
-    // );
-
-    // AST_2: assert property (@(posedge aclk) ##[0:$] S_AXI_arvalid);
     // read
-    // ast_state_INIT_to_READ_1: assert property(p_state_INIT_to_READ_1);
-    ast_state_READ_1_to_READ_RESP: assert property(p_state_READ_1_to_READ_RESP);
     ast_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP: assert property(p_state_READ_1_no_IDLE_WRITE_1_WRITE_RESP);
     ast_state_READ_RESP_to_IDLE: assert property(p_state_READ_RESP_to_IDLE);
     ast_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP: assert property(p_state_READ_RESP_no_READ_1_WRITE_1_WRITE_RESP);
     ast_state_INIT_to_READ_1: assert property(p_state_INIT_to_READ_1);
+
+    /////////////////////////
+    ////                ////
+    ////    liveness   ////
+    ////              ////
+    /////////////////////
     
-    // handshakes
+    // write
     ast_write_addr_handshake: assert property(p_write_addr_handshake);
     ast_write_data_handshake: assert property(p_write_data_handshake);
     ast_write_response_handshake: assert property(p_write_response_handshake);
+    ast_slave_write_response_assertion: assert property(p_slave_write_response_assertion);
+
+    // read
     ast_read_addr_handshake: assert property(p_read_addr_handshake);
     ast_read_response_handshake: assert property(p_read_response_handshake);
-
-    // device
-    ast_slave_write_response_assertion: assert property(p_slave_write_response_assertion);
-    ast_slave_write_response_stable: assert property(p_slave_write_response_stable);
-    ast_slave_read_response_assertion: assert property(p_slave_read_response_assertion);
+    ast_state_READ_1_to_READ_RESP: assert property(p_state_READ_1_to_READ_RESP);
     ast_slave_read_response_stable: assert property(p_slave_read_response_stable);
     ast_slave_read_data_stable: assert property(p_slave_read_data_stable);
+    ast_slave_read_response_assertion: assert property(p_slave_read_response_assertion);
 
 
 endmodule

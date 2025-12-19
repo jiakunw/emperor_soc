@@ -136,7 +136,7 @@ module gpio
                             w_slave_error = 1'b1;
                         end
                         default: begin
-			    w_wr_done = 1'b1;
+			                w_wr_done = 1'b1;
                             w_decode_error = 1'b1;
                         end
                     endcase
@@ -195,15 +195,15 @@ module gpio
                             w_rd_data = r_input_data[8];
                         end
                         default: begin
-			    w_rd_done = 1'b1;
+			                w_rd_done = 1'b1;
                             w_decode_error = 1'b1;
                         end
                     endcase
                 end
             end
             DONE: begin
-		w_rd_done = 1'b1;
-		w_wr_done = 1'b1;
+                w_rd_done = 1'b1;
+                w_wr_done = 1'b1;
                 w_slave_error = slave_error;
                 w_decode_error = decode_error;
                 w_next_state = (transaction_completed) ? IDLE : DONE;
