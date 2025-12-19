@@ -503,7 +503,7 @@ module v_axi_mmio_controller
 
     property p_slave_read_okay;
     @(posedge aclk) (read_response_handshake) && reg_addr inside {8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30} |-> 
-        (S_AXI_rresp == AXI_RESP_EXOKAY);
+        (S_AXI_rresp == AXI_RESP_OKAY);
     endproperty
 
     property p_slave_read_slv_error;
