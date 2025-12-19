@@ -469,17 +469,17 @@ module v_axi_mmio_controller
     endproperty
 
     property p_slave_write_okay;
-    @(posedge aclk) S_AXI_awvalid && S_AXI_awaddr[7:0] inside {8'h00, 8'h04, 8'h08, 8'h0c} |=> 
+    @(posedge aclk) write_addr_handshake && S_AXI_awaddr[7:0] inside {8'h00, 8'h04, 8'h08, 8'h0c} |=> 
         ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_EXOKAY);
     endproperty
 
     property p_slave_write_slv_error;
-    @(posedge aclk) S_AXI_awvalid && S_AXI_awaddr[7:0] inside {8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30} |=>
+    @(posedge aclk) write_addr_handshake && S_AXI_awaddr[7:0] inside {8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30} |=>
         ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_SLVERR);
     endproperty
 
     property p_slave_write_decode_error;
-    @(posedge aclk) (S_AXI_awvalid && !(S_AXI_awaddr[7:0] inside 
+    @(posedge aclk) (write_addr_handshake && !(S_AXI_awaddr[7:0] inside 
         {8'h00, 8'h04, 8'h08, 8'h0c, 8'h10, 8'h14, 8'h18, 8'h1c, 8'h20, 8'h24, 8'h28, 8'h2c, 8'h30})) |=>
         ##[0:$] (r_state == WRITE_RESP && S_AXI_bresp == AXI_RESP_DECERR);
     endproperty
