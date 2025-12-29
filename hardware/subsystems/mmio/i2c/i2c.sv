@@ -93,10 +93,12 @@ module i2c
     logic w_slave_error, w_decode_error;
     logic [31:0] w_rd_data;
     logic w_en;
-    logic [7:0] w_tx_fifo_in, w_tx_fifo_out, w_rx_fifo_in, w_rx_fifo_out;
+    logic [7:0] w_tx_fifo_in, w_tx_fifo_out, w_rx_fifo_in;
+    logic [7:0] r_tx_fifo_in, r_rx_fifo_out;
     logic done_tick, w_ack_slave;
     i2c_cmd_t r_cmd;
     logic w_fifo_rd, w_fifo_wr;
+    logic r_fifo_rd, r_fifo_wr;
     logic w_ready;
     
     enum logic [1:0] {
@@ -141,7 +143,7 @@ module i2c
         .wr_data(w_rx_fifo_in),
         .empty(w_rx_empty), 
         .full(w_rx_full),
-        .rd_data(w_rx_fifo_out)
+        .rd_data(r_rx_fifo_out)
     );
 
     // tx fifo
@@ -154,8 +156,8 @@ module i2c
         .arst_n,
         .read(done_tick && (r_cmd == WR_CMD)), 
         .clear(r_control[5]),
-        .write(w_fifo_wr),
-        .wr_data(w_tx_fifo_in),
+        .write(r_fifo_wr),
+        .wr_data(r_tx_fifo_in),
         .empty(w_tx_empty), 
         .full(w_tx_full),
         .rd_data(w_tx_fifo_out)
@@ -168,7 +170,7 @@ module i2c
     always_comb begin : decode
         idle = 1'b1;
         w_wr_done = 1'b0;
-        w_rd_data = w_rx_fifo_out;
+        w_rd_data = {{(32-DATA_BITS){1'b0}}, r_rx_fifo_out};
         w_fifo_rd = 1'b0;
         w_fifo_wr = 1'b0;
         w_dvsr = r_dvsr;
@@ -201,7 +203,7 @@ module i2c
                                 w_status[6] = 1'b1;
                             end else begin
                                 w_fifo_rd = 1'b1;
-                                w_rd_data = {{(32-DATA_BITS){1'b0}}, w_rx_fifo_out};
+                                w_rd_data = {{(32-DATA_BITS){1'b0}}, r_rx_fifo_out};
                             end
                         end else if (write) begin   // rx fifo is read only
                             w_wr_done = 1'b1;
@@ -216,6 +218,7 @@ module i2c
                                 w_slave_error = 1'b1;
                                 w_status[7] = 1'b1;
                             end else begin
+                                w_tx_fifo_in = wr_data[7:0];
                                 w_fifo_wr = 1'b1;
                             end
                         end else if (read) begin   // tx fifo is write only
@@ -263,18 +266,31 @@ module i2c
                         end
                     end
                     default: begin
-                        w_rd_done = read;
-                        w_wr_done = write;
+                        w_rd_done = 1'b1;
+                        w_wr_done = 1'b1;
                         w_decode_error = 1'b1;
                     end
                 endcase
             end
             DONE: begin
+                w_rd_done = 1'b1;
+                w_wr_done = 1'b1;
                 w_slave_error = slave_error;
                 w_decode_error = decode_error;
                 w_next_state = (transaction_completed) ? IDLE : DONE;
             end
         endcase
+    end
+
+    // tx fifo in register
+    always_ff @(posedge clk, negedge arst_n) begin
+        if (!arst_n) begin
+            r_tx_fifo_in <= 8'd0;
+            r_fifo_wr <= 1'b0;
+        end else begin
+            r_tx_fifo_in <= w_tx_fifo_in;
+            r_fifo_wr <= w_fifo_wr;
+        end
     end
 
     // next state register

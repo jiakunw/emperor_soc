@@ -60,9 +60,10 @@ import emperor_axi_lite_types::*;
 
         protected virtual task write_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
             `uvm_info("DRIVER", $sformatf("start writing data: %x to address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
-            vif.in_transaction = 1;
+;
             vif.transaction_type = bit'(AXI_WRITE);
             @(posedge vif.aclk) #seq_item.delay;
+            vif.in_transaction = 1;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_wdata = seq_item.data;
@@ -92,10 +93,10 @@ import emperor_axi_lite_types::*;
         endtask
 
         protected virtual task read_transaction(emperor_axi_lite_seq_item_drv seq_item, emperor_axi_lite_vif_t vif);
-
             `uvm_info("DRIVER", $sformatf("start reading data: %x from address: %x", seq_item.data, seq_item.addr), UVM_MEDIUM)
-            vif.in_transaction = 1;
+            vif.transaction_type = bit'(AXI_READ);
             @(posedge vif.aclk); #seq_item.delay;
+            vif.in_transaction = 1;
             vif.S_AXI_araddr = seq_item.addr;    
             vif.S_AXI_awaddr = seq_item.addr;
             vif.S_AXI_rready = 1'b1;

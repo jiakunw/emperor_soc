@@ -10,12 +10,16 @@
         `include "emperor_axi_lite_types.sv"
         `include "emperor_axi_lite_if.sv"
         `include "emperor_axi_lite_seq_item_base.sv"
+        `include "emperor_axi_lite_seq_item_drv.sv"
         `include "emperor_axi_lite_agent_config.sv"
         `include "emperor_axi_lite_sequencer.sv"
         `include "emperor_axi_lite_driver.sv"
         `include "emperor_axi_lite_agent.sv"
         `include "emperor_axi_lite_sequence_base.sv"
         `include "emperor_axi_lite_sequence_simple.sv"
+        `include "emperor_axi_lite_monitor_item.sv"
+        `include "emperor_axi_lite_monitor.sv"
         `include "axi_lite_coverage.sv"
+        `include "axi_lite_adapter.sv"
     endpackage
 `endif

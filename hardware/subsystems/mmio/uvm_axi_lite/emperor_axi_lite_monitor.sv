@@ -40,41 +40,63 @@
                     item.interval++;
                 end
 
-                if (vif.transaction_type) begin
+                if (vif.transaction_type == AXI_WRITE) begin
                     item.op = AXI_WRITE;
 
-                    while (!vif.S_AXI_awready && !vif.S_AXI_awvalid) begin
+                    // `uvm_info("MONITOR",
+                    // $sformatf("before In a write transaction, S_AXI_awready=%0h, S_AXI_awvalid=%0h", vif.S_AXI_awready, vif.S_AXI_awvalid),
+                    // UVM_LOW)
+                    while (!vif.S_AXI_awready || !vif.S_AXI_awvalid) begin
+                        // `uvm_info("MONITOR",
+                        // $sformatf("while In a write transaction, S_AXI_awready=%0h, S_AXI_awvalid=0h", vif.S_AXI_awready, vif.S_AXI_awvalid),
+                        // UVM_LOW)
                         @(posedge vif.aclk);
                         item.awvalid_awready_delay++;
                         item.duration++;
                     end
+                    // `uvm_info("MONITOR",
+                    // $sformatf("after In a write transaction, S_AXI_awready=%0h, S_AXI_awvalid=%0h", vif.S_AXI_awready, vif.S_AXI_awvalid),
+                    // UVM_LOW)
+
+                    `uvm_info("MONITOR",
+                    $sformatf("In a write transaction, S_AXI_awaddr=0x%0h", vif.S_AXI_awaddr),
+                    UVM_LOW)
                     item.addr = vif.S_AXI_awaddr;
 
-                    while (!vif.S_AXI_wready && !vif.S_AXI_wvalid) begin
+                    while (!vif.S_AXI_wready || !vif.S_AXI_wvalid) begin
                         @(posedge vif.aclk);
                         item.wvalid_wready_delay++;
                         item.duration++;
                     end
                     item.data = vif.S_AXI_wdata;
 
-                    while (!vif.S_AXI_bready) begin
+                    while (!vif.S_AXI_bready || !vif.S_AXI_bvalid) begin
                         @(posedge vif.aclk);
                         item.bvalid_bready_delay++;
                         item.duration++;
                     end
 
                     item.response = axi_lite_resp_t'(vif.S_AXI_bresp);
+                    `uvm_info("MONITOR",
+                    $sformatf("In a write transaction, S_AXI_bresp=0x%0h", vif.S_AXI_bresp),
+                    UVM_LOW)
+
                 end else begin
                     item.op = AXI_READ;
 
-                    while (!vif.S_AXI_arready && !vif.S_AXI_arvalid) begin
+                    while (!vif.S_AXI_arready || !vif.S_AXI_arvalid) begin
                         @(posedge vif.aclk);
                         item.arvalid_arready_delay++;
                         item.duration++;
                     end
+
+                    `uvm_info("MONITOR",
+                    $sformatf("In a read transaction, S_AXI_araddr=0x%0h", vif.S_AXI_araddr),
+                    UVM_LOW)
+
                     item.addr = vif.S_AXI_araddr;
 
-                    while (!vif.S_AXI_rready && !vif.S_AXI_rvalid) begin
+                    while (!vif.S_AXI_rready || !vif.S_AXI_rvalid) begin
                         @(posedge vif.aclk);
                         item.rvalid_rready_delay++;
                         item.duration++;
@@ -86,6 +108,15 @@
 
                 output_port.write(item);
                 @(posedge vif.aclk);
+                
+                // `uvm_info("MONITOR",
+                // $sformatf("In a transaction, S_AXI_bresp=0x%0h", vif.S_AXI_bresp),
+                // UVM_LOW)
+
+                while (vif.in_transaction) begin
+                    @(posedge vif.aclk);
+                    item.interval++;
+                end
             end
         endtask
 

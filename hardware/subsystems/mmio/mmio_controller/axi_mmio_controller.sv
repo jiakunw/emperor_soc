@@ -177,7 +177,7 @@ module axi_mmio_controller
                               (slot_decode_error[w_slot_addr[3:0]]) ? AXI_RESP_DECERR :
                               AXI_RESP_OKAY;
                 S_AXI_bvalid = slot_wr_done[w_slot_addr[3:0]];
-                w_next_state = (S_AXI_bready) ? INIT : WRITE_RESP;
+                w_next_state = (S_AXI_bready && S_AXI_bvalid) ? INIT : WRITE_RESP;
             end
             READ_1: begin
                 slot_chip_select[w_slot_addr[3:0]] = 1'b1;

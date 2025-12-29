@@ -16,7 +16,7 @@ import uvm_pkg::*;
         // uvm stops simulation when counter/objection drops to 0
         virtual task run_phase(uvm_phase phase);
             phase.raise_objection(this, "TEST_DONE");
-            `uvm_info("DEBUG", "test starts", UVM_LOW)  // last arg is verbosity
+            `uvm_info("DEBUG", "test starts: test reg access", UVM_LOW)  // last arg is verbosity
 
             #100ns;
 
@@ -36,14 +36,35 @@ import uvm_pkg::*;
             //     seq_simple.start(env.axi_lite_agent.sequencer);
             // end
 
+            // begin
+            // emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
+
+            // void'(seq_rw.randomize() with {
+            //     addr == 32'h4600_0300;
+            // });
+
+            // seq_rw.start(env.axi_lite_agent.sequencer);
+            // end
+
+            // write to status register
             begin
-            emperor_axi_lite_sequence_op seq_rw = emperor_axi_lite_sequence_op::type_id::create("seq_rw");
+                emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
+                void'(seq_simple.randomize() with {
+                    item.addr == 32'h4600_0314;
+                    item.op == AXI_WRITE;
+                    item.data == 32'h1;
+                });
+                seq_simple.start(env.axi_lite_agent.sequencer);
+            end
 
-            void'(seq_rw.randomize() with {
-                addr == 32'h4600_0300;
-            });
-
-            seq_rw.start(env.axi_lite_agent.sequencer);
+            // read to status register
+            begin
+                emperor_axi_lite_sequence_simple seq_simple = emperor_axi_lite_sequence_simple::type_id::create("seq_simple");
+                void'(seq_simple.randomize() with {
+                    item.addr == 32'h4600_0314;
+                    item.op == AXI_READ;
+                });
+                seq_simple.start(env.axi_lite_agent.sequencer);
             end
 
             #100ns;
